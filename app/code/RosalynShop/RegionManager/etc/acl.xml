@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!--
+  ~  @author   Rosalynshop <info@rosalynshop.com>
+  ~  @copyright Copyright (c) 2019 Rosalynshop <https://rosalynshop.com>. All rights reserved.
+  ~  @license   Open Software License ("OSL") v. 3.0
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="RosalynShop_RegionManager::regionmanager_configuration" title="RegionManager Configuration" sortOrder="50" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

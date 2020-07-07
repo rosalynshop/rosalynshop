@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<!--
+  ~  @author   Rosalynshop <info@rosalynshop.com>
+  ~  @copyright Copyright (c) 2019 Rosalynshop <https://rosalynshop.com>. All rights reserved.
+  ~  @license   Open Software License ("OSL") v. 3.0
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="RosalynShop_RegionManager::menu"
+             title="RosalynShop"
+             module="RosalynShop_RegionManager"
+             sortOrder="10"
+             resource="RosalynShop_RegionManager::menu"/>
+
+        <add id="RosalynShop_RegionManager::settings"
+             title="Settings"
+             translate="title" module="RosalynShop_RegionManager"
+             sortOrder="0"
+             parent="RosalynShop_RegionManager::menu"
+             resource="RosalynShop_RegionManager::settings"/>
+
+        <add id="RosalynShop_RegionManager::states"
+             title="States"
+             module="RosalynShop_RegionManager"
+             translate="title"
+             sortOrder="10"
+             resource="RosalynShop_RegionManager::states"
+             action="regionmanager/states"
+             parent="RosalynShop_RegionManager::menu"/>
+
+        <add id="RosalynShop_RegionManager::cities"
+             title="Cities"
+             module="RosalynShop_RegionManager"
+             translate="title"
+             sortOrder="10"
+             resource="RosalynShop_RegionManager::cities"
+             action="regionmanager/cities"
+             parent="RosalynShop_RegionManager::menu"/>
+
+        <add id="RosalynShop_RegionManager::wards"
+             title="Wards"
+             module="RosalynShop_RegionManager"
+             translate="title"
+             sortOrder="10"
+             resource="RosalynShop_RegionManager::wards"
+             action="regionmanager/wards"
+             parent="RosalynShop_RegionManager::menu"/>
+
+        <add id="RosalynShop_RegionManager::configuration"
+             title="Configuration"
+             module="RosalynShop_RegionManager"
+             sortOrder="20"
+             parent="RosalynShop_RegionManager::menu"
+             action="adminhtml/system_config/edit/section/region_manager_config"
+             resource="RosalynShop_RegionManager::configuration"/>
+    </menu>
+</config>

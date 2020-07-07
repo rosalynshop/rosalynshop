@@ -1,0 +1,57 @@
+<?php
+/** @var $block \RosalynShop\Productslider\Block\Widget\Product */
+$products = $block->getProductCollecttion();
+
+?>
+<?php
+if ($products->count()) {?>
+<?php
+$themeHelper = $this->helper('MGS\Mpanel\Helper\Data');
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$size = $themeHelper->getImageSize($this->getRatio());
+?>
+<ul class="product-list owl-carousel owl-theme">
+    <?php foreach ($products as $_product): ?>
+        <?php $productImage = $_imagehelper->init($_product, 'category_page_grid')->resize($size['width'], $size['height'])->getUrl(); ?>
+        <li class="product-item">
+            <div class="product-item-inner">
+                <div class="product-image"><img src="<?= $productImage ?>"/></div>
+                <div class="product-price"><span><?= $block->getProductPrice($_product) ?></span></div>
+                <div class="product-title"><span><a href="<?= $_product->getProductUrl()?>"><?= $_product->getName();?></a></span></div>
+            </div>
+        </li>
+    <?php endforeach; ?>
+</ul>
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'mgs/owlcarousel',
+    ], function(jQuery){
+        (function($) {
+            $(document).ready(function () {
+                $('.owl-carousel').owlCarousel({
+                    loop: true,
+                    margin: 10,
+                    responsiveClass: true,
+                    pagination: false,
+                    dots: false,
+                    autoplay: true,
+                    autoplayHoverPause: true,
+                    responsive:{
+                        0:{
+                            items:2
+                        },
+                        600:{
+                            items:3
+                        },
+                        1000:{
+                            items:5
+                        }
+                    }
+                });
+            });
+        })(jQuery);
+    });
+</script>
+<?php } ?>

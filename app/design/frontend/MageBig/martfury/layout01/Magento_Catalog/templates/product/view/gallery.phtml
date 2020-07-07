@@ -1,0 +1,113 @@
+<?php
+/**
+ * Copyright © magebig.com - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+
+$_mbHelper = $this->helper('MageBig\MbFrame\Helper\Data');
+?>
+<div class="gallery-placeholder _block-content-loading" data-gallery-role="gallery-placeholder">
+    <div data-role="loader" class="loading-mask">
+        <div class="loader">
+            <img src="<?= /* @escapeNotVerified */ $block->getViewFileUrl('images/loader-1.gif') ?>"
+                 alt="<?= /* @escapeNotVerified */ __('Loading...') ?>">
+        </div>
+    </div>
+</div>
+<!--Fix for jumping content. Loader must be the same size as gallery.-->
+<script>
+    var config = {
+            "width": <?= /* @escapeNotVerified */ $_mbHelper->getConfig('mbconfig/product_view/base_image_width') ?>,
+            "thumbheight": <?= /* @escapeNotVerified */ $_mbHelper->getConfig('mbconfig/product_view/thumbnail_height')
+            ?: $_mbHelper->getConfig('mbconfig/product_view/thumbnail_width'); ?>,
+            "navtype": "<?= /* @escapeNotVerified */ $block->getVar("gallery/navtype") ?>",
+            "thumbwidth": <?= /* @escapeNotVerified */ $_mbHelper->getConfig('mbconfig/product_view/thumbnail_width')
+            ?: $_mbHelper->getConfig('mbconfig/product_view/thumbnail_width'); ?>,
+            "height": <?= /* @escapeNotVerified */ $_mbHelper->getConfig('mbconfig/product_view/base_image_height') ?>,
+            "margin": <?= /* @escapeNotVerified */ $block->getVar("gallery/thumbmargin") ?>
+        },
+        loader = document.querySelectorAll('[data-gallery-role="gallery-placeholder"] [data-role="loader"]')[0];
+    var widthP = loader.offsetWidth;
+    var heightP = widthP*config.height/config.width;
+    if (config.navtype === 'vertical') {
+        heightP = (widthP - config.thumbwidth - config.margin) * heightP / widthP;
+    }
+    loader.style.paddingBottom = ( heightP / widthP * 100) + "%";
+</script>
+<script type="text/x-magento-init">
+    {
+        "[data-gallery-role=gallery-placeholder]": {
+            "mage/gallery/gallery": {
+                "mixins":["magnifier/magnify"],
+                "magnifierOpts": <?= /* @escapeNotVerified */ $block->getMagnifier() ?>,
+                "data": <?= /* @escapeNotVerified */ $block->getGalleryImagesJson() ?>,
+                "options": {
+                    "thumbmargin": <?= /* @escapeNotVerified */ $block->getVar("gallery/thumbmargin") ?>,
+                    "thumbborderwidth": 1,
+                    "nav": "<?= /* @escapeNotVerified */ $block->getVar("gallery/nav") ?>",
+                    <?php if (($block->getVar("gallery/loop"))): ?>
+                        "loop": <?= /* @escapeNotVerified */ $block->getVar("gallery/loop") ?>,
+                    <?php endif; ?>
+                    <?php if (($block->getVar("gallery/keyboard"))): ?>
+                        "keyboard": <?= /* @escapeNotVerified */ $block->getVar("gallery/keyboard") ?>,
+                    <?php endif; ?>
+                    <?php if (($block->getVar("gallery/arrows"))): ?>
+                        "arrows": <?= /* @escapeNotVerified */ $block->getVar("gallery/arrows") ?>,
+                    <?php endif; ?>
+                    <?php if ($_mbHelper->getConfig('mbconfig/product_view/allowfullscreen')): ?>
+                        "allowfullscreen": <?= /* @escapeNotVerified */ $_mbHelper->getConfig('mbconfig/product_view/allowfullscreen') ?>,
+                    <?php endif; ?>
+                     "showCaption": <?= /* @escapeNotVerified */ (int) $block->getVar("gallery/caption") ?>,
+                    "width": "<?= /* @escapeNotVerified */ $_mbHelper->getConfig('mbconfig/product_view/base_image_width') ?>",
+                    "thumbwidth": "<?= /* @escapeNotVerified */ $_mbHelper->getConfig('mbconfig/product_view/thumbnail_width') ?>",
+                    <?php if ($_mbHelper->getConfig('mbconfig/product_view/thumbnail_height') || $_mbHelper->getConfig('mbconfig/product_view/thumbnail_width')): ?>
+                    "thumbheight": <?= /* @escapeNotVerified */ $_mbHelper->getConfig('mbconfig/product_view/thumbnail_height') ?: $_mbHelper->getConfig('mbconfig/product_view/thumbnail_width'); ?>,
+                    <?php endif; ?>
+                    <?php if ($_mbHelper->getConfig('mbconfig/product_view/base_image_height') || $_mbHelper->getConfig('mbconfig/product_view/base_image_width')): ?>
+                        "height": <?= /* @escapeNotVerified */ $_mbHelper->getConfig('mbconfig/product_view/base_image_height') ?: $_mbHelper->getConfig('mbconfig/product_view/base_image_width'); ?>,
+                    <?php endif; ?>
+                    <?php if ($block->getVar("gallery/transition/duration")): ?>
+                        "transitionduration": <?= /* @escapeNotVerified */ $block->getVar("gallery/transition/duration") ?>,
+                    <?php endif; ?>
+                    "transition": "<?= /* @escapeNotVerified */ $block->getVar("gallery/transition/effect") ?>",
+                    <?php if (($block->getVar("gallery/navarrows"))): ?>
+                        "navarrows": <?= /* @escapeNotVerified */ $block->getVar("gallery/navarrows") ?>,
+                    <?php endif; ?>
+                    "navtype": "<?= /* @escapeNotVerified */ $block->getVar("gallery/navtype") ?>",
+                    "navdir": "<?= /* @escapeNotVerified */ $_mbHelper->getConfig('mbconfig/product_view/nav_dir') ?>"
+                },
+                "fullscreen": {
+                    "nav": "<?= /* @escapeNotVerified */ $block->getVar("gallery/fullscreen/nav") ?>",
+                    <?php if ($block->getVar("gallery/fullscreen/loop")): ?>
+                        "loop": <?= /* @escapeNotVerified */ $block->getVar("gallery/fullscreen/loop") ?>,
+                    <?php endif; ?>
+                    "navdir": "<?= /* @escapeNotVerified */ $block->getVar("gallery/fullscreen/navdir") ?>",
+                    <?php if ($block->getVar("gallery/transition/navarrows")): ?>
+                        "navarrows": <?= /* @escapeNotVerified */ $block->getVar("gallery/fullscreen/navarrows") ?>,
+                    <?php endif; ?>
+                    "navtype": "<?= /* @escapeNotVerified */ $block->getVar("gallery/fullscreen/navtype") ?>",
+                    <?php if ($block->getVar("gallery/fullscreen/arrows")): ?>
+                        "arrows": <?= /* @escapeNotVerified */ $block->getVar("gallery/fullscreen/arrows") ?>,
+                    <?php endif; ?>
+                    <?php if ($block->getVar("gallery/fullscreen/caption")): ?>
+                        "showCaption": <?= /* @escapeNotVerified */ $block->getVar("gallery/fullscreen/caption") ?>,
+                    <?php endif; ?>
+                    <?php if ($block->getVar("gallery/fullscreen/transition/duration")): ?>
+                        "transitionduration": <?= /* @escapeNotVerified */ $block->getVar("gallery/fullscreen/transition/duration") ?>,
+                    <?php endif; ?>
+                    "transition": "<?= /* @escapeNotVerified */ $block->getVar("gallery/fullscreen/transition/effect") ?>"
+                },
+                "breakpoints": <?= /* @escapeNotVerified */ $block->getBreakpoints() ?>
+            }
+        }
+    }
+</script>
+

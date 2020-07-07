@@ -1,0 +1,138 @@
+/* BASICS */
+
+.snm-cm-wrap {
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+}
+
+.snm-cm-wrap .CodeMirror {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    border: 1px solid #e3e3e3;
+    max-height: 420px;
+}
+
+.snm-cm-wrap .CodeMirror-vscrollbar {
+    overflow-y: auto;
+}
+
+.snm-cm-wrap .cm-s-default .cm-header {
+    color: blue;
+}
+
+.snm-cm-wrap .cm-s-default .cm-quote {
+    color: #090;
+}
+
+.snm-cm-wrap .cm-negative {
+    color: #d44;
+}
+
+.snm-cm-wrap .cm-positive {
+    color: #292;
+}
+
+.snm-cm-wrap .cm-header, .cm-strong {
+    font-weight: bold;
+}
+
+.snm-cm-wrap .cm-em {
+    font-style: italic;
+}
+
+.snm-cm-wrap .cm-link {
+    text-decoration: underline;
+}
+
+.snm-cm-wrap .cm-strikethrough {
+    text-decoration: line-through;
+}
+
+.snm-cm-wrap .cm-s-default .cm-keyword {
+    color: #aa00be;
+}
+
+.snm-cm-wrap .cm-s-default .cm-atom {
+    color: #219;
+}
+
+.snm-cm-wrap .cm-s-default .cm-number {
+    color: #164;
+}
+
+.snm-cm-wrap .cm-s-default .cm-def {
+    color: #00f;
+}
+
+.snm-cm-wrap .cm-s-default .cm-variable {
+    color: #00f;
+}
+
+.snm-cm-wrap .cm-s-default .cm-punctuation,
+.snm-cm-wrap .cm-s-default .cm-property,
+.snm-cm-wrap .cm-s-default .cm-operator {
+}
+
+.snm-cm-wrap .cm-s-default .cm-variable-2 {
+    color: #05a;
+}
+
+.snm-cm-wrap .cm-s-default .cm-variable-3 {
+    color: #085;
+}
+
+.snm-cm-wrap .cm-s-default .cm-comment {
+    color: #a50;
+}
+
+.snm-cm-wrap .cm-s-default .cm-string {
+    color: #a11;
+}
+
+.snm-cm-wrap .cm-s-default .cm-string-2 {
+    color: #f50;
+}
+
+.snm-cm-wrap .cm-s-default .cm-meta {
+    color: #555;
+}
+
+.snm-cm-wrap .cm-s-default .cm-qualifier {
+    color: #555;
+}
+
+.snm-cm-wrap .cm-s-default .cm-builtin {
+    color: #30a;
+}
+
+.snm-cm-wrap .cm-s-default .cm-bracket {
+    color: #997;
+}
+
+.snm-cm-wrap .cm-s-default .cm-tag {
+    color: #17ae00;
+}
+
+.snm-cm-wrap .cm-s-default .cm-attribute {
+    color: #00c;
+}
+
+.snm-cm-wrap .cm-s-default .cm-hr {
+    color: #999;
+}
+
+.snm-cm-wrap .cm-s-default .cm-link {
+    color: #00c;
+}
+
+.cm-s-default .cm-error {
+    color: #f00;
+    text-decoration: underline;
+}
+
+.cm-invalidchar {
+    color: #f00;
+}

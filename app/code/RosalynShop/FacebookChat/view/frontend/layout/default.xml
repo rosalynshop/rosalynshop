@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author   Rosalynshop <info@rosalynshop.com>
+  ~ @copyright Copyright (c) 2019 Rosalynshop <https://rosalynshop.com>. All rights reserved.
+  ~ @license   Open Software License ("OSL") v. 3.0
+  -->
+
+<referenceContainer name="footer-container">
+    <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer content">
+        <block class="RosalynShop\FacebookChat\Block\Messenger" name="custom_block" as="messenger_block"
+               template="RosalynShop_FacebookChat::messenger_script.phtml"/>
+    </container>
+</referenceContainer>

@@ -1,0 +1,154 @@
+// MageBig Variables
+& when (@media-common = true) {
+    .wf-active {
+        body {
+            font-family: @font_default;
+        }
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .smartmenu {
+            font-family: @font_h;
+        }
+        .font-special {
+            font-family: @font_special;
+        }
+        .font-text, .std, .desc, .text {
+            font-family: @font_text;
+        }
+    }
+    .border-bottom (@a) when (@a = transparent) {
+        border-bottom: none;
+    }
+    .border-bottom (@a) when not (@a = transparent) {
+        border-bottom: 1px solid @a;
+    }
+
+    .background-image (@a; @b; @c; @d) when (@a = 0) and (@b = 0) {
+        background-image: none;
+    }
+    .background-image (@a; @b; @c; @d) when (isstring(@a)), (isstring(@b)) {
+        & when (@b = 0) {
+            background-image: url("@{a}");
+            background-position: top left;
+            background-repeat: repeat;
+        }
+        & when not (@b = 0) {
+            background: url("@{b}") @c;
+            background-size: @d;
+        }
+    }
+
+    a {
+        color: @page_link;
+        &:hover {
+            color: @main_color;
+        }
+    }
+
+    blockquote {
+        border-left-color: @main_color;
+    }
+
+    .post-content a {
+        color: @main2_color;
+        &:hover {
+            color: @main_color;
+        }
+    }
+
+    body {
+        background-color: @page_background;
+        color: @page_text;
+        .background-image(@page_background_pattern; @page_background_file; @page_background_image_option; @page_background_image_size);
+    }
+
+    .page-header {
+        background-color: @header_background;
+        color: @header_text;
+        .background-image(@header_background_pattern; @header_background_file; @header_background_image_option; @header_background_image_size);
+        a {
+            color: @header_link;
+            &:hover {
+                color: @main_color;
+            }
+        }
+    }
+
+    .page-footer {
+        background-color: @footer_background;
+        color: @footer_text;
+        .background-image(@footer_background_pattern; @footer_background_file; @footer_background_image_option; @footer_background_image_size);
+        a {
+            color: @footer_link;
+            &:hover {
+                color: @main_color;
+            }
+        }
+    }
+
+    .header-top-inner {
+        color: @headertop_text_color;
+        background-color: @headertop_background;
+        .border-bottom(@headertop_border_color);
+        a, .title, .log-in {
+            color: @headertop_link_color;
+            &:hover {
+                color: @main_color;
+            }
+        }
+    }
+
+    .mb-toggle-switch span {
+        background-color: @headertop_text_color;
+        &:before, &:after {
+            background-color: @headertop_text_color;
+        }
+    }
+
+    .dropdown a, .mage-dropdown-dialog a {
+        color: #000;
+        &:hover {
+            color: @main_color;
+        }
+    }
+    .mage-dropdown-dialog {
+        color: #000;
+    }
+
+    .owl-carousel.owl-theme .owl-dots .owl-dot.active span, .owl-carousel.owl-theme .owl-dots .owl-dot:hover span {
+        background: @main_color;
+    }
+    .maincolor {
+        color: @main_color;
+    }
+
+    // main menu
+    .header-menu-content {
+        background: #fff;
+    }
+    .horizontal-menu .magebig-nav li.level0 > a {
+        color: @menu_link_color;
+        &:hover {
+            color: @menu_link_hover_color;
+        }
+        + .mbi {
+            color: @menu_link_color;
+        }
+    }
+    .vertical-menu .title, .hotline-top {
+        color: @menu_link_color;
+    }
+
+    @media (min-width: 768px) {
+        .header-content-action .authorization-link a {
+            color: @headertop_link_color;
+            &:hover {
+                color: @main_color;
+            }
+        }
+        .sticky-menu.active .header-content-action .authorization-link a {
+            color: #000000;
+            &:hover {
+                color: @main_color;
+            }
+        }
+    }
+}

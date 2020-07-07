@@ -1,0 +1,15 @@
+<?php
+$mbHelper = $this->helper('MageBig\MbFrame\Helper\Data');
+$sticky_header = $mbHelper->getConfig('mbconfig/header/sticky_header');
+?>
+<?php if ($sticky_header) : ?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Theme/js/magebig": {
+            "sticky_header": <?= $sticky_header ?>
+        }
+    }
+}
+</script>
+<?php endif;?>

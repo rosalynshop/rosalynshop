@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<!--
+  ~  @author   Rosalynshop <info@rosalynshop.com>
+  ~  @copyright Copyright (c) 2019 Rosalynshop <https://rosalynshop.com>. All rights reserved.
+  ~  @license   Open Software License ("OSL") v. 3.0
+  -->
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">regionmanager_importwardslist_form.regionmanager_importwardslist_form_data_source</item>
+            <item name="deps" xsi:type="string">regionmanager_importwardslist_form.regionmanager_importwardslist_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Import quận/huyện</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">regionmanager_importwardslist_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">RosalynShop\RegionManager\Block\Adminhtml\System\Config\Buttons\BackButton</item>
+            <item name="import" xsi:type="string">RosalynShop\RegionManager\Block\Adminhtml\System\Config\Buttons\ImportWardsListButton</item>
+        </item>
+    </argument>
+    <dataSource name="regionmanager_cities_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">RosalynShop\RegionManager\Model\Wards\DataProvider</argument>
+            <argument name="name" xsi:type="string">regionmanager_importwardslist_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="regionmanager/importWardsList/import"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="import_citieslist">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Import Phương/xã từ file CSV</item>
+            </item>
+        </argument>
+        <field name="csv_uploader">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">CSV datasheet with wards list</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="componentType" xsi:type="string">fileUploader</item>
+                    <item name="notice" xsi:type="string" translate="true">Allowed file type: csv</item>
+                    <item name="maxFileSize" xsi:type="number">2097152</item>
+                    <item name="allowedExtensions" xsi:type="string">csv</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="regionmanager/importWardsList/upload"/>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!--
+  ~  @author   Rosalynshop <info@rosalynshop.com>
+  ~  @copyright Copyright (c) 2019 Rosalynshop <https://rosalynshop.com>. All rights reserved.
+  ~  @license   Open Software License ("OSL") v. 3.0
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Block\Onepage">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="regionmanager_layoutprocessor" xsi:type="object">RosalynShop\RegionManager\Block\Checkout\LayoutProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\Block\Address\Edit">
+        <plugin name="Custom_address" type="RosalynShop\RegionManager\Plugin\Block\Address\Edit" sortOrder="1" />
+    </type>
+    <type name="Magento\Customer\Block\Address\Book">
+        <plugin name="Custom_address" type="RosalynShop\RegionManager\Plugin\Block\Address\Book" sortOrder="1" />
+    </type>
+</config>

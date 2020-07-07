@@ -1,0 +1,35 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Framework\View\Design\Theme\Image" 
+                type="MageBig\MbFrame\Framework\View\Design\Theme\Image" />
+
+    <preference for="Magento\Framework\App\Config\Initial"
+                type="MageBig\MbFrame\Framework\App\Config\Initial" />
+    <preference for="Magento\Framework\App\Config\Initial\Reader"
+                type="MageBig\MbFrame\Framework\App\Config\Initial\Reader" />
+    <type name="MageBig\MbFrame\Framework\App\Config\Initial">
+        <arguments>
+            <argument name="reader" xsi:type="object">MageBig\MbFrame\Framework\App\Config\Initial\Reader\Proxy</argument>
+        </arguments>
+    </type>
+
+    <!--<preference for="Magento\Cms\Model\Wysiwyg\Config"
+                type="MageBig\MbFrame\Framework\CMS\Model\Wysiwyg\Config" />-->
+
+    <type name="MageBig\MbFrame\Controller\Adminhtml\System\Config\Save">
+        <arguments>
+            <argument name="cache" xsi:type="object">Magento\Framework\App\Cache\Type\Layout</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Backend\Model\Menu\Builder">
+        <plugin name="magebig_backend_model_menu_builder"
+                type="MageBig\MbFrame\Framework\Model\Menu\Builder\Plugin"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+    <type name="Magento\Catalog\Helper\Image">
+        <plugin name="magebig_product_image_plugin"
+                type="MageBig\MbFrame\Framework\Catalog\Helper\Image\Plugin"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+</config>

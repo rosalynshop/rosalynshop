@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    require([
+        'Magento_Ui/js/lib/view/utils/async',
+        'MageBig_SyntaxCms/js/editor',
+    ], function (jQuery, editor) {
+
+        <?php foreach($block->getElements() as $element):?>
+        jQuery.async('<?php echo $element['selector'];?>', function (elem) {
+            //if (!elem.id) return;
+            function checkForVisible() {
+                // if (!elem.getBoundingClientRect().height) {
+                //     setTimeout(checkForVisible, 300);
+                //     return;
+                // }
+                editor.activedCM(elem,
+                    '<?php /* @noEscape */ echo(is_array($element['type']) ? $element['type'][0]
+                        : $element['type']);?>',
+                    <?php echo $block->getJsonOption();?>
+                );
+
+            }
+
+//            if (window.tinyMCE_GZ)
+  //              setTimeout(checkForVisible, 500);
+    //        else
+                setTimeout(checkForVisible, 0);
+            return;
+        });
+        <?php endforeach; ?>
+    });
+</script>

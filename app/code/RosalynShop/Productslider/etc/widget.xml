@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="RosalynShop\Productslider\Block\Widget\Product" id="home_product">
+        <label>--Home Product slider--</label>
+        <description>Show products slider in home page</description>
+        <parameters>
+            <parameter name="category_ids" xsi:type="conditions" class="RosalynShop\Productslider\Block\Adminhtml\Widget\Renderer\Category" visible="true">
+                <label translate="true">Categories</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

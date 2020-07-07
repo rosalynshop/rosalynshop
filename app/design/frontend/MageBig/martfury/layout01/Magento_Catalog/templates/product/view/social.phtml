@@ -1,0 +1,46 @@
+<?php
+/**
+ * Copyright © magebig.com - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $_product = $block->getProduct();
+ $_helper = $this->helper('Magento\Catalog\Helper\Output');
+?>
+<div class="social-share">
+    <ul class="social-listing">
+        <li class="facebook">
+            <a class="trasition-all" title="<?= __('Share on Facebook') ?>" href="#" target="_blank" rel="nofollow" onclick="window.open('//www.facebook.com/sharer/sharer.php?u='+'<?= $_helper->productAttribute($_product, $_product->getProductUrl(), 'product_url'); ?>');return false;"><span class="mbi mbi-facebook"></span></a>
+        </li>
+        <li class="twitter">
+            <a class="trasition-all" href="#" title="<?= __('Share on Twitter') ?>" rel="nofollow" target="_blank" onclick="window.open('//twitter.com/share?text=<?= $_helper->productAttribute($_product, $_product->getName(), 'name') ?>&amp;url=<?= $_helper->productAttribute($_product, $_product->getProductUrl(), 'product_url'); ?>');return false;"><span class="mbi mbi-twitter"></span></a>
+        </li>
+        <li class="google-plus">
+            <a class="trasition-all" href="#" title="<?= __('Share on Google Plus') ?>" rel="nofollow" target="_blank" onclick="window.open('//plus.google.com/share?url=<?= $_helper->productAttribute($_product, $_product->getProductUrl(), 'product_url'); ?>');return false;"><span class="mbi mbi-google-plus"></span></a>
+        </li>
+        <li class="rss">
+            <a href="<?= $block->getBaseUrl() ?>rss" rel="nofollow" target="_blank"><span class="mbi mbi-social-rss"></span></a>
+        </li>
+        <?php /**
+        <li class="linkedin">
+            <a class="trasition-all" href="#" title="<?= __('Share on LinkedIn') ?>" rel="nofollow" target="_blank" onclick="window.open('//www.linkedin.com/shareArticle?mini=true&amp;url=<?= $_helper->productAttribute($_product, $_product->getProductUrl(), 'product_url'); ?>&amp;title=<?= $_helper->productAttribute($_product, $_product->getName(), 'name') ?>');return false;"><i class="fa fa-linkedin"></i>
+            </a>
+        </li>
+        <li class="tumblr">
+            <a class="trasition-all" href="#" title="<?= __('Share on Tumblr') ?>" rel="nofollow" target="_blank" onclick="window.open('//www.tumblr.com/share/link?url=<?= $_helper->productAttribute($_product, $_product->getProductUrl(), 'product_url'); ?>&amp;name=<?= $_helper->productAttribute($_product, $_product->getName(), 'name') ?>');return false;"><i class="fa fa-tumblr"></i>
+            </a>
+        </li>
+        <li class="pinterest">
+            <a class="trasition-all" href="#" title="<?= __('Pin this') ?>" rel="nofollow" target="_blank" onclick="window.open('//pinterest.com/pin/create/button/?url=<?= $_helper->productAttribute($_product, $_product->getProductUrl(), 'product_url'); ?>&amp;description=<?= $_helper->productAttribute($_product, $_product->getName(), 'name') ?>');return false;"><i class="fa fa-pinterest"></i>
+            </a>
+        </li>
+        <li class="email">
+            <a class="trasition-all" href="#" target="_blank" onclick="window.open('//mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to&amp;su=<?= $_helper->productAttribute($_product, $_product->getName(), 'name') ?>&amp;body=<?= $_helper->productAttribute($_product, $_product->getProductUrl(), 'product_url'); ?>&amp;ui=2&amp;tf=1');return false;" title="Gmail"><i class="fa fa-envelope"></i>
+            </a>
+        </li>
+        */ ?>
+    </ul>
+</div>

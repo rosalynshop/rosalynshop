@@ -1,2 +1,0 @@
-# rosalynshop
-rosalynshop.com

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<!--
+  ~  @author   Rosalynshop <info@rosalynshop.com>
+  ~  @copyright Copyright (c) 2019 Rosalynshop <https://rosalynshop.com>. All rights reserved.
+  ~  @license   Open Software License ("OSL") v. 3.0
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="RosalynShop\RegionManager\Api\Data\StatesInterface" type="RosalynShop\RegionManager\Model\States" />
+    <preference for="RosalynShop\RegionManager\Api\Data\CitiesInterface" type="RosalynShop\RegionManager\Model\Cities" />
+    <preference for="RosalynShop\RegionManager\Api\Data\WardsInterface" type="RosalynShop\RegionManager\Model\Wards" />
+    <virtualType name="UiGridGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="UiGridGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">RosalynShop\RegionManager\Model\ResourceModel\States\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">UiGridGridFilterPool</argument>
+        </arguments>
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">RosalynShop\RegionManager\Model\ResourceModel\Cities\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">UiGridGridFilterPool</argument>
+        </arguments>
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">RosalynShop\RegionManager\Model\ResourceModel\Wards\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">UiGridGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="RosalynShop\RegionManager\Model\ResourceModel\States\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">regionmanager_states</argument>
+            <argument name="resourceModel" xsi:type="string">RosalynShop\RegionManager\Model\ResourceModel\States</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="RosalynShop\RegionManager\Model\ResourceModel\Cities\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">regionmanager_cities</argument>
+            <argument name="resourceModel" xsi:type="string">RosalynShop\RegionManager\Model\ResourceModel\Cities</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="RosalynShop\RegionManager\Model\ResourceModel\Wards\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">regionmanager_wards</argument>
+            <argument name="resourceModel" xsi:type="string">RosalynShop\RegionManager\Model\ResourceModel\Wards</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="regionmanager_states_listing_data_source" xsi:type="string">RosalynShop\RegionManager\Model\ResourceModel\States\Grid\Collection</item>
+            </argument>
+        </arguments>
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="regionmanager_cities_listing_data_source" xsi:type="string">RosalynShop\RegionManager\Model\ResourceModel\Cities\Grid\Collection</item>
+            </argument>
+        </arguments>
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="regionmanager_wards_listing_data_source" xsi:type="string">RosalynShop\RegionManager\Model\ResourceModel\Wards\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\Model\Address\AbstractAddress">
+        <plugin name="Custom_address" type="RosalynShop\RegionManager\Plugin\Model\Address\CustomAbstractAddress" sortOrder="1" />
+    </type>
+    <type name="Magento\Customer\Model\Attribute\Data\Postcode">
+        <plugin name="Custom_address" type="RosalynShop\RegionManager\Plugin\Model\Attribute\Data\Postcode" sortOrder="1" />
+    </type>
+</config>

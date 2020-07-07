@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author   Rosalynshop <info@rosalynshop.com>
+  ~ @copyright Copyright (c) 2019 Rosalynshop <https://rosalynshop.com>. All rights reserved.
+  ~ @license   Open Software License ("OSL") v. 3.0
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="RosalynShop_FacebookChat" setup_version="1.0.0"/>
+</config>

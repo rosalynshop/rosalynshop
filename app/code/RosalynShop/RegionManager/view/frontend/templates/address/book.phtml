@@ -1,0 +1,91 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Temlate for \Magento\Customer\Block\Address\Book block
+ * @var $block \Magento\Customer\Block\Address\Book
+ */
+?>
+<div class="row">
+    <div class="block block-addresses-default col-sm-6 col-xs-12">
+        <div class="block-content">
+            <?php if ($_pAddsses = $block->getDefaultShipping()): ?>
+                <div class="box box-address-shipping" style="margin-top: 30px;">
+                    <div class="block-title--myac">
+                        <h3>
+                            <?php /* @escapeNotVerified */ echo __('Default Shipping Address') ?>
+                        </h3>
+                    </div>
+                    <div class="box-content">
+                        <address>
+                            <?php echo $block->getAddressHtml($block->getAddressById($_pAddsses)) ?>
+                        </address>
+                        <a class="action btn btn-secondary btn-xs edit" href="<?php /* @escapeNotVerified */ echo $block->getAddressEditUrl($_pAddsses) ?>">
+                            <span><?php /* @escapeNotVerified */ echo __('Edit') ?></span>
+                        </a>
+                    </div>
+                </div>
+            <?php else: ?>
+                <div class="box box-shipping-address" style="margin-top: 30px;">
+                    <div class="block-title--myac">
+                        <h3>
+                            <?php /* @escapeNotVerified */ echo __('Default Shipping Address') ?>
+                        </h3>
+                    </div>
+                    <div class="box-content">
+                        <p><?php /* @escapeNotVerified */ echo __('You have no default shipping address in your address book.') ?></p>
+                    </div>
+                </div>
+            <?php endif ?>
+        </div>
+    </div>
+
+    <div class="block block-addresses-list col-sm-6 col-xs-12">
+        <div class="block-title--myac"><h3><?php /* @escapeNotVerified */ echo __('Additional Address Entries') ?></h3></div>
+        <div class="block-content">
+            <?php if ($_pAddsses = $block->getAdditionalAddresses()): ?>
+                <ol class="items addresses">
+                    <?php foreach ($_pAddsses as $_address): ?>
+                        <li class="item">
+                            <address>
+                                <?php echo $block->getAddressHtml($_address) ?><br />
+                            </address>
+                            <div class="item actions">
+                                <a class="action edit btn btn-xs btn-primary" href="<?php /* @escapeNotVerified */ echo $block->getUrl('customer/address/edit', ['id' => $_address->getId()]) ?>"><span><?php /* @escapeNotVerified */ echo __('Edit') ?></span></a>
+                                <a class="action delete btn btn-xs btn-secondary" href="#" role="delete-address" data-address="<?php /* @escapeNotVerified */ echo $_address->getId() ?>"><span><?php /* @escapeNotVerified */ echo __('Delete') ?></span></a>
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+                </ol>
+            <?php else: ?>
+                <p class="empty"><?php /* @escapeNotVerified */ echo __('You have no other address entries in your address book.') ?></p>
+            <?php endif ?>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="actions-toolbar">
+    <div class="primary">
+        <button type="button" role="add-address" title="<?php /* @escapeNotVerified */ echo __('Add New Address') ?>" class="action btn btn-primary add"><span><?php /* @escapeNotVerified */ echo __('Add New Address') ?></span></button>
+        <a class="action margin-left10 btn btn-secondary back" href="<?php echo $block->escapeUrl($block->getBackUrl()) ?>"><span><?php /* @escapeNotVerified */ echo __('Back') ?></span></a>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        ".page-main": {
+            "address": {
+                "deleteAddress": "li.item a[role='delete-address']",
+                "deleteUrlPrefix": "<?php /* @escapeNotVerified */ echo $block->getDeleteUrl() ?>id/",
+                "addAddress": "button[role='add-address']",
+                "addAddressLocation": "<?php /* @escapeNotVerified */ echo $block->getAddAddressUrl() ?>"
+            }
+        }
+    }
+</script>
