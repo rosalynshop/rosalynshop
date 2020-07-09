@@ -1,0 +1,57 @@
+"One-page checkout is turned off.","One-page checkout is turned off."
+"Guest checkout is disabled.","Guest checkout is disabled."
+"Delivery Date:","Delivery Date:"
+Comment:,Comment:
+"My billing and shipping address are the same","My billing and shipping address are the same"
+Update,Update
+Cancel,Cancel
+"Order comment","Order comment"
+"Gift options","Gift options"
+Message:,Message:
+Edit,Edit
+Delete,Delete
+"Payment Information","Payment Information"
+"No Payment method available.","No Payment method available."
+"Apply Discount","Apply Discount"
+"Cancel coupon","Cancel coupon"
+"Field ","Field "
+" is required."," is required."
+"New Address","New Address"
+"Review & Payments","Review & Payments"
+"Place Order","Place Order"
+Note,Note
+"Please Enter All Required Field.","Please Enter All Required Field."
+Shipping,Shipping
+"Save Address","Save Address"
+"Please specify a shipping method.","Please specify a shipping method."
+"One Step Checkout","One Step Checkout"
+General,General
+Enable,Enable
+Title,Title
+"Router Name","Router Name"
+"Example: onestepcheckout.html -> http://example.com/onestepcheckout.html","Example: onestepcheckout.html -> http://example.com/onestepcheckout.html"
+"Auto Check Newsletter Sign up Box","Auto Check Newsletter Sign up Box"
+"Fields Display","Fields Display"
+"Show Delivery Date","Show Delivery Date"
+"Show Delivery Comment","Show Delivery Comment"
+"Show Order Comment","Show Order Comment"
+"Show Subscribe Newsletter","Show Subscribe Newsletter"
+"Show Gift Message on Order Level","Show Gift Message on Order Level"
+"This config is applied only when the corresponding default config is enabled.","This config is applied only when the corresponding default config is enabled."
+"Show Discount Code","Show Discount Code"
+"Suggesting Address By Google","Suggesting Address By Google"
+"Enable suggesting address by Google","Enable suggesting address by Google"
+"When you set to Yes, the extension will allow auto completeting customer address.","When you set to Yes, the extension will allow auto completeting customer address."
+"Google API Key <span style=""color:#FF0000;"">*</span>","Google API Key <span style=""color:#FF0000;"">*</span>"
+"<span> Click <a href=""https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform"" target=""_blank"">here</a> to get API key </span>","<span> Click <a href=""https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform"" target=""_blank"">here</a> to get API key </span>"
+"Suggesting Address from Applicable Countries","Suggesting Address from Applicable Countries"
+"Suggesting Address from Specific Countries","Suggesting Address from Specific Countries"
+"The maximum number of selected countries is 5.","The maximum number of selected countries is 5."
+"Custom Style","Custom Style"
+"Checkout Step Number Color","Checkout Step Number Color"
+"Checkout Step Background Color","Checkout Step Background Color"
+"Custom Code","Custom Code"
+"Delivery Date","Delivery Date"
+"Delivery Comment","Delivery Comment"
+"Order Comment","Order Comment"
+"Check to Subscribe Our Newsletter","Check to Subscribe Our Newsletter"

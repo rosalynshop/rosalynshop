@@ -1,0 +1,44 @@
+<?php
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category  BSS
+ * @package   Bss_OneStepCheckout
+ * @author    Extension Team
+ * @copyright Copyright (c) 2017-2018 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license   http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+?>
+
+<?php /** @var \Magento\Framework\View\Element\Template $block */ ?>
+
+<?php // @codingStandardsIgnoreFile ?>
+
+<?php
+$helper = $this->helper('Bss\OneStepCheckout\Helper\Config');
+?>
+<style type="text/css">
+    <?php if ($numberColor = $helper->getCustomCss('step_number_color')) :?>
+        .step-title:before, #opc-sidebar .opc-block-summary > .title:before {
+            color: #<?= $numberColor;?> !important;
+        }
+    <?php endif; ?>
+    <?php if ($bgrColor = $helper->getCustomCss('step_bgr_color')) :?>
+        .step-title:before, #opc-sidebar .opc-block-summary > .title:before {
+            background-color: #<?= $bgrColor;?> !important;
+        }
+        input[type="radio"]:checked, input[type="radio"]:checked::after {
+            background: #<?= $bgrColor;?> !important;
+        }
+    <?php endif; ?>
+    <?php if ($helper->getCustomCss('css_code')) :?>
+        <?= $helper->getCustomCss('css_code');?>
+    <?php endif; ?>
+</style>

@@ -547,14 +547,14 @@
         left: 15px;
         z-index: 100;
         height: 50px;
-        width: 25%;
+        width: 22%;
+        background-color: #f9f9f9;
         &:before {
             left: 0;
             top: 0;
             content: '';
             width: 100%;
             height: 2px;
-            background-color: @main_color;
             display: block;
             opacity: 0;
             visibility: hidden;
@@ -2900,11 +2900,10 @@
         .vertical-menu:before {
             opacity: 1;
             visibility: visible;
-            background-color: @menu_link_color;
+            //background-color: @menu_link_color;
         }
         .vertical-menu .navigation {
             display: block;
-            margin-top: 30px;
         }
         .sticky-menu.active .vertical-menu:before {
             opacity: 0;
@@ -2913,7 +2912,7 @@
         .sticky-menu.active .vertical-menu:hover:before {
             opacity: 1;
             visibility: visible;
-            background-color: @main_color;
+            //background-color: @main_color;
         }
         .sticky-menu.active .vertical-menu .navigation {
             display: none;
@@ -2925,7 +2924,6 @@
         }
     }
     .banner-slider-top {
-        margin-top: 30px;
         background: #fff;
         margin-bottom: 30px;
         border: 1px solid #d3d3d3;
@@ -2933,7 +2931,7 @@
     .item-bn-inner {
         .item-bn {
             display: block;
-            height: 187px;
+            height: 561px;
             background-position: 0 0;
             background-repeat: no-repeat;
             background-size: cover;
@@ -2942,10 +2940,11 @@
     .item-bn-slider-05 {
         .item-slider .item {
             display: block;
-            height: 374px;
+            max-height: 270px;
             background-position: 0 0;
             background-repeat: no-repeat;
             background-size: cover;
+            margin-top: 15px;
         }
     }
 

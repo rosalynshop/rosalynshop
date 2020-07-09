@@ -1,0 +1,58 @@
+<!--
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category  BSS
+ * @package   Bss_OneStepCheckout
+ * @author    Extension Team
+ * @copyright Copyright (c) 2017-2018 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license   http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+-->
+<div class="checkout-agreements-block">
+    <form id="bss-osc-form-checkout-agreements" class="form" novalidate="novalidate">
+        <div data-role="checkout-agreements">
+            <div class="checkout-agreements" data-bind="visible: isVisible">
+                <!-- ko foreach: agreements -->
+                    <!-- ko if: ($parent.isAgreementRequired($data)) -->
+                    <div class="checkout-agreement">
+                        <input type="checkbox" class="required-entry"
+                               data-bind="attr: {
+                                            'id': 'agreement_' + agreementId,
+                                            'name': 'agreement[' + agreementId + ']',
+                                            'value': agreementId
+                                            }"
+                               data-validate="{required:true}" />
+                        <label data-bind="attr: {'for': 'agreement_' + agreementId}">
+                            <button type="button"
+                                    class="action action-show"
+                                    data-bind="click: function(data, event) { return $parent.showContent(data, event) }"
+                                    >
+                                <span data-bind="html: checkboxText"></span>
+                            </button>
+                        </label>
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko ifnot: ($parent.isAgreementRequired($data)) -->
+                    <div class="checkout-agreement">
+                        <button type="button" class="action action-show"
+                                data-bind="click: function(data, event) { return $parent.showContent(data, event) }">
+                            <span data-bind="html: checkboxText"></span>
+                        </button>
+                    </div>
+                    <!-- /ko -->
+                <!-- /ko -->
+                <div id="checkout-agreements-modal" data-bind="afterRender: initModal" style="display: none">
+                    <div class="checkout-agreements-item-content" data-bind="html: modalContent"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

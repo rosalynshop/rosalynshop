@@ -1,57 +1,114 @@
 <?php
 /** @var $block \RosalynShop\Productslider\Block\Widget\Product */
 $products = $block->getProductCollecttion();
+$mediaUrl = $block->getMediaUrl();
+?>
+<div class="banner-slider-top">
+    <div class="row">
+        <div class="d-none d-md-block col-md-3"></div>
+        <div class="col-12 col-xl-9">
+            <div class="row no-gutters home-slider">
+                <div class="col-12 col-sm-12 col-md-9">
+                    <div class="item-bn-slider-05 slider-2">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item-slider">
+                                <a href="#"><img class="item" src="<?= $mediaUrl.'wysiwyg/magebig/layout05/slider01.jpg' ?>"></a>
+                            </div>
+                            <div class="item-slider">
+                                <a href="#"><img class="item" src="<?= $mediaUrl.'wysiwyg/magebig/layout05/slider02.jpg' ?>"></a>
+                            </div>
+                            <div class="item-slider">
+                                <a href="#"><img class="item" src="<?= $mediaUrl.'wysiwyg/magebig/layout05/slider03.jpg' ?>"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-slider">
+                        <?php
+                        if ($products->count()) { ?>
+                            <ul class="product-list owl-carousel owl-theme">
+                                <?php foreach ($products as $_product): ?>
+                                    <?php
+                                    $objectManager =\Magento\Framework\App\ObjectManager::getInstance();
+                                    $helperImport = $objectManager->get('\Magento\Catalog\Helper\Image');
 
-?>
-<?php
-if ($products->count()) {?>
-<?php
-$themeHelper = $this->helper('MGS\Mpanel\Helper\Data');
-$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
-$size = $themeHelper->getImageSize($this->getRatio());
-?>
-<ul class="product-list owl-carousel owl-theme">
-    <?php foreach ($products as $_product): ?>
-        <?php $productImage = $_imagehelper->init($_product, 'category_page_grid')->resize($size['width'], $size['height'])->getUrl(); ?>
-        <li class="product-item">
-            <div class="product-item-inner">
-                <div class="product-image"><img src="<?= $productImage ?>"/></div>
-                <div class="product-price"><span><?= $block->getProductPrice($_product) ?></span></div>
-                <div class="product-title"><span><a href="<?= $_product->getProductUrl()?>"><?= $_product->getName();?></a></span></div>
+                                    $imageUrl = $helperImport->init($_product, 'product_page_image_small')
+                                        ->setImageFile($_product->getSmallImage()) // image,small_image,thumbnail
+                                        ->resize(380)
+                                        ->getUrl();
+                                    ?>
+                                    <li class="product-item">
+                                        <div class="product-item-inner">
+                                            <div class="product-image"><img src="<?= $imageUrl?>" </div>
+                                            <div class="product-price"><span><?= $block->getProductPrice($_product) ?></span>
+                                            </div>
+                                            <div class="product-title"><span><a href="<?= $_product->getProductUrl() ?>"><?= $_product->getName(); ?></a></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+
+                            <script type="text/javascript">
+                                require([
+                                    'jquery',
+                                    'owlWidget',
+                                ], function (jQuery) {
+                                    (function ($) {
+                                        $(document).ready(function () {
+                                            $('.product-list').owlCarousel({
+                                                loop: true,
+                                                margin: 10,
+                                                responsiveClass: true,
+                                                pagination: false,
+                                                dots: false,
+                                                autoplay: true,
+                                                autoplayHoverPause: true,
+                                                responsive: {
+                                                    0: {
+                                                        items: 2
+                                                    },
+                                                    600: {
+                                                        items: 3
+                                                    },
+                                                    1000: {
+                                                        items: 5
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    })(jQuery);
+                                });
+                            </script>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-3">
+                    <div class="row no-gutters">
+                        <div class="col-12 col-sm-12">
+                            <div class="item-bn-inner">
+                                <a href="#">
+                                    <span class="item-bn hover-effect01" style="background-image: url(<?= $mediaUrl.'wysiwyg/magebig/layout05/Thi_t_k_kh_ng_t_n.png' ?>)"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </li>
-    <?php endforeach; ?>
-</ul>
-
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
-    require([
-        'jquery',
-        'mgs/owlcarousel',
-    ], function(jQuery){
-        (function($) {
-            $(document).ready(function () {
-                $('.owl-carousel').owlCarousel({
-                    loop: true,
-                    margin: 10,
-                    responsiveClass: true,
-                    pagination: false,
-                    dots: false,
+    require(
+        ['jquery', 'owlWidget'], function ($) {
+            $(function() {
+                $('.item-bn-slider-05').owlWidget({
                     autoplay: true,
-                    autoplayHoverPause: true,
-                    responsive:{
-                        0:{
-                            items:2
-                        },
-                        600:{
-                            items:3
-                        },
-                        1000:{
-                            items:5
-                        }
-                    }
+                    items: 1,
+                    dots: true,
+                    nav: true,
+                    loop: true,
+                    margin: 0
                 });
             });
-        })(jQuery);
-    });
+        });
 </script>
-<?php } ?>

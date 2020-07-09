@@ -146,35 +146,7 @@
                         content: '';
                         display: inline-block;
                         float: left;
-                        margin-right: 7px;
-                        margin-left: 31px;
                         vertical-align: middle;
-                        margin-top: -3px;
-                        height: 17px;
-                    }
-                }
-
-                input[type='checkbox'] {
-                    + label:before {
-                        content: '\e903';
-                        font-family: 'aw-osc_icons-font';
-                        font-size: 17px;
-                        -webkit-font-smoothing: antialiased;
-                        -moz-osx-font-smoothing: grayscale;
-                        color: @aw-osc-secondary__color;
-                    }
-
-                    &:checked + label:before {
-                        content: '\e906';
-                        font-family: 'aw-osc_icons-font';
-                        font-size: 17px;
-                        -webkit-font-smoothing: antialiased;
-                        -moz-osx-font-smoothing: grayscale;
-                        color: @aw-osc-secondary__color;
-                    }
-
-                    &:disabled + label {
-                        opacity: .3;
                     }
                 }
 
@@ -195,6 +167,7 @@
                         -webkit-font-smoothing: antialiased;
                         -moz-osx-font-smoothing: grayscale;
                         color: @aw-osc-secondary__color;
+                        padding-right: 5px;
                     }
 
                     &:disabled + label {
@@ -338,9 +311,10 @@
                     .aw-onestep-groups_item {
                         list-style-type: none;
                         width: 100%;
+                        margin-top: 20px;
 
                         &:not(:first-of-type){
-                            margin-top: 60px;
+                            margin-top: 25px;
                         }
 
                         .group-title {
@@ -352,29 +326,23 @@
                             }
 
                             .mark {
-                                .lib-css(border, 2px solid @aw-osc-secondary__color);
+                                .lib-css(border, 1px solid @aw-osc-secondary__color);
                                 .lib-css(border-radius, 50%, 1);
                                 .lib-css(color, @aw-osc-secondary__color);
-                                .lib-font-size(@aw-osc-h2__font-size);
                                 .lib-vendor-box-align(center);
                                 .lib-vendor-prefix-display(inline-flex);
                                 .lib-css(background-color, @aw-osc-background-color__active);
                                 box-sizing: border-box;
                                 font-weight: 600;
-                                height: 40px;
+                                height: 25px;
                                 justify-content: center;
                                 margin-right: 14px;
-                                margin-left: 5px;
-                                width: 40px;
+                                width: 25px;
                                 color: #ff4747;
-
+                                font-size: 14px;
                                 &:after {
-                                    content: '\e912';
-                                    font-family: 'aw-osc_icons-font' !important;
-                                    font-size: 40px;
-                                    font-weight: normal;
-                                    position: absolute;
-                                    -webkit-font-smoothing: antialiased;
+                                    content: counter(i);
+                                    counter-increment: i;
                                 }
                             }
                         }
@@ -608,7 +576,7 @@
                         .payment-method-content {
                             height: inherit;
                             opacity: 1;
-                            padding-bottom: 25px;
+
                             visibility: visible;
 
                             .form {
@@ -778,7 +746,7 @@
                     .lib-css(transition, .3s, 1);
                     .lib-css(background-color, @aw-osc-background-color__base);
                     box-sizing: border-box;
-                    padding: 25px 20px;
+                    padding: 15px 20px;
                     position: relative;
 
                     .label {
@@ -799,8 +767,9 @@
 
                     input[type='radio'] {
                         + label:before {
-                            margin-left: 14px !important;
-                            margin-top: -6px !important;
+                            margin-left: 0;
+                            margin-top: -3px;
+                            padding-right: 5px;
                         }
 
                         &.radio {
@@ -906,6 +875,10 @@
             }
 
             .shipping-method {
+                border: 1px solid #d8d8d8;
+                padding: 5px;
+                background: #f8f8f8;
+
                 .onestep-shipping-method {
                     padding-right: 10px;
                     padding-bottom: 10px;

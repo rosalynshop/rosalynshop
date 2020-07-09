@@ -41,16 +41,16 @@ class Color extends Field
     protected function _getElementHtml(AbstractElement $element)
     {
         $output=parent::_getElementHtml($element);
-        $output .= "
-		<script type='text/javascript'>
-			require([
-				'jquery'
-			], function(jQuery){
-				(function($) {
-					$('#".$element->getHtmlId()."').attr('data-hex', true).mColorPicker();
-				})(jQuery);
-			});
-		</script>";
+//        $output .= "
+//		<script type='text/javascript'>
+//			require([
+//				'jquery'
+//			], function(jQuery){
+//				(function($) {
+//					$('#".$element->getHtmlId()."').attr('data-hex', true).mColorPicker();
+//				})(jQuery);
+//			});
+//		</script>";
         return $output;
     }
 }

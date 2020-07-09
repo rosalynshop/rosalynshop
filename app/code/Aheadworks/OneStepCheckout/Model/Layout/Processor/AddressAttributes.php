@@ -155,7 +155,7 @@ class AddressAttributes implements LayoutProcessorInterface
     private function regionOptions($jsLayout)
     {
         $regionOptions[] = [
-            'label' => __('-- Please Select --'),
+            'label' => __('-- Chọn Tỉnh/Thành --'),
             'value' => ''
         ];
         foreach ($this->_stateOption->getStates() as $field) {
@@ -207,6 +207,7 @@ class AddressAttributes implements LayoutProcessorInterface
                 'elementTmpl' => 'ui/form/element/select',
                 'id' => 'drop-down',
                 'additionalClasses' => 'city-drop-down',
+                'label' => 'City',
             ],
             'dataScope' => 'shippingAddress.city',
             'label' => 'City',
@@ -218,7 +219,7 @@ class AddressAttributes implements LayoutProcessorInterface
             'options' => [
                 [
                     'value' => '',
-                    'label' => __('-- Please Select --')
+                    'label' => __('-- Chọn Quận/Huyện --')
                 ],
             ]
         ];

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * BSS Commerce Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://bsscommerce.com/Bss-Commerce-License.txt
+ *
+ * @category   BSS
+ * @package    Bss_OneStepCheckout
+ * @author     Extension Team
+ * @copyright  Copyright (c) 2017-2018 BSS Commerce Co. ( http://bsscommerce.com )
+ * @license    http://bsscommerce.com/Bss-Commerce-License.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <onestepcheckout>
+            <general>
+                <enable>1</enable>
+                <tilte>One Step Checkout</tilte>
+                <router_name>onestepcheckout.html</router_name>
+            </general>
+            <display_field>
+                <enable_delivery_date>1</enable_delivery_date>
+                <enable_delivery_comment>1</enable_delivery_comment>
+                <enable_order_comment>1</enable_order_comment>
+                <enable_subscribe_newsletter>1</enable_subscribe_newsletter>
+                <enable_gift_message>1</enable_gift_message>
+                <enable_discount_code>1</enable_discount_code>
+            </display_field>
+            <custom_css>
+                <step_number_color>FFFFFF</step_number_color>
+                <step_bgr_color>1979C3</step_bgr_color>
+            </custom_css>
+        </onestepcheckout>
+    </default>
+</config>

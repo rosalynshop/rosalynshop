@@ -64,4 +64,9 @@ class Product extends Template implements BlockInterface
     {
         return $this->_priceHelper->currency($product->getFinalPrice(), true, false);
     }
+
+    public function getMediaUrl()
+    {
+        return $this ->_storeManager-> getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA );
+    }
 }
