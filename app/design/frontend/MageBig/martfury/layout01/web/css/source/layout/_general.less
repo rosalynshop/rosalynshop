@@ -423,6 +423,7 @@
         .vertical-menu {
             top: 50%;
             margin-top: -25px;
+            background-color: #fff;
         }
     }
     @-webkit-keyframes fadeInDown {
@@ -547,7 +548,7 @@
         left: 15px;
         z-index: 100;
         height: 50px;
-        width: 22%;
+        width: 25%;
         background-color: #f9f9f9;
         &:before {
             left: 0;
@@ -601,7 +602,7 @@
         }
         .navigation {
             width: 300px;
-            padding: 15px 0;
+            padding: 2px 0;
             border: 1px solid #d3d3d3;
             position: absolute;
             top: 100%;
@@ -1350,7 +1351,7 @@
     // Block Catalog
     .block-catalog {
         position: relative;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         overflow: hidden;
         border: 1px solid #d9d9d9;
         img {
@@ -1385,11 +1386,11 @@
     .deal-block-top {
         padding: 15px 0;
         border-bottom: 1px solid #e1e1e1;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         display: inline-block;
         width: 100%;
         + div {
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         .title {
             display: inline-block;
@@ -1402,7 +1403,7 @@
         }
         .promo-count {
             display: inline-block;
-            background-color: #f14705;
+            background-color: #ff4747;
             padding: 2px 10px;
             color: #ffffff;
             border-radius: 2px;
@@ -1465,7 +1466,7 @@
             line-height: 1.1;
             .font-size(24);
             margin-top: 0;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         ul {
             list-style: none;
@@ -1741,7 +1742,7 @@
     }
     .category-list-top {
         border: 1px solid #bfbfbf;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         padding: 0;
         .title a {
             .font-size(18);
@@ -1897,7 +1898,7 @@
         }
     }
     .tabs-wrap {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         position: relative;
     }
     .widget-tabs {
@@ -2040,7 +2041,7 @@
             letter-spacing: 0.5px;
         }
         .blog {
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             min-height: 100px;
             position: relative;
         }
@@ -2516,7 +2517,7 @@
             margin: 80px 0;
         }
         .heading {
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         .text {
             color: #666;
@@ -2669,15 +2670,15 @@
     }
     .main-slider-v2 {
         .block-top {
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         .slider {
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
     }
     .block-banner {
         .banner {
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             img {
                 max-width: 100%;
                 height: auto;
@@ -2925,13 +2926,13 @@
     }
     .banner-slider-top {
         background: #fff;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         border: 1px solid #d3d3d3;
     }
     .item-bn-inner {
         .item-bn {
             display: block;
-            height: 561px;
+            height: 470px;
             background-position: 0 0;
             background-repeat: no-repeat;
             background-size: cover;
@@ -2944,7 +2945,6 @@
             background-position: 0 0;
             background-repeat: no-repeat;
             background-size: cover;
-            margin-top: 15px;
         }
     }
 
@@ -2955,7 +2955,7 @@
             vertical-align: top;
             background-color: #fff;
             padding: 0 30px;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             .selling-feature {
                 margin-bottom: 0;
             }
@@ -2963,19 +2963,22 @@
         .vertical-menu .navigation {
             padding-bottom: 14px;
             .level0.level-top {
-                padding: 9px 15px;
+                padding: 11px 15px;
+                border-bottom: 1px solid #eee;
                 &:hover {
-                    background-color: @main_color;
                     > a {
                         color: #000000;
                         font-weight: normal;
+                        &:hover {
+                            color: #ff4747;
+                        }
                     }
                 }
             }
         }
     }
     .search-trend-wrap {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         .search-title .title {
             display: inline-block;
             width: 100%;
@@ -3028,7 +3031,7 @@
         padding: 30px;
         text-align: center;
         .item-trend {
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             span {
                 display: block;
             }
@@ -3047,7 +3050,7 @@
     }
     .block-product-layout-wrap {
         background-color: #fff;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         .top-title {
             padding: 5px 20px;
             margin-bottom: 0;
@@ -3217,5 +3220,58 @@
                 }
             }
         }
+    }
+    .product-item {
+        margin-bottom: 15px !important;
+        margin-top: 15px !important;
+        a {
+            color: #464242;
+        }
+        .product-item-inner {
+            .product-price {
+                text-align: center;
+                margin-top: -6px;
+                position: relative;
+                font-size: 12px;
+                span{
+                    display: inline-block;
+                    background-color: #ff4747;
+                    border-radius: 9px;
+                    font-size: 12px;
+                    padding: 1px 8px;
+                    color: #fff;
+                    font-style: italic;
+                }
+            }
+            .product-title{
+                padding-top: 5px;
+                text-align: center;
+                color: #000;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                font-size: 12px;
+            }
+        }
+    }
+}
+//
+//  Mobile (styles-m.css)
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .rosa-no-gutters {
+        display: none;
+    }
+}
+//
+//  Tablet (for the front-end)
+//  _____________________________________________
+
+@media only screen and (max-width: @screen__m) {
+    .vertical-menu .title {
+        font-size: 9px;
     }
 }

@@ -25,7 +25,7 @@ $mediaUrl = $block->getMediaUrl();
                     <div class="product-slider">
                         <?php
                         if ($products->count()) { ?>
-                            <ul class="product-list owl-carousel owl-theme">
+                            <ol class="product-items owl-carousel">
                                 <?php foreach ($products as $_product): ?>
                                     <?php
                                     $objectManager =\Magento\Framework\App\ObjectManager::getInstance();
@@ -38,15 +38,13 @@ $mediaUrl = $block->getMediaUrl();
                                     ?>
                                     <li class="product-item">
                                         <div class="product-item-inner">
-                                            <div class="product-image"><img src="<?= $imageUrl?>" </div>
-                                            <div class="product-price"><span><?= $block->getProductPrice($_product) ?></span>
-                                            </div>
-                                            <div class="product-title"><span><a href="<?= $_product->getProductUrl() ?>"><?= $_product->getName(); ?></a></span>
-                                            </div>
+                                            <div class="product-image"><a href="<?= $_product->getProductUrl() ?>"><img src="<?= $imageUrl?>"></a></div>
+                                            <div class="product-price"><span><?= $block->getProductPrice($_product) ?></span></div>
+                                            <div class="product-title"><span><a href="<?= $_product->getProductUrl() ?>"><?= $_product->getName(); ?></a></span></div>
                                         </div>
                                     </li>
                                 <?php endforeach; ?>
-                            </ul>
+                            </ol>
 
                             <script type="text/javascript">
                                 require([
@@ -55,9 +53,8 @@ $mediaUrl = $block->getMediaUrl();
                                 ], function (jQuery) {
                                     (function ($) {
                                         $(document).ready(function () {
-                                            $('.product-list').owlCarousel({
+                                            $('.product-items').owlCarousel({
                                                 loop: true,
-                                                margin: 10,
                                                 responsiveClass: true,
                                                 pagination: false,
                                                 dots: false,
@@ -83,7 +80,7 @@ $mediaUrl = $block->getMediaUrl();
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-3">
-                    <div class="row no-gutters">
+                    <div class="row no-gutters rosa-no-gutters">
                         <div class="col-12 col-sm-12">
                             <div class="item-bn-inner">
                                 <a href="#">
