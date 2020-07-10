@@ -27,55 +27,19 @@ $mediaUrl = $block->getMediaUrl();
                         if ($products->count()) { ?>
                             <ol class="product-items owl-carousel">
                                 <?php foreach ($products as $_product): ?>
-                                    <?php
-                                    $objectManager =\Magento\Framework\App\ObjectManager::getInstance();
-                                    $helperImport = $objectManager->get('\Magento\Catalog\Helper\Image');
-
-                                    $imageUrl = $helperImport->init($_product, 'product_page_image_small')
-                                        ->setImageFile($_product->getSmallImage()) // image,small_image,thumbnail
-                                        ->resize(380)
-                                        ->getUrl();
-                                    ?>
                                     <li class="product-item">
                                         <div class="product-item-inner">
-                                            <div class="product-image"><a href="<?= $_product->getProductUrl() ?>"><img src="<?= $imageUrl?>"></a></div>
+                                            <div class="product-image">
+                                                <a href="<?= $_product->getProductUrl() ?>">
+                                                    <img src="<?= $block->getProductImage($_product, 'product_page_image_small')?>">
+                                                </a>
+                                            </div>
                                             <div class="product-price"><span><?= $block->getProductPrice($_product) ?></span></div>
                                             <div class="product-title"><span><a href="<?= $_product->getProductUrl() ?>"><?= $_product->getName(); ?></a></span></div>
                                         </div>
                                     </li>
                                 <?php endforeach; ?>
                             </ol>
-
-                            <script type="text/javascript">
-                                require([
-                                    'jquery',
-                                    'owlWidget',
-                                ], function (jQuery) {
-                                    (function ($) {
-                                        $(document).ready(function () {
-                                            $('.product-items').owlCarousel({
-                                                loop: true,
-                                                responsiveClass: true,
-                                                pagination: false,
-                                                dots: false,
-                                                autoplay: true,
-                                                autoplayHoverPause: true,
-                                                responsive: {
-                                                    0: {
-                                                        items: 2
-                                                    },
-                                                    600: {
-                                                        items: 3
-                                                    },
-                                                    1000: {
-                                                        items: 5
-                                                    }
-                                                }
-                                            });
-                                        });
-                                    })(jQuery);
-                                });
-                            </script>
                         <?php } ?>
                     </div>
                 </div>
@@ -106,6 +70,28 @@ $mediaUrl = $block->getMediaUrl();
                     loop: true,
                     margin: 0
                 });
+
+                /** Product Slider */
+                $('.product-items').owlWidget({
+                    loop: true,
+                    responsiveClass: true,
+                    pagination: false,
+                    dots: false,
+                    nav: true,
+                    autoplay: true,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: {
+                            items: 2
+                        },
+                        600: {
+                            items: 3
+                        },
+                        1000: {
+                            items: 5
+                        }
+                    }
+                });
             });
-        });
+        })
 </script>

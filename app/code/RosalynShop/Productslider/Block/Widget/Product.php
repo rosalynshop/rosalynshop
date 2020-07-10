@@ -5,26 +5,61 @@ namespace RosalynShop\Productslider\Block\Widget;
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 
+/**
+ * Class Product
+ * @package RosalynShop\Productslider\Block\Widget
+ */
 class Product extends Template implements BlockInterface
 {
     protected $_template = "widget/product.phtml";
+
+    /**
+     * @var \Magento\Catalog\Model\CategoryFactory
+     */
     protected $_categoryFactory;
+
+    /**
+     * @var \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory
+     */
     protected $_productCollectionFactory;
+
+    /*
+     *
+     */
     protected $_priceHelper;
 
+    /**
+     * @var \Magento\Catalog\Helper\Image
+     */
+    protected $imageHelper;
+
+    /**
+     * Product constructor.
+     * @param Template\Context $context
+     * @param \Magento\Catalog\Model\CategoryFactory $categoryFactory
+     * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory
+     * @param \Magento\Framework\Pricing\Helper\Data $_priceHelper
+     * @param \Magento\Catalog\Helper\Image $imageHelper
+     * @param array $data
+     */
     public function __construct(
         Template\Context $context,
         \Magento\Catalog\Model\CategoryFactory $categoryFactory,
         \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
         \Magento\Framework\Pricing\Helper\Data $_priceHelper,
+        \Magento\Catalog\Helper\Image $imageHelper,
         array $data = [])
     {
         $this->_categoryFactory = $categoryFactory;
         $this->_productCollectionFactory = $productCollectionFactory;
         $this->_priceHelper = $_priceHelper;
+        $this->imageHelper = $imageHelper;
         parent::__construct($context, $data);
     }
 
+    /**
+     * @return array|false|string[]
+     */
     public function getCategoryIds()
     {
         $categoryArray = [];
@@ -35,7 +70,9 @@ class Product extends Template implements BlockInterface
         return $categoryArray;
     }
 
-
+    /**
+     * @return array|\Magento\Catalog\Model\ResourceModel\Product\Collection
+     */
     public function getProductCollecttion()
     {
         $categoryArray = $this->getCategoryIds();
@@ -65,8 +102,25 @@ class Product extends Template implements BlockInterface
         return $this->_priceHelper->currency($product->getFinalPrice(), true, false);
     }
 
+    /**
+     * @return mixed
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
     public function getMediaUrl()
     {
         return $this ->_storeManager-> getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA );
+    }
+
+    /**
+     * @param $product
+     * @param $imageId
+     * @return string
+     */
+    public function getProductImage($product, $imageId)
+    {
+        return $this->imageHelper->init($product, $imageId)
+            ->setImageFile($product->getSmallImage()) // image,small_image,thumbnail
+            ->resize(380)
+            ->getUrl();
     }
 }
