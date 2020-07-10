@@ -11,12 +11,14 @@
         "sort-packages": true
     },
     "require": {
-        "magento/product-community-edition": "2.3.2"
+        "magento/product-community-edition": "2.3.2-p2"
     },
     "require-dev": {
+        "allure-framework/allure-phpunit": "~1.2.0",
         "friendsofphp/php-cs-fixer": "~2.13.0",
         "lusitanian/oauth": "~0.8.10",
-        "magento/magento2-functional-testing-framework": "2.3.9",
+        "magento/magento-coding-standard": "~1.0.0",
+        "magento/magento2-functional-testing-framework": "~2.3.14",
         "pdepend/pdepend": "2.5.2",
         "phpmd/phpmd": "@stable",
         "phpunit/phpunit": "~6.5.0",
@@ -57,7 +59,7 @@
             "Magento\\TestFramework\\Utility\\": "dev/tests/static/framework/Magento/TestFramework/Utility/"
         }
     },
-    "version": "2.3.0",
+    "version": "2.3.2-p2",
     "minimum-stability": "stable",
     "repositories": [
         {
