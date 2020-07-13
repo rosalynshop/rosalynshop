@@ -1,0 +1,62 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/** @var $block \Magento\Sales\Block\Order\Email\Items\DefaultItems */
+
+/** @var $_item \RosalynShop\SalesEmail\Model\Order\Item */
+$_item = $block->getItem();
+$_order = $_item->getOrder();
+$productImage = $_item->getProductImage($_item->getSku());
+$productUrl = $_item->getProduct()->getProductUrl();
+?>
+<tr>
+    <td style="border: none;">
+        <div class="rosa-order-item" style="width: 100%;">
+            <div class="rosa-product-info-left" style="width: 34%; float: left;">
+                <img src="<?= $productImage ?>" width="90" alt="<?= $block->escapeHtml($_item->getName()) ?>">
+            </div>
+            <div class="rosa-product-info-right" style="width: 64%; float: right; white-space: nowrap">
+                <p class="rosa-item-name"><?= /* @noEscape */ __("Sản phẩm : ")?><a href="<?= $productUrl ?>"><?= $block->escapeHtml($_item->getName()) ?></a></p>
+                <p class="rosa-item-qty"><?= /* @noEscape */ __("Số lượng : ") ?><?= (float) $_item->getQtyOrdered() ?></p>
+                <p class="rosa-item-price"><?= /* @noEscape */ __("Giá : ")?><?= /* @noEscape */ $block->getItemPrice($_item) ?></p>
+                <p class="rosa-item-sku"><?= /* @noEscape */ __("Mã sản phẩm : ")?><?= $block->escapeHtml($block->getSku($_item)) ?></p>
+                <?php if ($block->getItemOptions()) : ?>
+                    <?php foreach ($block->getItemOptions() as $key => $option) : ?>
+                        <p class="rosa-item-<?= $key ?>"><?= $block->escapeHtml($option['label']) . ": "?><?= $block->escapeHtml($option['value']) ?></p>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php $addInfoBlock = $block->getProductAdditionalInformationBlock(); ?>
+                <?php if ($addInfoBlock) :?>
+                    <?= $addInfoBlock->setItem($_item)->toHtml() ?>
+                <?php endif; ?>
+                <?= $block->escapeHtml($_item->getDescription()) ?>
+            </div>
+        </div>
+    </td>
+</tr>
+<?php if ($_item->getGiftMessageId()
+    && $_giftMessage = $this->helper(\Magento\GiftMessage\Helper\Message::class)
+        ->getGiftMessage($_item->getGiftMessageId())
+) : ?>
+    <tr>
+    <td colspan="3" class="item-extra">
+        <table class="message-gift">
+            <tr>
+                <td>
+                    <h3><?= $block->escapeHtml(__('Gift Message')) ?></h3>
+                    <strong><?= $block->escapeHtml(__('From:')) ?></strong> <?= $block->escapeHtml($_giftMessage->getSender()) ?>
+                    <br /><strong><?= $block->escapeHtml(__('To:')) ?></strong> <?= $block->escapeHtml($_giftMessage->getRecipient()) ?>
+                    <br /><strong><?= $block->escapeHtml(__('Message:')) ?></strong>
+                    <br /><?= $block->escapeHtml($_giftMessage->getMessage()) ?>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<?php endif; ?>

@@ -1,0 +1,36 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \RosalynShop\SalesEmail\Block\Order\Email\Shipment\Items */
+/** @var $_item \RosalynShop\SalesEmail\Model\Order\Item */
+$_item = $block->getItem();
+$_productImage = $block->getProductImage($_item->getSku());
+?>
+<tr>
+    <td class="item-info<?= ($block->getItemOptions() ? ' has-extra' : '') ?>" style="border: none;">
+        <div class="rosa-order-item" style="width: 100%;">
+            <div class="rosa-product-info-left" style="width: 34%; float: left;">
+                <img src="<?= $_productImage ?>" width="90" alt="<?= $block->escapeHtml($_item->getName()) ?>">
+            </div>
+            <div class="rosa-product-info-right" style="width: 64%; float: right; white-space: nowrap">
+                <p class="rosa-item-name"><?= /* @noEscape */ __("Sản phẩm : ")?><?= $block->escapeHtml($_item->getName()) ?></p>
+                <p class="rosa-item-qty"><?= /* @noEscape */ __("Số lượng : ") ?><?= (float) $_item->getQty() ?></p>
+                <p class="rosa-item-price"><?= /* @noEscape */ __("Giá : ")?><?= /* @noEscape */ $block->getShipmentItemPrice($_item) ?></p>
+                <p class="rosa-item-sku"><?= /* @noEscape */ __("Mã sản phẩm : ")?><?= $block->escapeHtml($block->getSku($_item)) ?></p>
+                <?php if ($block->getItemOptions()) : ?>
+                    <?php foreach ($block->getItemOptions() as $key => $option) : ?>
+                        <p class="rosa-item-<?= $key ?>"><?= $block->escapeHtml($option['label']) . ": "?><?= $block->escapeHtml($option['value']) ?></p>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php $addInfoBlock = $block->getProductAdditionalInformationBlock(); ?>
+                <?php if ($addInfoBlock) :?>
+                    <?= $addInfoBlock->setItem($_item->getOrderItem())->toHtml() ?>
+                <?php endif; ?>
+                <?= $block->escapeHtml($_item->getDescription()) ?>
+            </div>
+        </div>
+    </td>
+</tr>
