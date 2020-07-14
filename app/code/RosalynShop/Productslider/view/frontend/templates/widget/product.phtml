@@ -2,6 +2,7 @@
 /** @var $block \RosalynShop\Productslider\Block\Widget\Product */
 $products = $block->getProductCollecttion();
 $mediaUrl = $block->getMediaUrl();
+$bannerSlider = $block->getBannerSlider();
 ?>
 <div class="banner-slider-top">
     <div class="row">
@@ -11,15 +12,13 @@ $mediaUrl = $block->getMediaUrl();
                 <div class="col-12 col-sm-12 col-md-9">
                     <div class="item-bn-slider-05 slider-2">
                         <div class="owl-carousel owl-theme">
-                            <div class="item-slider">
-                                <a href="#"><img class="item" src="<?= $mediaUrl.'wysiwyg/magebig/layout05/slider01.jpg' ?>"></a>
-                            </div>
-                            <div class="item-slider">
-                                <a href="#"><img class="item" src="<?= $mediaUrl.'wysiwyg/magebig/layout05/slider02.jpg' ?>"></a>
-                            </div>
-                            <div class="item-slider">
-                                <a href="#"><img class="item" src="<?= $mediaUrl.'wysiwyg/magebig/layout05/slider03.jpg' ?>"></a>
-                            </div>
+                            <?php foreach ($bannerSlider as $item) : ?>
+                                <div class="item-slider">
+                                    <a href="<?= $item['link'] ?>" alt="<?= $item['alt_text']?>">
+                                        <img class="item" alt="<?= $item['alt_text']?>" src="<?= $mediaUrl .$item['resource_path'] ?>">
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                     <div class="product-slider">

@@ -33,6 +33,8 @@ class Product extends Template implements BlockInterface
      */
     protected $imageHelper;
 
+    protected $bannerRepository;
+
     /**
      * Product constructor.
      * @param Template\Context $context
@@ -48,12 +50,14 @@ class Product extends Template implements BlockInterface
         \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
         \Magento\Framework\Pricing\Helper\Data $_priceHelper,
         \Magento\Catalog\Helper\Image $imageHelper,
+        \Codilar\BannerSlider\Model\BannerRepository $bannerRepository,
         array $data = [])
     {
         $this->_categoryFactory = $categoryFactory;
         $this->_productCollectionFactory = $productCollectionFactory;
         $this->_priceHelper = $_priceHelper;
         $this->imageHelper = $imageHelper;
+        $this->bannerRepository = $bannerRepository;
         parent::__construct($context, $data);
     }
 
@@ -122,5 +126,17 @@ class Product extends Template implements BlockInterface
             ->setImageFile($product->getSmallImage()) // image,small_image,thumbnail
             ->resize(380)
             ->getUrl();
+    }
+
+    /**
+     * @return array
+     */
+    public function getBannerSlider()
+    {
+        $banner = $this->bannerRepository->getCollection()->getData();
+        if (!empty($banner)) {
+            return $banner;
+        }
+        return [];
     }
 }

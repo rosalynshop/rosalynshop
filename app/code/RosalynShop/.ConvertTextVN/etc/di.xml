@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Magento\Catalog\Model\Product\Url">
-        <plugin name="conver_product_name_to_vietnam" type="RosalynShop\ConvertTextVN\Plugin\Product\Url"/>
-    </type>
-    <type name="Magento\Catalog\Model\Category">
-        <plugin name="conver_category_name_to_vietnam" type="RosalynShop\ConvertTextVN\Plugin\Category\Url"/>
-    </type>
-</config>
