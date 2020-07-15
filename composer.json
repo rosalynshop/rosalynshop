@@ -11,6 +11,7 @@
         "sort-packages": true
     },
     "require": {
+        "hybridauth/hybridauth": "2.11.0",
         "magento/product-community-edition": "2.3.2-p2"
     },
     "require-dev": {

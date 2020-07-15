@@ -75,6 +75,7 @@ class Data extends AbstractHelper
         foreach ($this->_citiesOption->getCities() as $field) {
             $regionOptions[] = $field['cities_name'];
         }
+
         return $regionOptions;
     }
 

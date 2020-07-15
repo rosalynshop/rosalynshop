@@ -4856,7 +4856,7 @@ new products will be created. Use this step to customize images and price for yo
 "Something went wrong while saving the new password.","Một cái gì đó đã đi sai trong khi lưu mật khẩu mới.",module,Magento_Customer
 "You deleted the address.","Bạn đã xoá các địa chỉ.",module,Magento_Customer
 "We can't delete the address right now.","Chúng tôi không thể xóa địa chỉ vào lúc này.",module,Magento_Customer
-"You saved the address.","Bạn đã lưu các địa chỉ.",module,Magento_Customer
+"You saved the address.","Bạn đã lưu địa chỉ.",module,Magento_Customer
 "We can't save the address.","Chúng tôi không thể lưu địa chỉ.",module,Magento_Customer
 "No customer ID defined.","Không có ID của khách hàng nào được xác định.",module,Magento_Customer
 "Please correct the quote items and try again.","Xin vui lòng sửa bài trích dẫn và thử lại.",module,Magento_Customer
