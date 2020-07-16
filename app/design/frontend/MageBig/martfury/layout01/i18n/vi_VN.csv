@@ -540,7 +540,7 @@ href=""https://dashboard.rjmetrics.com/v2/magento/signup/"">Magento BI Essential
 "All Store Views","Tất cả lượt xem cửa hàng",module,Magento_Backend
 "What is this?","Đây là gì?",module,Magento_Backend
 "Save Account","Lưu tài khoản",module,Magento_Backend
-"My Account","Tài khoản của tôi",module,Magento_Backend
+"My Account","Tài khoản",module,Magento_Backend
 "Account Information","Thông tin tài khoản",module,Magento_Backend
 "User Name","Tên người dùng",module,Magento_Backend
 "First Name","Tên",module,Magento_Backend
@@ -2302,7 +2302,7 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "Clear All","Xóa tất cả",module,Magento_Catalog
 "Prev","Trước",module,Magento_Catalog
 "Next","Tiếp theo",module,Magento_Catalog
-"We can't find products matching the selection.","Chúng tôi không thể tìm thấy sản phẩm phù hợp với việc lựa chọn.",module,Magento_Catalog
+"We can't find products matching the selection.","Danh mục này hiện chưa có sản phẩm hoặc đã hết hàng.",module,Magento_Catalog
 "Learn More","Tìm hiểu thêm",module,Magento_Catalog
 "Add to Compare","Thêm vào so sánh",module,Magento_Catalog
 "We found other products you might like!","Chúng tôi tìm thấy các sản phẩm khác, bạn có thể thích!",module,Magento_Catalog
@@ -4086,7 +4086,7 @@ for the following reason:",module,Magento_Company
 "This customer is a user of a different company. If you proceed, the customer will be unlinked from the current company and linked to the selected company.","This customer is a user of a different company. If you proceed, the customer will be unlinked from the current company and linked to the selected company.",module,Magento_Company
 "Change Company?","Change Company?",module,Magento_Company
 "Associate to Company","Associate to Company",module,Magento_Company
-"My Orders","Đơn đặt hàng của tôi",module,Magento_Company
+"My Orders","Đơn hàng",module,Magento_Company
 "Create New Customer","Tạo ra khách hàng mới",module,Magento_Company
 "Create New Company Account","Create New Company Account",module,Magento_Company
 "Name","Tên",module,Magento_Company
@@ -4846,7 +4846,7 @@ new products will be created. Use this step to customize images and price for yo
 "We're unable to send the password reset email.","Chúng tôi không thể gửi email đặt lại mật khẩu.",module,Magento_Customer
 "Please enter your email.","Vui lòng nhập email của bạn.",module,Magento_Customer
 "If there is an account associated with %1 you will receive an email with a link to reset your password.","Nếu có một tài khoản liên kết với %1, bạn sẽ nhận được một email với một liên kết để đặt lại mật khẩu của bạn.",module,Magento_Customer
-"My Account","Tài khoản của tôi",module,Magento_Customer
+"My Account","Tài khoản",module,Magento_Customer
 "This account is not confirmed. <a href=""%1"">Click here</a> to resend confirmation email.","Tài khoản này không được xác nhận.' ' <a href=""%1""> Bấm vào đây</a> để gửi lại email xác nhận.",module,Magento_Customer
 "An unspecified error occurred. Please contact us for assistance.","Phat hiện một lỗi không xác định. Xin vui lòng liên hệ với chúng tôi để được hỗ trợ.",module,Magento_Customer
 "A login and a password are required.","Một tên đăng nhập và mật khẩu được yêu cầu.",module,Magento_Customer
@@ -5026,7 +5026,7 @@ new products will be created. Use this step to customize images and price for yo
 "Contact Information","Thông tin liên hệ",module,Magento_Customer
 "Change Password","Đổi mật khẩu",module,Magento_Customer
 "Newsletters","Bản tin",module,Magento_Customer
-"You are subscribed to ""General Subscription"".","You are subscribed to ""General Subscription"".",module,Magento_Customer
+"You are subscribed to ""General Subscription"".","Bạn đã đăng ký nhận bản tin",module,Magento_Customer
 "or","hoặc",module,Magento_Customer
 "Default Addresses","Địa chỉ mặc định",module,Magento_Customer
 "Change Billing Address","Thay đổi địa chỉ thanh toán",module,Magento_Customer
@@ -6041,7 +6041,7 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "All Files","Tất cả các tệp",module,Magento_Downloadable
 "Unlimited","Không giới hạn",module,Magento_Downloadable
 "Something went wrong while getting the requested content.","Một cái gì đó đã đi sai trong khi nhận được nội dung được yêu cầu.",module,Magento_Downloadable
-"My Downloadable Products","Sản phẩm có thể tải về của tôi",module,Magento_Downloadable
+"My Downloadable Products","Sản phẩm download",module,Magento_Downloadable
 "We can't find the link you requested.","Chúng tôi không thể tìm thấy các liên kết mà bạn yêu cầu.",module,Magento_Downloadable
 "Please sign in to download your product or purchase <a href=""%1"">%2</a>.","Xin vui lòng đăng nhập để tải về sản phẩm của bạn hoặc mua <a href=""%1"">%2</a>.",module,Magento_Downloadable
 "Please sign in to download your product.","Xin vui lòng đăng nhập để tải về sản phẩm của bạn.",module,Magento_Downloadable
@@ -8191,7 +8191,7 @@ it will make no affect on Price filter.",module,Magento_LayeredNavigation
 "<strong style=""color:red"">Warning!</strong> Enabling MAP by default will hide all product prices on Storefront.","<strong style=""color:red"">Warning!</strong> Enabling MAP by default will hide all product prices on Storefront.",module,Magento_Msrp
 "Wishlist","Danh sách yêu thích",module,Magento_MultipleWishlist
 "Customer's Wish List Report","Báo cáo danh sách yêu thích của khách hàng",module,Magento_MultipleWishlist
-"My Wish Lists","Danh sách yêu thích của tôi",module,Magento_MultipleWishlist
+"My Wish Lists","Danh sách yêu thích",module,Magento_MultipleWishlist
 "1 item in wish list","1 sản phẩm trong danh sách yêu thích",module,Magento_MultipleWishlist
 "%1 items in wish list","%1 sản phẩm trong danh sách yêu thích",module,Magento_MultipleWishlist
 "Wish List Search","Tìm kiếm danh sách yêu thích",module,Magento_MultipleWishlist
@@ -8297,7 +8297,7 @@ it will make no affect on Price filter.",module,Magento_LayeredNavigation
 "Enable Multiple Wish Lists","Cho phép có nhiều danh sách yêu thích",module,Magento_MultipleWishlist
 "Number of Multiple Wish Lists","Số lượng đa danh sách yêu thích",module,Magento_MultipleWishlist
 "The number of multiple wish lists should be equal to or more than 2.","Số lượng đa danh sách yêu thích nên nhiều hơn hoặc bằng 2.",module,Magento_MultipleWishlist
-"My Wish Lists Link","Liên kết danh sách yêu thích của tôi",module,Magento_MultipleWishlist
+"My Wish Lists Link","Liên kết danh sách yêu thích",module,Magento_MultipleWishlist
 "Display Wish Lists Summary","Hiện thị tóm tắt danh sách yêu thích",module,Magento_MultipleWishlist
 "Wish List Search Description","Mô tả tìm kiếm Danh sách yêu thích",module,Magento_MultipleWishlist
 "Quick Search Form Types","Tìm kiếm nhanh chóng các loại biểu mẫu",module,Magento_MultipleWishlist
@@ -8481,7 +8481,7 @@ it will make no affect on Price filter.",module,Magento_LayeredNavigation
 "Amount Discount","Amount Discount",module,Magento_NegotiableQuote
 "Proposed Price","Proposed Price",module,Magento_NegotiableQuote
 "Quote Subtotal","Quote Subtotal",module,Magento_NegotiableQuote
-"My Orders","Đơn đặt hàng của tôi",module,Magento_NegotiableQuote
+"My Orders","Đơn hàng",module,Magento_NegotiableQuote
 "My Quotes","My Quotes",module,Magento_NegotiableQuote
 "created quote","created quote",module,Magento_NegotiableQuote
 "closed quote","closed quote",module,Magento_NegotiableQuote
@@ -11105,7 +11105,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "You deleted the rating.","Bạn đã xoá các xếp hạng.",module,Magento_Review
 "Ratings","Xếp hạng",module,Magento_Review
 "You saved the rating.","Bạn đã lưu các xếp hạng.",module,Magento_Review
-"My Product Reviews","Đánh giá sản phẩm của tôi",module,Magento_Review
+"My Product Reviews","Đánh giá sản phẩm",module,Magento_Review
 "Cannot initialize product","Không thể khởi tạo sản phẩm",module,Magento_Review
 "You submitted your review for moderation.","Bạn đã gửi nhận xét của bạn để kiểm duyệt.",module,Magento_Review
 "We can't post your review right now.","Chúng tôi không thể đăng bài nhận xét của bạn ngay bây giờ.",module,Magento_Review
@@ -11944,10 +11944,10 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Value","Giá trị",module,Magento_Sales
 "We found an invalid entity model.","Chúng tôi tìm thấy một mô hình thực thể không hợp lệ.",module,Magento_Sales
 "Order # %1","Đơn hàng #%1",module,Magento_Sales
-"Back to My Orders","Quay lại đơn đặt hàng của tôi",module,Magento_Sales
+"Back to My Orders","Quay lại đơn đặt hàng",module,Magento_Sales
 "View Another Order","Xem một đơn đặt hàng",module,Magento_Sales
 "About Your Refund","Về hoàn phí của bạn",module,Magento_Sales
-"My Orders","Đơn đặt hàng của tôi",module,Magento_Sales
+"My Orders","Đơn hàng",module,Magento_Sales
 "Subscribe to Order Status","Theo dõi tình trạng đơn hàng",module,Magento_Sales
 "About Your Invoice","Về hoá đơn của bạn",module,Magento_Sales
 "Print Order # %1","In đơn đặt hàng # %1",module,Magento_Sales
@@ -13468,7 +13468,7 @@ configuring in shared catalogs will not be restricted to customers.",module,Mage
 "Show Packages","Hiển thị các gói",module,Magento_Shipping
 "About Your Shipment","Về lô hàng của bạn",module,Magento_Shipping
 "Order # %1","Đơn hàng #%1",module,Magento_Shipping
-"Back to My Orders","Quay lại đơn đặt hàng của tôi",module,Magento_Shipping
+"Back to My Orders","Quay lại đơn hàng",module,Magento_Shipping
 "View Another Order","Xem một đơn đặt hàng",module,Magento_Shipping
 "Please enter a comment.","Hãy nhập nội dung bình chú.",module,Magento_Shipping
 "Cannot add new comment.","Không thể bình luận.",module,Magento_Shipping
@@ -16025,7 +16025,7 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Inserting a widget does not create a widget instance.","Inserting a widget does not create a widget instance.",module,Magento_Widget
 "Wish List","Danh sách mong muốn",module,Magento_Wishlist
 "Wish List Sharing","Chia sẻ danh sách yêu thích",module,Magento_Wishlist
-"My Wish List","Danh sách yêu thích của tôi",module,Magento_Wishlist
+"My Wish List","Danh sách yêu thích",module,Magento_Wishlist
 "%1's Wish List","Danh sách yêu thích của %1",module,Magento_Wishlist
 "Page not found.","Không tìm thấy trang.",module,Magento_Wishlist
 "We can't specify a product.","Chúng tôi không thể chỉ định một sản phẩm.",module,Magento_Wishlist
@@ -16129,7 +16129,7 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Email Text Length Limit","Giới hạn độ dài văn bản email",module,Magento_Wishlist
 "General Options","Tùy chọn chung",module,Magento_Wishlist
 "Enabled","Cho phép",module,Magento_Wishlist
-"My Wish List Link","Liên kết danh sách yêu thích của tôi",module,Magento_Wishlist
+"My Wish List Link","Liên kết danh sách yêu thích",module,Magento_Wishlist
 "Display Wish List Summary","Hiện thị tóm tắt danh sách yêu thích",module,Magento_Wishlist
 "Enable RSS","Cho phép RSS",module,Magento_Wishlist
 "No Items Found","Không tìm thấy sản phẩm nào",module,Magento_Wishlist
@@ -16279,7 +16279,7 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Account Information","Thông tin tài khoản",theme,frontend/Magento/luma
 "About Us","Giới Thiệu Về Chúng Tôi",theme,frontend/Magento/luma
 "Customer Service","Dịch vụ khách hàng",theme,frontend/Magento/luma
-"My Account","Tài khoản của tôi",theme,frontend/Magento/luma
+"My Account","Tài khoản",theme,frontend/Magento/luma
 "Backup options","Tùy chọn sao lưu",lib,web
 "Warning","Cảnh báo",lib,web
 "Cancel","Hủy bỏ",lib,web
