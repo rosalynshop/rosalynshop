@@ -2287,7 +2287,7 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "Buy %1 for: ","Mua %1 cho: ",module,Magento_Catalog
 "Buy %1 for %2 each and <strong class=""benefit"">save<span class=""percent tier-%3"">&nbsp;%4</span>%</strong>","Mua %1 cho %2 mỗi và <strong class=""benefit""> save <span class=""percent tier-%3"">%4%</span></strong>",module,Magento_Catalog
 "Buy %1 for %2 each","Mua %1 cho %2 mỗi",module,Magento_Catalog
-"Shop By","Mua sắm bằng",module,Magento_Catalog
+"Shop By","Danh mục",module,Magento_Catalog
 "Shopping Options","Lựa chọn mua sắm",module,Magento_Catalog
 "Compare Products","So sánh sản phẩm",module,Magento_Catalog
 "Print This Page","In Trang này",module,Magento_Catalog
@@ -7969,7 +7969,7 @@ e.g. var/export, var/import, var/export/some/dir","Đối với loại ""Local S
 "Previous","Trước",module,Magento_LayeredNavigation
 "Remove","Loại bỏ",module,Magento_LayeredNavigation
 "Remove This Item","Loại bỏ mục này",module,Magento_LayeredNavigation
-"Shop By","Mua sắm bằng",module,Magento_LayeredNavigation
+"Shop By","Danh mục",module,Magento_LayeredNavigation
 "Clear All","Xóa tất cả",module,Magento_LayeredNavigation
 "Shopping Options","Lựa chọn mua sắm",module,Magento_LayeredNavigation
 "Layered Navigation","Layered Navigation",module,Magento_LayeredNavigation
@@ -16099,7 +16099,9 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Remove item","Xóa sản phẩm",module,Magento_Wishlist
 "Add to Compare","Thêm vào so sánh",module,Magento_Wishlist
 "This Wish List has no Items","Danh sách yêu thích này không có sản phẩm nào",module,Magento_Wishlist
-"%1 has been added to your Wish List.","%1 đã được thêm vào danh sách yêu thích của bạn.",module,Magento_Wishlist
+"%1 has been added to your Wish List.","%1 đã được thêm vào danh sách yêu thích.",module,Magento_Wishlist
+"has been added to your Wish List","đã được thêm vào danh sách yêu thích.",module,Magento_Wishlist
+"View Wish List","Xem danh sách yêu thích",module,Magento_Wishlist
 "Click <a href=""%1"">here</a> to continue shopping.","Bấm vào <a href=""%1""> đây</a> để tiếp tục mua sắm.",module,Magento_Wishlist
 "See Details","Xem chi tiết",module,Magento_Wishlist
 "Options Details","Tùy chọn chi tiết",module,Magento_Wishlist
@@ -16224,7 +16226,7 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Previous","Trước",theme,frontend/Magento/luma
 "Remove","Loại bỏ",theme,frontend/Magento/luma
 "Remove This Item","Loại bỏ mục này",theme,frontend/Magento/luma
-"Shop By","Mua sắm bằng",theme,frontend/Magento/luma
+"Shop By","Danh mục",theme,frontend/Magento/luma
 "Clear All","Xóa tất cả",theme,frontend/Magento/luma
 "Shopping Options","Lựa chọn mua sắm",theme,frontend/Magento/luma
 "Welcome to %store_name","Chào mừng đến với %store_name",theme,frontend/Magento/luma
