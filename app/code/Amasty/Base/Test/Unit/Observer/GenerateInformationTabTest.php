@@ -18,7 +18,7 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @see GenerateInformationTab
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
  */
 class GenerateInformationTabTest extends \PHPUnit\Framework\TestCase
 {

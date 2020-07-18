@@ -1,0 +1,41 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php
+/** @var \Amasty\AdvancedReview\Block\Email\ReminderEmailContent $block */
+$products = $block->getProducts();
+?>
+
+<?php if (!empty($products)) : ?>
+<table class="amreview-container">
+    <?php foreach ($products as $product) : ?>
+        <?php $productUrl = $block->escapeUrl($block->getProductUrl($product)); ?>
+        <tr>
+            <td class="col amreview-item">
+                <p>
+                    <strong class="product name">
+                        <a href="<?= /* @noEscape */ $productUrl ?>"
+                            title="<?= $block->escapeHtml($product->getName()) ?>"
+                        >
+                            <?= $block->escapeHtml($product->getName()) ?>
+                        </a>
+                    </strong>
+                </p>
+                <?php if ($shortDescription = $block->getFilteredContent($product->getShortDescription())) : ?>
+                    <p><small><?= /* @noEscape */  $shortDescription ?></small></p>
+                <?php endif; ?>
+            </td>
+            <td class="col amreview-item amreview-button-box">
+                <a class="amreview-button blue" href="<?= /* @noEscape */  $productUrl . '#reviews' ?>"
+                   title="<?= /* @noEscape */ __('Leave a review'); ?>">
+                    <?= /* @noEscape */ __('Leave a review'); ?>
+                </a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<?php endif;?>

@@ -45,12 +45,13 @@
         .review-field-rating {
             display: table-row;
             .label, .review-control-vote {
-                display: table-cell;
+                display: inline-flex;
                 vertical-align: top;
                 line-height: 20px;
                 padding-bottom: 10px;
                 margin: 0;
-                .font-size(14);
+                .font-size(12);
+                float: left;
             }
             .review-control-vote {
                 padding: 0 30px;
@@ -103,8 +104,9 @@
             strong {
                 display: block;
                 font-weight: 600;
-                padding-top: 10px;
-                .font-size(14);
+                padding-top: 2px;
+                font-size: 14px;
+                color: #ff4747;
             }
             margin-bottom: @indent__base;
         }
@@ -298,6 +300,15 @@
         .rating-summary {
             display: inline-block;
             vertical-align: baseline;
+        }
+    }
+    .rosa-review-field-rating {
+        width: 100%;
+        .rosa-label {
+            width: 40%;
+        }
+        .rosa-vote {
+            width: 55%;
         }
     }
 }

@@ -1,0 +1,27 @@
+{
+    "name": "amasty/advanced-review",
+    "description": "Advanced Review by Amasty",
+    "require": {
+        "php": "7.0.2|7.0.4|~7.0.6|^7.1.0",
+        "amasty/base": ">=1.9.5",
+        "amasty/aminvisiblecaptcha": ">=2.2.0",
+        "amasty/cron-schedule-list": ">=1.0.3"
+    },
+    "suggest": {
+        "amasty/advanced-reviews-page-builder": "Install advanced-reviews-page-builder module to activate PageBuilder and Advanced Review integration.",
+        "amasty/advanced-review-graphql": "Install advanced-review-graphql module to activate GraphQl and Advanced Review integration."
+    },
+    "type": "magento2-module",
+    "version": "1.12.1",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\AdvancedReview\\": ""
+        }
+    }
+}

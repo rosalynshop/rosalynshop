@@ -1,0 +1,27 @@
+//
+//  Helpers
+//  _________________________
+
+._amrev-disabled {
+    opacity: .8;
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
+}
+
+._clear-btn {
+    &,
+    &:focus,
+    &:hover,
+    &:active,
+    &:not(.primary) {
+        padding: 0;
+        border: none;
+        outline: none;
+        background: none;
+        font-weight: normal;
+        box-shadow: none;
+    }
+}

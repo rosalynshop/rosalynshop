@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amasty_advancedreview>
+            <general>
+                <allow_guest>1</allow_guest>
+                <admin_answer>1</admin_answer>
+                <helpful>1</helpful>
+                <recommend>1</recommend>
+                <page_limit>5</page_limit>
+                <gdpr_text><![CDATA[I have read & accept the <a target="_blank" href="/privacy-policy">Privacy Policy</a>]]></gdpr_text>
+            </general>
+            <images>
+                <allow_upload>1</allow_upload>
+                <is_required>1</is_required>
+                <image_width>100</image_width>
+                <slides_to_show>5</slides_to_show>
+            </images>
+            <customer_notify>
+                <sender>general</sender>
+                <template>amasty_advancedreview_customer_notify_template</template>
+            </customer_notify>
+            <reminder>
+                <enabled>1</enabled>
+                <days>5</days>
+                <sender>general</sender>
+                <template>amasty_advancedreview_reminder_template</template>
+                <frequency>2</frequency>
+            </reminder>
+            <coupons>
+                <enabled>0</enabled>
+                <sender>general</sender>
+                <template>amasty_advancedreview_coupons_template</template>
+                <discount_amount>0</discount_amount>
+                <coupon_days>0</coupon_days>
+                <coupon_uses>0</coupon_uses>
+                <uses_per_customer>0</uses_per_customer>
+            </coupons>
+            <comments>
+                <enabled>0</enabled>
+                <guest>0</guest>
+                <auto_approve>0</auto_approve>
+                <sender>general</sender>
+                <template>amasty_advancedreview_comments_template</template>
+            </comments>
+        </amasty_advancedreview>
+    </default>
+</config>

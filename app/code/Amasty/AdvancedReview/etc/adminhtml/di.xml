@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Review\Block\Adminhtml\Edit\Form">
+        <plugin name="Amasty_AdvancedReview::add-answer-field"
+                type="Amasty\AdvancedReview\Plugin\Review\Block\Adminhtml\Edit\Form"/>
+    </type>
+
+    <type name="Magento\Review\Block\Adminhtml\Add\Form">
+        <plugin name="Amasty_AdvancedReview::add-module-fields"
+                type="Amasty\AdvancedReview\Plugin\Review\Block\Adminhtml\Edit\Form"/>
+    </type>
+
+    <type name="Magento\Review\Controller\Adminhtml\Product\Save">
+        <plugin name="Amasty_AdvancedReview::remove-image"
+                type="Amasty\AdvancedReview\Plugin\Review\Controller\Adminhtml\Product\Review\Save"/>
+    </type>
+
+    <type name="Magento\Review\Model\Review">
+        <plugin name="Amasty_AdvancedReview::send-notification" type="Amasty\AdvancedReview\Plugin\Review\Model\Adminhtml\Review" />
+    </type>
+
+    <type name="Magento\Review\Block\Adminhtml\Grid">
+        <plugin name="Amasty_AdvancedReview::add-massaction" type="Amasty\AdvancedReview\Plugin\Review\Block\Adminhtml\GridPlugin" />
+    </type>
+
+    <virtualType name="Amasty\AdvancedReview\Model\Sources\EmailTemplate" type="Amasty\AdvancedReview\Model\Sources\AbstractTemplate">
+        <arguments>
+            <argument name="origTemplateCode" xsi:type="string">amasty_advancedreview_admin_notifications_template</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\AdvancedReview\Model\Sources\CouponEmailTemplate" type="Amasty\AdvancedReview\Model\Sources\AbstractTemplate">
+        <arguments>
+            <argument name="origTemplateCode" xsi:type="string">amasty_advancedreview_coupons_template</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\AdvancedReview\Model\Sources\CommentEmailTemplate" type="Amasty\AdvancedReview\Model\Sources\AbstractTemplate">
+        <arguments>
+            <argument name="origTemplateCode" xsi:type="string">amasty_advancedreview_comments_template</argument>
+        </arguments>
+    </virtualType>
+</config>

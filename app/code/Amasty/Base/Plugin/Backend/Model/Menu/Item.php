@@ -23,6 +23,8 @@ class Item
     //phpcs:ignore Magento2.Files.LineLength.MaxExceeded
     const MARKET_URL = 'https://amasty.com/magento-2-extensions.html?utm_source=extension&utm_medium=backend&utm_campaign=main_menu_to_catalog';
 
+    const MAGENTO_MARKET_URL = 'https://marketplace.magento.com/partner/Amasty';
+
     /**
      * @var \Amasty\Base\Helper\Module
      */
@@ -43,8 +45,8 @@ class Item
     public function afterGetUrl(NativeItem $subject, $url)
     {
         $id = $subject->getId();
-        if ($id == self::BASE_MARKETPLACE) {
-            $url = self::MARKET_URL;
+        if ($id === self::BASE_MARKETPLACE) {
+            $url = $this->moduleHelper->isOriginMarketplace() ? self::MAGENTO_MARKET_URL : self::MARKET_URL;
         }
 
         /* we can't add guide link into item object - find link again */

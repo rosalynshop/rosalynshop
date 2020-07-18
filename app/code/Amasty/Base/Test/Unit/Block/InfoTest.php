@@ -19,7 +19,7 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @see Info
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
  */
 class InfoTest extends \PHPUnit\Framework\TestCase
 {

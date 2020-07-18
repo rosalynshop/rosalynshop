@@ -37,10 +37,14 @@ class LogBeautifier
                 $result = $this->prepareArrayVar($var);
                 break;
             case 'boolean':
-                $result = ($var) ? 'true' : 'false';
+                $result = $var ? 'true' : 'false';
                 break;
             case 'null':
                 $result = 'null';
+                break;
+            case 'resource':
+            case 'resource (closed)':
+                $result = 'resource';
                 break;
             default:
                 $result = $var;
@@ -65,9 +69,9 @@ class LogBeautifier
     }
 
     /**
-     * @param array $var
+     * @param mixed $var
      *
-     * @return string
+     * @return string|int|float
      */
     private function arraySimpleType($var)
     {
@@ -82,6 +86,9 @@ class LogBeautifier
             case 'float':
             case 'double':
                 return $var;
+            case 'resource':
+            case 'resource (closed)':
+                return 'resource';
             default:
                 return 'Unknown variable type!';
         }
@@ -148,7 +155,7 @@ class LogBeautifier
     public static function getInstance()
     {
         if (!self::$instance) {
-            self::$instance = new LogBeautifier();
+            self::$instance = new self();
         }
 
         return self::$instance;

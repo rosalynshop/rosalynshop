@@ -16,7 +16,7 @@ interface BehaviorInterface
     /**
      * @param array $importData
      *
-     * @return void
+     * @return \Magento\Framework\DataObject|void
      */
     public function execute(array $importData);
 }

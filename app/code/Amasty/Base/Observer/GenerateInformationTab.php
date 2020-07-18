@@ -103,8 +103,8 @@ class GenerateInformationTab implements ObserverInterface
      */
     protected function getLogoHtml()
     {
-        $src = $this->assetRepo->getUrl("Amasty_Base::images/amasty_logo.svg");
-        $href = 'https://amasty.com' . $this->getSeoparams() . 'amasty_logo_' . $this->getModuleCode();
+        $src = $this->assetRepo->getUrl('Amasty_Base::images/amasty_logo.svg');
+        $href = 'https://amasty.com' . $this->getSeoParams() . 'amasty_logo_' . $this->getModuleCode();
         $html = '<a target="_blank" href="' . $href . '"><img class="amasty-logo" src="' . $src . '"/></a>';
 
         return $html;
@@ -128,7 +128,7 @@ class GenerateInformationTab implements ObserverInterface
             }
 
             foreach ($content as $message) {
-                if (isset($message['type']) && isset($message['text'])) {
+                if (isset($message['type'], $message['text'])) {
                     $html .= '<div class="amasty-additional-content"><span class="message ' . $message['type'] . '">'
                         . $message['text']
                         . '</span></div>';
@@ -195,7 +195,7 @@ class GenerateInformationTab implements ObserverInterface
             $class = get_class($this->getBlock());
             if ($class) {
                 $class = explode('\\', $class);
-                if (isset($class[0]) && isset($class[1])) {
+                if (isset($class[0], $class[1])) {
                     $this->moduleCode = $class[0] . '_' . $class[1];
                 }
             }
@@ -210,7 +210,7 @@ class GenerateInformationTab implements ObserverInterface
     protected function getChangeLogLink()
     {
         return $this->getModuleLink()
-            . $this->getSeoparams() . 'changelog_' . $this->getModuleCode() . '#changelog';
+            . $this->getSeoParams() . 'changelog_' . $this->getModuleCode() . '#changelog';
     }
 
     /**
@@ -237,7 +237,7 @@ class GenerateInformationTab implements ObserverInterface
     {
         $link = $this->getBlock()->getUserGuide();
         if ($link) {
-            $seoLink = $this->getSeoparams();
+            $seoLink = $this->getSeoParams();
             if (strpos($link, '?') !== false) {
                 $seoLink = str_replace('?', '&', $seoLink);
             }
@@ -251,7 +251,7 @@ class GenerateInformationTab implements ObserverInterface
     /**
      * @return string
      */
-    private function getSeoparams()
+    private function getSeoParams()
     {
         return self::SEO_PARAMS;
     }
@@ -310,7 +310,7 @@ class GenerateInformationTab implements ObserverInterface
         $result = '';
         $currentNode = null;
         foreach ($config as $node) {
-            if ($node->getId() == 'amasty') {
+            if ($node->getId() === 'amasty') {
                 $currentNode = $node;
                 break;
             }
@@ -319,8 +319,7 @@ class GenerateInformationTab implements ObserverInterface
         if ($currentNode) {
             foreach ($currentNode->getChildren() as $item) {
                 $data = $item->getData('resource');
-                if (isset($data['label'])
-                    && isset($data['resource'])
+                if (isset($data['label'], $data['resource'])
                     && strpos($data['resource'], $this->getModuleCode() . '::') !== false
                 ) {
                     $result = $data['label'];
@@ -353,8 +352,6 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
-     * @param $currentVer
-     *
      * @return string
      */
     private function getModuleLink()

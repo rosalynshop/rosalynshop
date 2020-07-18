@@ -36,13 +36,17 @@ class Serializer
 
     public function serialize($value)
     {
-        if ($this->serializer === null) {
-            //@codingStandardsIgnoreStart
-            return serialize($value);
-            //@codingStandardsIgnoreEnd
-        }
+        try {
+            if ($this->serializer === null) {
+                //@codingStandardsIgnoreStart
+                return serialize($value);
+                //@codingStandardsIgnoreEnd
+            }
 
-        return $this->serializer->serialize($value);
+            return $this->serializer->serialize($value);
+        } catch (\Exception $e) {
+            return '{}';
+        }
     }
 
     public function unserialize($value)

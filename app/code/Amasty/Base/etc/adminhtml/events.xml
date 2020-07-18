@@ -15,4 +15,8 @@
         <observer name="amasty_base_admin_notification"
                   instance="Amasty\Base\Observer\PreDispatchAdminActionController" />
     </event>
+
+    <event name="admin_system_config_save">
+        <observer name="amasty_base_config_save" instance="Amasty\Base\Observer\SaveConfig"/>
+    </event>
 </config>

@@ -60,12 +60,12 @@ class GetCustomerIp
                 if (strpos($ip, ',') !== false) {
                     $addresses = explode(',', $ip);
                     foreach ($addresses as $address) {
-                        if (trim($address) != self::LOCAL_IP) {
+                        if (trim($address) !== self::LOCAL_IP) {
                             return trim($address);
                         }
                     }
                 } else {
-                    if ($ip != self::LOCAL_IP) {
+                    if ($ip !== self::LOCAL_IP) {
                         return $ip;
                     }
                 }

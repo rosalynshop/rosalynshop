@@ -1,0 +1,166 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php
+// phpcs:ignoreFile
+/** @var \Amasty\AdvancedReview\Block\Widget\Reviews $block */
+$displayedCollection = $block->getReviewsCollection();
+$_items = $displayedCollection->getItems();
+$format = $block->getDateFormat() ? : \IntlDateFormatter::MEDIUM;
+
+/** @var \Amasty\AdvancedReview\Helper\BlockHelper $advancedHelper */
+$advancedHelper = $block->getAdvancedHelper();
+$_helper = $this->helper(Magento\Catalog\Helper\Output::class);
+$position = $block->getContainerPosition();
+
+$isSlider = $block->getEnableSlider() && $position == 'grid' && count($_items) > 2;
+$tagWrap = $isSlider ? 'div' : 'ol';
+$tag = $isSlider ? 'div' : 'li';
+$unique = mt_rand();
+$layoutName = stripslashes($block->getNameInLayout());
+?>
+
+<?php if (count($_items)) : ?>
+    <div class="block review-list amreview-widget-container -<?= /* @noEscape */ $position ?>">
+        <div class="block-title amreview-title" data-amreview-js="toggle-reviews-<?= /* @noEscape */ $layoutName ?>">
+            <?= $block->escapeHtml($block->getTitle()) ?>
+        </div>
+        <div class="block-content" data-amreview-js="reviews-container">
+            <<?= /* @noEscape */ $tagWrap ?> class="items review-items" <?= /* @noEscape */ $isSlider ? 'data-amreview-js="slider' . $unique . '"' : ''?>>
+            <?php $iterator = 1; ?>
+                <?php foreach ($_items as $review) : ?>
+                    <?php
+                    /** @var \Magento\Catalog\Model\Product $product */
+                    $product = $block->getProduct($review)
+                    ?>
+                    <?= /* @noEscape */ ($iterator++ == 1) ? '' : '</' . $tag . '>' ?><<?= /* @noEscape */ $tag?> class="item review-item amreview-review-wrapper">
+                        <h4 class="amreview-title-wrapper">
+                            <a class="product-item-link"
+                               href="<?= /* @noEscape */ $product->getProductUrl() ?>">
+                                <?= /* @noEscape */ $_helper->productAttribute($product, $product->getName(), 'name') ?>
+                            </a>
+                        </h4>
+                        <div class="amreview-details-wrapper">
+                            <a href="<?= /* @noEscape */ $product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                                <div class="amreview-image-wrapper">
+                                    <?= $block->getImage($product)->toHtml() ?>
+                                </div>
+                            </a>
+                            <div class="amreview-rating-wrapper">
+                                <?php
+                                $ratingsVotes = $review->getRatingVotes();
+                                $countOfRatings = count($ratingsVotes);
+                                ?>
+                                <?php if ($countOfRatings) : ?>
+                                    <?php $ratingsCounter = 0;?>
+                                    <?php foreach ($ratingsVotes as $_vote) : ?>
+                                        <?php if (++$ratingsCounter > 3) : ?>
+                                            <?php break; ?>
+                                        <?php endif; ?>
+                                        <div class="amreview-rating-item<?= ($countOfRatings == 1 && $review->getData('is_recommended') != 1) ? ' -one-rating' : '' ?>">
+                                            <span class="amreview-rating-label">
+                                                <?= $block->escapeHtml($_vote->getRatingCode()) ?>
+                                            </span>
+                                            <div class="amreview-rating-value">
+                                                <?php if ($countOfRatings == 1 && $review->getData('is_recommended') != 1) :?>
+                                                    <span class="amreview-number"><?= /* @noEscape */ sprintf("%d.0", $_vote->getValue());?></span>
+                                                <?php endif;?>
+                                                <div class="amstars-rating-container -small"
+                                                    <?php $stars = $_vote->getValue(); ?>
+                                                     title="<?= $block->escapeHtml($stars > 1 ? __('%1 stars', $stars) : __('%1 star', $stars)) ?>"
+                                                >
+                                                    <p class="amstars-stars"
+                                                       style="width:<?= $block->escapeHtml($_vote->getPercent()) ?>%">
+                                                        <span class="hidden">
+                                                            <?= $block->escapeHtml($_vote->getPercent()) ?>%
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                    <?php if ($countOfRatings == 1) :?>
+                                        <?= $advancedHelper->getRecommendedHtml($review) ?>
+                                    <?php endif;?>
+                                <?php endif; ?>
+                            </div>
+                            <div class="amreview-description-wrapper">
+                                <p class="amreview-name">
+                                    <?= $block->escapeHtml(__('Review by '))?>
+                                    <strong><?= $block->escapeHtml($review->getNickname())?></strong>
+                                </p>
+                                <p class="amreview-message">
+                                    <?= $block->escapeHtml($block->getReviewMessage($review->getDetail())) ?>
+                                </p>
+                                <div class="amreview-footer">
+                                    <a class="amreview-full-link"
+                                       href="<?= $block->escapeUrl($product->getProductUrl()) ?>#reviews">
+                                        <?= $block->escapeHtml(__('See all reviews')) ?>
+                                    </a>
+                                    <time class="amreview-date"
+                                          datetime="<?= $block->escapeHtml($block->formatDate($review->getCreatedAt(), $format)) ?>">
+                                        <?= $block->escapeHtml($block->formatDate($review->getCreatedAt(), $format)) ?>
+                                    </time>
+                                </div>
+                            </div>
+                        </div>
+                    <?= /* @noEscape */ ($iterator == count($_items)+1) ? '</' . $tag . '>' : '' ?>
+                <?php endforeach; ?>
+            </<?= /* @noEscape */ $tagWrap ?>>
+        </div>
+    </div>
+    <script>
+        require([
+            "jquery"
+        ], function ($) {
+            $('[data-amreview-js="toggle-reviews-<?= /* @noEscape */ $layoutName ?>"]').on('click', function () {
+                $(this).siblings('[data-amreview-js="reviews-container"]').slideToggle(300);
+                $(this).toggleClass('-collapsed');
+            });
+        });
+    </script>
+    <?php if ($isSlider) : ?>
+        <script type="text/javascript">
+            require([
+                "jquery",
+                "Amasty_Base/vendor/slick/slick.min"
+            ], function ($) {
+                $('.amreview-widget-container [data-amreview-js="<?= /* @noEscape */ 'slider' . $unique ?>"]').slick(
+                    {
+                        dots: true,
+                        infinite: true,
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                        responsive: [
+                            {
+                                breakpoint: 1024,
+                                settings: {
+                                    slidesToShow: 3,
+                                    slidesToScroll: 1
+                                }
+                            },
+                            {
+                                breakpoint: 768,
+                                settings: {
+                                    slidesToShow: 2,
+                                    slidesToScroll: 1
+                                }
+                            },
+                            {
+                                breakpoint: 425,
+                                settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1
+                                }
+                            }
+                        ]
+                    }
+                );
+            });
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

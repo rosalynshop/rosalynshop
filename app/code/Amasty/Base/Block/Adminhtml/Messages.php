@@ -50,7 +50,7 @@ class Messages extends \Magento\Backend\Block\Template
     public function _toHtml()
     {
         $html  = '';
-        if ($this->request->getParam('section') == self::AMASTY_BASE_SECTION_NAME) {
+        if ($this->request->getParam('section') === self::AMASTY_BASE_SECTION_NAME) {
             $html = parent::_toHtml();
         }
 

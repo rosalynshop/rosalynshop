@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <block name="review.comments" class="Amasty\AdvancedReview\Block\Comment\Container">
+            <block name="review.comments.messages" as="messages" class="Amasty\AdvancedReview\Block\Comment\CommentsList">
+                <block name="review.comments.message" as="message" class="Amasty\AdvancedReview\Block\Comment\Comment" />
+            </block>
+            <block name="review.comments.form" as="form" class="Amasty\AdvancedReview\Block\Comment\Form" />
+        </block>
+    </body>
+</page>

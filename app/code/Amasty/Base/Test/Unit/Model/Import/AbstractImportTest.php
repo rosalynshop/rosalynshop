@@ -19,9 +19,9 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @see AbstractImport
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
  */
-class UnsubscribeTest extends \PHPUnit\Framework\TestCase
+class AbstractImportTest extends \PHPUnit\Framework\TestCase
 {
     use Traits\ObjectManagerTrait;
     use Traits\ReflectionTrait;

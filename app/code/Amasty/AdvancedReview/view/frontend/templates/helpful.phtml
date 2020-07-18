@@ -1,0 +1,36 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php
+/** @var \Amasty\AdvancedReview\Block\Helpful $block */
+// phpcs:ignoreFile
+?>
+<div class="amreview-helpful-wrap" id="review-helpful-<?= /* @noEscape */ $block->getReview()->getId();?>">
+    <input name="form_key" type="hidden" value="<?= /* @noEscape */ $block->getFormKey(); ?>" />
+    <span class="amreview-helpful">
+        <?= $block->escapeHtml(__('Was this review helpful?'));?>
+    </span>
+    <div class="amreview-options">
+        <div class="amreview-plus">
+            <span class="amreview-icon"></span>
+            <span class="amreview-count">0</span>
+        </div>
+        <div class="amreview-minus">
+            <span class="amreview-icon"></span>
+            <span class="amreview-count">0</span>
+        </div>
+    </div>
+</div>
+<script>
+    require([
+        "jquery",
+        "jquery/ui",
+        "Amasty_AdvancedReview/js/amVote"
+    ], function ($) {
+        $("#review-helpful-<?= /* @noEscape */ $block->getReview()->getId();?>").amVote(<?= /* @noEscape */ $block->getJsonConfig();?>);
+    });
+</script>

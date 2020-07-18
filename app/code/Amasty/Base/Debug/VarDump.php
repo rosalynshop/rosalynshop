@@ -165,7 +165,7 @@ class VarDump
     public static function isAllowed()
     {
         foreach (self::$addressPath as $path) {
-            if (!empty($_SERVER[$path]) && in_array($_SERVER[$path], self::$amastyIps)) {
+            if (!empty($_SERVER[$path]) && in_array($_SERVER[$path], self::$amastyIps, true)) {
                 return true;
             }
         }

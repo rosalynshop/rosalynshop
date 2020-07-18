@@ -77,16 +77,16 @@ class Download
         }
 
         if (!preg_match('/[a-z0-9\-]+/i', $this->request->getParam('filename'))) {
-
             return $this->noEntityFound();
         }
+
         $fileName = $this->request->getParam('filename') . '.csv';
         $moduleDir = $this->reader->getModuleDir('', $moduleName);
         $fileAbsolutePath = $moduleDir . '/Files/Sample/' . $fileName;
         $directoryRead = $this->readFactory->create($moduleDir);
         $filePath = $directoryRead->getRelativePath($fileAbsolutePath);
-        if (!$directoryRead->isFile($filePath)) {
 
+        if (!$directoryRead->isFile($filePath)) {
             return $this->noEntityFound();
         }
 

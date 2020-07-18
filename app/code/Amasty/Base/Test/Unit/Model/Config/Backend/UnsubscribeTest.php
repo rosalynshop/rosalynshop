@@ -19,7 +19,7 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @see Unsubscribe
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
  */
 class UnsubscribeTest extends \PHPUnit\Framework\TestCase
 {

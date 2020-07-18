@@ -1,3 +1,5 @@
+"Not Installed","Not Installed"
+Status,Status
 Installed,Installed
 "Update available","Update available"
 "Output disabled","Output disabled"
@@ -53,10 +55,11 @@ Search,Search
 Amasty,Amasty
 "Modules & Notifications","Modules & Notifications"
 "Extensions &amp; Notifications","Extensions &amp; Notifications"
+"Installed Extensions","Installed Extensions"
 Notifications,Notifications
 "Update Frequency","Update Frequency"
 "I want to Receive Notifications about:","I want to Receive Notifications about:"
+"Enable Feature Suggestions in Config?","Enable Feature Suggestions in Config?"
 Menu,Menu
 "Enable Amasty Menu Item","Enable Amasty Menu Item"
-"Installed Extensions","Installed Extensions"
 "System Information","System Information"

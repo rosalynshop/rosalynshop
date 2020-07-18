@@ -57,7 +57,7 @@ class Unsubscribe extends \Magento\Framework\App\Config\Value implements
     private function prepareMessage()
     {
         $value = explode(',', $this->getValue());
-        if (in_array(NotificationType::UNSUBSCRIBE_ALL, $value)) {
+        if (in_array(NotificationType::UNSUBSCRIBE_ALL, $value, true)) {
             $changes = [NotificationType::UNSUBSCRIBE_ALL];
         } else {
             $oldValue = explode(',', $this->getOldValue());
@@ -91,8 +91,8 @@ class Unsubscribe extends \Magento\Framework\App\Config\Value implements
         $message = '';
         $titles = $this->notificationType->toOptionArray();
         foreach ($titles as $title) {
-            if ($title['value'] == $change) {
-                if ($change == NotificationType::UNSUBSCRIBE_ALL) {
+            if ($title['value'] === $change) {
+                if ($change === NotificationType::UNSUBSCRIBE_ALL) {
                     $label = __('All Notifications');
                 } else {
                     $label = $title['label'];

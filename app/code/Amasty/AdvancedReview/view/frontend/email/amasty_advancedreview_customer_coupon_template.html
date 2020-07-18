@@ -1,0 +1,22 @@
+<!--@subject Your review was approved! Coupon code is inside @-->
+<!--@vars {
+"var customer_name":"Customer Name",
+"var coupon_code":"Coupon Code",
+"var coupon_days_message":"Coupon Days Message"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">
+    {{trans "Hello"}} {{var customer_name}}
+</p>
+
+<p>{{trans "Thank you for the feedback left! We’d love to inform you that the review was approved successfully."}}</p>
+
+<p>{{trans "Here is the promised coupon code: "}}{{var coupon_code}}</p>
+
+<p>{{trans "This discount coupon can be used for your next purchase with us ("}}{{var coupon_days_message}}).</p>
+
+<p>{{trans "Hope to see you soon!"}}</p>
+
+{{template config_path="design/email/footer_template"}}

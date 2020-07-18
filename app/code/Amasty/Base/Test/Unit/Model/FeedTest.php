@@ -20,7 +20,7 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @see Feed
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
  */
 class FeedTest extends \PHPUnit\Framework\TestCase
 {
@@ -54,7 +54,7 @@ class FeedTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Info::getInstalledAmastyExtensions
+     * @covers Feed::getInstalledAmastyExtensions
      */
     public function testGetInstalledAmastyExtensions()
     {
@@ -62,7 +62,7 @@ class FeedTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Info::validateByExtension
+     * @covers Feed::validateByExtension
      * @dataProvider validateByExtensionDataProvider
      */
     public function testValidateByExtension($extensions, $result)
@@ -84,7 +84,7 @@ class FeedTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Info::validateByNotInstalled
+     * @covers Feed::validateByNotInstalled
      * @dataProvider validateByNotInstalledDataProvider
      */
     public function testValidateByNotInstalled($extensions, $result)
@@ -106,25 +106,12 @@ class FeedTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Info::getDependModules
+     * @covers Feed::getDependModules
      */
     public function testGetDependModules()
     {
         $this->moduleHelper->expects($this->any())->method('getModuleInfo')
             ->willReturn(['name' => 'amasty', 'require' => ['magento' => 'catalog', 'amasty' => 'shopby']]);
         $this->assertEquals(['Amasty_Seo'], $this->invokeMethod($this->model, 'getDependModules', [['Amasty_Seo']]));
-    }
-
-    /**
-     * @covers Info::getCurrentScheme
-     */
-    public function testGetCurrentScheme()
-    {
-        $baseUrlObject = $this->createMock(\Zend\Uri\Uri::class);
-        $baseUrlObject->expects($this->any())->method('getScheme')->willReturnOnConsecutiveCalls('', 'test');
-
-        $this->setProperty($this->model, 'baseUrlObject', $baseUrlObject);
-        $this->assertEquals('', $this->invokeMethod($this->model, 'getCurrentScheme'));
-        $this->assertEquals('test://', $this->invokeMethod($this->model, 'getCurrentScheme'));
     }
 }

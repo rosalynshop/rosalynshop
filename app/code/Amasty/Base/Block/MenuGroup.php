@@ -38,8 +38,8 @@ class MenuGroup extends Fieldset
     {
         if (version_compare($this->metadata->getVersion(), '2.2.0', '>=')) {
             return parent::render($element);
-        } else {
-            return;
         }
+
+        return '';
     }
 }

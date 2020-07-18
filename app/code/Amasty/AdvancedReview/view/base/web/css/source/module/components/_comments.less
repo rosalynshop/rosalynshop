@@ -1,0 +1,411 @@
+//
+//  Comment Block Styles
+//  ____________________________________________
+
+//
+//  Variables
+//  --------------------------------------------
+
+@amrev-comments__active__color: #026bb3;
+@amrev-comments-btn__color: #1e79c2;
+
+//
+//  Icons
+//  --------------------------------------------
+
+@amrev-arrow-reply__background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTYuMjAzOSAzLjA3Njg4SDIuMTk4NTdMMy4wMzEyOCAzLjg3MjU3QzMuMjgyNzcgNC4xMTI4OCAzLjI4Mjc3IDQuNTAyNDMgMy4wMzEyOCA0Ljc0Mjc0QzIuNzgxNzIgNC45ODE1MSAyLjM3MzEgNC45ODQ1OSAyLjEyMDY1IDQuNzQyNzRMMC4xODg2MTUgMi44OTY1N0MtMC4wNjI4NzE5IDIuNjU2MjYgLTAuMDYyODcxOSAyLjI2NjcxIDAuMTg4NjE1IDIuMDI2NEwyLjEyMDY1IDAuMTgwMjMyQzIuMzcxODEgLTAuMDYwMDc3NSAyLjc4MDEyIC0wLjA2MDA3NzUgMy4wMzEyOCAwLjE4MDIzMkMzLjI4Mjc3IDAuNDIwNTQzIDMuMjgyNzcgMC44MTAwODUgMy4wMzEyOCAxLjA1MDRMMi4xOTg1NyAxLjg0NjA5SDYuMjAzOUM5LjM5OTgxIDEuODQ2MDkgMTIgNC4zMzA3MyAxMiA3LjM4NDYxQzEyIDcuNzI0MzEgMTEuNzExNSA4IDExLjM1NiA4QzExLjAwMDUgOCAxMC43MTIgNy43MjQzMSAxMC43MTIgNy4zODQ2MUMxMC43MTIgNS4wMDkyIDguNjg5NzggMy4wNzY4OCA2LjIwMzkgMy4wNzY4OFoiIGZpbGw9IiMxRTc5QzIiLz48L3N2Zz4=);
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amrev-comment-toolbar {
+        & {
+            .am-flex(none, center, wrap);
+
+            padding: @amrev__indent__xxl 0 0;
+        }
+
+        &.-nocomments {
+            justify-content: flex-end;
+        }
+
+        .amrev-reply {
+            order: 2;
+            box-sizing: border-box;
+            padding: 0 @amrev__indent__xxl 0 0;
+            border-right: 1px solid @amreview-line__color;
+        }
+
+        .amrev-repbtn {
+            & {
+                .am-flex(center, center);
+                .transition(.1);
+
+                position: relative;
+                box-sizing: border-box;
+                padding: 8px 34px 8px 46px;
+                border: 1px solid @amrev-comments-btn__color;
+                border-radius: 2px;
+                background: #dff1ff;
+                box-shadow: none;
+                color: @amrev-comments-btn__color;
+                font-weight: normal;
+                font-size: 12px;
+            }
+
+            &:before {
+                .transition(.1);
+                .am-icon(@amrev-arrow-reply__background);
+
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: @amrev__indent__xxl;
+                margin: auto 0;
+                width: 12px;
+                height: 8px;
+            }
+
+            &:hover,
+            &:active,
+            &.-active {
+                & {
+                    border-color: @amrev-comments__active__color;
+                    background: @amrev-comments__active__color;
+                    color: #fff;
+                }
+
+                &:before {
+                    filter: brightness(10);
+                }
+            }
+        }
+
+        .amrev-comment {
+            .am-flex(center, center);
+
+            position: relative;
+            align-self: stretch;
+            order: 3;
+            box-sizing: border-box;
+            padding: 0 @amrev__indent__l;
+        }
+
+        .amrev-combtn {
+            & {
+                ._clear-btn;
+
+                color: @amrev-comments__active__color;
+                font-size: 12px;
+            }
+
+            &:before {
+                .transition(.1);
+                .am-mage-icon(@icon-down);
+
+                margin: 0 7px 0 0;
+                font-size: 10px;
+            }
+
+            &:hover {
+                color: darken(@amrev-comments__active__color, 10%);
+            }
+
+            &.-active:before {
+                transform: rotate(180deg) translateY(1px);
+            }
+
+            &.-empty:before {
+                display: none;
+            }
+        }
+    }
+
+    .amrev-comment-block {
+        & {
+            .transition(.1);
+
+            margin: 0 -@amrev__indent__l 0 -@amrev__indent__l;
+            padding: 0;
+            border-radius: 2px;
+            background: @amreview-placeholder__color;
+        }
+
+        .amrev-title {
+            margin: 0 0 @amrev__indent__xl 0;
+            padding: @amrev__indent 0;
+            border-bottom: 1px solid #c8c8c8;
+            font-style: normal;
+            font-size: 12px;
+        }
+
+        .amrev-qty {
+            font-style: normal;
+        }
+
+        .amrev-message {
+            padding: @amrev__indent__l @amrev__indent__xl;
+        }
+    }
+
+    .amrev-comment-list {
+        & {
+            .transition(.1);
+
+            display: none;
+            padding: @amrev__indent__xl;
+            color: #000;
+        }
+
+        &.-active {
+            display: block;
+            margin: @amrev__indent__xl 0 0 0;
+        }
+
+        .amrev-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .amrev-comment {
+            & {
+                margin: 0;
+                padding: 0;
+            }
+
+            &:not(:last-child) {
+                padding: 0 0 @amrev__indent__l * 2;
+            }
+        }
+
+        .amrev-name {
+            margin: 0;
+        }
+
+        .amrev-email {
+            font-size: 12px;
+        }
+
+        .amrev-date {
+            display: block;
+            font-size: 12px;
+        }
+
+        .amrev-text {
+            display: block;
+            padding: @amrev__indent__l 0 0 0;
+            font-size: 14px;
+        }
+    }
+
+    .amrev-comment-form {
+        & {
+            .transition(.1);
+
+            display: none;
+            margin: @amrev__indent 0 0;
+            padding: @amrev__indent__xl @amrev__indent__xl @amrev__indent__xxl;
+        }
+
+        &.-active {
+            display: block;
+        }
+
+        .amrev-form {
+            .am-flex(none, flex-end, wrap);
+        }
+
+        .amrev-fieldset {
+            .am-flex(space-between, center, wrap);
+
+            flex-basis: 100%;
+            margin: 0 @amrev__indent__l 0 0;
+        }
+
+        .amrev-label {
+            color: #363636;
+            font-size: 12px;
+        }
+
+        .amrev-input {
+            & {
+                height: 30px;
+                border-color: transparent;
+                background: #fff;
+                color: @amreview-input-text__color;
+                font-size: 12px;
+            }
+
+            ::placeholder {
+                color: @amrev-checkbox__border-color;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                border: 1px solid @amrev-comments-btn__color;
+            }
+        }
+
+        .amrev-area {
+            padding: @amrev__indent__l;
+            height: auto;
+        }
+
+        .amrev-btn {
+            & {
+                .transition(.1);
+
+                margin: @amrev__indent__l auto 0 0;
+                padding: @amrev__indent;
+                border: none;
+                background: @amrev-comments-btn__color;
+                box-shadow: none;
+                color: #fff;
+                font-size: 12px;
+            }
+
+            &:hover {
+                background: darken(@amrev-comments-btn__color, 5%);
+            }
+        }
+
+        .amrev-field {
+            position: relative;
+        }
+
+        .amrev-area-field {
+            .am-flex(none, none, wrap);
+
+            flex-basis: 100%;
+        }
+
+        .amrev-input-field {
+            flex-basis: 48%;
+            margin: 0 0 @amrev__indent__l;
+        }
+    }
+
+    .amreview-helpful-wrap {
+        & {
+            .am-flex(none, center);
+
+            flex-basis: 100%;
+            order: 1;
+            padding: 0 0 @amrev__indent__xl 0;
+        }
+
+        > .amreview-helpful {
+            color: @amreview-text__color;
+            font-size: 12px;
+        }
+
+        .amreview-plus {
+            margin: 0 0 0 @amrev__indent;
+        }
+
+        > .amreview-options,
+        .amreview-plus,
+        .amreview-minus,
+        .amreview-icon {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .amreview-icon {
+            margin: 0 0 0 @amrev__indent;
+            width: @amrev__indent__xl;
+            height: 18px;
+            transition: .3s;
+        }
+
+        .amreview-plus > .amreview-icon {
+            background: @amreview-like__background;
+        }
+
+        .amreview-plus:hover > .amreview-icon {
+            background: @amreview-like__hover__background;
+        }
+
+        .amreview-plus.-voted > .amreview-icon {
+            background: @amreview-like__active__background;
+        }
+
+        .amreview-minus > .amreview-icon {
+            background: @amreview-dislike__background;
+        }
+
+        .amreview-minus:hover > .amreview-icon {
+            background: @amreview-dislike__hover__background;
+        }
+
+        .amreview-minus.-voted > .amreview-icon {
+            background: @amreview-dislike__active__background;
+        }
+    }
+}
+
+//
+//  Tablet +
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .amrev-comment-block {
+        margin: 0;
+    }
+
+    .amrev-area-field div.mage-error {
+        // Magento's validation
+        position: absolute;
+        top: 100%;
+        margin-top: 4px;
+    }
+
+    .amrev-comment-form .amrev-fieldset {
+        flex-basis: 70%;
+    }
+
+    .amrev-comment-toolbar {
+        & {
+            flex-wrap: nowrap;
+            padding: @amrev__indent__xxl 0 @amrev__indent__xl;
+        }
+
+        .amreview-helpful-wrap {
+            flex-basis: auto;
+            order: 3;
+            padding: 0 @amrev__indent__l;
+        }
+
+        .amreview-helpful-wrap .amreview-plus {
+            margin: 0 @amrev__indent 0 0;
+        }
+
+        .amrev-comment {
+            flex-basis: auto;
+            justify-content: initial;
+            order: 2;
+            margin: 0;
+            border-right: 1px solid @amreview-line__color;
+        }
+
+        .amrev-reply {
+            flex-basis: auto;
+            order: 1;
+            padding: 0 @amrev__indent__l 0 0;
+        }
+
+        .amrev-repbtn {
+            & {
+                padding: 4px @amrev__indent 4px 26px;
+            }
+
+            &:before {
+                left: @amrev__indent;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Amasty_Base::vendor/slick/amslick.min.css"/>
+        <css src="Amasty_AdvancedReview::vendor/fancybox/jquery.fancybox.min.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <!-- fix content updated on old magento versions -->
+            <block class="Magento\Framework\View\Element\Template"
+                   template="Amasty_AdvancedReview::review/review-js.phtml"
+                   name="amreview.toolbar.js"
+                   after="-"/>
+        </referenceContainer>
+    </body>
+</page>

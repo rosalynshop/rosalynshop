@@ -27,11 +27,11 @@
             }
             event.preventDefault();
             var searchValue = document.getElementById('amasty-search-input').value,
-                url = 'https://amasty.com/';
+                url = '<?= $block->escapeUrl($block->getSearchBaseUrl()) ?>'.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 
             if (searchValue) {
                 searchValue = encodeURIComponent(searchValue);
-                url += 'catalogsearch/result/?q=' + searchValue + '&utm_source=extension&utm_medium=extnotif&utm_campaign=searchbar';
+                url += searchValue + '<?= $block->escapeUrl($block->getSearchUrlParams()) ?>'.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
             }
             window.open(url);
 

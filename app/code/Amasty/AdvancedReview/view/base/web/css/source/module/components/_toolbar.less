@@ -1,0 +1,128 @@
+//
+//  Toolbar Styles
+//  ____________________________________________
+
+//
+//  Variables
+//  ----------------------------------------------
+
+@amrev-toolbar__active__color: #007bdb;
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amrev-toolbar-container {
+        & {
+            .am-flex(center, center);
+            
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            padding: 0;
+            background: #fff;
+            color: #363636;
+            font-size: 12px;
+        }
+        
+        &.-disabled {
+            ._amrev-disabled;
+        }
+        
+        &.-all .amrev-sorting {
+            border-left: none;
+        }
+        
+        .amrev-filters {
+            .am-flex(center, center);
+            
+            flex-basis: 100%;
+            flex-wrap: wrap;
+            order: 2;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .amrev-filter {
+            flex-basis: 100%;
+            margin: 0;
+            padding: @amrev__indent__l 0 @amrev__indent @amrev__indent__xl;
+            border-bottom: 1px solid #dcdcdc;
+        }
+        
+        .amrev-sorting {
+            flex-basis: 100%;
+            order: 1;
+            padding: @amrev__indent 18px;
+            border: none;
+            background: @amreview-placeholder__color;
+        }
+        
+        .amrev-sortbtn:before {
+            font-size: 14px;
+        }
+        
+        .amrev-sortbtn:hover:before,
+        .amrev-sortbtn:focus:before {
+            color: @amrev-toolbar__active__color;
+        }
+        
+        .amrev-select {
+            margin: 5px 5px 5px 8px;
+            padding: 0 0 0 10px;
+            max-width: 160px;
+            width: 100%;
+            height: 25px;
+        }
+        
+        .amrev-label {
+            margin: 0;
+        }
+    }
+}
+
+//
+//  Tablet
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .amrev-toolbar-container {
+        & {
+            margin: @amrev__indent__xl 0 @amrev__indent__xxl 0;
+            padding: @amrev__indent / 2 @amrev__indent;
+            background: @amreview-placeholder__color;
+        }
+        
+        .amrev-filters {
+            flex-basis: auto;
+            flex-wrap: nowrap;
+            order: 1;
+        }
+        
+        .amrev-filter {
+            flex-basis: auto;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .amrev-sorting {
+            flex-basis: 250px;
+            order: 2;
+            padding: 0 0 0 @amrev__indent__l;
+        }
+    
+        &.-all .amrev-sorting {
+            border-left: 1px solid #d6d6d6;
+        }
+    
+        .amrev-label {
+            margin: 0 @amrev__indent__l / 2;
+        }
+        
+        .amrev-select {
+            max-width: 175px;
+        }
+    }
+}

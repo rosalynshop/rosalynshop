@@ -1,0 +1,421 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>       
+        <section id="amasty_advancedreview" translate="label" type="text" sortOrder="11019" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>Advanced Reviews</label>
+            <tab>amasty</tab>
+            <resource>Amasty_AdvancedReview::config</resource>
+            <group id="amasty_information" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Information</label>
+                <frontend_model>Amasty\AdvancedReview\Block\Adminhtml\System\Config\Information</frontend_model>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General settings</label>
+                <field id="helpful" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable 'Helpful' Control</label>
+                    <comment>Set 'Yes' to allow people specify if they found the review helpful or unhelpful.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="recommend" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable `I recommend this product`</label>
+                    <comment>Set 'Yes' to allow buyers check `I recommend this product` checkbox and show this recommendation in review.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="pros_cons" translate="label comment" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Pros and Cons</label>
+                    <comment>Set 'Yes' to allow buyers to add product advantages and disadvantages.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="admin_answer" translate="label comment" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Allow Admin to Comment on Review</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="allow_guest" translate="label comment" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Allow Guests to Submit Review</label>
+                    <comment>Set 'No' to allow only logged in users to leave a review.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="guest_email" translate="label comment" type="select" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show 'Email' Field for Guests</label>
+                    <comment>Set' Yes' to enable email field for guest to contact them later</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="allow_guest">1</field>
+                    </depends>
+                </field>
+
+                <field id="gdpr_enabled" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled GDPR Consent</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="allow_guest">1</field>
+                        <field id="guest_email">1</field>
+                    </depends>
+                </field>
+
+                <field id="gdpr_text" translate="label" type="textarea" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Сonsent Text</label>
+                    <depends>
+                        <field id="gdpr_enabled">1</field>
+                        <field id="allow_guest">1</field>
+                        <field id="guest_email">1</field>
+                    </depends>
+                </field>
+
+                <field id="sort_by" translate="label comment" type="multiselect" sortOrder="90" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Sorting By</label>
+                    <comment>Press CTRL+mouse to select multiple values.</comment>
+                    <source_model>Amasty\AdvancedReview\Model\Sources\Sort</source_model>
+                    <frontend_model>Amasty\AdvancedReview\Block\Adminhtml\System\Config\Field\Multiselect</frontend_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+
+                <field id="filter_by" translate="label comment" type="multiselect" sortOrder="91" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Filtering By</label>
+                    <comment>Press CTRL+mouse to select multiple values.</comment>
+                    <source_model>Amasty\AdvancedReview\Model\Sources\Filter</source_model>
+                    <frontend_model>Amasty\AdvancedReview\Block\Adminhtml\System\Config\Field\Multiselect</frontend_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+
+                <field id="page_limit" translate="label" type="text" sortOrder="95" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Reviews per Page</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+            </group>
+
+            <group id="images" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Images</label>
+                <field id="allow_upload" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Allow Users to Upload Images</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="is_required" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Image Field is Required</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="allow_upload">1</field>
+                    </depends>
+                </field>
+
+                <field id="image_width" translate="label" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Review Image Width</label>
+                    <depends>
+                        <field id="allow_upload">1</field>
+                    </depends>
+                </field>
+
+                <field id="slides_to_show" translate="label comment" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Images to Show</label>
+                    <comment>If image number exceeds this limit, a line of images turns into a slider. Mobile version has slider enabled by default. Set to 0 disable slider on both mobile and desktop.</comment>
+                    <depends>
+                        <field id="allow_upload">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="comments" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Review Commenting</label>
+
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <comment>Set 'Yes' to allow your customers comment on already approved reviews.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="guest" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Allow Guests to Comment on Review</label>
+                    <comment> Set 'No' to allow only logged in users to leave a comment.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="auto_approve" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Automatically Approve Comments</label>
+                    <comment>Set 'No' to approve each comment manually from admin panel.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="sender" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+
+                <field id="template" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <source_model>Amasty\AdvancedReview\Model\Sources\CommentEmailTemplate</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="customer_notify" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Notify Customer about Admin Reply</label>
+                <field id="sender" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+            </group>
+
+            <group id="reminder" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Review Reminder</label>
+
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Review Reminder</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="order_status" translate="label comment" type="multiselect" sortOrder="15" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Order Status</label>
+                    <comment>Please specify the Order Status for Review Reminder to be sent after. It will work based on Order Creation Date If the Order Status is not specified.</comment>
+                    <source_model>Amasty\AdvancedReview\Model\Sources\Status</source_model>
+                    <frontend_model>Amasty\AdvancedReview\Block\Adminhtml\System\Config\Field\Multiselect</frontend_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+
+                <field id="customer_group" translate="label comment" type="multiselect" sortOrder="16" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Disable for Customer Group</label>
+                    <comment>Customers from selected Customer Groups won’t receive the reminder.</comment>
+                    <source_model>Amasty\AdvancedReview\Model\Sources\Group</source_model>
+                    <frontend_model>Amasty\AdvancedReview\Block\Adminhtml\System\Config\Field\Multiselect</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+
+                <field id="frequency" translate="label comment" type="select" sortOrder="17" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Send Reminders</label>
+                    <tooltip><![CDATA[<ul><li>'Once per product' - If customer has bought the same product several times, he will get only one review request</li>
+                        <li>'Once per customer' - Each customer will receive review request only once: after the first purchase</li>
+                        <li>'Once per order' - Customers will receive review reminders after each purchase</li></ul>]]></tooltip>
+                    <comment>Admin is able to send Reminder Emails manually from Review Reminder grid without limit</comment>
+                    <source_model>Amasty\AdvancedReview\Model\Sources\Frequency</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="days" translate="label" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Send Reminder Email after, Day(s)</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="sender" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="template" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="test_email" translate="label" type="text" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Test Email</label>
+                    <validate>validate-email</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="coupons" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Discount Coupons</label>
+                <depends>
+                    <field id="*/reminder/enabled">1</field>
+                </depends>
+
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="review" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Publish Review to Activate Coupon</label>
+                    <comment>Allow to use coupon code only after review is published and approved.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="sender" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="template" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <source_model>Amasty\AdvancedReview\Model\Sources\CouponEmailTemplate</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="discount_type" translate="label" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Discount Type</label>
+                    <source_model>Amasty\AdvancedReview\Model\Sources\DiscountType</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="discount_amount" translate="label" type="text" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Discount Amount</label>
+                    <validate>required-entry validate-greater-than-zero</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="coupon_days" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expire Coupon in (days)</label>
+                    <comment>Note: if set to 0, coupon can be used only ‘today’ (i.e., the day of coupon receipt).</comment>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="coupon_uses" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Coupon Uses</label>
+                    <comment>Note: if set to 0, the coupon can be used unlimited amount of times.</comment>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="uses_per_customer" translate="label comment" type="text" sortOrder="90" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Uses per Customer</label>
+                    <comment>Usage limit enforced for logged in customers only.</comment>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="customer_group" translate="label comment" type="multiselect" sortOrder="100" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Apply for Customer Group Only</label>
+                    <comment>The setting covers only coupon application. Generated coupon will be sent to all customer groups, but only chosen customer groups will be able to apply it. Please kindly keep that in mind and modify the email template in accordance to the setting configuration to avoid customers' confusion.</comment>
+                    <source_model>\Amasty\AdvancedReview\Model\Sources\Group</source_model>
+                    <frontend_model>Amasty\AdvancedReview\Block\Adminhtml\System\Config\Field\Multiselect</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="min_order" translate="label" type="text" sortOrder="110" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Min Order Amount</label>
+                    <comment>If the field is left empty, your customers will be able to apply received coupon code for any order. If you specify the Min Order Amount, we recommend to accordingly modify the email template sent to customers just to inform them about the conditions for coupon application.</comment>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="admin_notifications" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Admin Notifications</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Send Email Reports for New Reviews</label>
+                    <source_model>Amasty\AdvancedReview\Model\Sources\AdminNotifications</source_model>
+                </field>
+                <field id="template" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template to Notify Admin</label>
+                    <source_model>Amasty\AdvancedReview\Model\Sources\EmailTemplate</source_model>
+                    <depends>
+                        <field id="enabled" negative="1">0</field>
+                    </depends>
+                </field>
+                <field id="email" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Admin Email Address</label>
+                    <comment>Comma separated Emails, no spaces.</comment>
+                    <depends>
+                        <field id="enabled" negative="1">0</field>
+                    </depends>
+                </field>
+                <field id="sender" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    <depends>
+                        <field id="enabled" negative="1">0</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

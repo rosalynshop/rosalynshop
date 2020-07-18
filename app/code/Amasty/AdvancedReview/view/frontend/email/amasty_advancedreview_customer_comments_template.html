@@ -1,0 +1,28 @@
+<!--@subject You have new comment on {{var store_name}} @-->
+<!--@vars {
+"var store_name":"Store Name",
+"var unsubscribe_link":"Unsubscribe Link",
+"var customer_name":"Customer Name",
+"var comment":"Comment Message",
+"var link":"Product link",
+"var title_review":"Review title",
+"var review": "Review message"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p><strong>{{trans "Hello"}} {{var customer_name}},</strong></p>
+<p>{{trans "You have a new comment on your product review "}}"{{var title_review}}":</p>
+<br>
+<p><strong>{{trans "Your review:"}}</strong></p>
+<p>{{var review}}</p>
+<p><strong>{{trans "Comment:"}}</strong></p>
+<p>{{var comment}}</p>
+<br>
+<p>{{trans "Click "}} <a href="{{var link}}">{{trans "link"}}</a>{{trans " to see the response"}}.</p>
+<p>{{trans "Best Regards"}},  {{var store_name}} {{trans "Team"}}</p>
+<p><small>
+    <a href="{{var unsubscribe_link}}" title="{{trans "Do not receive similar emails"}}">{{trans "Do not receive similar emails"}}</a>
+</small></p>
+
+{{template config_path="design/email/footer_template"}}

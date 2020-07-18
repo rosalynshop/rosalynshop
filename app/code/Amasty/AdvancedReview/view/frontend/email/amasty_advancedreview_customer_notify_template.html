@@ -1,0 +1,34 @@
+<!--@subject Review reply from {{var store_name}} @-->
+<!--@vars {
+"var admin_answer":"Admin Answer",
+"var review_title":"Review Title",
+"var review_detail":"Review Detail",
+"var customer_name":"Sender Name",
+"var link":"Product page link with review",
+"var store_name":"Store Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td valign="top">
+            <p><strong>{{trans "Hello"}} {{var customer_name}},</strong></p>
+
+            <p>{{trans "You have a new response on your product review"}} "{{var review_title}}":</p>
+            <br>
+            <p><strong>{{trans "Your review:"}}</strong></p>
+            <p>{{var review_detail}}</p>
+            <p><strong>{{trans "Admin answer:"}}</strong></p>
+            <p>{{var admin_answer}}</p>
+            <br>
+            {{if link}}
+                <p>{{trans "Click "}} <a href="{{var link}}">{{trans "link"}}</a>{{trans " to see the response"}}.</p>
+            {{/if}}
+
+            <p>{{trans "Best Regards"}},  {{var store_name}} Team</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

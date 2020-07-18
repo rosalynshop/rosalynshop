@@ -29,7 +29,7 @@ class Menu
      */
     public function beforeRenderNavigation(NativeMenu $subject, $menu, $level = 0, $limit = 0, $colBrakes = [])
     {
-        if ($menu->get('Amasty_Base::marketplace') && $level != 0) {
+        if ($level !== 0 && $menu->get('Amasty_Base::marketplace')) {
             $level = 0;
             $limit = self::MAX_ITEMS;
             if (is_array($colBrakes)) {
@@ -40,7 +40,7 @@ class Menu
                         $colBrakes[$key]['colbrake'] = false;
                     }
 
-                    if (isset($colBrake['colbrake']) && (($key - 1) % $limit) == 0) {
+                    if (isset($colBrake['colbrake']) && (($key - 1) % $limit) === 0) {
                         $colBrakes[$key]['colbrake'] = true;
                     }
                 }
@@ -52,7 +52,7 @@ class Menu
 
     /**
      * @param NativeMenu $subject
-     * @param $html
+     * @param string     $html
      *
      * @return string
      */

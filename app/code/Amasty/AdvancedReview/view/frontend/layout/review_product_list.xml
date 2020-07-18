@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.product_additional_data" remove="true" />
+        <referenceContainer name="content">
+            <block class="Amasty\AdvancedReview\Block\Review\Product\View\ListView"
+                   name="amasty.product.info.product_additional_data"
+                   template="Amasty_AdvancedReview::product/view/list.phtml"
+                   before="product_review_list.toolbar">
+                <arguments>
+                    <argument name="advanced-review-helper" xsi:type="object">Amasty\AdvancedReview\Helper\BlockHelper</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

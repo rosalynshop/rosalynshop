@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="amasty_advanced_review_reminder"
+             instance="Amasty\AdvancedReview\Model\SendReminderEmails"
+             method="execute"
+        >
+            <schedule>1 * * * *</schedule>
+        </job>
+
+        <job name="amasty_advanced_review_daily_notification"
+             instance="Amasty\AdvancedReview\Model\Email\AdminNotificationSender"
+             method="notify"
+        >
+            <schedule>50 23 * * *</schedule>
+        </job>
+
+        <job name="amasty_advanced_review_remove_coupon"
+             instance="Amasty\AdvancedReview\Model\Email\Coupon"
+             method="removeOldCoupons"
+        >
+            <schedule>0 0 * * *</schedule>
+        </job>
+    </group>
+</config>

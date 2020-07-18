@@ -24,6 +24,11 @@ class Module
 
     const URL_EXTENSIONS = 'http://amasty.com/feed-extensions-m2.xml';
 
+    const ALLOWED_DOMAINS = [
+        'amasty.com',
+        'marketplace.magento.com'
+    ];
+
     /**
      * @var \Amasty\Base\Model\Serializer
      */
@@ -40,17 +45,24 @@ class Module
     protected $cache;
 
     /**
-     * @var array|null
-     */
-    private $modulesData = null;
-
-    /**
      * @var array
      */
     protected $restrictedModules = [
         'Amasty_CommonRules',
         'Amasty_Router'
     ];
+
+    /**
+     * @see getModuleInfo
+     *
+     * @var array
+     */
+    protected $moduleDataStorage = [];
+
+    /**
+     * @var array|null
+     */
+    private $modulesData = null;
 
     /**
      * @var \Magento\Framework\Module\Dir\Reader
@@ -115,8 +127,8 @@ class Module
         $feedData = [];
         $feedXml = $this->getFeedData();
         if ($feedXml && $feedXml->channel && $feedXml->channel->item) {
-            $moduleInfo = $this->getModuleInfo('Amasty_Base');
-            $origin = isset($moduleInfo['extra']['origin']) ? $moduleInfo['extra']['origin'] : null;
+            $marketplaceOrigin = $this->isOriginMarketplace();
+
             foreach ($feedXml->channel->item as $item) {
                 $code = $this->escaper->escapeHtml((string)$item->code);
 
@@ -126,7 +138,12 @@ class Module
 
                 $title = $this->escaper->escapeHtml((string)$item->title);
 
-                $productPageLink = $origin == 'marketplace' ? $item->market_link : $item->link;
+                $productPageLink = $marketplaceOrigin ? $item->market_link : $item->link;
+
+                if (!$this->validateLink($productPageLink) || !$this->validateLink($item->guide)) {
+                    continue;
+                }
+
                 $feedData[$code][$title] = [
                     'name'               => $title,
                     'url'                => $this->escaper->escapeUrl((string)($productPageLink)),
@@ -207,22 +224,25 @@ class Module
      *
      * @param string $moduleCode
      *
-     * @return array
-     * @throws \Magento\Framework\Exception\FileSystemException
+     * @return mixed
      */
     public function getModuleInfo($moduleCode)
     {
-        try {
-            $dir = $this->moduleReader->getModuleDir('', $moduleCode);
-            $file = $dir . '/composer.json';
+        if (!isset($this->moduleDataStorage[$moduleCode])) {
+            $this->moduleDataStorage[$moduleCode] = [];
 
-            $string = $this->filesystem->fileGetContents($file);
-            $json = $this->jsonDecoder->decode($string);
-        } catch (\Magento\Framework\Exception\FileSystemException $e) {
-            $json = [];
+            try {
+                $dir = $this->moduleReader->getModuleDir('', $moduleCode);
+                $file = $dir . '/composer.json';
+
+                $string = $this->filesystem->fileGetContents($file);
+                $this->moduleDataStorage[$moduleCode] = $this->jsonDecoder->decode($string);
+            } catch (\Magento\Framework\Exception\FileSystemException $e) {
+                $this->moduleDataStorage[$moduleCode] = [];
+            }
         }
 
-        return $json;
+        return $this->moduleDataStorage[$moduleCode];
     }
 
     /**
@@ -247,5 +267,40 @@ class Module
         }
 
         return $moduleData;
+    }
+
+    /**
+     * Check whether module was installed via Magento Marketplace
+     *
+     * @param string $moduleCode
+     *
+     * @return bool
+     */
+    public function isOriginMarketplace($moduleCode = 'Amasty_Base')
+    {
+        $moduleInfo = $this->getModuleInfo($moduleCode);
+        $origin = isset($moduleInfo['extra']['origin']) ? $moduleInfo['extra']['origin'] : null;
+
+        return 'marketplace' === $origin;
+    }
+
+    /**
+     * @param string $link
+     *
+     * @return bool
+     */
+    public function validateLink($link)
+    {
+        if (! (string) $link) { // fix for xml object
+            return true;
+        }
+
+        foreach (static::ALLOWED_DOMAINS as $allowedDomain) {
+            if (preg_match('/^http[s]?:\/\/' . $allowedDomain . '\/.*$/', $link) === 1) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

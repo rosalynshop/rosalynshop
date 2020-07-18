@@ -1,0 +1,119 @@
+//
+//  Loader Styles
+//  ____________________________________________
+
+//
+//  Variables
+//  ----------------------------------------------
+
+@amload-dots__background: #666;
+
+//
+//  KeyFrames
+//  ----------------------------------------------
+
+@keyframes amloadrotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .am-load-block {
+        & {
+            .transition();
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: fade(#fff, 40%);
+        }
+        
+        .am-dots {
+            position: sticky;
+            top: 35%;
+            z-index: 999;
+            margin: @amrev__indent__xl auto;
+            width: 64px;
+            height: 64px;
+        }
+        
+        .am-dot {
+            & {
+                .gen-childs(1, 4, animation-delay, -.036, -.036);
+                .gen-childs(6, 8, animation-delay, -.216, -.036);
+                
+                display: block;
+                transform-origin: 32px 32px;
+                animation: amloadrotate 1.2s cubic-bezier(.5, 0, .5, 1) infinite;
+            }
+            
+            &:after {
+                position: absolute;
+                display: block;
+                margin: -3px 0 0 -3px;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: @amload-dots__background;
+                content: '';
+            }
+            
+            &:nth-child(1):after {
+                top: 50px;
+                left: 50px;
+            }
+            
+            &:nth-child(2):after {
+                top: 54px;
+                left: 45px;
+            }
+            
+            &:nth-child(3):after {
+                top: 57px;
+                left: 39px;
+            }
+            
+            &:nth-child(4):after {
+                top: 58px;
+                left: 32px;
+            }
+            
+            &:nth-child(5) {
+                & {
+                    animation-delay: -.18s;
+                }
+                
+                &:after {
+                    top: 57px;
+                    left: 25px;
+                }
+            }
+            
+            &:nth-child(6):after {
+                top: 54px;
+                left: 19px;
+            }
+            
+            &:nth-child(7):after {
+                top: 50px;
+                left: 14px;
+            }
+            
+            &:nth-child(8):after {
+                top: 45px;
+                left: 10px;
+            }
+        }
+    }
+}

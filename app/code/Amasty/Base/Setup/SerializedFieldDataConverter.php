@@ -37,9 +37,9 @@ class SerializedFieldDataConverter
     /**
      * Convert metadata from serialized to JSON format:
      *
-     * @param $tableName
-     * @param $identifierField
-     * @param $fields
+     * @param string|string[] $tableName
+     * @param string          $identifierField
+     * @param string|string[] $fields
      * @return void
      */
     public function convertSerializedDataToJson($tableName, $identifierField, $fields)
@@ -63,9 +63,9 @@ class SerializedFieldDataConverter
     }
 
     /**
-     * @param $tableName
-     * @param $identifierField
-     * @param $field
+     * @param string|string[] $tableName
+     * @param string          $identifierField
+     * @param string          $field
      * @return \Magento\Framework\DB\FieldToConvert
      */
     protected function getConvertedData($tableName, $identifierField, $field)

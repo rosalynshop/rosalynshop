@@ -1,0 +1,65 @@
+//
+//  Advanced Review Admin
+//  ____________________________________________
+
+//
+//  Variables
+//  --------------------------------------------
+
+@amreview-upload-button__color: #fff;
+@amreview-upload-button__primary_color: #eb5202;
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amreview-remove-image {
+        & {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .amreview-checkbox {
+            margin-right: 5px;
+        }
+    }
+
+    #is_need_send_notification {
+        margin-top: 12px;
+    }
+
+    .field-review_images .input-file {
+        & {
+            display: none;
+        }
+
+        &::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+    }
+
+    .field-review_images .addbefore {
+        & {
+            display: inline-block;
+            padding: 0.6rem 1em 0.6rem;
+            border: 1px solid @amreview-upload-button__primary_color;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: .025em;
+            color: @amreview-upload-button__color;
+            background-color: @amreview-upload-button__primary_color;
+            -webkit-user-select: none;
+            cursor: pointer;
+        }
+
+        &:hover {
+            background-color: #ba4000;
+            border-color: #b84002;
+            box-shadow: 0 0 0 1px #40070b;
+            color: @amreview-upload-button__color;
+            text-decoration: none;
+        }
+    }
+}

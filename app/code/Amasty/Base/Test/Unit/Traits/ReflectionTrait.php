@@ -11,7 +11,7 @@ namespace Amasty\Base\Test\Unit\Traits;
 /**
  * Provide useful methods with reflection.
  *
- * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
  */
 trait ReflectionTrait
 {
@@ -52,8 +52,10 @@ trait ReflectionTrait
     }
 
     /**
-     * @param $object
-     * @param $propertyName
+     * @param object $object
+     * @param string $propertyName
+     * @param string $origClassName
+     *
      * @return object
      * @throws \ReflectionException
      */

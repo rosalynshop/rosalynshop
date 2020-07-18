@@ -1,0 +1,79 @@
+//
+//  Checkbox Styles
+//  ____________________________________________
+
+@amrev-checkbox-icon__background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI3IiB2aWV3Qm94PSIwIDAgOSA3IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNy45MDQ4IDBMMy41NDI1IDQuNjU5OEwxLjA5NDk1IDIuMDQ2MDNMMCAzLjIxNTg1TDMuNTQyNSA3TDkgMS4xNjk4M0w3LjkwNDggMFoiIGZpbGw9IiM1MTQ5NDMiLz48L3N2Zz4=);
+@amrev-checkbox__border-color: #adadad;
+@amrev-checkbox__active__border-color: @amrev-toolbar__active__color;
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amrev-checkbox-container {
+        .amrev-label {
+            & {
+                .am-flex(center, center);
+            
+                position: relative;
+                justify-content: flex-start;
+                padding: 0 0 0 @amrev__indent__xl;
+            }
+        
+            &:hover:before {
+                border-color: @amrev-checkbox__active__border-color;
+                box-shadow: 0 1px 2px rgba(37, 83, 119, .25);
+            }
+        
+            &:before,
+            &:after {
+                .transition(.1);
+            
+                position: absolute;
+                left: 0;
+                display: block;
+                content: '';
+                cursor: pointer;
+            }
+        
+            &:after {
+                .am-icon(@amrev-checkbox-icon__background);
+
+                margin: auto 0 auto 3px;
+                top: 0;
+                bottom: 0;
+                width: 10px;
+                height: 8px;
+                opacity: 0;
+            }
+        
+            &:before {
+                box-sizing: border-box;
+                width: 15px;
+                height: 15px;
+                border: 1px solid @amrev-checkbox__border-color;
+                border-radius: 2px;
+                background-color: white;
+            }
+        }
+    
+        .amrev-input:checked {
+            + .amrev-label:after {
+                opacity: 1;
+            }
+        
+            + .amrev-label:before {
+                border-color: @amrev-checkbox__active__border-color;
+            }
+        
+            + .amrev-label:before:focus {
+                box-shadow: 0 1px 2px rgba(37, 83, 119, .25);
+            }
+        }
+    
+        .amrev-input {
+            display: none;
+        }
+    }
+}

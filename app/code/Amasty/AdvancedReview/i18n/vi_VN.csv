@@ -1,0 +1,316 @@
+Delete,Delete
+"Are you sure you want to delete this?","Are you sure you want to delete this?"
+"Save and Continue Edit","Save and Continue Edit"
+Save,Save
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"Enable reviewpagebuilder module to activate PageBuilder and Advanced Reviews integration. Please, run the following command in the SSH: composer require amasty/advanced-reviews-page-builder","Enable reviewpagebuilder module to activate PageBuilder and Advanced Reviews integration. Please, run the following command in the SSH: composer require amasty/advanced-reviews-page-builder"
+"Enable advanced-review-graphql module to activate GraphQl and Advanced Review. Please, run the following command in the SSH: composer require amasty/advanced-review-graphql","Enable advanced-review-graphql module to activate GraphQl and Advanced Review. Please, run the following command in the SSH: composer require amasty/advanced-review-graphql"
+"%1 year(s) ago","%1 year(s) ago"
+"%1 month(s) ago","%1 month(s) ago"
+"%1 day(s) ago","%1 day(s) ago"
+"%1 hour(s) ago","%1 hour(s) ago"
+"%1 minute(s) ago","%1 minute(s) ago"
+"%1 second(s) ago","%1 second(s) ago"
+recently,recently
+"We can't change item right now. Please review the log and try again.","We can't change item right now. Please review the log and try again."
+"A total of %1 record(s) have been changed.","A total of %1 record(s) have been changed."
+"No records have been changed.","No records have been changed."
+"Something went wrong","Something went wrong"
+"You deleted the comment.","You deleted the comment."
+"We can't find a comment to delete.","We can't find a comment to delete."
+"Edit Comment #%1 by %2","Edit Comment #%1 by %2"
+"This comment no longer exists.","This comment no longer exists."
+Comments,Comments
+"We can't delete item right now. Please review the log and try again.","We can't delete item right now. Please review the log and try again."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"No records have been deleted.","No records have been deleted."
+"Comment has been saved.","Comment has been saved."
+"The wrong item is specified.","The wrong item is specified."
+"Review Reminder","Review Reminder"
+Reminder,Reminder
+"A total of %1 email(s) have been sent.","A total of %1 email(s) have been sent."
+"No records have been sent.","No records have been sent."
+"Please fill test email in module configuration","Please fill test email in module configuration"
+"A total of %1 email(s) have been sent to %2.","A total of %1 email(s) have been sent to %2."
+"Please select review(s).","Please select review(s)."
+"A total of %1 record(s) have been approved for All store views.","A total of %1 record(s) have been approved for All store views."
+"Something went wrong while updating these review(s).","Something went wrong while updating these review(s)."
+"Sorry. There is a problem with your Comment Request.","Sorry. There is a problem with your Comment Request."
+"You submitted your review for moderation.","You submitted your review for moderation."
+Forbidden,Forbidden
+"Form key is not valid. Please try to reload the page.","Form key is not valid. Please try to reload the page."
+"Your session was expired. Please refresh this page and try again.","Your session was expired. Please refresh this page and try again."
+"%1 is a required field.","%1 is a required field."
+"Sorry. There is a problem with your Vote Request.","Sorry. There is a problem with your Vote Request."
+Success.,Success.
+"You have been unsubscribed from comment messages.","You have been unsubscribed from comment messages."
+"Something went wrong while unsubscribing you.","Something went wrong while unsubscribing you."
+"You unsubscribed.","You unsubscribed."
+"Verified Buyer","Người mua đã được xác minh"
+"I recommend this product","Tôi giới thiệu sản phẩm này"
+"Read more","Xem thêm"
+"with %1 stars | ","with %1 stars | "
+"Show All","Show All"
+"Advanced Product Reviews Coupon for %1","Advanced Product Reviews Coupon for %1"
+"It will take only a few minutes, just click the 'Leave a review' button below.<br>To make the process more pleasant we are happy to grant you a discount coupon code, which can already be used for your next purchase. Here it is: %1 (%2).","It will take only a few minutes, just click the 'Leave a review' button below.<br>To make the process more pleasant we are happy to grant you a discount coupon code, which can already be used for your next purchase. Here it is: %1 (%2)."
+"It will take only a few minutes, just click the 'Leave a review' button below.","It will take only a few minutes, just click the 'Leave a review' button below."
+"It will take only a few minutes, just click the 'Leave a review' button below. And please kindly keep in mind, that you will receive a discount coupon after your review is approved.","It will take only a few minutes, just click the 'Leave a review' button below. And please kindly keep in mind, that you will receive a discount coupon after your review is approved."
+"please kindly keep in mind that it will expire in %1 days","please kindly keep in mind that it will expire in %1 days"
+"please keep in mind that it expires today","please keep in mind that it expires today"
+"\r\nError when deleting rule #%s : %s","\r\nError when deleting rule #%s : %s"
+"Advanced Product Reviews Coupon for %","Advanced Product Reviews Coupon for %"
+"We can`t find reminder data to send email","We can`t find reminder data to send email"
+"Waiting for Sending","Waiting for Sending"
+"Sent Successfully","Sent Successfully"
+"Sending Failed","Sending Failed"
+Canceled,Canceled
+"Email was not sent. Customer was unsubscribed.","Email was not sent. Customer was unsubscribed."
+"Email was not sent. Customer belongs to Customer Group disabled in Review Reminder settings.","Email was not sent. Customer belongs to Customer Group disabled in Review Reminder settings."
+Recent,Recent
+Random,Random
+"Unable to save comment with ID %1. Error: %2","Unable to save comment with ID %1. Error: %2"
+"Unable to save new comment. Error: %1","Unable to save new comment. Error: %1"
+"Comment with specified ID ""%1"" not found.","Comment with specified ID ""%1"" not found."
+"Unable to remove comment with ID %1. Error: %2","Unable to remove comment with ID %1. Error: %2"
+"Unable to remove comment. Error: %1","Unable to remove comment. Error: %1"
+"Unable to save image with ID %1. Error: %2","Unable to save image with ID %1. Error: %2"
+"Unable to save new image. Error: %1","Unable to save new image. Error: %1"
+"Rule with specified ID ""%1"" not found.","Rule with specified ID ""%1"" not found."
+"Unable to remove image with ID %1. Error: %2","Unable to remove image with ID %1. Error: %2"
+"Unable to remove image. Error: %1","Unable to remove image. Error: %1"
+"Unable to save reminder item with ID %1. Error: %2","Unable to save reminder item with ID %1. Error: %2"
+"Unable to save new reminder item. Error: %1","Unable to save new reminder item. Error: %1"
+"Reminder item with specified ID ""%1"" not found.","Reminder item with specified ID ""%1"" not found."
+"Unable to remove reminder item with ID %1. Error: %2","Unable to remove reminder item with ID %1. Error: %2"
+"Unable to remove reminder item. Error: %1","Unable to remove reminder item. Error: %1"
+"Unable to save unsubscribe with ID %1. Error: %2","Unable to save unsubscribe with ID %1. Error: %2"
+"Unable to save new unsubscribe. Error: %1","Unable to save new unsubscribe. Error: %1"
+"Unsubscribe with specified ID ""%1"" not found.","Unsubscribe with specified ID ""%1"" not found."
+"Unable to remove unsubscribe with ID %1. Error: %2","Unable to remove unsubscribe with ID %1. Error: %2"
+"Unable to remove unsubscribe. Error: %1","Unable to remove unsubscribe. Error: %1"
+"Unable to save vote with ID %1. Error: %2","Unable to save vote with ID %1. Error: %2"
+"Unable to save new vote. Error: %1","Unable to save new vote. Error: %1"
+"Vote with specified ID ""%1"" not found.","Vote with specified ID ""%1"" not found."
+"Unable to remove vote with ID %1. Error: %2","Unable to remove vote with ID %1. Error: %2"
+"Unable to remove vote. Error: %1","Unable to remove vote. Error: %1"
+"%1 (Default)","%1 (Default)"
+No,No
+"Yes (Instantly)","Yes (Instantly)"
+"Yes (Daily)","Yes (Daily)"
+Pending,Pending
+Approved,Approved
+Rejected,Rejected
+"Percent of product price discount","Percent of product price discount"
+"Fixed amount discount","Fixed amount discount"
+"Fixed amount discount for whole cart","Fixed amount discount for whole cart"
+"Verified Buyers","Người mua đã được xác minh"
+Recommended,Recommended
+"With images","Hình ảnh"
+"Once per product","Once per product"
+"Once per customer","Once per customer"
+"Once per order","Once per order"
+"Not Logged In","Not Logged In"
+Yes,Yes
+Date,Date
+Rating,Rating
+Helpfulness,Helpfulness
+"Review Grid Template","Review Grid Template"
+"Products Images and Names Template (vert.)","Products Images and Names Template (vert.)"
+"Admin Answer Section","Admin Answer Section"
+Answer,Answer
+"Send to Customer","Send to Customer"
+"Customer Images","Customer Images"
+"Add new images","Add new images"
+"A client who already purchased the product.","A client who already purchased the product."
+Advantages,Advantages
+like_about,like_about
+Disadvantages,Disadvantages
+not_like_about,not_like_about
+"%1 people found this helpful; %2 found this unhelpful.","%1 người thích điều này; %2 không thích điều này."
+"Approve for All Store Views","Approve for All Store Views"
+"Are you sure?","Are you sure?"
+"Add your photo","Add your photo"
+GDPR,GDPR
+"Email Address","Email Address"
+"Please agree to the Privacy Policy","Please agree to the Privacy Policy"
+"Please enter review images.","Please enter review images."
+"An error occurred while uploading image.","An error occurred while uploading image."
+"please kindly keep in mind that it will expire in 5 days","please kindly keep in mind that it will expire in 5 days"
+"Review image","Review image"
+"Remove image","Remove image"
+Remove,Remove
+"Leave a review","Leave a review"
+"Author: ","Author: "
+"Title: ","Title: "
+"Review: ","Đánh giá: "
+View,View
+Showing,Showing
+comments,bình luận
+"Leave your comment","Để lại bình luận của bạn"
+Nickname*,Nickname*
+Email*,Email*
+Comment*,Bình luận*
+"Talk about why you like this review, or ask a question.","Nói về lý do tại sao bạn thích đánh giá này, hoặc đặt câu hỏi.."
+"Add Comment","Thêm nhật xét"
+"Was this review helpful?","Nhận xét này có hữu ích không?"
+"people found this helpful","người thích điều này"
+"found this unhelpful","người không thích điều này"
+"Customer Reviews","Khách hàng đánh giá"
+"Write a review","Viết đánh giá"
+"Share your thoughts with other customers","Chia sẻ suy nghĩ của bạn với các khách hàng khác"
+"Top customer reviews","Top đánh giá"
+"%1 stars","%1 stars"
+"%1 star","%1 star"
+"Response from store","Response from store"
+Reply,Trả lời
+"No reviews","Không có đánh giá nào cho sản phẩm này"
+"Sort By","Sort By"
+"Please select an option","Please select an option"
+"Set Ascending Direction","Set Ascending Direction"
+"Set Descending Direction","Set Descending Direction"
+reviews,đánh giá
+"More info","More info"
+"of customers recommend this product","của khách hàng giới thiệu sản phẩm này"
+" star"," star"
+" stars"," stars"
+"Review by ","Review by "
+"See all reviews","See all reviews"
+"Email alert for new reviews","Email alert for new reviews"
+"Hello,","Hello,"
+"This is an automatic notification about new review(s) made. ","This is an automatic notification about new review(s) made. "
+Reviews:,Đánh giá:
+"Thank you!","Thank you!"
+Hello,Hello
+"You have a new comment on your product review ","You have a new comment on your product review "
+"Your review:","Your review:"
+Comment:,Comment:
+"Click ","Click "
+link,link
+" to see the response"," to see the response"
+"Best Regards","Best Regards"
+Team,Team
+"Do not receive similar emails","Do not receive similar emails"
+"Thank you for the feedback left! We’d love to inform you that the review was approved successfully.","Thank you for the feedback left! We’d love to inform you that the review was approved successfully."
+"Here is the promised coupon code: ","Here is the promised coupon code: "
+"This discount coupon can be used for your next purchase with us (","This discount coupon can be used for your next purchase with us ("
+"Hope to see you soon!","Hope to see you soon!"
+"You have a new response on your product review","You have a new response on your product review"
+"Admin answer:","Admin answer:"
+"Thank you for your recent purchase with ","Thank you for your recent purchase with "
+"We’d love to know your thoughts on the product(s) you've bought! So please share your unique experience with other shoppers.","We’d love to know your thoughts on the product(s) you've bought! So please share your unique experience with other shoppers."
+"We really appreciate your feedback and hope to see you soon!","We really appreciate your feedback and hope to see you soon!"
+"Amasty Advanced Review Reminder","Amasty Advanced Review Reminder"
+"Amasty Advanced Review Comments","Amasty Advanced Review Comments"
+"Review Comments","Review Comments"
+"Advanced Reviews","Advanced Reviews"
+Information,Information
+"General settings","General settings"
+"Enable 'Helpful' Control","Enable 'Helpful' Control"
+"Set 'Yes' to allow people specify if they found the review helpful or unhelpful.","Set 'Yes' to allow people specify if they found the review helpful or unhelpful."
+"Enable `I recommend this product`","Enable `I recommend this product`"
+"Set 'Yes' to allow buyers check `I recommend this product` checkbox and show this recommendation in review.","Set 'Yes' to allow buyers check `I recommend this product` checkbox and show this recommendation in review."
+"Enable Pros and Cons","Enable Pros and Cons"
+"Set 'Yes' to allow buyers to add product advantages and disadvantages.","Set 'Yes' to allow buyers to add product advantages and disadvantages."
+"Allow Admin to Comment on Review","Allow Admin to Comment on Review"
+"Allow Guests to Submit Review","Allow Guests to Submit Review"
+"Set 'No' to allow only logged in users to leave a review.","Set 'No' to allow only logged in users to leave a review."
+"Show 'Email' Field for Guests","Show 'Email' Field for Guests"
+"Set' Yes' to enable email field for guest to contact them later","Set' Yes' to enable email field for guest to contact them later"
+"Enabled GDPR Consent","Enabled GDPR Consent"
+"Сonsent Text","Сonsent Text"
+"Enable Sorting By","Enable Sorting By"
+"Press CTRL+mouse to select multiple values.","Press CTRL+mouse to select multiple values."
+"Enable Filtering By","Enable Filtering By"
+"Reviews per Page","Reviews per Page"
+Images,Images
+"Allow Users to Upload Images","Allow Users to Upload Images"
+"Image Field is Required","Image Field is Required"
+"Review Image Width","Review Image Width"
+"Images to Show","Images to Show"
+"If image number exceeds this limit, a line of images turns into a slider. Mobile version has slider enabled by default. Set to 0 disable slider on both mobile and desktop.","If image number exceeds this limit, a line of images turns into a slider. Mobile version has slider enabled by default. Set to 0 disable slider on both mobile and desktop."
+"Review Commenting","Review Commenting"
+Enable,Enable
+"Set 'Yes' to allow your customers comment on already approved reviews.","Set 'Yes' to allow your customers comment on already approved reviews."
+"Allow Guests to Comment on Review","Allow Guests to Comment on Review"
+"Set 'No' to allow only logged in users to leave a comment.","Set 'No' to allow only logged in users to leave a comment."
+"Automatically Approve Comments","Automatically Approve Comments"
+"Set 'No' to approve each comment manually from admin panel.","Set 'No' to approve each comment manually from admin panel."
+"Email Sender","Email Sender"
+"Email Template","Email Template"
+"Notify Customer about Admin Reply","Notify Customer about Admin Reply"
+"Enable Review Reminder","Enable Review Reminder"
+"Order Status","Order Status"
+"Please specify the Order Status for Review Reminder to be sent after. It will work based on Order Creation Date If the Order Status is not specified.","Please specify the Order Status for Review Reminder to be sent after. It will work based on Order Creation Date If the Order Status is not specified."
+"Disable for Customer Group","Disable for Customer Group"
+"Customers from selected Customer Groups won’t receive the reminder.","Customers from selected Customer Groups won’t receive the reminder."
+"Send Reminders","Send Reminders"
+"Admin is able to send Reminder Emails manually from Review Reminder grid without limit","Admin is able to send Reminder Emails manually from Review Reminder grid without limit"
+"Send Reminder Email after, Day(s)","Send Reminder Email after, Day(s)"
+"Test Email","Test Email"
+"Discount Coupons","Discount Coupons"
+Enabled,Enabled
+"Publish Review to Activate Coupon","Publish Review to Activate Coupon"
+"Allow to use coupon code only after review is published and approved.","Allow to use coupon code only after review is published and approved."
+"Discount Type","Discount Type"
+"Discount Amount","Discount Amount"
+"Expire Coupon in (days)","Expire Coupon in (days)"
+"Note: if set to 0, coupon can be used only ‘today’ (i.e., the day of coupon receipt).","Note: if set to 0, coupon can be used only ‘today’ (i.e., the day of coupon receipt)."
+"Coupon Uses","Coupon Uses"
+"Note: if set to 0, the coupon can be used unlimited amount of times.","Note: if set to 0, the coupon can be used unlimited amount of times."
+"Uses per Customer","Uses per Customer"
+"Usage limit enforced for logged in customers only.","Usage limit enforced for logged in customers only."
+"Apply for Customer Group Only","Apply for Customer Group Only"
+"The setting covers only coupon application. Generated coupon will be sent to all customer groups, but only chosen customer groups will be able to apply it. Please kindly keep that in mind and modify the email template in accordance to the setting configuration to avoid customers' confusion.","The setting covers only coupon application. Generated coupon will be sent to all customer groups, but only chosen customer groups will be able to apply it. Please kindly keep that in mind and modify the email template in accordance to the setting configuration to avoid customers' confusion."
+"Min Order Amount","Min Order Amount"
+"Admin Notifications","Admin Notifications"
+"Send Email Reports for New Reviews","Send Email Reports for New Reviews"
+"Email Template to Notify Admin","Email Template to Notify Admin"
+"Admin Email Address","Admin Email Address"
+"Comma separated Emails, no spaces.","Comma separated Emails, no spaces."
+"Amasty Catalog Advanced Reviews","Amasty Catalog Advanced Reviews"
+"Powered by Amasty Advanced Reviews extension.","Powered by Amasty Advanced Reviews extension."
+Header,Header
+"Display Page Control","Display Page Control"
+"Number of Products per Page","Number of Products per Page"
+"Number of Reviews to Show","Number of Reviews to Show"
+"The number of reviews is set to 10 by default.","The number of reviews is set to 10 by default."
+"Reviews from Current Category Only","Reviews from Current Category Only"
+"Use on Categories.","Use on Categories."
+"Reviews of Products which belong to the Same Categories Only","Reviews of Products which belong to the Same Categories Only"
+"Use on Products.","Use on Products."
+"Reviews Type","Reviews Type"
+"Do not Display Reviews with Average Rating less than","Do not Display Reviews with Average Rating less than"
+"Enable Slider","Enable Slider"
+Template,Template
+Comment,Comment
+Back,Back
+General,General
+Name,Name
+E-Mail,E-Mail
+Status,Status
+Approve,Approve
+"Are you sure you want to approve?","Are you sure you want to approve?"
+Inactivate,Inactivate
+ID,ID
+Review,Review
+Nickname,Nickname
+Email,Email
+"Created At","Created At"
+"Updated At","Updated At"
+Disapprove,Disapprove
+Edit,Edit
+"Delete items","Delete items"
+"Are you sure you wan't to delete selected items?","Are you sure you wan't to delete selected items?"
+Cancel,Cancel
+"Cancel items","Cancel items"
+"Are you sure you wan't to cancel selected items?","Are you sure you wan't to cancel selected items?"
+Send,Send
+"Send Emails","Send Emails"
+"Are you sure you wan't to Send selected items?","Are you sure you wan't to Send selected items?"
+"Send Test Email","Send Test Email"
+"Send Test Emails","Send Test Emails"
+"Order #","Order #"
+"Product Names","Product Names"
+"Store View","Store View"
+"Date Created","Date Created"
+"Date of Sending","Date of Sending"

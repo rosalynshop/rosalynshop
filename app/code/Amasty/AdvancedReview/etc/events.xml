@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="review_controller_product_init_after">
+        <observer name="Amasty_AdvancedReview::redirect_in_new_tab" instance="Amasty\AdvancedReview\Observer\Ajax\Pagination"/>
+    </event>
+    <event name="review_delete_before">
+        <observer name="Amasty_AdvancedReview::clear_images" instance="Amasty\AdvancedReview\Observer\Review\Delete"/>
+    </event>
+</config>

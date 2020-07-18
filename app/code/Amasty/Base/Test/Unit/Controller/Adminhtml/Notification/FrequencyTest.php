@@ -18,9 +18,9 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @see Frequency
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
  */
-class UnsubscribeTest extends \PHPUnit\Framework\TestCase
+class FrequencyTest extends \PHPUnit\Framework\TestCase
 {
     use Traits\ObjectManagerTrait;
     use Traits\ReflectionTrait;
@@ -66,41 +66,5 @@ class UnsubscribeTest extends \PHPUnit\Framework\TestCase
             ['more', $this->never(), $this->never(), $this->once()],
             ['test', $this->once(), $this->never(), $this->never()],
         ];
-    }
-
-    /**
-     * @covers Frequency::decreaseFrequency
-     */
-    public function testDecreaseFrequency()
-    {
-        $controller = $this->createPartialMock(Frequency::class, ['getCurrentValue', 'changeFrequency']);
-        $messageManager = $this->createMock(\Magento\Framework\Message\ManagerInterface::class);
-        $frequency = $this->getObjectManager()->getObject(\Amasty\Base\Model\Source\Frequency::class);
-
-        $controller->expects($this->any())->method('getCurrentValue')->willReturn(15);
-        $controller->expects($this->once())->method('changeFrequency');
-
-        $this->setProperty($controller, 'frequency' , $frequency, Frequency::class);
-        $this->setProperty($controller, 'messageManager' , $messageManager);
-
-        $this->invokeMethod($controller, 'decreaseFrequency');
-    }
-
-    /**
-     * @covers Frequency::increaseFrequency
-     */
-    public function testIncreaseFrequency()
-    {
-        $controller = $this->createPartialMock(Frequency::class, ['getCurrentValue', 'changeFrequency']);
-        $messageManager = $this->createMock(\Magento\Framework\Message\ManagerInterface::class);
-        $frequency = $this->getObjectManager()->getObject(\Amasty\Base\Model\Source\Frequency::class);
-
-        $controller->expects($this->any())->method('getCurrentValue')->willReturn(15);
-        $controller->expects($this->once())->method('changeFrequency');
-
-        $this->setProperty($controller, 'frequency' , $frequency, Frequency::class);
-        $this->setProperty($controller, 'messageManager' , $messageManager);
-
-        $this->invokeMethod($controller, 'increaseFrequency');
     }
 }

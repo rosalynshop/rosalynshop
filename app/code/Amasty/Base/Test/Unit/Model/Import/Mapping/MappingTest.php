@@ -18,9 +18,9 @@ use PHPUnit\Framework\MockObject\MockObject;
  * @see Mapping
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
  */
-class UnsubscribeTest extends \PHPUnit\Framework\TestCase
+class MappingTest extends \PHPUnit\Framework\TestCase
 {
     use Traits\ObjectManagerTrait;
     use Traits\ReflectionTrait;

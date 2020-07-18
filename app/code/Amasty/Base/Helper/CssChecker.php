@@ -76,11 +76,11 @@ class CssChecker extends AbstractHelper
             $websiteId = $store->getWebsiteId();
             $websiteName = $this->storeManager->getWebsite()->getName();
 
-            if (in_array($websiteId, $websites)) {
+            if (in_array($websiteId, $websites, true)) {
                 continue;
-            } else {
-                $websites[] = $websiteId;
             }
+
+            $websites[] = $websiteId;
 
             $storeId = $store->getStoreId();
 

@@ -128,7 +128,7 @@ abstract class AbstractImport extends AbstractEntity
                  * Error level import fix.
                  * Less then ProcessingError::ERROR_LEVEL_CRITICAL will pass validation
                  */
-                if ($this->isImport && $errorLevel == ProcessingError::ERROR_LEVEL_NOT_CRITICAL) {
+                if ($this->isImport && $errorLevel === ProcessingError::ERROR_LEVEL_NOT_CRITICAL) {
                     $errorLevel = ProcessingError::ERROR_LEVEL_CRITICAL;
                 }
                 $this->addRowError($errorCode, $rowNum, null, null, $errorLevel);
@@ -178,6 +178,9 @@ abstract class AbstractImport extends AbstractEntity
         return true;
     }
 
+    /**
+     * @throws \Amasty\Base\Exceptions\NonExistentImportBehavior
+     */
     protected function processImport()
     {
         /**
@@ -195,10 +198,23 @@ abstract class AbstractImport extends AbstractEntity
                 }
                 $importData[] = $this->mapRow($rowData);
             }
-            $behavior->execute($importData);
+
+            $this->prepareImportResultInfo($behavior->execute($importData));
         }
         /** Import logic fix. Clear error log after import */
         $this->getErrorAggregator()->clear();
+    }
+
+    /**
+     * @param $resultImportObject
+     */
+    private function prepareImportResultInfo($resultImportObject = null)
+    {
+        if (is_object($resultImportObject)) {
+            $this->countItemsCreated += $resultImportObject->getCountItemsCreated() ?: 0;
+            $this->countItemsUpdated += $resultImportObject->getCountItemsUpdated() ?: 0;
+            $this->countItemsDeleted += $resultImportObject->getCountItemsDeleted() ?: 0;
+        }
     }
 
     /**

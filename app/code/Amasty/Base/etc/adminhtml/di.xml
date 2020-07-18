@@ -45,4 +45,8 @@
     <type name="Magento\Backend\Model\Menu\Builder">
         <plugin name="Amasty_Base::menu_builder" type="Amasty\Base\Plugin\Backend\Model\Menu\Builder"/>
     </type>
+
+    <type name="Magento\Config\Model\Config\Structure">
+        <plugin name="Amasty_Base:advertise" type="Amasty\Base\Plugin\Backend\Model\Config\StructurePlugin"/>
+    </type>
 </config>

@@ -1,0 +1,45 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php
+/** @var \Amasty\AdvancedReview\Block\Email\Grid $block */
+$reviews = $block->getReviews();
+?>
+
+<?php if (!empty($reviews)) : ?>
+<table class="amreview-container">
+    <?php  foreach ($reviews as $review) : ?>
+        <tr>
+            <td class="col amreview-item">
+                <p>
+                    <strong class="product name">
+                        <?= $block->escapeHtml($block->getProductName($review)) ?>
+                    </strong>
+                </p>
+                <p>
+                    <strong><?= $block->escapeHtml(__('Author: ')) ?></strong>
+                    <?= $block->escapeHtml($review->getNickname() . $block->getCustomerEmail($review)) ?>
+                </p>
+                <p>
+                    <strong><?= $block->escapeHtml(__('Title: ')) ?></strong>
+                    <?= $block->escapeHtml($review->getTitle()) ?>
+                </p>
+                <p>
+                    <strong><?= $block->escapeHtml(__('Review: ')) ?></strong>
+                    <?= $block->escapeHtml($review->getDetail()) ?>
+                </p>
+            </td>
+            <td class="col amreview-item amreview-button-box">
+                <a class="amreview-button blue" href="<?= $block->escapeUrl($block->getReviewUrl($review)) ?>"
+                   title="<?= /* @noEscape */ __('View'); ?>">
+                    <?= /* @noEscape */ __('View'); ?>
+                </a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<?php endif;?>

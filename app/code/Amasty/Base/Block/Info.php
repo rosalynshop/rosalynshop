@@ -110,7 +110,7 @@ class Info extends \Magento\Config\Block\System\Config\Form\Fieldset
      */
     private function getMagentoMode($fieldset)
     {
-        $label = __("Magento Mode");
+        $label = __('Magento Mode');
 
         $env = $this->reader->load();
         $mode = isset($env[State::PARAM_MODE]) ? $env[State::PARAM_MODE] : '';
@@ -125,7 +125,7 @@ class Info extends \Magento\Config\Block\System\Config\Form\Fieldset
      */
     private function getMagentoPathInfo($fieldset)
     {
-        $label = __("Magento Path");
+        $label = __('Magento Path');
         $path = $this->directoryList->getRoot();
 
         return $this->getFieldHtml($fieldset, 'magento_path', $label, $path);
@@ -146,7 +146,7 @@ class Info extends \Magento\Config\Block\System\Config\Form\Fieldset
         return $this->getFieldHtml(
             $fieldset,
             'magento_user',
-            __("Server User"),
+            __('Server User'),
             $serverUser
         );
     }
@@ -159,11 +159,11 @@ class Info extends \Magento\Config\Block\System\Config\Form\Fieldset
     private function getSystemTime($fieldset)
     {
         if (version_compare($this->productMetadata->getVersion(), '2.2', '>=')) {
-            $time = $this->resourceConnection->getConnection()->fetchOne("select now()");
+            $time = $this->resourceConnection->getConnection()->fetchOne('select now()');
         } else {
             $time = $this->_localeDate->date()->format('H:i:s');
         }
-        return $this->getFieldHtml($fieldset, 'mysql_current_date_time', __("Current Time"), $time);
+        return $this->getFieldHtml($fieldset, 'mysql_current_date_time', __('Current Time'), $time);
     }
 
     /**
@@ -178,12 +178,12 @@ class Info extends \Magento\Config\Block\System\Config\Form\Fieldset
 
         if ($crontabCollection->count() === 0) {
             $value = '<div class="red">';
-            $value .= __('No cron jobs found') . "</div>";
+            $value .= __('No cron jobs found') . '</div>';
             $value .=
-                "<a target='_blank'
-                  href='https://support.amasty.com/index.php?/Knowledgebase/Article/View/72/24/magento-cron'>" .
-                __("Learn more") .
-                "</a>";
+                '<a target="_blank"
+                  href="https://support.amasty.com/index.php?/Knowledgebase/Article/View/72/24/magento-cron">' .
+                __('Learn more') .
+                '</a>';
         } else {
             $value = '<table>';
             foreach ($crontabCollection as $crontabRow) {

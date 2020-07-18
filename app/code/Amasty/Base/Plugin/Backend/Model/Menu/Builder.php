@@ -118,6 +118,8 @@ class Builder
      * @param Menu $menu
      *
      * @return Menu
+     *
+     * @throws \Exception
      */
     private function observeMenu(Menu $menu)
     {
@@ -204,11 +206,7 @@ class Builder
             $amastyItem = $menu->get($link);
             if ($amastyItem) {
                 $itemData = $amastyItem->toArray();
-                if (isset($itemData['id'])
-                    && isset($itemData['resource'])
-                    && isset($itemData['action'])
-                    && isset($itemData['title'])
-                ) {
+                if (isset($itemData['id'], $itemData['resource'], $itemData['action'], $itemData['title'])) {
                     if (isset($itemData['module'])) {
                         $module = $itemData['module'];
                     } else {
@@ -269,9 +267,9 @@ class Builder
         $modules = $dispatchResult->toArray();
 
         foreach ($modules as $moduleName) {
-            if (strstr($moduleName, 'Amasty_') === false
-                || $moduleName === 'Amasty_Base'
-                || in_array($moduleName, $this->moduleHelper->getRestrictedModules())
+            if ($moduleName === 'Amasty_Base'
+                || strpos($moduleName, 'Amasty_') === false
+                || in_array($moduleName, $this->moduleHelper->getRestrictedModules(), true)
             ) {
                 continue;
             }
@@ -320,9 +318,6 @@ class Builder
         foreach ($config as $item => $section) {
             $name = explode('::', $item);
             $name = $name[0];
-            if (!isset($configItems[$name])) {
-                $configItems[$name] = [];
-            }
             $configItems[$name] = $section;
         }
 
@@ -397,10 +392,7 @@ class Builder
         if ($config) {
             foreach ($config as $item) {
                 $data = $item->getData('resource');
-                if (isset($data['resource'])
-                    && isset($data['id'])
-                    && $data['id']
-                ) {
+                if (isset($data['resource'], $data['id']) && $data['id']) {
                     $result[$data['resource']] = $data;
                 }
             }
@@ -410,26 +402,26 @@ class Builder
     }
 
     /**
-     * @param $config
-     * @param $name
+     * @param \Magento\Config\Model\Config\Structure\Element\Iterator $config
+     * @param string                                                  $name
      *
-     * @return array
+     * @return \Magento\Config\Model\Config\Structure\Element\Iterator|null
      */
     private function findResourceChildren($config, $name)
     {
-        $result = [];
+        /** @var \Magento\Config\Model\Config\Structure\Element\Tab|null $currentNode */
         $currentNode = null;
         foreach ($config as $node) {
-            if ($node->getId() == $name) {
+            if ($node->getId() === $name) {
                 $currentNode = $node;
                 break;
             }
         }
 
         if ($currentNode) {
-            $result = $currentNode->getChildren();
+            return $currentNode->getChildren();
         }
 
-        return $result;
+        return null;
     }
 }

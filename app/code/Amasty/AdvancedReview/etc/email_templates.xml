@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="amasty_advancedreview_customer_notify_template"
+              label="Advanced Review Customer Notification"
+              file="amasty_advancedreview_customer_notify_template.html"
+              type="html"
+              module="Amasty_AdvancedReview"
+              area="frontend"
+    />
+    <template id="amasty_advancedreview_reminder_template"
+              label="Advanced Review Customer Reminder"
+              file="amasty_advancedreview_customer_reminder_template.html"
+              type="html"
+              module="Amasty_AdvancedReview"
+              area="frontend"
+    />
+    <template id="amasty_advancedreview_admin_notifications_template"
+              label="Advanced Review Admin Notification"
+              file="amasty_advancedreview_admin_notification.html"
+              type="html"
+              module="Amasty_AdvancedReview"
+              area="frontend"
+    />
+    <template id="amasty_advancedreview_coupons_template"
+              label="Advanced Review Customer Coupon Template"
+              file="amasty_advancedreview_customer_coupon_template.html"
+              type="html"
+              module="Amasty_AdvancedReview"
+              area="frontend"
+    />
+    <template id="amasty_advancedreview_comments_template"
+              label="Advanced Review Customer Comment Template"
+              file="amasty_advancedreview_customer_comments_template.html"
+              type="html"
+              module="Amasty_AdvancedReview"
+              area="frontend"
+    />
+</config>

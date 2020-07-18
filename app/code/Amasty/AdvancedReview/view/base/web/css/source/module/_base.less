@@ -1,0 +1,611 @@
+//
+//  Base Styles
+//  ____________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amrev-items-block {
+        position: relative;
+    }
+
+    .amreview-info-wrapper {
+        position: relative;
+        margin: 0 -@amrev__indent__l;
+        padding-top: @amrev__indent__xl;
+    }
+
+    .amreview-description-wrap {
+        max-width: 100%;
+    }
+
+    .amrev-desc-title {
+        & {
+            .am-flex(space-between, center);
+        }
+
+        .amrev-voteqty {
+            display: none;
+            font-size: 12px;
+            color: @amreview-text__color;
+        }
+    }
+
+    .amreview-description {
+        margin-top: @amrev__indent__xl;
+        font-size: 14px;
+        color: @amreview-text__color;
+        word-break: break-all;
+    }
+
+    .amreview-summary-info {
+        & {
+            padding: 0 @amrev__indent;
+        }
+
+        .amreview-summary {
+            float: left;
+            margin-right: @amrev__indent__xl;
+            font-size: 60px;
+            line-height: 1;
+            color: #000;
+        }
+
+        .amreview-count {
+            display: inline-block;
+            font-size: 16px;
+            color: @amreview-label__color;
+        }
+
+        .amreview-showmore {
+            display: inline-block;
+            .lib-css(color, @amreview-button__color);
+            cursor: pointer;
+        }
+
+        .amreview-showmore:after {
+            content: '';
+            display: inline-block;
+            margin-left: 3px;
+            width: @amrev__indent;
+            height: 7px;
+            .lib-css(background, @amreview-arrow-down__background center no-repeat);
+            background-size: @amrev__indent;
+        }
+
+        .amreview-percent {
+            display: none;
+            clear: both;
+            font-size: 14px;
+            .lib-css(color, @amreview-label__color);
+        }
+
+        .amreview-value {
+            display: inline-block;
+            font-size: 30px;
+        }
+
+        .amreview-text {
+            display: inline-block;
+            margin-left: @amrev__indent;
+            max-width: 180px;
+            line-height: 1.2;
+        }
+    }
+
+    .amreview-rating-wrapper {
+        float: left;
+        margin-bottom: 5px;
+    }
+
+    .amreview-review-list.-empty {
+        position: relative;
+        padding: @amrev__indent__xl;
+        text-align: center;
+    }
+
+    .amreview-summary-details {
+        display: none;
+        padding: 0 @amrev__indent;
+        clear: both;
+    }
+
+    .amreview-summary-details .amreview-label {
+        > .amreview-stars,
+        > .amreview-bar,
+        > .amreview-text {
+            & {
+                display: inline-block;
+                line-height: 14px;
+            }
+
+            &:hover {
+                .lib-css(color, @amreview-stars__filtering__color);
+            }
+        }
+
+        > .amreview-stars {
+            margin-bottom: 5px;
+            min-width: 50px;
+            text-align: right;
+            .lib-css(color, @amreview-label__color);
+        }
+
+        .amreview-bar {
+            margin: 0 @amrev__indent__xl;
+            width: 80px;
+            height: 6px;
+            vertical-align: middle;
+            background: #dfdfdf;
+        }
+
+        .amreview-bar.-active {
+            margin: 0;
+            .lib-css(background, @amreview-review-bar__active__background);
+        }
+
+    }
+
+    .amreview-add-new {
+        & {
+            margin: 0 0 35px;
+            padding: @amrev__indent__xl;
+            background: @amreview-review-form__background;
+            clear: both;
+        }
+
+        .amreview-button.action {
+            margin-right: 2%;
+            border-radius: 2px;
+            padding: 12px 16px;
+        }
+
+        .amreview-label {
+            display: inline-block;
+            width: 50%;
+            vertical-align: middle;
+            line-height: 1.2;
+            .lib-css(color, @amreview-label__color);
+        }
+    }
+
+    .amreview-author-details {
+        & {
+            position: relative;
+            width: 100%;
+            margin: @amrev__indent / 2 0 @amrev__indent__xl;
+        }
+
+        .amreview-author {
+            margin: 0 80px 0 0;
+            font-size: 16px;
+            word-break: break-all;
+        }
+
+        .amreview-date {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0 0 @amrev__indent__xxl 0;
+            font-size: 12px;
+            color: @amreview-line__color;
+        }
+
+        .amreview-verified {
+            font-size: 14px;
+            color: #909090;
+        }
+
+        .amreview-verified:after {
+            content: '';
+            display: inline-block;
+            margin-left: 5px;
+            width: 12px;
+            height: 12px;
+            vertical-align: middle;
+            .lib-css(background, @amreview-verified__background);
+        }
+
+        .amreview-recommended {
+            font-size: 12px;
+            color: @amreview-recommended__color;
+        }
+    }
+
+    .review-details.amreview-author-details .amreview-recommended { // Magento's styles override
+        margin-top: @amrev__indent;
+    }
+
+    .amreview-title-review {
+        margin-bottom: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        word-break: break-all;
+    }
+
+    .amreview-adminanswer-block {
+        & {
+            padding: @amrev__indent__xxl 0 0 @amrev__indent__l;
+            color: @amreview-text__color;
+        }
+
+        > .amreview-title {
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #000;
+        }
+
+        > .amreview-text {
+            font-size: 14px;
+        }
+    }
+
+    .amreview-review-wrapper {
+        &.review-item {
+            .am-flex(space-between, none, wrap);
+
+            padding: @amrev__indent__xxl 0 @amrev__indent__l * 2 0;
+        }
+
+        .amreview-readmore + .amreview-showmore {
+            display: none;
+        }
+
+        .amreview-images {
+            .am-flex(none, none, wrap);
+
+            margin-top: @amrev__indent__xl;
+            margin-left: -@amrev__indent / 2;
+            margin-right: -@amrev__indent / 2;
+        }
+
+        .amreview-slider-item {
+            padding: @amrev__indent / 2;
+            box-sizing: border-box;
+        }
+
+        .amreview-slider-item .amreview-image {
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            object-fit: cover;
+        }
+    }
+
+    // Override magento styles
+    .amreview-toolbar-wrap {
+        .pages strong.page {
+            padding: 0 @amrev__indent;
+            background: #f0f0f0;
+        }
+
+        .pages .action {
+            box-shadow: none;
+            background: #fff;
+        }
+
+        .limiter select {
+            box-shadow: none;
+            background-color: #fff;
+        }
+
+    }
+
+    .field.amreview-gdpr-wrap {
+        padding: 0;
+        position: relative;
+    }
+
+    .amreview-gdpr-wrap .mage-error[generated] {
+        bottom: -30px;
+        position: absolute;
+    }
+
+    .amreview-proscons-container {
+        & {
+            .am-flex();
+
+            margin: @amrev__indent__l 0 0 0;
+            flex-direction: column;
+            word-break: break-word;
+            word-wrap: break-word;
+        }
+
+        .amreview-proscons {
+            position: relative;
+            min-width: 0;
+            flex-basis: 50%;
+            margin-right: @amrev__indent;
+            padding: 0 0 0 @amrev__indent__xl;
+            line-height: 15px;
+        }
+
+        .amreview-proscons:before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            left: 0;
+            width: 15px;
+            height: 15px;
+        }
+
+        .amreview-proscons.-dislike {
+            .lib-css(color, @amreview-cons__color);
+        }
+
+        .amreview-proscons.-like {
+            .lib-css(color, @amreview-pros__color);
+        }
+
+        .amreview-proscons.-dislike:before {
+            .lib-css(background, @amreview-disadvantages__background);
+            background-size: contain;
+        }
+
+        .amreview-proscons.-like:before {
+            .lib-css(background, @amreview-advantages__background);
+            background-size: contain;
+        }
+    }
+
+    .field.amreview-email-wrap {
+        margin: 0 0 @amrev__indent;
+    }
+
+    .amreview-summary-details {
+        .amreview-label {
+            display: block;
+            cursor: pointer;
+            text-decoration: none;
+            color: unset;
+        }
+    }
+
+    #row_amasty_advancedreview_reminder_frequency {
+        .tooltip-content {
+            ul {
+                padding-left: @amrev__indent;
+            }
+        }
+    }
+}
+
+//
+//  Mobile +
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .amrev-title-block {
+        & {
+            .am-flex(none, center);
+        }
+
+        &.-am-line {
+            &:after {
+                width: 100%;
+                height: 1px;
+                background: #dcdcdc;
+                content: '';
+            }
+        }
+
+        .am-strong {
+            font-weight: normal;
+            font-size: 2.4rem;
+            white-space: nowrap;
+            padding: 0 24px 0 0;
+        }
+    }
+
+    .amreview-proscons-container {
+        .lib-vendor-prefix-flex-direction(row);
+    }
+}
+
+//
+//  Tablet +
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .amreview-summary-info,
+    .amreview-summary-details {
+        padding: 0;
+    }
+
+    .amrev-desc-title .amrev-voteqty {
+        display: block;
+    }
+
+    .amreview-review-list {
+        & {
+            padding: 50px 0 @amrev__indent__xl 0;
+            margin: 0;
+        }
+
+        &.-empty {
+            padding: @amrev__indent__xl * 2;
+        }
+    }
+
+    .amreview-author-details {
+        margin: @amrev__indent 0 @amrev__indent__xl;
+    }
+
+    .amreview-summary-info {
+        .amreview-percent {
+            .am-flex(none, center);
+        }
+
+        .amreview-showmore {
+            display: none;
+        }
+    }
+
+    .amreview-summary-info,
+    .amreview-summary-details {
+        display: inline-block;
+    }
+
+    .amreview-summary-details {
+        margin-left: @amrev__indent__xl;
+    }
+
+    .amreview-add-new {
+        & {
+            margin: @amrev__indent__xl * 2 0 0;
+        }
+
+        .amreview-label {
+            max-width: 160px;
+            text-align: left;
+        }
+    }
+
+    .amreview-author-details {
+        & {
+            display: inline-block;
+            margin: 0 auto 0 0;
+            width: 25%;
+            vertical-align: top;
+        }
+
+        .amreview-verified {
+            display: block;
+        }
+
+        .amreview-date {
+            position: static;
+        }
+
+        .amreview-recommended {
+            position: relative;
+            margin: @amrev__indent__xl 0;
+            padding: 4px 4px 4px 6px;
+            max-width: 78px;
+            line-height: 14px;
+            border-left: 2px solid #1ab900;
+            color: #6b6b6b;
+            background: #f1f1f1;
+        }
+    }
+
+    .amreview-recommended:after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -32px;
+        display: block;
+        border: 18px solid transparent;
+        border-left: 14px solid #f1f1f1;
+        content: '';
+    }
+
+    .amreview-toolbar-wrap {
+        &.review-toolbar .pages {
+            padding: @amrev__indent__xl 0;
+            float: right;
+            border: 0;
+        }
+
+        &.review-toolbar .limiter {
+            float: left;
+            padding: @amrev__indent__xl 0;
+        }
+    }
+
+    .amreview-review-wrapper {
+        &.review-item {
+            padding: @amrev__indent__l * 2 0 @amrev__indent__xl * 2 0;
+        }
+    }
+
+    .amreview-description-wrap {
+        position: relative;
+        display: inline-block;
+        width: 75%;
+    }
+
+    .amreview-title-review {
+        font-size: 16px;
+    }
+}
+
+//
+//  Desktop +
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .amreview-description-wrap {
+        width: 75%;
+    }
+
+    .amreview-description {
+        > .amreview-showless {
+            position: relative;
+            display: block;
+            padding-bottom: 2px;
+        }
+
+        > .amreview-showless:after {
+            position: absolute;
+            display: block;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(255, 255, 255, 1) 1%, rgba(0, 0, 0, 0) 25%);
+            content: '';
+        }
+
+        > .amreview-readmore {
+            display: block;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    }
+
+    .amreview-title-review {
+        margin-right: 280px;
+    }
+
+    .amreview-customer-review {
+        margin-bottom: 8px;
+    }
+
+    .amreview-info-wrapper {
+        & {
+            .am-flex(space-between, center);
+        }
+
+        .amreview-summary-info,
+        .amreview-summary-details,
+        .amreview-add-new {
+            vertical-align: middle;
+        }
+
+        .amreview-summary-details {
+            margin: 0 auto 0 0;
+            padding: 0 @amrev__indent__l 0 @amrev__indent__xxl;
+            border-right: 2px solid @amreview-line__color;
+        }
+
+        .amreview-add-new {
+            display: inline-block;
+            margin: 0 0 0 @amrev__indent__xxl;
+            padding-right: 0;
+            background: none;
+        }
+    }
+}
+
+//
+//  Tablet
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .amreview-info-wrapper {
+        margin: 0;
+    }
+}

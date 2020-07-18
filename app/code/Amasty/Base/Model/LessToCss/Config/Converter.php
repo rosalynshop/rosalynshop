@@ -17,11 +17,11 @@ class Converter implements \Magento\Framework\Config\ConverterInterface
     /**#@+
      * Constants defined for keys of data array
      */
-    const HANDLES = "handles";
-    const CSS_OPTIONS = "cssOptions";
-    const CSS_OPTION_FILENAME = "fileName";
-    const CSS_OPTION_PATH = "path";
-    const IFCONFIG = "ifconfig";
+    const HANDLES = 'handles';
+    const CSS_OPTIONS = 'cssOptions';
+    const CSS_OPTION_FILENAME = 'fileName';
+    const CSS_OPTION_PATH = 'path';
+    const IFCONFIG = 'ifconfig';
     /**#@-*/
 
     /**

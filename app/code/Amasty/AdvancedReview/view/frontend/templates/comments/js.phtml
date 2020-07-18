@@ -1,0 +1,25 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php /** @var $block \Amasty\AdvancedReview\Block\Comment\JsInit */ ?>
+
+<script type="text/x-magento-init" data-amreview-js="js-initialize">
+        {
+            "*": {
+                "Amasty_AdvancedReview/js/comments/handler": {
+                    "updateUrl": "<?= $block->escapeUrl($block->getUpdateUrl()) ?>",
+                    "submitUrl": "<?= $block->escapeUrl($block->getSubmitUrl()) ?>"
+                }
+            }
+        }
+</script>
+<script>
+    // Magento 2.2.3 fix
+    require(['mage/apply/main'], function (mage) {
+        mage.apply('data-amreview-js="js-initialize"');
+    });
+</script>

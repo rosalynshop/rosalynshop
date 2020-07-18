@@ -115,7 +115,7 @@ class AddAssets
                     }
                 }
                 foreach ($moduleConfig[Converter::HANDLES] as $handle) {
-                    if (in_array($handle, $currentHandles)) {
+                    if (in_array($handle, $currentHandles, true)) {
                         $this->addCss($moduleName, $moduleConfig[Converter::CSS_OPTIONS]);
                         continue 2;
                     }
@@ -151,7 +151,7 @@ class AddAssets
         /** @var File $item */
         foreach ($collection->getAll() as $item) {
             if ($item instanceof File
-                && in_array($item->getFilePath(), $this->filesToCheck)
+                && in_array($item->getFilePath(), $this->filesToCheck, true)
             ) {
                 $found++;
                 if ($found === $shouldFind && $this->findLess($item) === false) {

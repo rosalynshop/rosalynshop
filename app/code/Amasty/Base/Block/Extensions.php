@@ -22,9 +22,9 @@ class Extensions extends \Magento\Config\Block\System\Config\Form\Fieldset
     private $moduleList;
 
     /**
-     * @var \Magento\Framework\View\LayoutFactory
+     * @var \Magento\Framework\View\Element\BlockInterface|null
      */
-    private $layoutFactory;
+    private $_fieldRenderer;
 
     /**
      * @var \Amasty\Base\Helper\Module
@@ -36,14 +36,12 @@ class Extensions extends \Magento\Config\Block\System\Config\Form\Fieldset
         \Magento\Backend\Model\Auth\Session $authSession,
         \Magento\Framework\View\Helper\Js $jsHelper,
         \Magento\Framework\Module\ModuleListInterface $moduleList,
-        \Magento\Framework\View\LayoutFactory $layoutFactory,
         \Amasty\Base\Helper\Module $moduleHelper,
         array $data = []
     ) {
         parent::__construct($context, $authSession, $jsHelper, $data);
 
         $this->moduleList = $moduleList;
-        $this->layoutFactory = $layoutFactory;
         $this->moduleHelper = $moduleHelper;
     }
 
@@ -65,9 +63,9 @@ class Extensions extends \Magento\Config\Block\System\Config\Form\Fieldset
 
         sort($modules);
         foreach ($modules as $moduleName) {
-            if (strstr($moduleName, 'Amasty_') === false
-                || $moduleName === 'Amasty_Base'
-                || in_array($moduleName, $this->moduleHelper->getRestrictedModules())
+            if ($moduleName === 'Amasty_Base'
+                || strpos($moduleName, 'Amasty_') === false
+                || in_array($moduleName, $this->moduleHelper->getRestrictedModules(), true)
             ) {
                 continue;
             }
@@ -128,7 +126,7 @@ class Extensions extends \Magento\Config\Block\System\Config\Form\Fieldset
         $moduleName = $this->_replaceAmastyText($moduleName);
         $status =
             '<a target="_blank">
-                <img src="' . $this->getViewFileUrl('Amasty_Base::images/ok.gif') . '" title="' . __("Installed") . '"/>
+                <img src="' . $this->getViewFileUrl('Amasty_Base::images/ok.gif') . '" title="' . __('Installed') . '"/>
              </a>';
 
         $allExtensions = $this->moduleHelper->getAllExtensions();
@@ -154,7 +152,7 @@ class Extensions extends \Magento\Config\Block\System\Config\Form\Fieldset
                 $status =
                     '<a href="' . $url . '" target="_blank">
                         <img src="' . $this->getViewFileUrl('Amasty_Base::images/update.gif') .
-                    '" alt="' . __("Update available") . '" title="' . __("Update available")
+                    '" alt="' . __('Update available') . '" title="' . __('Update available')
                     . '"/></a>';
             }
         }
@@ -165,7 +163,7 @@ class Extensions extends \Magento\Config\Block\System\Config\Form\Fieldset
             $status =
                 '<a' . $href . ' target="_blank">
                     <img src="' . $this->getViewFileUrl('Amasty_Base::images/bad.gif') .
-                '" alt="' . __("Output disabled") . '" title="' . __("Output disabled")
+                '" alt="' . __('Output disabled') . '" title="' . __('Output disabled')
                 . '"/></a>';
         }
 
@@ -185,9 +183,9 @@ class Extensions extends \Magento\Config\Block\System\Config\Form\Fieldset
     }
 
     /**
-     * @param $moduleName
+     * @param string $moduleName
      *
-     * @return mixed
+     * @return string
      */
     protected function _replaceAmastyText($moduleName)
     {

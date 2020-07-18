@@ -1,0 +1,46 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php
+/** @var \Amasty\AdvancedReview\Block\Summary $block */
+// phpcs:ignoreFile
+?>
+<?php $rating = $block->getRatingSummary(); ?>
+<?php $count = $block->getReviewsCount(); ?>
+
+<div class="amreview-summary-info">
+    <p class="amreview-summary"><?= $block->escapeHtml($block->getRatingSummaryValue()) ?></p>
+    <div class="amreview-rating-wrapper">
+        <div class="amstars-rating-container"
+            <?php $stars = $block->getRatingSummaryValue(); ?>
+             title="<?= $block->escapeHtml($stars > 1 ? __('%1 stars', $stars) : __('%1 star', $stars)) ?>">
+            <p class="amstars-stars" style="width:<?= $block->escapeHtml($rating); ?>%">
+                <span class="hidden"><?= $block->escapeHtml($rating); ?>%</span>
+            </p>
+        </div>
+        <p class="amreview-count"><?= /* @noEscape */ $count; ?> <?= $block->escapeHtml(__('reviews'));?></p>
+        <p class="amreview-showmore" data-amreview-js="show-more"><?= $block->escapeHtml(__('More info'));?></p>
+    </div>
+    <?php if ($block->shouldShowRecommended()) : ?>
+    <p class="amreview-percent" data-amreview-js="percent">
+        <span class="amreview-value"><?= $block->escapeHtml($block->getRecomendedPercent());?>%</span>
+        <span class="amreview-text"><?= $block->escapeHtml(__('of customers recommend this product'));?></span>
+    </p>
+    <?php endif; ?>
+</div>
+<div class="amreview-summary-details pages" data-amreview-js="summary-details">
+    <?php foreach ($block->getDetailedSummary() as $key => $detail) : ?>
+        <a class="amreview-label" rel="nofollow" href="<?= $block->escapeUrl($block->getProductReviewUrl($key)) ?>">
+                <p class="amreview-stars"><?= /* @noEscape */ $key ?><?= /* @noEscape */ $key === 1 ? __(' star') : __(' stars'); ?></p>
+                <div class="amreview-bar">
+                    <div class="amreview-bar -active"
+                         style="width:<?= /* @noEscape */ $count ? round($detail / $count * 100) : 0 ?>%"></div>
+                </div>
+            <p class="amreview-text"><?= /* @noEscape */ $count ? round($detail / $count * 100) : 0 ?>% (<?= /* @noEscape */ $detail?>)</p>
+        </a>
+    <?php endforeach; ?>
+</div>

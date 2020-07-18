@@ -1,0 +1,92 @@
+//
+//  Slick Slider Styles
+//  ____________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    // Zoom PopUp custom styles
+    .amrev-fancybox-zoom .fancybox-arrow {
+        & {
+            box-shadow: none;
+        }
+        
+        &:hover,
+        &:active,
+        &:focus {
+            border: none;
+            background: none;
+            opacity: 1;
+            box-shadow: none;
+        }
+    }
+    
+    .amreview-images.slick-slider {
+        & {
+            padding: 0 18px;
+        }
+        
+        .slick-arrow {
+            & {
+                .transition(.1);
+
+                background-size: 7px 12px !important; // Slick Slider's styles override
+                filter: invert(.5);
+            }
+    
+            &:hover {
+                filter: invert(1);
+            }
+    
+            &.slick-next {
+                right: 0;
+            }
+    
+            &.slick-prev {
+                left: 0;
+                transform: rotate(180deg) translate(0, 50%);
+            }
+        }
+        
+        .slick-slide {
+            & {
+                box-sizing: border-box;
+                border: 1px solid transparent;
+                border-radius: 2px;
+                text-align:center;
+            }
+        }
+    }
+    
+    .amreview-widget-container .slick-dots {
+        position: initial;
+    }
+}
+
+//
+//  Tablet +
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .amreview-images.slick-slider {
+        .slick-slide {
+            display: inline-block;
+        }
+    
+        .slick-arrow {
+            background: @amreview-slider-arrow__background center no-repeat;
+        }
+    }
+}
+
+//
+//  Mobile -
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .amreview-widget-container .slick-dots button {
+        border: 1px solid #ccc;
+    }
+}

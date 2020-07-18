@@ -1,0 +1,46 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php
+/** @var $block \Amasty\AdvancedReview\Block\Comment\Form */
+
+use Amasty\AdvancedReview\Api\Data\CommentInterface;
+
+?>
+
+<form class="amrev-form" data-amreview-js="comment-form">
+    <input name="form_key" type="hidden"/>
+    <input name="comment[<?= CommentInterface::REVIEW_ID ?>]" type="hidden" value="<?= /** @noEscape */ $block->getReviewId() ?>"/>
+    <div class="amrev-fieldset">
+        <?php if (!$block->isLoggedIn()) : ?>
+            <div class="amrev-field amrev-input-field">
+                <label class="amrev-label" for="comment[<?= CommentInterface::NICKNAME ?>]">
+                    <?= $block->escapeHtml(__('Nickname*')) ?>
+                </label>
+                <input class="amrev-input required-entry" name="comment[<?= CommentInterface::NICKNAME ?>]" type="text"/>
+            </div>
+            <div class="amrev-field amrev-input-field">
+                <label class="amrev-label" for="comment[<?= CommentInterface::EMAIL ?>]">
+                    <?= $block->escapeHtml(__('Email*')) ?>
+                </label>
+                <input class="amrev-input required-entry validate-email" name="comment[<?= CommentInterface::EMAIL ?>]" type="text"/>
+            </div>
+        <?php endif; ?>
+        <div class="amrev-field amrev-area-field">
+            <label class="amrev-label" for="comment[<?= CommentInterface::MESSAGE ?>]">
+                <?= $block->escapeHtml(__('Comment*')) ?>
+            </label>
+            <textarea class="amrev-input amrev-area required-entry"
+                      name="comment[<?= CommentInterface::MESSAGE ?>]"
+                      placeholder="<?= $block->escapeHtml(__('Talk about why you like this review, or ask a question.')) ?>"
+                      rows="3"></textarea>
+        </div>
+    </div>
+    <button class="amrev-btn" type="submit">
+        <?= $block->escapeHtml(__('Add Comment')) ?>
+    </button>
+</form>

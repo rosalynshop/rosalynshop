@@ -1,0 +1,39 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php
+/** @var \Amasty\AdvancedReview\Block\Images $block */
+$collection = $block->getCollection();
+?>
+
+<?php if ($collection->getSize()) : ?>
+    <div class="amreview-images" id="amreview-id-<?= /* @noEscape */ $block->getReviewId() ?>"
+         data-amreview-js="review-images">
+        <?php foreach ($collection as $item) : ?>
+            <div class="amreview-slider-item">
+                <a href="<?= $block->escapeHtml($block->getFullImagePath($item)) ?>" class="amreview-image-link fancybox"
+                   data-fancybox="amreview-image-group-<?= /* @noEscape */ $block->getReviewId() ?>">
+                    <img class="amreview-image"
+                         src="<?= /* @noEscape */ $block->getResizedImagePath($item);?>"
+                         title="<?= $block->escapeHtml(__('Review image')); ?>"
+                         alt="<?= $block->escapeHtml(__('Review image')); ?>"
+                    />
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <style>
+        .amreview-slider-item {
+            max-width: <?= /* @noEscape */ (int)$block->getMaxHeight();?>px;
+            height: <?= /* @noEscape */ (int)$block->getMaxHeight();?>px;
+        }
+
+        .amreview-images.slick-slider {
+            max-width: <?= /* @noEscape */ ((int)$block->getMaxHeight() + 10) * $block->getSlidesToShow() + 40;?>px;
+        }
+    </style>
+<?php endif;?>

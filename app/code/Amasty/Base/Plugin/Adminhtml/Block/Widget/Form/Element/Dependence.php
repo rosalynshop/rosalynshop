@@ -11,8 +11,7 @@ namespace Amasty\Base\Plugin\Adminhtml\Block\Widget\Form\Element;
 use Magento\Backend\Block\Widget\Form\Element;
 
 /**
- * Class Dependence
- * @package Amasty\Base\Plugin\Adminhtml\Block\Widget\Form\Element
+ * Fix group dependence on old Magento
  */
 class Dependence
 {

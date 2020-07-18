@@ -11,7 +11,7 @@ namespace Amasty\Base\Test\Unit\Traits;
 /**
  * Create Object Manager instance for test purposes.
  *
- * @codingStandardsIgnoreFile
+ * phpcs:ignoreFile
  */
 trait ObjectManagerTrait
 {

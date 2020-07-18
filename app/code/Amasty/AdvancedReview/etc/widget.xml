@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+-->
+
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="amasty_advancedreview_list" class="Amasty\AdvancedReview\Block\Widget\Reviews" is_email_compatible="true"
+            placeholder_image="Magento_Cms::images/widget_block.png" ttl="86400">
+        <label translate="true">Amasty Catalog Advanced Reviews</label>
+        <description translate="true">Powered by Amasty Advanced Reviews extension.</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" visible="true" sort_order="10">
+                <label translate="true">Header</label>
+                <value>Product Reviews</value>
+            </parameter>
+            <parameter name="show_pager" xsi:type="select" visible="false"
+                       source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="20">
+                <label translate="true">Display Page Control</label>
+            </parameter>
+            <parameter name="products_per_page" xsi:type="text" required="true" visible="true" sort_order="30">
+                <label translate="true">Number of Products per Page</label>
+                <depends>
+                    <parameter name="show_pager" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="reviews_count" xsi:type="text" visible="true" sort_order="40">
+                <label translate="true">Number of Reviews to Show</label>
+                <description translate="true">The number of reviews is set to 10 by default.</description>
+            </parameter>
+            <parameter name="current_category" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="50">
+                <label translate="true">Reviews from Current Category Only</label>
+                <description translate="true">Use on Categories.</description>
+            </parameter>
+            <parameter name="current_product_category" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="55">
+                <label translate="true">Reviews of Products which belong to the Same Categories Only</label>
+                <description translate="true">Use on Products.</description>
+            </parameter>
+            <parameter name="review_type" xsi:type="select" visible="true"
+                       source_model="Amasty\AdvancedReview\Model\OptionSource\Widget\Type" sort_order="60">
+                <label translate="true">Reviews Type</label>
+            </parameter>
+            <parameter name="higher_than" xsi:type="text" visible="true" sort_order="70">
+                <label translate="true">Do not Display Reviews with Average Rating less than</label>
+            </parameter>
+            <parameter name="enable_slider" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno" sort_order="80">
+                <label translate="true">Enable Slider</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="true" sort_order="60">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="Amasty_AdvancedReview::widget/review/content/main.phtml" selected="true">
+                        <label translate="true">Review Grid Template</label>
+                    </option>
+                    <option name="list_default" value="Amasty_AdvancedReview::widget/review/sidebar/sidebar.phtml">
+                        <label translate="true">Products Images and Names Template (vert.)</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+        <containers>
+            <container name="content">
+                <template name="grid" value="default" />
+            </container>
+            <container name="content.top">
+                <template name="grid" value="default" />
+            </container>
+            <container name="content.bottom">
+                <template name="grid" value="default" />
+            </container>
+            <container name="sidebar.main">
+                <template name="default" value="list_default" />
+            </container>
+            <container name="sidebar.additional">
+                <template name="default" value="list_default" />
+            </container>
+        </containers>
+    </widget>
+</widgets>

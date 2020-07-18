@@ -1,0 +1,32 @@
+<!--@subject You have new item to review on {{var store_name}} @-->
+<!--@vars {
+"var store_name":"Store Name",
+"var website_name":"Website Name",
+"var unsubscribe_link":"Unsubscribe Link",
+"var customer_name":"Customer Name",
+"var coupon_message":"Coupon Message"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">
+    {{trans "Hello"}} {{var customer_name}}
+</p>
+
+<p>{{trans "Thank you for your recent purchase with "}}{{var store_name}}.</p>
+
+<p>{{trans "We’d love to know your thoughts on the product(s) you've bought! So please share your unique experience with other shoppers."}}</p>
+
+{{var coupon_message | raw}}
+
+<br/>
+{{var productGrid|raw}}
+<br/>
+
+<p class="center">{{trans "We really appreciate your feedback and hope to see you soon!"}}</p>
+
+<p><small>
+    <a href="{{var unsubscribe_link}}" title="{{trans "Do not receive similar emails"}}">{{trans "Do not receive similar emails"}}</a>
+</small></p>
+
+{{template config_path="design/email/footer_template"}}

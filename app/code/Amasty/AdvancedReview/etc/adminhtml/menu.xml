@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_AdvancedReview::reminder"
+             title="Review Reminder"
+             translate="title"
+             sortOrder="30"
+             module="Amasty_AdvancedReview"
+             parent="Magento_Backend::marketing_user_content"
+             action="amasty_advancedreview/reminder/index"
+             resource="Amasty_AdvancedReview::reminder"
+        />
+        <add id="Amasty_AdvancedReview::comments"
+             title="Review Comments"
+             translate="title"
+             sortOrder="40"
+             module="Amasty_AdvancedReview"
+             parent="Magento_Backend::marketing_user_content"
+             action="amasty_advancedreview/comment/index"
+             resource="Amasty_AdvancedReview::comments"
+        />
+    </menu>
+</config>

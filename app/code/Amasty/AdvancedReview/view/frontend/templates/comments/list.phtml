@@ -1,0 +1,12 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php /** @var \Amasty\AdvancedReview\Block\Comment\CommentsList $block */ ?>
+
+<?php foreach ($block->getComments() as $comment) : ?>
+    <?= $block->getChildBlock('message')->setComment($comment)->toHtml() ?>
+<?php endforeach; ?>

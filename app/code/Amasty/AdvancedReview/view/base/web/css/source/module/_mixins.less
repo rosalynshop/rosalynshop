@@ -1,0 +1,55 @@
+//
+//  Mixins
+//  _____________________________________
+
+.am-icon(@icon-url: none) {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: @icon-url;
+    content: '';
+}
+
+.am-mage-icon(@ico: none) {
+    display: inline-block;
+    font-family: @icons__font-name;
+    content: @ico;
+}
+
+.transition(@del: .3) {
+    transition: ~'@{del}s all ease-in';
+}
+
+.gen-childs(@from, @to, @styles, @val, @interval)  when(@from =< @to){
+    &:nth-child(@{from}) {
+            @{styles}: ~'@{val}s';
+    }
+    
+    .gen-childs(@from + 1, @to, @styles, @val + @interval, @interval);
+}
+
+.am-flex(
+    @horiz-pos: none,
+    @vert-pos: none,
+    @wrap: none
+) {
+    & {
+        display: flex;
+    }
+
+    & when not (@horiz-pos = none) {
+        justify-content: @horiz-pos;
+    }
+
+    & when not (@vert-pos = none) {
+        align-items: @vert-pos;
+    }
+
+    & when not (@wrap = none) {
+        flex-wrap: @wrap;
+    }
+}

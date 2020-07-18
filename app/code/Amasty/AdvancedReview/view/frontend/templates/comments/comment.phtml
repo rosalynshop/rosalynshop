@@ -1,0 +1,16 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php /** @var $block \Amasty\AdvancedReview\Block\Comment\Comment */ ?>
+<li class="amrev-comment" data-amreview-js="comment">
+    <p class="amrev-name">
+        <b class="amrev-firstname"><?= $block->escapeHtml($block->getComment()->getNickname()) ?></b>
+         | <span class="amrev-email"><?= $block->escapeHtml($block->getComment()->getEmail()) ?></span>
+    </p>
+    <span class="amrev-date"><?= $block->escapeHtml($block->getDateInterval()) ?></span>
+    <span class="amrev-text"><?= $block->escapeHtml($block->getComment()->getMessage()) ?></span>
+</li>

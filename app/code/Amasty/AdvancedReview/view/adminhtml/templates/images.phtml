@@ -1,0 +1,46 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php
+/** @var \Amasty\AdvancedReview\Block\Images $block */
+$collection = $block->getCollection();
+
+// phpcs:ignoreFile
+?>
+
+<?php if ($collection->getSize()) : ?>
+    <div class="amreview-images" id="amreview-id-<?= /* @noEscape */ $block->getReviewId(); ?>">
+        <?php foreach ($collection as $item) : ?>
+            <div class="amreview-slider-item">
+                <a href="<?= $block->getFullImagePath($item); ?>" class="amreview-image-link" data-amreview-js="review-image">
+                    <img class="amreview-image"
+                         src="<?= /* @noEscape */ $block->getResizedImagePath($item);?>"
+                         title="<?= $block->escapeHtml(__('Review image')); ?>"
+                         alt="<?= $block->escapeHtml(__('Review image')); ?>"
+                         style="max-height: <?= /* @noEscape */ (int)$block->getMaxHeight();?>px"
+                    />
+                </a>
+                <label class="amreview-remove-image" title="<?= $block->escapeHtml(__('Remove image')); ?>">
+                    <input class="amreview-checkbox"
+                           value="1"
+                           type="checkbox"
+                           name="review_remove_image[<?= /* @noEscape */ (int)$item->getId();?>]"
+                    >
+                    <?= $block->escapeHtml(__('Remove'));?>
+                </label>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <script>
+        require([
+            "jquery",
+            "Amasty_AdvancedReview/vendor/fancybox/jquery.fancybox.min"
+        ], function ($) {
+            $('[data-amreview-js="review-image"]').fancybox();
+        });
+    </script>
+<?php endif;?>

@@ -27,14 +27,27 @@ class Data extends AbstractHelper
      */
     protected $_imageHelper;
 
-    
+    /**
+     * @var \Magento\Customer\Model\Session
+     */
+    protected $customerSession;
+
+    /**
+     * Data constructor.
+     * @param Context $context
+     * @param \Magento\Catalog\Api\ProductRepositoryInterface $productRepository
+     * @param \Magento\Catalog\Helper\Image $imageHelper
+     * @param \Magento\Customer\Model\Session $customerSession
+     */
     public function __construct(
         Context $context,
         \Magento\Catalog\Api\ProductRepositoryInterface $productRepository,
-        \Magento\Catalog\Helper\Image $imageHelper
+        \Magento\Catalog\Helper\Image $imageHelper,
+        \Magento\Customer\Model\Session $customerSession
     ) {
         $this->productRepository = $productRepository;
         $this->_imageHelper = $imageHelper;
+        $this->customerSession = $customerSession;
         parent::__construct($context);
     }
 
@@ -53,5 +66,13 @@ class Data extends AbstractHelper
             $imageUrl = $this->_imageHelper->init($this->getProduct(), 'product_base_image')->getUrl();
         }
         return $imageUrl;
+    }
+
+    /**
+     * @return \Magento\Customer\Model\Customer
+     */
+    public function getCustomer()
+    {
+        return $this->customerSession->getCustomer();
     }
 }

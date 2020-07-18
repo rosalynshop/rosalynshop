@@ -1,0 +1,24 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_AdvancedReview
+ */
+?>
+<?php /** @var \Amasty\AdvancedReview\Block\Comment\Container $block */ ?>
+<div class="amrev-comment-list" data-amreview-js="comment-list-block">
+    <p class="amrev-title">
+        <?= $block->escapeHtml(__('Showing')) ?>
+        <em class="amrev-qty" data-review-js="comment-qty"><?= (int)count($block->getComments()) ?></em>
+        <?= $block->escapeHtml(__('comments')) ?>
+    </p>
+    <ul class="amrev-list" data-amreview-js="comment-list">
+        <?= $block->getChildHtml('messages', false) ?>
+    </ul>
+</div>
+<div class="amrev-comment-form" data-amreview-js="comment-form-block">
+    <p class="amrev-title">
+        <?= $block->escapeHtml(__('Leave your comment')) ?>
+    </p>
+    <?= $block->getChildHtml('form', false) ?>
+</div>
