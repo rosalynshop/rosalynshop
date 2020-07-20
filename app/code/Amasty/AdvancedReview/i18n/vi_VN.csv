@@ -144,7 +144,7 @@ Remove,Remove
 "Title: ","Title: "
 "Review: ","Đánh giá: "
 View,View
-Showing,Showing
+Showing,Hiển thị
 comments,bình luận
 "Leave your comment","Để lại bình luận của bạn"
 Nickname*,Nickname*
@@ -165,11 +165,11 @@ Comment*,Bình luận*
 Reply,Trả lời
 "No reviews","Không có đánh giá nào cho sản phẩm này"
 "Sort By","Sort By"
-"Please select an option","Please select an option"
+"Please select an option","--Vui lòng chọn--"
 "Set Ascending Direction","Set Ascending Direction"
 "Set Descending Direction","Set Descending Direction"
 reviews,đánh giá
-"More info","More info"
+"More info","Xem thêm"
 "of customers recommend this product","của khách hàng giới thiệu sản phẩm này"
 " star"," star"
 " stars"," stars"
@@ -314,3 +314,5 @@ Send,Send
 "Store View","Store View"
 "Date Created","Date Created"
 "Date of Sending","Date of Sending"
+"Choose Files","Chọn file"
+"No File chosen","Chưa chọn file"

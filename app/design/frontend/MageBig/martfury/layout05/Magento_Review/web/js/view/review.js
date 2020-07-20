@@ -24,7 +24,7 @@ define([
          * @return {*}
          */
         nickname: function () {
-            return this.review().nickname || customerData.get('customer')().firstname + ' ' + customerData.get('customer')().firstname;
+            return this.review().nickname || customerData.get('customer')().fullname;
         }
     });
 });

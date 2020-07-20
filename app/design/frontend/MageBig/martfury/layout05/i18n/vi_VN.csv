@@ -4614,7 +4614,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "You saved the rating.","Bạn đã lưu các xếp hạng.",module,Magento_Review
 "My Product Reviews","Đánh giá sản phẩm",module,Magento_Review
 "Cannot initialize product","Không thể khởi tạo sản phẩm",module,Magento_Review
-"You submitted your review for moderation.","Bạn đã gửi nhận xét của bạn để kiểm duyệt.",module,Magento_Review
+"You submitted your review for moderation.","Nhận xét của bạn đã được gửi và kiểm duyệt.",module,Magento_Review
 "We can't post your review right now.","Chúng tôi không thể đăng bài nhận xét của bạn ngay bây giờ.",module,Magento_Review
 "Storage key was not set","Khóa Lưu trữ không được thiết lập",module,Magento_Review
 "Approved","Chấp thuận",module,Magento_Review
@@ -4658,7 +4658,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Product Rating:","Xếp hạng sản phẩm:",module,Magento_Review
 "Product Review (submitted on %1):","Đánh giá sản phẩm (đã gửi trên %1):",module,Magento_Review
 "Back to Product Reviews","Quay lại đánh giá sản phẩm",module,Magento_Review
-"Please select one of each of the ratings above.","Please select one of each of the ratings above.",module,Magento_Review
+"Please select one of each of the ratings above.","Vui lòng chọn một trong các xếp hạng ở trên.",module,Magento_Review
 "By Customers","Bởi khách hàng",module,Magento_Review
 "By Products","Bởi sản phẩm",module,Magento_Review
 "Allow Guests to Write Reviews","Cho phép khách viết đánh giá",module,Magento_Review
