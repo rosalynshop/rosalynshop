@@ -39,9 +39,9 @@
     <type name="Magento\Framework\App\FrontControllerInterface">
         <plugin name="core-bridge-initializer" type="Aheadworks\OneStepCheckout\Plugin\App\FrontController\CoreBridgeInitializer" />
     </type>
-    <type name="Magento\Framework\View\Asset\Minification">
-        <plugin name="aw-osc-core-minification-plugin" type="Aheadworks\OneStepCheckout\Plugin\View\Asset\Minification" />
-    </type>
+<!--    <type name="Magento\Framework\View\Asset\Minification">-->
+<!--        <plugin name="aw-osc-core-minification-plugin" type="Aheadworks\OneStepCheckout\Plugin\View\Asset\Minification" />-->
+<!--    </type>-->
     <type name="Magento\Checkout\Api\TotalsInformationManagementInterface">
         <plugin name="aw_onestepcheckout_guest_totals_information_plugin" type="Aheadworks\OneStepCheckout\Plugin\Checkout\TotalsInformationPlugin"/>
     </type>

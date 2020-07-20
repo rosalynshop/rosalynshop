@@ -2,9 +2,6 @@
 //  Variables
 //  _____________________________________________
 
-@aw-osc-font-family__base: @font_default;
-@aw-osc-font-size__base: 14px;
-@aw-osc-line-height__base: 1.43;
 @aw-osc-primary__color: @primary__color;
 @aw-osc-primary__color__darker: darken(@primary__color, 10%);
 @aw-osc-primary__color__lighter: lighten(@primary__color, 10%);
@@ -75,10 +72,9 @@
         .page-main {
             .checkout-container {
                 .lib-css(color, @aw-osc-primary__color);
-                .lib-css(font-family, @aw-osc-font-family__base);
-                .lib-css(line-height, @aw-osc-line-height__base);
+                .lib-css(font-family, Merriweather);
+                .lib-css(line-height, 1.43);
                 .lib-css(transition, 1s, 1);
-                .lib-font-size(@aw-osc-font-size__base);
                 .lib-vendor-prefix-display(flex);
                 justify-content: space-between;
                 margin: auto;
@@ -1315,7 +1311,7 @@
                                         font-weight: 400;
                                         cursor: pointer;
                                         display: inline-block;
-                                        font-size: @aw-osc-font-size__base;
+                                        font-size: 14px;
 
                                         &:after {
                                             display: inline-block;
@@ -1346,7 +1342,7 @@
                                             font-weight: 400;
                                             cursor: pointer;
                                             display: inline-block;
-                                            font-size: @aw-osc-font-size__base;
+                                            font-size: 14px;
 
                                             &:after {
                                                 display: inline-block;

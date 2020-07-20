@@ -12,7 +12,8 @@
     },
     "require": {
         "hybridauth/hybridauth": "2.11.0",
-        "magento/product-community-edition": "2.3.2-p2"
+        "magento/product-community-edition": "2.3.2-p2",
+        "smile/elasticsuite": "~2.8.0"
     },
     "require-dev": {
         "allure-framework/allure-phpunit": "~1.2.0",

@@ -46,6 +46,7 @@ class Minification
             $this->cache[AssetMinification::XML_PATH_MINIFICATION_EXCLUDES][$contentType] = [];
             $xmlPath = sprintf(AssetMinification::XML_PATH_MINIFICATION_EXCLUDES, $contentType);
             foreach ($this->configExploder->explodeByPath($xmlPath) as $rawValue) {
+                var_dump($this->configExploder->explodeByPath($xmlPath));die;
                 $rawValues = explode("\n", $rawValue);
                 foreach ($rawValues as $value) {
                     if (trim($value) != '') {
