@@ -18,10 +18,6 @@ use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\View\Design\Theme\ThemeProviderInterface;
 use Magento\Framework\App\ObjectManager;
 
-/**
- * Class AddAssets
- * @package Amasty\Base\Plugin\Frontend
- */
 class AddAssets
 {
     const CACHE_KEY = 'amasty_should_load_css_files';

@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Exceptions;
 
-/**
- * Class WrongValidatorInterface
- * @package Amasty\Base\Exceptions
- */
 class WrongValidatorInterface extends \Magento\Framework\Exception\LocalizedException
 {
     /**

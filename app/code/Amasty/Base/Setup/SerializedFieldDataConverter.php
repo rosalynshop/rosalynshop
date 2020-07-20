@@ -10,10 +10,6 @@ namespace Amasty\Base\Setup;
 
 use Magento\Framework\DB\AggregatedFieldDataConverter;
 
-/**
- * Class SerializedFieldDataConverter
- * @package Amasty\Base\Setup
- */
 class SerializedFieldDataConverter
 {
     /**

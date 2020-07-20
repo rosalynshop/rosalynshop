@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Model\Import\Mapping;
 
-/**
- * Class Mapping
- * @package Amasty\Base\Model\Import\Mapping
- */
 class Mapping implements MappingInterface
 {
     /**

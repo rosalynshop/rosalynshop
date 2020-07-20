@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Debug\System;
 
-/**
- * Class AmastyDump
- * @package Amasty\Base\Debug\System
- */
 class AmastyDump
 {
     public $className = '';

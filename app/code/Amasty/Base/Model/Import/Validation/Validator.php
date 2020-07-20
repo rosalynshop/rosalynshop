@@ -8,10 +8,8 @@
 
 namespace Amasty\Base\Model\Import\Validation;
 
-/**
- * Class Validator
- * @package Amasty\Base\Model\Import\Validation
- */
+use Amasty\Base\Model\Import\AbstractImport;
+
 class Validator implements ValidatorInterface
 {
     /**
@@ -61,5 +59,19 @@ class Validator implements ValidatorInterface
     public function getErrorMessages()
     {
         return $this->messageTemplates;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function addRuntimeError($message, $level)
+    {
+        if (!isset($this->errors[AbstractImport::RUNTIME_ERRORS])) {
+            $this->errors[AbstractImport::RUNTIME_ERRORS] = [];
+        }
+
+        $this->errors[AbstractImport::RUNTIME_ERRORS][(string)(__('<b>Error!</b> ')) . $message] = $level;
+
+        return $this;
     }
 }

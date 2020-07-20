@@ -11,10 +11,6 @@ namespace Amasty\Base\Observer;
 use Amasty\Base\Helper\Module;
 use Magento\Framework\Event\ObserverInterface;
 
-/**
- * Class GenerateInformationTab
- * @package Amasty\Base\Observer
- */
 class GenerateInformationTab implements ObserverInterface
 {
     const SEO_PARAMS = '?utm_source=extension&utm_medium=backend&utm_campaign=';

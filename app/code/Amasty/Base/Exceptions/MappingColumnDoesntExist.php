@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Exceptions;
 
-/**
- * Class MappingColumnDoesntExist
- * @package Amasty\Base\Exceptions
- */
 class MappingColumnDoesntExist extends \Magento\Framework\Exception\LocalizedException
 {
     /**

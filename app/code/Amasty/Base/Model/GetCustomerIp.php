@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Model;
 
-/**
- * Class GetCustomerIp
- * @package Amasty\Base\Model
- */
 class GetCustomerIp
 {
     /**

@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Block\Adminhtml;
 
-/**
- * Class Messages
- * @package Amasty\Base\Block\Adminhtml
- */
 class Messages extends \Magento\Backend\Block\Template
 {
     const AMASTY_BASE_SECTION_NAME = 'amasty_base';

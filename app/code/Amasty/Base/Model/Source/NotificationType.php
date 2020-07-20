@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Model\Source;
 
-/**
- * Class NotificationType
- * @package Amasty\Base\Model\Source
- */
 class NotificationType implements \Magento\Framework\Option\ArrayInterface
 {
     const GENERAL = 'INFO';

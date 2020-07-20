@@ -10,10 +10,6 @@ namespace Amasty\Base\Model\Config\Backend;
 
 use Amasty\Base\Model\Source\NotificationType;
 
-/**
- * Class Unsubscribe
- * @package Amasty\Base\Model\Config\Backend
- */
 class Unsubscribe extends \Magento\Framework\App\Config\Value implements
     \Magento\Framework\App\Config\Data\ProcessorInterface
 {

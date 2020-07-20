@@ -14,10 +14,6 @@ use Zend\Http\Response as HttpResponse;
 use Zend\Uri\Http as HttpUri;
 use Magento\Framework\Json\DecoderInterface;
 
-/**
- * Class Module
- * @package Amasty\Base\Helper
- */
 class Module
 {
     const EXTENSIONS_PATH = 'ambase_extensions';

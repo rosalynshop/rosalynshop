@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Model\AdminNotification\Model\ResourceModel\Inbox\Collection;
 
-/**
- * Class Exists
- * @package Amasty\Base\Model\AdminNotification\Model\ResourceModel\Inbox\Collection
- */
 class Exists extends \Magento\AdminNotification\Model\ResourceModel\Inbox\Collection
 {
     /**

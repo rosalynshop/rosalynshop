@@ -10,10 +10,6 @@ namespace Amasty\Base\Plugin\AdminNotification\Block\Grid\Renderer;
 
 use Magento\AdminNotification\Block\Grid\Renderer\Actions as NativeActions;
 
-/**
- * Class Actions
- * @package Amasty\Base\Plugin\AdminNotification\Block\Grid\Renderer
- */
 class Actions
 {
     /**

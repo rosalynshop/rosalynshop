@@ -17,7 +17,6 @@ use Magento\Store\Ui\Component\Listing\Column\Store\Options;
  * <item name="options" xsi:type="object">Amasty\Base\Ui\Component\Listing\Column\StoreOptions</item>
  * to your ui field as argument
  *
- * @package Amasty\Base\Ui\Component\Listing\Column
  */
 class StoreOptions extends Options
 {

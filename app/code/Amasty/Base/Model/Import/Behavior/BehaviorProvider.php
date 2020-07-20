@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Model\Import\Behavior;
 
-/**
- * Class BehaviorProvider
- * @package Amasty\Base\Model\Import\Behavior
- */
 class BehaviorProvider implements BehaviorProviderInterface
 {
     /**

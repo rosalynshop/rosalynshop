@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Exceptions;
 
-/**
- * Class NonExistentImportBehavior
- * @package Amasty\Base\Exceptions
- */
 class NonExistentImportBehavior extends \Magento\Framework\Exception\LocalizedException
 {
     /**

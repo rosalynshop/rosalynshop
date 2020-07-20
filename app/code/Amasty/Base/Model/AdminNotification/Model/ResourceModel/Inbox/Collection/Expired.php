@@ -8,11 +8,6 @@
 
 namespace Amasty\Base\Model\AdminNotification\Model\ResourceModel\Inbox\Collection;
 
-/**
- * Class Expired
- *
- * @package Amasty\Base\Model\AdminNotification\Model\ResourceModel\Inbox\Collection
- */
 class Expired extends \Magento\AdminNotification\Model\ResourceModel\Inbox\Collection
 {
     /**

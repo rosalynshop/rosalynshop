@@ -10,10 +10,6 @@ namespace Amasty\Base\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 
-/**
- * Class PreDispatchAdminActionController
- * @package Amasty\Base\Observer
- */
 class PreDispatchAdminActionController implements ObserverInterface
 {
     /**

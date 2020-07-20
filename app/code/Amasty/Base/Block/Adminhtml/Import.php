@@ -10,10 +10,6 @@ namespace Amasty\Base\Block\Adminhtml;
 
 use Magento\Backend\Block\Template;
 
-/**
- * Class Import
- * @package Amasty\Base\Block\Adminhtml
- */
 class Import extends Template
 {
     /**

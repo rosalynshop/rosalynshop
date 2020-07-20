@@ -12,15 +12,9 @@ use Magento\Backend\Model\Menu;
 use Magento\Framework\DataObjectFactory as ObjectFactory;
 use Magento\Store\Model\ScopeInterface;
 
-/**
- * Class Builder
- * @package Amasty\Base\Plugin\Backend\Model\Menu
- */
 class Builder
 {
     const BASE_MENU = 'MenuAmasty_Base::menu';
-
-    const SEO_PARAMS = '?utm_source=extension&utm_medium=backend&utm_campaign=common_menu_to_guide';
 
     const SETTING_ENABLE = 'amasty_base/menu/enable';
 
@@ -141,11 +135,13 @@ class Builder
         $configItems = $this->getConfigItems();
 
         foreach ($this->getInstalledModules($configItems) as $title => $installedModule) {
-            $itemsToAdd = [];
+
             $moduleInfo = $this->moduleHelper->getFeedModuleData($installedModule);
 
             if (isset($menuItems[$installedModule])) {
-                $this->cloneMenuItems($menuItems[$installedModule], $itemsToAdd, $menu);
+                $itemsToAdd = $this->cloneMenuItems($menuItems[$installedModule], $menu);
+            } else {
+                $itemsToAdd = [];
             }
 
             if (isset($configItems[$installedModule]['id'])) {
@@ -170,6 +166,15 @@ class Builder
                 $itemsToAdd[] = $amastyItem;
             }
 
+            $parentNodeResource = '';
+            foreach ($itemsToAdd as $key => $itemToAdd) {
+                $itemToAdd = $itemToAdd->toArray();
+                if (empty($itemToAdd['action'])) {
+                    $parentNodeResource = $itemToAdd['resource'];
+                    unset($itemsToAdd[$key]);
+                }
+            }
+
             if ($itemsToAdd) {
                 $itemId = $installedModule . '::container';
                 /** @var \Magento\Backend\Model\Menu\Item $module */
@@ -179,7 +184,7 @@ class Builder
                             'id'       => $itemId,
                             'title'    => $title,
                             'module'   => $installedModule,
-                            'resource' => self::BASE_MENU
+                            'resource' => $this->getValidResource($installedModule, $parentNodeResource)
                         ]
                     ]
                 );
@@ -196,31 +201,56 @@ class Builder
     }
 
     /**
-     * @param array $menuItems
-     * @param array $itemsToAdd
-     * @param Menu $menu
+     * @param $installedModule
+     * @param $parentNode
+     *
+     * @return string
      */
-    private function cloneMenuItems($menuItems, &$itemsToAdd, Menu $menu)
+    private function getValidResource($installedModule, $parentNodeResource)
     {
+        if (!empty($parentNodeResource)) {
+            return $parentNodeResource;
+        }
+        return $installedModule . "::config";
+    }
+
+    /**
+     * @param $menuItems
+     * @param Menu $menu
+     * @return array
+     */
+    private function cloneMenuItems($menuItems, Menu $menu)
+    {
+        $itemsToAdd = [];
         foreach ($menuItems as $link) {
             $amastyItem = $menu->get($link);
             if ($amastyItem) {
                 $itemData = $amastyItem->toArray();
-                if (isset($itemData['id'], $itemData['resource'], $itemData['action'], $itemData['title'])) {
-                    if (isset($itemData['module'])) {
-                        $module = $itemData['module'];
-                    } else {
-                        $module = current(explode('::', $itemData['resource']));
-                    }
+                if (isset($itemData['id'], $itemData['resource'], $itemData['title'])) {
                     $itemsToAdd[] = $this->generateMenuItem(
                         $itemData['id'] . 'menu',
-                        $module,
+                        $this->getModuleFullName($itemData),
                         $itemData['resource'],
                         $itemData['action'],
                         $itemData['title']
                     );
                 }
             }
+        }
+        return $itemsToAdd;
+    }
+
+    /**
+     * @param $itemData
+     *
+     * @return string
+     */
+    private function getModuleFullName($itemData)
+    {
+        if (isset($itemData['module'])) {
+            return $itemData['module'];
+        } else {
+            return current(explode('::', $itemData['resource']));
         }
     }
 
@@ -331,12 +361,8 @@ class Builder
     {
         $amasty = [];
         foreach ($this->getMenuIterator($menu) as $menuItem) {
-            $menuId = $menuItem->getId();
-            if (strpos($menuId, 'Amasty') !== false
-                && strpos($menuId, 'Amasty_Base') === false
-                && ($menuItem->getAction() && strpos($menuItem->getAction(), 'system_config') === false)
-            ) {
-                $amasty[] = $menuId;
+            if ($this->isCollectedNode($menuItem)) {
+                $amasty[] = $menuItem->getId();
             }
             if ($menuItem->hasChildren()) {
                 foreach ($this->generateAmastyItems($menuItem->getChildren()) as $menuChild) {
@@ -346,6 +372,25 @@ class Builder
         }
 
         return $amasty;
+    }
+
+    /**
+     * @param $menuItem
+     *
+     * @return bool
+     */
+    private function isCollectedNode($menuItem)
+    {
+        if (strpos($menuItem->getId(), 'Amasty') === false
+            || strpos($menuItem->getId(), 'Amasty_Base') !== false) {
+            return false;
+        }
+
+        if (empty($menuItem->getAction()) || (strpos($menuItem->getAction(), 'system_config') === false)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

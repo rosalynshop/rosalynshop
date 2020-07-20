@@ -16,7 +16,9 @@
                type="search"
                onkeypress="amastySearch.submit(event)"
                placeholder="<?= $block->escapeHtml(__('What is your challenge? e.g. Site Speed, Search...'))?>" />
-        <button class="ambase-button" type="button" onclick="amastySearch.submit(event)"><?= $block->escapeHtml(__('Search')) ?></button>
+        <button class="ambase-button" type="button" onclick="amastySearch.submit(event)">
+            <?= $block->escapeHtml(__('Search')) ?>
+        </button>
     </div>
 </div>
 <script type="text/javascript">
@@ -27,11 +29,13 @@
             }
             event.preventDefault();
             var searchValue = document.getElementById('amasty-search-input').value,
-                url = '<?= $block->escapeUrl($block->getSearchBaseUrl()) ?>'.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+                url = '<?= $block->escapeUrl($block->getSearchBaseUrl()) ?>'.replace(/&amp;/g, "&")
+                    .replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 
             if (searchValue) {
                 searchValue = encodeURIComponent(searchValue);
-                url += searchValue + '<?= $block->escapeUrl($block->getSearchUrlParams()) ?>'.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+                url += searchValue + '<?= $block->escapeUrl($block->getSearchUrlParams()) ?>'
+                    .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
             }
             window.open(url);
 

@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Exceptions;
 
-/**
- * Class MasterAttributeCodeDoesntSet
- * @package Amasty\Base\Exceptions
- */
 class MasterAttributeCodeDoesntSet extends \Magento\Framework\Exception\LocalizedException
 {
     /**

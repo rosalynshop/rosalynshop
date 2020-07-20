@@ -10,10 +10,6 @@ namespace Amasty\Base\Helper;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\App\Helper\AbstractHelper;
 
-/**
- * Class Deploy
- * @package Amasty\Base\Helper
- */
 class Deploy extends AbstractHelper
 {
 

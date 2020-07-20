@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Model\LessToCss\Config;
 
-/**
- * Class Converter
- * @package Amasty\Base\Model\LessToCss\Config
- */
 class Converter implements \Magento\Framework\Config\ConverterInterface
 {
     /**#@+

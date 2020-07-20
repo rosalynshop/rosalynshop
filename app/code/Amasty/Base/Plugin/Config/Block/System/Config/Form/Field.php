@@ -10,10 +10,6 @@ namespace Amasty\Base\Plugin\Config\Block\System\Config\Form;
 
 use Magento\Config\Block\System\Config\Form\Field as NativeField;
 
-/**
- * Class Field
- * @package Amasty\Base\Plugin\Config\Block\System\Config\Form
- */
 class Field
 {
     /**

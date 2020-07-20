@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Debug\System;
 
-/**
- * Class AmastyFormatter
- * @package Amasty\Base\Debug\System
- */
 class AmastyFormatter extends \Monolog\Formatter\LineFormatter
 {
     /**

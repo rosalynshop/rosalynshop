@@ -30,4 +30,12 @@ interface ValidatorInterface
      * @return array
      */
     public function getErrorMessages();
+
+    /**
+     * @param string $message
+     * @param int $level
+     *
+     * @return ValidatorInterface
+     */
+    public function addRuntimeError($message, $level);
 }

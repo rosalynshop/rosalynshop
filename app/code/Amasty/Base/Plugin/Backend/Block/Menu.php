@@ -10,10 +10,6 @@ namespace Amasty\Base\Plugin\Backend\Block;
 
 use Magento\Backend\Block\Menu as NativeMenu;
 
-/**
- * Class Menu
- * @package Amasty\Base\Plugin\Backend\Block
- */
 class Menu
 {
     const MAX_ITEMS = 10;

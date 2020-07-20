@@ -10,10 +10,6 @@ namespace Amasty\Base\Plugin\AdminNotification\Block\Grid\Renderer;
 
 use Magento\AdminNotification\Block\Grid\Renderer\Notice as NativeNotice;
 
-/**
- * Class Notice
- * @package Amasty\Base\Plugin\AdminNotification\Block\Grid\Renderer
- */
 class Notice
 {
     public function aroundRender(

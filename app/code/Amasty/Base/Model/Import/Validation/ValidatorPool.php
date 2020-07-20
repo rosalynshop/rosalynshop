@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Model\Import\Validation;
 
-/**
- * Class ValidatorPool
- * @package Amasty\Base\Model\Import\Validation
- */
 class ValidatorPool implements ValidatorPoolInterface
 {
     /**

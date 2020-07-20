@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Exceptions;
 
-/**
- * Class EntityTypeCodeNotSet
- * @package Amasty\Base\Exceptions
- */
 class EntityTypeCodeNotSet extends \Magento\Framework\Exception\LocalizedException
 {
     /**

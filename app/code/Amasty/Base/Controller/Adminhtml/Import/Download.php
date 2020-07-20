@@ -15,10 +15,6 @@ use Magento\Framework\Filesystem\Directory\ReadFactory;
 use Magento\Framework\Message\ManagerInterface;
 use Magento\Framework\Module\Dir\Reader;
 
-/**
- * Class Download
- * @package Amasty\Base\Controller\Adminhtml\Import
- */
 class Download
 {
     /**

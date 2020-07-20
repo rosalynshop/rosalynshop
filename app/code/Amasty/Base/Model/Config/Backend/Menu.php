@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Model\Config\Backend;
 
-/**
- * Class Menu
- * @package Amasty\Base\Model\Config\Backend
- */
 class Menu extends \Magento\Framework\App\Config\Value implements
     \Magento\Framework\App\Config\Data\ProcessorInterface
 {

@@ -10,23 +10,17 @@ namespace Amasty\Base\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 
-/**
- * Class Utils
- * @package Amasty\Base\Helper
- */
 class Utils extends AbstractHelper
 {
     public function _exit($code = 0)
     {
-        /** @codingStandardsIgnoreStart */
+        //phpcs:ignore
         exit($code);
-        /** @codingStandardsIgnoreEnd */
     }
 
     public function _echo($a)
     {
-        /** @codingStandardsIgnoreStart */
+        //phpcs:ignore
         echo $a;
-        /** @codingStandardsIgnoreEnd */
     }
 }

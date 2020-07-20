@@ -12,10 +12,6 @@ use Magento\Config\Block\System\Config\Form\Fieldset;
 use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 
-/**
- * Class MenuGroup
- * @package Amasty\Base\Block
- */
 class MenuGroup extends Fieldset
 {
     /**

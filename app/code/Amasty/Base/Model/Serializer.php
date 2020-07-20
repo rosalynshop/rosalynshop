@@ -38,9 +38,8 @@ class Serializer
     {
         try {
             if ($this->serializer === null) {
-                //@codingStandardsIgnoreStart
+                //phpcs:ignore
                 return serialize($value);
-                //@codingStandardsIgnoreEnd
             }
 
             return $this->serializer->serialize($value);
@@ -58,9 +57,8 @@ class Serializer
         try {
             return $this->serializer->unserialize($value);
         } catch (\InvalidArgumentException $exception) {
-            //@codingStandardsIgnoreStart
+            //phpcs:ignore
             return unserialize($value);
-            //@codingStandardsIgnoreEnd
         }
     }
 }

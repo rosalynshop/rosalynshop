@@ -1,8 +1,5 @@
 "Not Installed","Not Installed"
 Status,Status
-Installed,Installed
-"Update available","Update available"
-"Output disabled","Output disabled"
 "Magento Mode","Magento Mode"
 "Magento Path","Magento Path"
 Unknown,Unknown
@@ -25,6 +22,7 @@ Unknown,Unknown
 "All Notifications","All Notifications"
 "You have successfully unsubscribed from %1.","You have successfully unsubscribed from %1."
 "<b>Allowed errors limit is reached.</b>","<b>Allowed errors limit is reached.</b>"
+"<b>Error!</b> ","<b>Error!</b> "
 "2 days","2 days"
 "5 days","5 days"
 "10 days","10 days"
@@ -47,6 +45,14 @@ Unsubscribe,Unsubscribe
 Configuration,Configuration
 "User Guide","User Guide"
 "All Store Views","All Store Views"
+"Installed Extensions","Installed Extensions"
+"Get Updates at Your Amasty.com Account","Get Updates at Your Amasty.com Account"
+"Get Updates at Your","Get Updates at Your"
+Amasty.com,Amasty.com
+Account,Account
+"How to Update?","How to Update?"
+"See what's new","See what's new"
+"Up-to-Date Amasty Extensions","Up-to-Date Amasty Extensions"
 "Discover the functionality to level-up your store","Discover the functionality to level-up your store"
 "What is your challenge? e.g. Site Speed, Search...","What is your challenge? e.g. Site Speed, Search..."
 Search,Search
@@ -55,7 +61,6 @@ Search,Search
 Amasty,Amasty
 "Modules & Notifications","Modules & Notifications"
 "Extensions &amp; Notifications","Extensions &amp; Notifications"
-"Installed Extensions","Installed Extensions"
 Notifications,Notifications
 "Update Frequency","Update Frequency"
 "I want to Receive Notifications about:","I want to Receive Notifications about:"

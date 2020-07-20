@@ -179,9 +179,8 @@ class VarDump
     public static function amastyExit($code = 0)
     {
         if (self::isAllowed()) {
-            /** @codingStandardsIgnoreStart */
+            //phpcs:ignore
             exit($code);
-            /** @codingStandardsIgnoreEnd */
         }
     }
 
@@ -191,9 +190,8 @@ class VarDump
     public static function amastyEcho($string)
     {
         if (self::isAllowed()) {
-            /** @codingStandardsIgnoreStart */
+            //phpcs:ignore
             echo $string;
-            /** @codingStandardsIgnoreEnd */
         }
     }
 }

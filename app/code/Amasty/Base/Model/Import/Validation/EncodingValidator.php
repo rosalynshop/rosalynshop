@@ -10,10 +10,6 @@ namespace Amasty\Base\Model\Import\Validation;
 
 use Magento\ImportExport\Model\Import\ErrorProcessing\ProcessingError;
 
-/**
- * Class EncodingValidator
- * @package Amasty\Base\Model\Import\Validation
- */
 class EncodingValidator extends Validator implements ValidatorInterface
 {
     const ENCODING_ERROR = 'encodingError';

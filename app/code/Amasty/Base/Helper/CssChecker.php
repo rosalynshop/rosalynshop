@@ -13,10 +13,6 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Filesystem\Io\File;
 use Magento\Framework\View\Asset\Repository;
 
-/**
- * Class CssChecker
- * @package Amasty\Base\Helper
- */
 class CssChecker extends AbstractHelper
 {
     const CSS_EXIST_PATH = 'css/styles-m.css';

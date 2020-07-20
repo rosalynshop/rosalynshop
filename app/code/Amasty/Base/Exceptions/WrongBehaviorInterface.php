@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Exceptions;
 
-/**
- * Class WrongBehaviorInterface
- * @package Amasty\Base\Exceptions
- */
 class WrongBehaviorInterface extends \Magento\Framework\Exception\LocalizedException
 {
     /**

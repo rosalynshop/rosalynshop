@@ -10,18 +10,14 @@ namespace Amasty\Base\Plugin\Backend\Model\Menu;
 
 use Magento\Backend\Model\Menu\Item as NativeItem;
 
-/**
- * Class Item
- * @package Amasty\Base\Plugin\Backend\Model\Menu
- */
 class Item
 {
     const BASE_MARKETPLACE = 'Amasty_Base::marketplace';
 
     const SEO_PARAMS = '?utm_source=extension&utm_medium=backend&utm_campaign=main_menu_to_user_guide';
 
-    //phpcs:ignore Magento2.Files.LineLength.MaxExceeded
-    const MARKET_URL = 'https://amasty.com/magento-2-extensions.html?utm_source=extension&utm_medium=backend&utm_campaign=main_menu_to_catalog';
+    const MARKET_URL = 'https://amasty.com/magento-2-extensions.html'.
+    '?utm_source=extension&utm_medium=backend&utm_campaign=main_menu_to_catalog';
 
     const MAGENTO_MARKET_URL = 'https://marketplace.magento.com/partner/Amasty';
 

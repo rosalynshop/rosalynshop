@@ -10,10 +10,6 @@
  */
 namespace Amasty\Base\Model\LessToCss\Config;
 
-/**
- * Class SchemaLocator
- * @package Amasty\Base\Model\LessToCss\Config
- */
 class SchemaLocator implements \Magento\Framework\Config\SchemaLocatorInterface
 {
     /** @var \Magento\Framework\Config\Dom\UrnResolver */

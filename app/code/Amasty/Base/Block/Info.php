@@ -12,10 +12,6 @@ use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\App\State;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 
-/**
- * Class Info
- * @package Amasty\Base\Block
- */
 class Info extends \Magento\Config\Block\System\Config\Form\Fieldset
 {
     /**

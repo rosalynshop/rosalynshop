@@ -8,9 +8,11 @@
 
 namespace Amasty\Base\Model;
 
+use Amasty\Base\Model\Source\NotificationType;
 use Magento\Framework\App\Config\ReinitableConfigInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Config\Storage\WriterInterface;
+use Magento\Store\Model\ScopeInterface;
 
 /**
  * Class Config provide configuration data
@@ -43,6 +45,8 @@ class Config extends ConfigProviderAbstract
     const REMOVE_DATE = 'remove_date';
 
     const ADS_ENABLE = 'ads_enable';
+
+    const NOTIFICATIONS_TYPE = 'type';
 
     /**#@-*/
 
@@ -154,5 +158,15 @@ class Config extends ConfigProviderAbstract
     public function isAdsEnabled()
     {
         return (bool)$this->getValue(self::NOTIFICATIONS_BLOCK . self::ADS_ENABLE);
+    }
+
+    /**
+     * @return array
+     */
+    public function getEnabledNotificationTypes()
+    {
+        $value = $this->getValue(self::NOTIFICATIONS_BLOCK . self::NOTIFICATIONS_TYPE);
+
+        return empty($value) ? [] : explode(',', $value);
     }
 }

@@ -11,10 +11,6 @@ namespace Amasty\Base\Controller\Adminhtml\Notification;
 use Amasty\Base\Model\Config;
 use Magento\Backend\App\Action;
 
-/**
- * Class Frequency
- * @package Amasty\Base\Controller\Adminhtml\Notification
- */
 class Frequency extends \Magento\Backend\App\Action
 {
     /**

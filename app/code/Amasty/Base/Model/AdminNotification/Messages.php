@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Model\AdminNotification;
 
-/**
- * Class Messages
- * @package Amasty\Base\Model\AdminNotification
- */
 class Messages
 {
     const AMBASE_SESSION_IDENTIFIER = 'ambase-session-messages';

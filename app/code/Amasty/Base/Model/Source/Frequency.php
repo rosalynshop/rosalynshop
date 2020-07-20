@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Model\Source;
 
-/**
- * Class Frequency
- * @package Amasty\Base\Model\Source
- */
 class Frequency implements \Magento\Framework\Option\ArrayInterface
 {
     /**

@@ -8,10 +8,6 @@
 
 namespace Amasty\Base\Exceptions;
 
-/**
- * Class StopValidation
- * @package Amasty\Base\Exceptions
- */
 class StopValidation extends \Exception
 {
     /**

@@ -9,8 +9,6 @@
 namespace Amasty\Base\Model\LessToCss\Config;
 
 /**
- * Class Reader
- * @package Amasty\Base\Model\LessToCss\Config
  * @codingStandardsIgnoreFile
  */
 class Reader extends \Magento\Framework\Config\Reader\Filesystem

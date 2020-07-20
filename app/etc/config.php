@@ -207,6 +207,7 @@ return [
         'Amasty_AdvancedReview' => 1,
         'Amasty_Base' => 1,
         'Amasty_CronScheduleList' => 1,
+        'Amasty_Smtp' => 1,
         'Amazon_Core' => 0,
         'Amazon_Login' => 0,
         'Amazon_Payment' => 0,
