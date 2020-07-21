@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_CrossLinks
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_cross_links" translate="label" type="text" sortOrder="190503" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Seo Cross Linking</label>
+            <tab>amasty</tab>
+            <resource>Amasty_CrossLinks::config</resource>
+            <group id="amasty_information" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Information</label>
+                <frontend_model>Amasty\CrossLinks\Block\Adminhtml\System\Config\Information</frontend_model>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="product_replacement_limit" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Page Replacement Limit</label>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+                <field id="category_replacement_limit" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category Page Page Replacement Limit</label>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+                <field id="cms_page_replacement_limit" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cms Page Replacement Limit</label>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+                <field id="product_replacement_attributes" translate="label comment" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Replace on Product Page In</label>
+                    <source_model>Amasty\CrossLinks\Model\Source\ProductReplacementAttributes</source_model>
+                </field>
+                <field id="category_replacement_attributes" translate="label comment" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Replace on Category Page In</label>
+                    <source_model>Amasty\CrossLinks\Model\Source\CategoryReplacementAttributes</source_model>
+                </field>
+            </group>
+            <group id="faq" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Amasty FAQ and Product Questions Pages</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Amasty\CrossLinks\Model\Source\Faq</source_model>
+                    <comment><![CDATA[Equip product pages with the advanced FAQ section and provide customers with additional information on products and services in your store. See more details <a target="_blank" href="https://amasty.com/faq-and-product-questions-for-magento-2.html?utm_source=extension&utm_medium=link&utm_campaign=cross_link-faq-m2">here</a>.]]></comment>
+                </field>
+                <field id="replacement_limit" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Replacement Limit</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+            </group>
+            <group id="advanced" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Advanced</label>
+                <field id="regexpr" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Regexpr for "+"</label>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

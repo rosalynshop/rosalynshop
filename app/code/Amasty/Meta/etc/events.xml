@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Meta
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <event name="catalog_product_save_after">
+        <observer name="Amasty_Meta::AfterProductSave" instance="Amasty\Meta\Observer\Catalog\Product\AfterSave"/>
+    </event>
+
+    <event name="catalog_product_save_before">
+        <observer name="Amasty_Meta::AfterProductBefore" instance="Amasty\Meta\Observer\Catalog\Product\BeforeSave"/>
+    </event>
+
+    <event name="catalog_controller_category_init_after">
+        <observer name="Amasty_Meta::CategoryInitAfter" instance="Amasty\Meta\Observer\Catalog\Category\InitAfter"/>
+    </event>
+
+    <event name="catalog_controller_product_view">
+        <observer name="Amasty_Meta::ProductView" instance="Amasty\Meta\Observer\Catalog\Product\View"/>
+    </event>
+
+</config>

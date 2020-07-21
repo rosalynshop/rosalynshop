@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_SeoToolKit
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Move SEO menu items to toolkit -->
+    <type name="Magento\Backend\Model\Menu\Builder">
+        <plugin name="Amasty_SeoToolKit::Move_Menu" type="Amasty\SeoToolKit\Plugin\Model\Menu\Builder" />
+    </type>
+</config>

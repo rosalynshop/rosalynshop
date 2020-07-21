@@ -69,61 +69,6 @@
                 <bodyTmpl>Magento_Catalog/product/name</bodyTmpl>
             </settings>
         </column>
-        <column name="price" component="Magento_Catalog/js/product/list/columns/price-box" sortOrder="3" displayArea="details-area">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="renders" xsi:type="array">
-                        <item name="prices" xsi:type="array">
-                            <item name="default" xsi:type="array">
-                                <item name="component" xsi:type="string">Magento_Catalog/js/product/list/columns/pricetype-box</item>
-                                <item name="bodyTmpl" xsi:type="string">Magento_Catalog/product/final_price</item>
-                                <item name="children" xsi:type="array">
-                                    <item name="special_price" xsi:type="array">
-                                        <item name="label" xsi:type="string" translate="true">Special Price</item>
-                                        <item name="component" xsi:type="string">Magento_Catalog/js/product/list/columns/final-price</item>
-                                        <item name="bodyTmpl" xsi:type="string">Magento_Catalog/product/price/special_price</item>
-                                        <item name="sortOrder" xsi:type="number">1</item>
-                                    </item>
-                                    <item name="regular_price" xsi:type="array">
-                                        <item name="label" xsi:type="string" translate="true">Regular Price</item>
-                                        <item name="component" xsi:type="string">Magento_Catalog/js/product/list/columns/final-price</item>
-                                        <item name="bodyTmpl" xsi:type="string">Magento_Catalog/product/price/regular_price</item>
-                                        <item name="sortOrder" xsi:type="number">2</item>
-                                    </item>
-                                    <item name="minimal_price" xsi:type="array">
-                                        <item name="label" xsi:type="string" translate="true"/>
-                                        <item name="component" xsi:type="string">Magento_Catalog/js/product/list/columns/final-price</item>
-                                        <item name="bodyTmpl" xsi:type="string">Magento_Catalog/product/price/minimal_price</item>
-                                        <item name="sortOrder" xsi:type="number">3</item>
-                                    </item>
-                                    <item name="minimal_regular_price" xsi:type="array">
-                                        <item name="label" xsi:type="string" translate="true">Regular Price</item>
-                                        <item name="component" xsi:type="string">Magento_Catalog/js/product/list/columns/final-price</item>
-                                        <item name="bodyTmpl" xsi:type="string">Magento_Catalog/product/price/minimal_regular_price</item>
-                                        <item name="sortOrder" xsi:type="number">4</item>
-                                    </item>
-                                    <item name="max_price" xsi:type="array">
-                                        <item name="label" xsi:type="string" translate="true"/>
-                                        <item name="component" xsi:type="string">Magento_Catalog/js/product/list/columns/final-price</item>
-                                        <item name="bodyTmpl" xsi:type="string">Magento_Catalog/product/price/max_price</item>
-                                        <item name="sortOrder" xsi:type="number">5</item>
-                                    </item>
-                                    <item name="max_regular_price" xsi:type="array">
-                                        <item name="label" xsi:type="string" translate="true">Regular Price</item>
-                                        <item name="component" xsi:type="string">Magento_Catalog/js/product/list/columns/final-price</item>
-                                        <item name="bodyTmpl" xsi:type="string">Magento_Catalog/product/price/max_regular_price</item>
-                                        <item name="sortOrder" xsi:type="number">6</item>
-                                    </item>
-                                </item>
-                            </item>
-                        </item>
-                    </item>
-                </item>
-            </argument>
-            <settings>
-                <label translate="true">Price</label>
-            </settings>
-        </column>
         <column name="addtocart-button" component="Magento_Catalog/js/product/addtocart-button" displayArea="action-primary-area">
             <settings>
                 <label translate="true">Add To Cart</label>

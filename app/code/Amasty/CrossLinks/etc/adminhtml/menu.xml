@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_CrossLinks
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_CrossLinks::seo" title="Amasty Seo" module="Amasty_CrossLinks" parent="Magento_Backend::marketing"
+             sortOrder="30" resource="Amasty_CrossLinks::seo"/>
+        <add id="Amasty_CrossLinks::crosslinks" title="Cross Links Management" module="Amasty_CrossLinks" sortOrder="10"
+             parent="Amasty_CrossLinks::seo" action="amasty_crosslinks/link/index" resource="Amasty_CrossLinks::seo"/>
+    </menu>
+</config>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_SeoSingleUrl
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sitemap\Model\ResourceModel\Catalog\Product">
+        <plugin name="Amasty_SeoSingleUrl::sitemap" type="Amasty\SeoSingleUrl\Plugin\Sitemap\Model\ResourceModel\Catalog\Product"/>
+    </type>
+
+    <type name="Amasty\XmlSitemap\Model\Sitemap">
+        <plugin name="Amasty_SeoSingleUrl::amasty_sitemap" type="Amasty\SeoSingleUrl\Plugin\XmlSitemap\Model\Sitemap"/>
+    </type>
+</config>

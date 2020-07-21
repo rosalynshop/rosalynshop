@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_AdminActionsLog
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="model_save_after">
+        <observer name="amaudit_handleModelSaveAfter" instance="Amasty\AdminActionsLog\Observer\HandleModelSaveAfter"/>
+    </event>
+    <event name="model_save_before">
+        <observer name="amaudit_handleModelSaveBefore" instance="Amasty\AdminActionsLog\Observer\HandleModelSaveBefore"/>
+    </event>
+    <event name="controller_action_predispatch">
+        <observer name="amaudit_handleActionPredispatch" instance="Amasty\AdminActionsLog\Observer\HandleActionPredispatch"/>
+    </event>
+    <event name="model_delete_after">
+        <observer name="amaudit_handleModelDeleteAfter" instance="Amasty\AdminActionsLog\Observer\HandleModelDeleteAfter"/>
+    </event>
+    <event name="model_delete_before">
+        <observer name="amaudit_handleModelDeleteBefore" instance="Amasty\AdminActionsLog\Observer\HandleModelDeleteBefore"/>
+    </event>
+    <event name="view_block_abstract_to_html_before">
+        <observer name="amaudit_handleBlockToHtmlBefore" instance="Amasty\AdminActionsLog\Observer\HandleBlockToHtmlBefore"/>
+    </event>
+    <event name="backend_auth_user_login_success">
+        <observer name="amaudit_handleBackendAuthUserLoginSuccess" instance="Amasty\AdminActionsLog\Observer\HandleBackendAuthUserLoginSuccess" />
+    </event>
+    <event name="backend_auth_user_login_failed">
+        <observer name="amaudit_handleBackendAuthUserLoginFailed" instance="Amasty\AdminActionsLog\Observer\HandleBackendAuthUserLoginFailed" />
+    </event>
+    <event name="layout_render_before">
+        <observer name="amaudit_handleLayoutRenderBefore" instance="Amasty\AdminActionsLog\Observer\HandleLayoutRenderBefore" />
+    </event>
+</config>

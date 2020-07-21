@@ -1,0 +1,34 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+?>
+<?php /** @var \Amasty\Fpc\Block\Adminhtml\Report\Tab\Crawled $block */?>
+
+<div class="amfpc-filter-block">
+    <div class="amfpc-select">
+        <label for="amfpc-warmed-filter"><?= $block->escapeHtml(__('Period:')) ?></label>
+        <select id="amfpc-warmed-filter" data-amfpc-js="warmed-filter" class="amfpc-filter">
+            <option value="1" selected="selected"><?= $block->escapeHtml(__('Day')) ?></option>
+            <option value="2"><?= $block->escapeHtml(__('Week')) ?></option>
+            <option value="3"><?= $block->escapeHtml(__('Month')) ?></option>
+        </select>
+    </div>
+    <button class="amfpc-reload" data-amfpc-js="warmed-btn-reload"><?= $block->escapeHtml(__('Reload')) ?></button>
+</div>
+
+<div id="chart-crawled" class="amfpc-crawled"></div>
+
+<script type="text/x-magento-init">
+    {
+        "#chart-crawled": {
+            "amasty_fpc_report_warmed": {
+                "chartId" : "chart-crawled",
+                "chartData": <?= json_encode($block->getGraphData())?>,
+                "reloadUrl": "<?= $block->getUrl('amasty_fpc/report/warmedpagesdatarefresh'); ?>"
+            }
+        }
+    }
+</script>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_CrossLinks
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Cms\Block\Page">
+        <plugin name="crossLinksCmsReplaceContent" type="Amasty\CrossLinks\Plugin\Cms\Block\Page"/>
+    </type>
+
+    <!-- Start Amasty Faq section -->
+    <type name="Amasty\Faq\Block\View\Question">
+        <plugin name="Amasty_CrossLink::faq_compatibility_question" type="Amasty\CrossLinks\Plugin\Faq"/>
+    </type>
+    <type name="Amasty\Faq\Block\View\Category">
+        <plugin name="Amasty_CrossLink::faq_compatibility_category" type="Amasty\CrossLinks\Plugin\Faq"/>
+    </type>
+    <!-- End Amasty Faq section -->
+</config>

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_SeoToolKit
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Theme\Block\Html\Pager">
+        <plugin name="Amasty_SeoToolKit::add-prev-next" type="Amasty\SeoToolKit\Plugin\Pager" />
+    </type>
+
+    <type name="Magento\Framework\Controller\ResultInterface">
+        <plugin name="Amasty_SeoToolKit::processPageResult" type="Amasty\SeoToolKit\Plugin\Framework\Controller\ProcessPageResultPlugin" sortOrder="10" />
+    </type>
+
+    <type name="Magento\Framework\View\Page\Config\Renderer">
+        <plugin name="Amasty_SeoToolKit::make-css" type="Amasty\SeoToolKit\Plugin\View\Page\Config\Renderer" />
+    </type>
+
+    <type name="Magento\Framework\View\Page\Title">
+        <plugin name="Amasty_SeoToolKit::add-page-to-title" type="Amasty\SeoToolKit\Plugin\Framework\View\Page\Title" />
+    </type>
+
+    <type name="Magento\Framework\View\Page\Config">
+        <plugin name="Amasty_SeoToolKit::add-page-to description" type="Amasty\SeoToolKit\Plugin\Framework\View\Page\Config" />
+    </type>
+
+    <type name="Magento\Framework\App\Router\NoRouteHandler">
+        <plugin name="Amasty_SeoToolKit::404_redirect" type="Amasty\SeoToolKit\Plugin\Framework\App\Router\NoRouteHandler" />
+    </type>
+
+    <type name="Magento\Search\Helper\Data">
+        <plugin name="Amasty_SeoToolKit::generate_seo_url" type="Amasty\SeoToolKit\Plugin\Search\Helper\Data"/>
+    </type>
+
+    <type name="Magento\CatalogSearch\Controller\Result\Index">
+        <plugin name="Amasty_SeoToolKit::redirect_to_seo_url" type="Amasty\SeoToolKit\Plugin\CatalogSearch\Controller\Result\Index"/>
+    </type>
+
+    <type name="Amasty\Shopby\Controller\Search\Result\Index">
+        <plugin name="Amasty_SeoToolKit::redirect_to_seo_url_shopby" type="Amasty\SeoToolKit\Plugin\CatalogSearch\Controller\Result\Index"/>
+    </type>
+
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="amasty_toolkit" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\SeoToolKit\Controller\Router</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">45</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\App\Response\Http">
+        <plugin name="Amasty_SeoToolKit::show_toolbar" type="Amasty\SeoToolKit\Plugin\Framework\App\Response\Http"/>
+    </type>
+</config>

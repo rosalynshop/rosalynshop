@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\Model\Session">
+        <plugin name="amasty-page-cache-crawler" type="Amasty\Fpc\Plugin\SessionManager"/>
+    </type>
+    <type name="Magento\Framework\App\ActionInterface">
+        <plugin name="amasty-page-cache-crawler" type="Amasty\Fpc\Plugin\ActionInterface"/>
+    </type>
+    <type name="Magento\Framework\App\PageCache\Kernel">
+        <plugin name="amasty_fpc_flush_page_cache" type="Amasty\Fpc\Plugin\OnePageCacheFlush"/>
+    </type>
+
+    <type name="Amasty\Fpc\Plugin\Holepunch\BlockGenerator">
+        <arguments>
+            <argument name="holePunchProcessor" xsi:type="object">Amasty\Fpc\Model\HolePunch\HolePunchProcessor\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\TemplateEngine\Php">
+        <plugin name="amasty_fpc_holepunch_template_renderer" type="Amasty\Fpc\Plugin\Holepunch\TemplateRenderer" />
+    </type>
+    <type name="Magento\PageCache\Model\App\FrontController\BuiltinPlugin">
+        <plugin name="amasty_fpc_holepunch_block_generator" type="Amasty\Fpc\Plugin\Holepunch\BlockGenerator" />
+    </type>
+    <type name="Magento\Framework\View\Layout\Generator\Block">
+        <plugin name="amasty_fpc_holepunch_block_args" type="Amasty\Fpc\Plugin\Holepunch\BlockArguments" />
+    </type>
+    <type name="Magento\Framework\App\PageCache\Kernel">
+        <plugin name="amasty_fpc_holepunch_blockinfo" type="Amasty\Fpc\Plugin\Holepunch\BlockInfo" />
+    </type>
+</config>

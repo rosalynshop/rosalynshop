@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Meta
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="ammeta" translate="label" type="text" sortOrder="191616" showInDefault="1" showInWebsite="1" showInStore="1">
+            <resource>Amasty_Meta::config_meta</resource>
+            <class>separator-top</class>
+            <label>SEO Meta Tags Templates</label>
+            <tab>amasty</tab>
+            <group id="amasty_information" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Information</label>
+                <frontend_model>Amasty\Meta\Block\Adminhtml\System\Config\Information</frontend_model>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="max_meta_title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Max Title Length</label>
+                </field>
+                <field id="max_meta_description" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Max Description Length</label>
+                </field>
+            </group>
+
+            <group id="product" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Page</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="force" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Replace Filled Metadata</label>
+                    <comment>Applied only for Product's Short Description and Description.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="no_breadcrumbs" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category Variable Data Source</label>
+                    <source_model>Amasty\Meta\Model\Source\CategoryData</source_model>
+                    <comment>Please set to `From Product Associated Categories` if you have no Breadcrumbs on the Product View page.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="url_template" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product URL Key Template</label>
+                    <comment><![CDATA[
+You can use variables in this template<br>
+Example: {name} - {sku}
+]]></comment>
+                </field>
+                <field id="apply_template" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <frontend_model>Amasty\Meta\Block\Adminhtml\System\Button</frontend_model>
+                </field>
+            </group>
+
+            <group id="cat" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Category Page</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="force" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="1">
+                    <label>Replace Filled Metadata</label>
+                    <comment>Applied only for Category's Description.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

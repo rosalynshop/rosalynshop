@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_XmlSitemap
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amxmlsitemap>
+            <cron>
+                <time>01,01,00</time>
+                <frequency>D</frequency>
+            </cron>
+            <hreflang>
+                <scope>0</scope>
+                <language>1</language>
+                <country>1</country>
+                <cms_relation>page_id</cms_relation>
+                <x_default>0</x_default>
+            </hreflang>
+        </amxmlsitemap>
+
+        <crontab>
+            <default>
+                <jobs>
+                    <amxmlsitemap_generate>
+                        <schedule>
+                            <cron_expr>1 1 * * *</cron_expr>
+                        </schedule>
+                    </amxmlsitemap_generate>
+                </jobs>
+            </default>
+        </crontab>
+    </default>
+</config>

@@ -2340,7 +2340,7 @@ You can set a new expiration date if you wish.",module,Magento_NegotiableQuote
 "Cannot Upload File","Cannot Upload File",module,Magento_NegotiableQuote
 "Quote request rules","Quote request rules",module,Magento_NegotiableQuote
 "Coupon codes and gift cards are not allowed on quotes. Choose whether you'd like to keep the coupon code/gift card without requesting a quote, or request a quote without the coupon code/gift card.","Coupon codes and gift cards are not allowed on quotes. Choose whether you'd like to keep the coupon code/gift card without requesting a quote, or request a quote without the coupon code/gift card.",module,Magento_NegotiableQuote
-"Go to Checkout","Đi đến thanh toán",module,Magento_NegotiableQuote
+"Go to Checkout","Đến trang thanh toán",module,Magento_NegotiableQuote
 "Save","Lưu lại",module,Magento_NegotiableQuote
 "The shopping cart isn't empty","The shopping cart isn't empty",module,Magento_NegotiableQuote
 "You have items in your shopping cart. Would you like to merge items in this order with items of this shopping cart or replace them?","You have items in your shopping cart. Would you like to merge items in this order with items of this shopping cart or replace them?",module,Magento_NegotiableQuote

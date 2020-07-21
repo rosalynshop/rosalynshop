@@ -1,0 +1,118 @@
+"Add Template","Add Template"
+"Save and Continue Edit","Save and Continue Edit"
+"Edit Meta `%1`","Edit Meta `%1`"
+"Add New Meta","Add New Meta"
+"Sub Categories","Sub Categories"
+"Main Category","Main Category"
+"Category is","Category is"
+"Apply For","Apply For"
+Priority,Priority
+"If a product is assigned to a few categories, the meta data template with the highest priority will be applied. Here 0 is the lowest priority. The categories with the same priority values are compared by the category depth.","If a product is assigned to a few categories, the meta data template with the highest priority will be applied. Here 0 is the lowest priority. The categories with the same priority values are compared by the category depth."
+"Current Products","Current Products"
+"Products In Sub Categories","Products In Sub Categories"
+"Template Configuration","Template Configuration"
+"Products in Main Category","Products in Main Category"
+"Products in Sub Categories","Products in Sub Categories"
+Root,Root
+ID,ID
+Category,Category
+Store,Store
+"Edit Template `%1`","Edit Template `%1`"
+"Add New Template","Add New Template"
+Content,Content
+Title,Title
+"Meta Description","Meta Description"
+Keywords,Keywords
+"Canonical Url","Canonical Url"
+"We can only replace Canonical Url. Extension will not replace it if canonical url is missing. To enable showing canonical please go to Stores -> Configuration -> Catalog -> Search Engine Optimization","We can only replace Canonical Url. Extension will not replace it if canonical url is missing. To enable showing canonical please go to Stores -> Configuration -> Catalog -> Search Engine Optimization"
+Robots,Robots
+"H1 Tag","H1 Tag"
+General,General
+"Page Url","Page Url"
+"You can use `*` symbol for specify url pattern. Please use url without domain name. Ex: gear/watches.html","You can use `*` symbol for specify url pattern. Please use url without domain name. Ex: gear/watches.html"
+"Page Content","Page Content"
+URL,URL
+"Apply Template For Product URLs","Apply Template For Product URLs"
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"Available variables:  <br/>Parent Category - {meta_parent_category}<br/>Category Name - {name}<br/>Store View - {store_view}<br/>Store - {store}<br/>Website - {website}","Available variables:  <br/>Parent Category - {meta_parent_category}<br/>Category Name - {name}<br/>Store View - {store_view}<br/>Store - {store}<br/>Website - {website}"
+Description,Description
+"Image Alt","Image Alt"
+"Please, make sure that category image is wrapped into tag with class 'category-image' and image has %s attribute","Please, make sure that category image is wrapped into tag with class 'category-image' and image has %s attribute"
+"Text after Product List","Text after Product List"
+"Current text always appears after products block","Current text always appears after products block"
+"
+Example: Buy {name} [by {manufacturer|brand}] [of {color} color] [for only {price}] [in {categories}] at [{store},] {website}.    
+<br/>                            
+<br/>Available variables:  
+<br/>Category - {category}
+<br/>All Categories - {categories}
+<br/>Store View - {store_view}
+<br/>Store      - {store}
+<br/>Website    - {website}
+<br/>Price - {price}
+<br/>Special Price - {special_price}
+<br/>Final Price - {final_price}
+<br/>Final Price with Tax - {final_price_incl_tax}
+<br/>Price From (bundle) - {startingfrom_price}
+<br/>Price To (bundle) - {startingto_price}
+<br/>Brand - {brand}
+<br/>Color - {color}
+<br/>And other product attributes ...","
+Example: Buy {name} [by {manufacturer|brand}] [of {color} color] [for only {price}] [in {categories}] at [{store},] {website}.    
+<br/>                            
+<br/>Available variables:  
+<br/>Category - {category}
+<br/>All Categories - {categories}
+<br/>Store View - {store_view}
+<br/>Store      - {store}
+<br/>Website    - {website}
+<br/>Price - {price}
+<br/>Special Price - {special_price}
+<br/>Final Price - {final_price}
+<br/>Final Price with Tax - {final_price_incl_tax}
+<br/>Price From (bundle) - {startingfrom_price}
+<br/>Price To (bundle) - {startingto_price}
+<br/>Brand - {brand}
+<br/>Color - {color}
+<br/>And other product attributes ..."
+"Short Description","Short Description"
+Default,Default
+"Meta Tags Template (Categories)","Meta Tags Template (Categories)"
+"You deleted the item.","You deleted the item."
+"We can't delete item right now. Please review the log and try again.","We can't delete item right now. Please review the log and try again."
+"We can't find a item to delete.","We can't find a item to delete."
+"This item no longer exists.","This item no longer exists."
+"Edit Template #`%1`","Edit Template #`%1`"
+"Add New","Add New"
+"The wrong item is specified.","The wrong item is specified."
+"%1 has been successfully saved","%1 has been successfully saved"
+"Unable to find a record to save","Unable to find a record to save"
+"Template (%1) #%2","Template (%1) #%2"
+"Request path ""%1"" for product with ID %2 is already exists","Request path ""%1"" for product with ID %2 is already exists"
+"Template already exists in chosen store","Template already exists in chosen store"
+"From Product Associated Categories","From Product Associated Categories"
+"From Breadcrumbs","From Breadcrumbs"
+"Download and Import","Download and Import"
+Download,Download
+Completed,Completed
+"URL keys has been successfully updated. Please update product URL index.","URL keys has been successfully updated. Please update product URL index."
+"SEO Meta Tags Templates","SEO Meta Tags Templates"
+Information,Information
+"Max Title Length","Max Title Length"
+"Max Description Length","Max Description Length"
+"Product Page","Product Page"
+Enabled,Enabled
+"Replace Filled Metadata","Replace Filled Metadata"
+"Applied only for Product's Short Description and Description.","Applied only for Product's Short Description and Description."
+"Category Variable Data Source","Category Variable Data Source"
+"Please set to `From Product Associated Categories` if you have no Breadcrumbs on the Product View page.","Please set to `From Product Associated Categories` if you have no Breadcrumbs on the Product View page."
+"Product URL Key Template","Product URL Key Template"
+"
+You can use variables in this template<br>
+Example: {name} - {sku}
+","
+You can use variables in this template<br>
+Example: {name} - {sku}
+"
+"Category Page","Category Page"
+"Applied only for Category's Description.","Applied only for Category's Description."

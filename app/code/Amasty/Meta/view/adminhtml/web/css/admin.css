@@ -1,0 +1,95 @@
+.am_processer_container {
+    height: 32px;
+    padding-bottom: 17px;
+    width: 250px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.am_download_container .am_line,
+.am_processer_container .am_line {
+    border-top: 2px solid #e0e0e0;
+    position: relative;
+    top: 9px;
+    left: 32px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.am_download_container .am_download,
+.am_processer_container .am_processer {
+    background-color: #f78a39;
+    white-space: nowrap;
+    position: relative;
+    padding-left: 2px;
+    padding-right: 2px;
+    height: 10px;
+    background-size: 20px 20px;
+    background-image: linear-gradient(308deg, rgba(255, 255, 255, .25) 25%, transparent 25%,
+    transparent 50%, rgba(255, 255, 255, .25) 50%, rgba(255, 255, 255, .25) 75%,
+    transparent 75%, transparent);
+    -webkit-animation: animate-stripes 3s linear infinite;
+    -moz-animation: animate-stripes 3s linear infinite;
+    -ms-animation: animate-stripes 3s linear infinite;
+    -o-animation: animate-stripes 3s linear infinite;
+    /* animation: animate-stripes 3s linear infinite; */
+}
+
+@-moz-keyframes animate-stripes{
+    0% {background-position: 0 0;} 100% {background-position: 60px 0;}
+}
+
+@-webkit-keyframes animate-stripes{
+    0% {background-position: 0 0;} 100% {background-position: 60px 0;}
+}
+
+@keyframes animate-stripes {
+    0% {background-position: 0 0;} 100% {background-position: 60px 0;}
+}
+
+.am_download_container .am_download span,
+.am_processer_container .am_processer span {
+    position: relative;
+    left: 135px;
+    z-index: 1001;
+    bottom: 4px;
+}
+
+.am_processer_container .end_imported,
+.am_processer_container .end_not_imported,
+.am_processer_container .end_processing {
+    left: 277px;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+}
+
+.am_processer_container .end_imported {
+    background: url(../images/ellips2.png) no-repeat;
+}
+
+.am_processer_container .end_processing {
+    background: url(../images/ellips1.png) no-repeat;
+}
+
+.am_processer_container .end_not_imported {
+    background: url(../images/ellips1.png) no-repeat;
+}
+
+.am_download_container .begin,
+.am_processer_container .begin {
+    background: url(../images/ellips1.png) no-repeat;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    display: inline-block;
+}
+
+.am_meta_success_msg {
+    padding: 2px;
+    text-align: center;
+    margin: 5px 0;
+    max-width: 280px;
+}

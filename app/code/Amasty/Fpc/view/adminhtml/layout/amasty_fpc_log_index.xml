@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Backend\Block\Template" name="log_reports" template="Amasty_Fpc::log/reports.phtml">
+                <block class="Amasty\Fpc\Block\Adminhtml\Log\Reports\Rates" name="amasty_fpc_rates"/>
+                <block class="Amasty\Fpc\Block\Adminhtml\Log\Reports\Charts" name="amasty_fpc_charts"/>
+            </block>
+            <uiComponent name="amasty_fpc_log_listing"/>
+        </referenceContainer>
+    </body>
+</page>

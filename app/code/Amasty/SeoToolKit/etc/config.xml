@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_SeoToolKit
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amseotoolkit>
+            <general>
+                <home_redirect>0</home_redirect>
+                <four_zero_four_redirect>1</four_zero_four_redirect>
+                <enable_seo_url>0</enable_seo_url>
+                <seo_key>search</seo_key>
+            </general>
+            <pager>
+                <prev_next>1</prev_next>
+                <meta_title>0</meta_title>
+                <meta_description>0</meta_description>
+            </pager>
+        </amseotoolkit>
+    </default>
+</config>

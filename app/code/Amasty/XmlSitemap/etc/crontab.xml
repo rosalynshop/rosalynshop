@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_XmlSitemap
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="amxmlsitemap_generate" instance="Amasty\XmlSitemap\Model\Observer" method="process">
+            <config_path>crontab/default/jobs/amxmlsitemap_generate/schedule/cron_expr</config_path>
+        </job>
+    </group>
+</config>

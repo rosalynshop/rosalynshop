@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_SeoSingleUrl
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="Amasty_SeoSingleUrl::rewrite-get-request-url" type="Amasty\SeoSingleUrl\Plugin\Catalog\Model\Product"/>
+    </type>
+
+    <type name="Magento\Catalog\Model\Product\Url">
+        <plugin name="Amasty_SeoSingleUrl::before-get-url" type="Amasty\SeoSingleUrl\Plugin\Catalog\Model\Product\Url"/>
+    </type>
+
+    <type name="Magento\Catalog\Controller\Product\View">
+        <plugin name="Amasty_SeoSingleUrl::redirect" type="Amasty\SeoSingleUrl\Plugin\Catalog\Controller\Product\View"/>
+    </type>
+
+    <type name="Magento\Catalog\Helper\Data">
+        <plugin name="Amasty_SeoSingleUrl::breadcrams" type="Amasty\SeoSingleUrl\Plugin\Catalog\Helper\Data"/>
+    </type>
+
+    <!-- add breadcrumb data on magento version >= 2.2.4 (used in our breadcrumbs mixin) -->
+    <type name="Magento\Catalog\ViewModel\Product\Breadcrumbs">
+        <plugin name="Amasty_SeoSingleUrl::breadcrams" type="Amasty\SeoSingleUrl\Plugin\Catalog\Helper\Data"/>
+    </type>
+</config>

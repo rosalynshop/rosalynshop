@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_XmlSitemap
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amxmlsitemap" translate="label" type="text" sortOrder="241307" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>XML Google Sitemap</label>
+            <tab>amasty</tab>
+            <resource>Amasty_XmlSitemap::config</resource>
+            <group id="amasty_information" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Information</label>
+                <frontend_model>Amasty\XmlSitemap\Block\Adminhtml\System\Config\Information</frontend_model>
+            </group>
+            <group id="cron" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Cron Settings</label>
+                <field id="frequency" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Frequency</label>
+                    <source_model>Magento\Cron\Model\Config\Source\Frequency</source_model>
+                    <backend_model>Amasty\XmlSitemap\Model\Config\Cron</backend_model>
+                </field>
+                <field id="time" translate="label" type="time" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Start Time</label>
+                </field>
+            </group>
+            <group id="hreflang" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Hreflang URLs</label>
+                <field id="scope" translate="label,comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Hreflang URLs Scope</label>
+                    <source_model>Amasty\XmlSitemap\Model\Source\Hreflang\Scope</source_model>
+                    <comment><![CDATA[Choose <b>Website</b> to work within one website only or <b>Global</b> to work between the websites]]></comment>
+                </field>
+                <field id="language" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Language Code</label>
+                    <source_model>Amasty\XmlSitemap\Model\Source\Hreflang\Language</source_model>
+                </field>
+                <field id="country" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Country Code</label>
+                    <source_model>Amasty\XmlSitemap\Model\Source\Hreflang\Country</source_model>
+                </field>
+                <field id="x_default" translate="label,comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>X-default</label>
+                    <source_model>Amasty\XmlSitemap\Model\Source\Hreflang\Xdefault</source_model>
+                    <comment><![CDATA[If <b>Hreflang Scope</b> is <b>Global</b>, values from website scope for this setting will be ignored]]></comment>
+                </field>
+                <field id="cms_relation" translate="label,comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Multi-Stores CMS Pages Relation</label>
+                    <source_model>Amasty\XmlSitemap\Model\Source\Hreflang\CmsRelation</source_model>
+                    <comment>Choose the way how to identify the same CMS page for different views. By Hreflang UUID option is to be specified for each CMS page manually</comment>
+                </field>
+            </group>
+            <group id="search_engines" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Search Engine Submission Settings</label>
+                <field id="submission_robots" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Submission to Robots.txt</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

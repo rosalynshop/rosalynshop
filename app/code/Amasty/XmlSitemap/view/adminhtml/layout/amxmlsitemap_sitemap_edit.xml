@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_XmlSitemap
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit\Tabs" name="amxmlsitemap_sitemap_edit_tabs" >
+                <arguments>
+                    <argument name="id" xsi:type="string">amxmlsitemap_sitemap_edit_tabs</argument>
+                    <argument name="dest_element_id" xsi:type="string">edit_form</argument>
+                    <argument name="title" xsi:type="string" translate="true">Sitemap Configuration</argument>
+                </arguments>
+
+                <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit\Tab\General" name="amxmlsitemap_sitemap_edit_tab_general"/>
+                <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit\Tab\Products" name="amxmlsitemap_sitemap_edit_tab_products"/>
+                <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit\Tab\Categories" name="amxmlsitemap_sitemap_edit_tab_categories"/>
+                <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit\Tab\Pages" name="amxmlsitemap_sitemap_edit_tab_pages"/>
+                <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit\Tab\Extra" name="amxmlsitemap_sitemap_edit_tab_extra"/>
+                <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit\Tab\Landing" name="amxmlsitemap_sitemap_edit_tab_landing"/>
+                <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit\Tab\Blog" name="amxmlsitemap_sitemap_edit_tab_blog"/>
+                <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit\Tab\Brands" name="amxmlsitemap_sitemap_edit_tab_brands"/>
+                <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit\Tab\Navigation" name="amxmlsitemap_sitemap_edit_tab_navigation"/>
+                <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit\Tab\Faq" name="amxmlsitemap_sitemap_edit_tab_faq"/>
+
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">general</argument>
+                    <argument name="block" xsi:type="string">amxmlsitemap_sitemap_edit_tab_general</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">products</argument>
+                    <argument name="block" xsi:type="string">amxmlsitemap_sitemap_edit_tab_products</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">categories</argument>
+                    <argument name="block" xsi:type="string">amxmlsitemap_sitemap_edit_tab_categories</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">pages</argument>
+                    <argument name="block" xsi:type="string">amxmlsitemap_sitemap_edit_tab_pages</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">extra</argument>
+                    <argument name="block" xsi:type="string">amxmlsitemap_sitemap_edit_tab_extra</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">landing</argument>
+                    <argument name="block" xsi:type="string">amxmlsitemap_sitemap_edit_tab_landing</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">blog</argument>
+                    <argument name="block" xsi:type="string">amxmlsitemap_sitemap_edit_tab_blog</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">brands</argument>
+                    <argument name="block" xsi:type="string">amxmlsitemap_sitemap_edit_tab_brands</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">navigation</argument>
+                    <argument name="block" xsi:type="string">amxmlsitemap_sitemap_edit_tab_navigation</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">faq</argument>
+                    <argument name="block" xsi:type="string">amxmlsitemap_sitemap_edit_tab_faq</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Amasty\XmlSitemap\Block\Adminhtml\Sitemap\Edit" name="amxmlsitemap_sitemap_edit"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,93 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_SeoHtmlSitemap
+ */
+?>
+<?php
+/*
+*
+* @var \Amasty\SeoHtmlSitemap\Block\Sitemap $block
+*
+*/
+?>
+<?php if ($block->canShowSearchField()): ?>
+<div class="field">
+    <div class="control">
+        <div class="htmlsitemap-search-wrapper">
+            <label for="htmlsitemap-search-input"><?php echo __('Search'); ?></label>
+            <input id="htmlsitemap-search-input"
+                   class="input-text htmlsitemap-search-input"
+                   type="text"
+            />
+        </div>
+    </div>
+</div>
+<?php endif;?>
+
+<?php foreach ($block->getSortOrder() as $key => $item) {
+    switch ($key) {
+        case "products": ?>
+            <?php if ($block->canShowProducts()) : ?>
+                <div class="sitemapSection std">
+                    <h2><?= $block->getSitemapData('productsTitle') ?: __('Products'); ?></h2>
+                    <?php $products = $block->getSitemapData('products'); ?>
+                    <?php $productsColumns = $block->getSitemapData('productsColumns');?>
+                    <?php $type = $block->getProductShowType();?>
+                    <?= $block->renderChunks($products, $type, $productsColumns); ?>
+                </div>
+            <?php endif; ?>
+            <?php break; ?>
+        <?php case 'categories': ?>
+            <?php if ($block->canShowCategories()) :?>
+                <div class="sitemapSection std">
+                    <h2><?= $block->getSitemapData('categoriesTitle') ?: __('Categories'); ?></h2>
+                    <?php $categories = $block->getCategories(); ?>
+                    <?php $categoriesColumns = $block->getSitemapData('categoriesColumns');?>
+                    <?php $type = $block->getCategoryShowType();?>
+                    <?= $block->renderChunks($categories, $type, $categoriesColumns, $block->isTree()); ?>
+                </div>
+            <?php endif;?>
+            <?php break; ?>
+        <?php case 'cms_pages': ?>
+            <?php if ($block->canShowCMSPages()) : ?>
+                <div class="sitemapSection std">
+                    <h2><?= $block->getSitemapData('pagesTitle') ?: __('Pages'); ?></h2>
+                    <?php $pages = $block->getSitemapData('pages');?>
+                    <?php $pagesColumns = $block->getSitemapData('pagesColumns');?>
+                    <?= $block->renderChunks($pages, 'pages', $pagesColumns); ?>
+                </div>
+            <?php endif; ?>
+            <?php break; ?>
+        <?php case 'landing_pages': ?>
+            <?php if ($block->canShowLandingPages()) : ?>
+                <div class="sitemapSection std">
+                    <h2><?= $block->getSitemapData('landingTitle') ?: __('Landing Pages');?></h2>
+                    <?php $landingPages   = $block->getSitemapData('landingPages'); ?>
+                    <?php $landingColumns = $block->getSitemapData('landingColumns'); ?>
+                    <?= $block->renderChunks($landingPages, 'landing_pages', $landingColumns)?>
+                </div>
+            <?php endif;?>
+            <?php break; ?>
+        <?php case 'links': ?>
+            <?php if ($block->canShowLinks()) : ?>
+                <div class="sitemapSection std">
+                    <h2><?= $block->getSitemapData('linksTitle') ?: __('Links'); ?></h2>
+                    <?php $links = $block->getSitemapData('links');?>
+                    <?php $linksColumns = $block->getSitemapData('linksColumns');?>
+                    <?= $block->renderChunks($links, 'links', $linksColumns); ?>
+                </div>
+            <?php endif; ?>
+            <?php break; ?>
+    <?php } ?>
+<?php } ?>
+
+<script>
+    require([
+        'htmlSitemap'
+    ], function(htmlSitemap) {
+        var sitemapInstance = new htmlSitemap();
+        sitemapInstance.init();
+    });
+</script>

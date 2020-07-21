@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="\Amasty\Fpc\Api\QueuePageRepositoryInterface" type="Amasty\Fpc\Model\QueuePageRepository" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amasty_fpc_queue_listing_data_source" xsi:type="string">AmastyFpcQueueDataSource</item>
+                <item name="amasty_fpc_activity_listing_data_source" xsi:type="string">AmastyFpcActivityDataSource</item>
+                <item name="amasty_fpc_report_listing_data_source" xsi:type="string">AmastyFpcReportDataSource</item>
+                <item name="amasty_fpc_flushes_log_listing_data_source" xsi:type="string">AmastyFpcFlushesLogDataSource</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="AmastyFpcFlushesLogDataSource" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_fpc_flushes_log</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Fpc\Model\ResourceModel\FlushesLog</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AmastyFpcReportDataSource" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_fpc_log</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Fpc\Model\ResourceModel\Log</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AmastyFpcGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AmastyFpcLogGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Amasty\Fpc\Model\ResourceModel\Log\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">AmastyFpcGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AmastyFpcQueueGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Amasty\Fpc\Model\ResourceModel\Queue\Page\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">AmastyFpcGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AmastyFpcQueueDataSource" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_fpc_queue_page</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Fpc\Model\ResourceModel\Queue\Page</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AmastyFpcActivityDataSource" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_fpc_activity</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Fpc\Model\ResourceModel\Activity</argument>
+        </arguments>
+    </virtualType>
+
+    <preference for="Amasty\Fpc\Api\Data\ActivityInterface" type="Amasty\Fpc\Model\Activity" />
+    <preference for="Amasty\Fpc\Api\ActivityRepositoryInterface" type="Amasty\Fpc\Model\Repository\ActivityRepository" />
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="generateQueue" xsi:type="object">Amasty\Fpc\Console\Command\GenerateQueue</item>
+                <item name="processQueue" xsi:type="object">Amasty\Fpc\Console\Command\ProcessQueue</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\UrlRewrite\Model\StorageInterface">
+        <plugin name="amasty_fpc_storage_plugin" type="Amasty\Fpc\Plugin\UrlRewrite\Storage"/>
+    </type>
+
+    <type name="Amasty\Fpc\Console\Command\GenerateQueue">
+        <arguments>
+            <argument name="queue" xsi:type="object">Amasty\Fpc\Model\Queue\Proxy</argument>
+        </arguments>
+    </type>
+
+    <preference for="Magento\Framework\Cache\Frontend\Decorator\TagScope" type="Amasty\Fpc\Logger\FlushesCache"/>
+
+    <type name="Amasty\Fpc\Console\Command\ProcessQueue">
+        <arguments>
+            <argument name="queue" xsi:type="object">Amasty\Fpc\Model\Queue\Proxy</argument>
+            <argument name="config" xsi:type="object">Amasty\Fpc\Model\Config\Proxy</argument>
+        </arguments>
+    </type>
+</config>

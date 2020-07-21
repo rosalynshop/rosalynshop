@@ -1,0 +1,84 @@
+& when (@media-common = true) {
+  .amfpc-chart-container {
+    display: flex;
+  }
+
+  .amfpc-chart-status {
+    width: 60%;
+    height: 295px;
+  }
+
+  .amfpc-info-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+
+  .amfpc-name {
+    margin-right: 25px;
+    line-height: 16px;
+  }
+
+  .amfpc-quantity {
+    line-height: 16px;
+    font-weight: bold;
+  }
+
+  .amfpc-name-container,
+  .amfpc-quantity-container {
+    width: 50%;
+  }
+
+  .amfpc-name-container {
+    text-align: right;
+  }
+
+  .amfpc-quantity-container {
+    text-align: left;
+  }
+
+  .amfpc-status-information {
+    width: 40%;
+    height: 295px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .amfpc-filter-block {
+    & {
+      .lib-vendor-prefix-display(flex);
+      .lib-vendor-box-align(center);
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 10px;
+      background: #f8f8f8;
+    }
+
+    .amfpc-reload {
+      padding: 7px 27px;
+      border: none;
+      text-align: center;
+      font-weight: bold;
+      color: #fff;
+      background: #ff9416;
+      transition: background .3s;
+
+      &:hover {
+        background: #da7703;
+        color: #fff;
+      }
+    }
+
+    .amfpc-filter {
+      margin-left: 10px;
+    }
+  }
+
+  .amfpc-crawled,
+  .amfpc-efficiency {
+    width: 100%;
+    height: 400px;
+  }
+}

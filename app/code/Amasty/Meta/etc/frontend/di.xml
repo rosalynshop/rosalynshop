@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Meta
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Page\Title">
+        <plugin name="Amasty_Meta::PageTitle" type="Amasty\Meta\Plugin\View\Page\Title" />
+    </type>
+
+    <type name="Magento\Framework\View\Page\Config">
+        <plugin name="Amasty_Meta::PageConfig" type="Amasty\Meta\Plugin\View\Page\Config" />
+    </type>
+
+    <type name="Magento\Theme\Block\Html\Title">
+        <plugin name="Amasty_Meta::PageConfig2" type="Amasty\Meta\Plugin\Theme\Block\Html\Title" />
+    </type>
+
+    <!-- add image alt -->
+    <type name="Magento\Catalog\Block\Product\Image">
+        <plugin name="Amasty_Meta::PageConfig3" type="Amasty\Meta\Plugin\Catalog\Block\Product\Image" />
+    </type>
+
+    <!-- add text in category end -->
+    <type name="Magento\Catalog\Block\Category\View">
+        <plugin name="Amasty_Meta::PageConfig4" type="Amasty\Meta\Plugin\Catalog\Block\Category\View" />
+    </type>
+
+    <!-- add description and short description for product -->
+    <type name="Magento\Catalog\Helper\Output">
+        <plugin name="Amasty_Meta::PageConfig5" type="Amasty\Meta\Plugin\Catalog\Helper\Output" />
+    </type>
+
+    <!-- replace canonical-->
+    <type name="Magento\Framework\View\Asset\Repository">
+        <plugin name="Amasty_Meta::PageConfig6" type="Amasty\Meta\Plugin\View\Asset\Repository" />
+    </type>
+
+    <type name="Amasty\SeoRichData\Block\Product">
+        <plugin name="Amasty_Meta::resolve-data-for-snippets" type="Amasty\Meta\Plugin\SeoRichData\Block\Product" />
+    </type>
+</config>

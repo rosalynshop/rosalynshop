@@ -1,0 +1,300 @@
+//
+// Seo Toolbar
+// __________________________
+
+//
+//  Variables
+//  ___________________________________
+
+@amskit-toolbar-icon__background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgZmlsbD0ibm9uZSI+PGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj0iMTUiIGZpbGw9IiNGRjk0MTYiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNyA3Ljc1MmMwIC40ODUuMDE4LjkxMS4wMTggMS4zOTZ2Ny43MDVsLjAwMSAzLjU5OGMwIC41ODktLjAxNSAxLjE4MiAwIDEuNzcydi4wMjZjMCAuNDA2LjM0Ny43NTEuNzU0Ljc1MWgxNC40NzJjLjM5NiAwIC43NzItLjM0NS43NTQtLjc1LS4wMi0uNDA2LS4zMzItLjc1Mi0uNzU0LS43NTJINy43OGwuNzU0Ljc1MXYtMS40NTNsLS4wMDEtMy40NFYxMy4xNCA5LjQ5M2MwLS41OS0uMDAzLTEuMTI1LS4wMTgtMS43MTR2LS4wMjdjMC0uMzk0LS4zMzYtLjc3LS43NDItLjc1MS0uNDE5LjAxOC0uNzczLjMzLS43NzMuNzUxeiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xMC42MzYgMTguNzA2djMuNDk3YzAgLjQxOC4zMzUuODE2LjcyOC43OTZhLjc3OS43NzkgMCAwIDAgLjcyNy0uNzk2di0zLjA1Mi0uNDQ1YzAtLjQxOC0uMzM0LS44MTYtLjcyNy0uNzk2YS43NzYuNzc2IDAgMCAwLS43MjguNzk2ek0xNC4yNzMgMTUuMTF2Ny4wNTNjMCAuNDM5LjMzNC44NTcuNzI3LjgzNi4zOTMtLjAyLjcyNy0uMzY4LjcyNy0uODM2di02LjE3LS44ODNjMC0uNDM5LS4zMzQtLjg1Ny0uNzI3LS44MzYtLjM5My4wMi0uNzI3LjM2OC0uNzI3LjgzNnpNMTcuOTEgMTUuODV2Ni4yOTljMCAuNDQ3LjMzNC44NzEuNzI3Ljg1LjM5Mi0uMDIxLjcyNy0uMzc0LjcyNy0uODV2LTUuNTItLjc3OGMwLS40NDctLjMzNS0uODcyLS43MjctLjg1LS4zOTMuMDIxLS43MjguMzc0LS43MjguODV6TTIxLjU0NiAxMi44OTNWMjIuMTk4YzAgLjQyLjMzNC44MjEuNzI3LjgwMS4zOTMtLjAyLjcyNy0uMzUyLjcyNy0uODAxdi0zLjE0LTUuMDA2LTEuMTU5YzAtLjQyLS4zMzQtLjgyMS0uNzI3LS44MDEtLjM5My4wMi0uNzI3LjM1Mi0uNzI3LjgwMXpNOC4zODIgMTYuMDI3bDIuMDA4LTEuMzg2YzEuMDYyLS43MzIgMi4xMi0xLjQ2OCAzLjE4My0yLjJsLjczOS0uNTExYy4zMjQtLjIyMS41LS42NjguMjcxLTEuMDI5LS4yMDctLjMxOS0uNjg2LS41MS0xLjAzMi0uMjdsLTIuMDA4IDEuMzg1Yy0xLjA2My43MzMtMi4xMjIgMS40NjktMy4xODQgMi4ybC0uNzM4LjUxMWMtLjMyNS4yMjItLjUwMi42NjktLjI3MiAxLjAzLjIxMS4zMjIuNjg2LjUxIDEuMDMzLjI3eiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xMy43MzIgMTIuMDA5bDMuMjQ3LjYyLjQ2OC4wOWMuMzg0LjA3NS44MzItLjExLjkyNi0uNTI2LjA4My0uMzcyLS4xMTMtLjg0NS0uNTI3LS45MjRsLTMuMjQ4LS42Mi0uNDY3LS4wOWMtLjM4NC0uMDc0LS44MzMuMTEtLjkyNy41MjYtLjA4Ny4zNjguMTEzLjg0NS41MjguOTI0eiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xOC4xNzcgMTIuNTI0YzEuMTA4LTEuMTk4IDIuMjE2LTIuMzkyIDMuMzIzLTMuNTkuMTU1LS4xNy4zMTMtLjMzOC40NjgtLjUwNy4yNjctLjI5LjMwOC0uNzgxIDAtMS4wNjMtLjI5LS4yNjYtLjc4LS4zMDgtMS4wNjcgMC0xLjEwNyAxLjE5OC0yLjIxNSAyLjM5Mi0zLjMyMyAzLjU5LS4xNTQuMTY5LS4zMTIuMzM4LS40NjcuNTA3LS4yNjcuMjg5LS4zMDkuNzggMCAxLjA2My4yOS4yNjYuNzguMzA3IDEuMDY2IDB6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIwLjY3NSA3Ljg5N3YyLjM1YzAgLjM5NS4zNDcuNzcuNzU0Ljc1Mi40MDctLjAxOS43NTMtLjMzLjc1My0uNzUxdi0yLjM1YzAtLjM5NS0uMzQ2LS43Ny0uNzUzLS43NTItLjQxLjAyLS43NTQuMzMtLjc1NC43NTF6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIxLjQyOSA3LjE0NmMtLjc1Ny4wMDgtMS41MTUuMDExLTIuMjcyLjAxOS0uMzk2LjAwNC0uNzcyLjM0Mi0uNzU0Ljc1LjAyLjQwNi4zMzIuNzU2Ljc1NC43NTIuNzU3LS4wMDggMS41MTUtLjAxMSAyLjI3Mi0uMDE5LjM5Ni0uMDA0Ljc3Mi0uMzQyLjc1My0uNzUtLjAxOC0uNDA2LS4zMzEtLjc1Ni0uNzUzLS43NTJ6Ii8+PC9zdmc+) no-repeat center;
+@amskit-toolbar-arrow__background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSI4IiBmaWxsPSJub25lIj48cGF0aCBzdHJva2U9IiNCMkIyQjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik0xMyA3TDcgMSAxIDciLz48L3N2Zz4=) no-repeat center;
+@amskit-toolbar__size: 30px;
+@amskit-toolbar-content__padding: 10px;
+@amskit-warning-icon__background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgZmlsbD0ibm9uZSI+PGNpcmNsZSBjeD0iOSIgY3k9IjkiIHI9IjkiIGZpbGw9IiNFQjU3NTciLz48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNOSA0djYuNSIvPjxjaXJjbGUgY3g9IjkiIGN5PSIxNCIgcj0iMSIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==) no-repeat center;
+@amskit-normal-icon__background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgZmlsbD0ibm9uZSI+PGNpcmNsZSBjeD0iOSIgY3k9IjkiIHI9IjkiIGZpbGw9IiMxNzg3RTAiLz48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNNS41IDlsMy4xMjUgM0wxMi41IDciLz48L3N2Zz4=) no-repeat center;
+
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amskit-toolbar-wrap {
+        & {
+            position: fixed;
+            bottom: 10px;
+            left: 3%;
+            z-index: 9999;
+            width: 300px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        &.-open:after {
+            content: '';
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            pointer-events: none;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 35%, #fff);
+        }
+
+        &.-open {
+            padding-bottom: 15px;
+        }
+    }
+
+    .amskit-toolbar-box {
+        & {
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: #e4e4e4;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        &.-open {
+            border-radius: 10px 10px 0 0;
+            cursor: auto;
+        }
+
+        > .amskit-title {
+            & {
+                display: inline-block;
+                .lib-css(line-height, @amskit-toolbar__size);
+                font-size: 18px;
+                font-weight: 600;
+                color: #000;
+            }
+
+            &:before {
+                content: '';
+                display: inline-block;
+                margin-right: 10px;
+                .lib-css(width, @amskit-toolbar__size);
+                .lib-css(height, @amskit-toolbar__size);
+                vertical-align: top;
+                .lib-css(background, @amskit-toolbar-icon__background);
+            }
+        }
+
+        > .amskit-arrow {
+            display: inline-block;
+            float: right;
+            width: 12px;
+            .lib-css(height, @amskit-toolbar__size);
+            .lib-css(background, @amskit-toolbar-arrow__background);
+        }
+
+        &.-open > .amskit-arrow {
+            .lib-css(transform, rotate(180deg), 1);
+            cursor: pointer;
+        }
+    }
+
+    .amskit-toolbar-content {
+        & {
+            .lib-css(padding, @amskit-toolbar-content__padding);
+            max-height: 75vh;
+            overflow: auto;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #000;
+            background: #fff;
+        }
+
+        .amskit-table {
+            table-layout: fixed;
+        }
+
+        > .amskit-title {
+            margin: 10px;
+            padding: 0 0 10px;
+            border-bottom: 1px solid #e4e4e4;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        > .amskit-background {
+            .lib-css(margin, 5px -@amskit-toolbar-content__padding 25px);
+            .lib-css(padding, @amskit-toolbar-content__padding);
+            background: #f6f6f6;
+        }
+
+        .amskit-cell {
+            word-break: break-word;
+            word-wrap: break-word;
+        }
+
+        .amskit-cell.-indent {
+            padding-left: 35px;
+        }
+
+        .amskit-description {
+            font-size: 12px;
+            color: #adadad;
+        }
+
+        .amskit-description.-headings {
+            padding-left: 25px;
+        }
+
+        .amskit-icon {
+            & {
+                position: relative;
+                padding-left: 25px;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+            }
+
+        }
+
+        .amskit-icon.-warning:before {
+            .lib-css(background, @amskit-warning-icon__background);
+        }
+
+        .amskit-icon.-normal:before {
+            .lib-css(background, @amskit-normal-icon__background);
+        }
+    }
+
+    .amskit-headings-wrap {
+        & {
+            .lib-vendor-prefix-display();
+            .lib-vendor-prefix-flex-wrap();
+        }
+
+        > .amskit-item {
+            margin-left: 8px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .amskit-head {
+            text-transform: uppercase;
+        }
+    }
+
+    .amskit-page-links {
+        & {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        > .amskit-item {
+            & {
+                position: relative;
+                padding-left: 10px;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                display: inline-block;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: #55b4ff;
+                .lib-css(transform, translateY(-50%), 1);
+            }
+        }
+
+        .amskit-label {
+            display: inline-block;
+            width: 80%;
+        }
+    }
+
+    .amskit-separator-wrap {
+        & {
+            position: relative;
+            margin: 15px 0;
+            height: 1px;
+            background: #c4c4c4;
+        }
+
+        & ~ .amskit-url {
+            display: none;
+        }
+
+        > .amskit-button {
+            & {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                padding: 0 10px;
+                height: 20px;
+                line-height: 20px;
+                font-size: 10px;
+                border: 1px solid #c4c4c4;
+                border-radius: 20px;
+                background: #fff;
+                color: #c4c4c4;
+                .lib-css(transform, translate(-50%, -50%), 1);
+                .lib-css(transition, all .3s ease, 1);
+                cursor: pointer;
+            }
+
+            &:hover {
+                border-color: #1787e0;
+                color: #1787e0;
+            }
+        }
+    }
+
+    //
+    //  Mobile +
+    //  -----------------------------------
+
+    @media (min-width: 480px) {
+        .amskit-toolbar-wrap.-open {
+            width: 450px;
+        }
+
+        .amskit-page-links .amskit-label {
+            width: 55%;
+        }
+    }
+}
+
+//
+//  Tablet +
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .amskit-toolbar-wrap {
+        & {
+            bottom: 25px;
+            left: 25px;
+        }
+
+        &.-open {
+            width: 500px;
+        }
+    }
+
+    .amskit-toolbar-content {
+        max-height: 650px;
+    }
+
+    .amskit-headings-wrap {
+        .lib-vendor-prefix-flex-wrap(initial);
+    }
+
+    .amskit-page-links .amskit-label {
+        width: 45%;
+    }
+}

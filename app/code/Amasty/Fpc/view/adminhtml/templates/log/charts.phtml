@@ -1,0 +1,105 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+?>
+<?php /** @var \Amasty\Fpc\Block\Adminhtml\Log\Reports\Charts $block */
+
+$statuses = $block->getChartData('status');
+$statusesArrayKeys = array_keys($statuses);
+$statusLastKey = end($statusesArrayKeys);
+reset($statuses);
+
+$responseTime = $block->getChartData('load_time');
+$responseArrayKeys = array_keys($responseTime);
+$responseLastKey = end($responseArrayKeys);
+reset($responseTime);
+?>
+
+<div class="amfpc-panel -with-tabs amfpc-status-info" data-mage-init='{"mage/tabs":{"openedState": "-active"}}'>
+    <div class="amfpc-tablist-container amfpc-tablist">
+        <div data-role="collapsible" class="amfpc-tab">
+            <a href="#status-codes-tab" class="amfpc-switch" data-toggle="switch" title="Status Codes">Status Codes</a>
+        </div>
+        <div data-role="collapsible" class="amfpc-tab">
+            <a href="#time-tab" class="amfpc-switch" data-toggle="switch" title="Time">Time</a>
+        </div>
+    </div>
+    <div id="status-codes-tab" class="amfpc-status-codes" data-role="content">
+        <div class="amfpc-codes-table amfpc-codes">
+            <table class="amfpc-table">
+                <tbody>
+                <?php foreach($statuses as $status): ?>
+                    <tr class="amfpc-row">
+                        <td class="amfpc-cell -code">
+                            <?= /* @noEscape */ $status['status'] . ' ' . (isset($status['description']) ? $status['description'] : ''); ?>
+                        </td>
+                        <td class="amfpc-cell -count">
+                            <?= /* @noEscape */ $status['num'] ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <div id="status-code-chart" class="amfpc-statuscode-chart"></div>
+    </div>
+    <div id="time-tab" class="amfpc-time-data" data-role="content" style="display: none">
+        <div class="amfpc-codes-table amfpc-codes">
+            <table class="amfpc-table">
+                <tbody>
+                <?php foreach($responseTime as $response): ?>
+                    <tr class="amfpc-row">
+                        <td class="amfpc-cell -code">
+                            <?= /* @noEscape */ $response['load_time'] . 's'?>
+                        </td>
+                        <td class="amfpc-cell -count">
+                            <?= /* @noEscape */ $response['num'] ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <div id="time-chart" class="amfpc-time-chart"></div>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#status-code-chart": {
+            "amasty_fpc_log": {
+                "chartId" : "status-code-chart",
+                "chartData": [
+                <?php foreach ($statuses as $key => $status): ?>
+                    {
+                        "category": "<?= /* @noEscape */ $status['status'] ?>",
+                        "label": "<?= /* @noEscape */ (isset($status['description']) ? $status['description'] : ''); ?>",
+                        "value": <?= /* @noEscape */ $status['percent'] ?>,
+                        "full": 100
+                    } <?php if ($key !== $statusLastKey): ?>,<?php endif; ?>
+                <?php endforeach; ?>
+                ],
+                "filter": "filters.status"
+            }
+        },
+
+        "#time-chart": {
+            "amasty_fpc_log_time": {
+                "chartId" : "time-chart",
+                "chartData": [
+                <?php foreach ($responseTime as $key => $response): ?>
+                    {
+                        "category": "<?= /* @noEscape */ $response['load_time'] ?>",
+                        "value": <?= /* @noEscape */ $response['percent'] ?>,
+                        "full": 100
+                    } <?php if ($key !== $responseLastKey): ?>,<?php endif; ?>
+                <?php endforeach; ?>
+                ],
+                "filter": "filters.load_time"
+            }
+        }
+    }
+</script>

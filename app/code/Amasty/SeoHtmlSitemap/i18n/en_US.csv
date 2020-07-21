@@ -1,0 +1,38 @@
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+Tree,Tree
+List,List
+Root,Root
+"Sorting Order","Sorting Order"
+Search,Search
+Products,Products
+Categories,Categories
+Pages,Pages
+"Landing Pages","Landing Pages"
+Links,Links
+"SEO HTML Sitemap","SEO HTML Sitemap"
+Information,Information
+General,General
+Title,Title
+"Meta Description","Meta Description"
+Layout,Layout
+"Show Search Field","Show Search Field"
+"Sort the Sitemap Content Order","Sort the Sitemap Content Order"
+"CMS Pages","CMS Pages"
+"Include CMS Pages","Include CMS Pages"
+"Sub Header","Sub Header"
+"Number of Columns","Number of Columns"
+"Exclude CMS Pages","Exclude CMS Pages"
+"Include Categories","Include Categories"
+"Exclude Category Ids","Exclude Category Ids"
+"Specify comma separated category id’s are not showing in Sitemap.","Specify comma separated category id’s are not showing in Sitemap."
+"Show As","Show As"
+"Include Products","Include Products"
+"Split By First Letter","Split By First Letter"
+"Hide Out Of Stock Products","Hide Out Of Stock Products"
+"Maximum Products Displayed on Sitemap","Maximum Products Displayed on Sitemap"
+"Maximum Products to be shown on Sitemap. The limit number you can fill in is 50000","Maximum Products to be shown on Sitemap. The limit number you can fill in is 50000"
+"Show Landing Pages","Show Landing Pages"
+"See <a href=""https://amasty.com/landing-pages-for-magento-2.html"" target=""_blank"">Landing Pages</a> module.","See <a href=""https://amasty.com/landing-pages-for-magento-2.html"" target=""_blank"">Landing Pages</a> module."
+"Additional Links","Additional Links"
+"Example: <br />Link text, link URL <br /> Link text, link URL <br /> ...","Example: <br />Link text, link URL <br /> Link text, link URL <br /> ..."
+Sitemap,Sitemap

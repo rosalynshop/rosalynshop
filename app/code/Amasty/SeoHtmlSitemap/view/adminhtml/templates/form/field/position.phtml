@@ -1,0 +1,41 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_SeoHtmlSitemap
+ */
+?>
+<td class="label">
+    <label><?= __('Sorting Order') ?></label>
+</td>
+<td colspan="3">
+    <table class="amseohtml-sort-order" id="amseohtml-sort-order">
+        <?php foreach ($block->getPositions() as $key => $index) : ?>
+            <tr>
+                <th>
+                </th>
+                <td class="item-position">
+                    <?= $index ?>
+                    <div class="draggable"></div>
+                    <input type="hidden"
+                           name="<?= $block->getNamePrefix($key) ?>"
+                           value="<?= $index ?>">
+                </td>
+                <th style="min-width: 69px; visibility: hidden;"></th>
+            </tr>
+        <?php endforeach ?>
+    </table>
+</td>
+<script>
+    require([
+        'jquery',
+        'collapsable'
+    ], function ($) {
+        $('#amseohtml-sort-order').sortable({
+            axis: 'y',
+            handle: '.item-position',
+            items: 'tr',
+            tolerance: 'pointer'
+        });
+    });
+</script>

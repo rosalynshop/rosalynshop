@@ -1,0 +1,186 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_SeoToolKit
+ */
+?>
+<?php /** @var \Amasty\SeoToolKit\Block\Toolbar $block */ ?>
+
+<div class="amskit-toolbar-wrap" data-js="amskit-toolbar">
+    <div class="amskit-toolbar-box">
+        <span class="amskit-title"><?= $block->escapeHtml(__('Seo Toolbar'));?></span>
+        <span class="amskit-arrow" data-js="amskit-close"></span>
+    </div>
+
+    <div class="amskit-toolbar-content" data-js="amskit-content" style="display: none;">
+        <div class="amskit-title"><?= $block->escapeHtml(__('Page Analysis'));?></div>
+        <table class="amskit-table -analysis">
+            <col width="30%">
+            <col width="70%">
+            <tr>
+                <td><?= $block->escapeHtml(__('Robots Meta'));?></td>
+                <td class="amskit-cell -indent"><?= $block->escapeHtml($block->getRobotsMeta());?></td>
+            </tr>
+            <tr>
+                <td><?= $block->escapeHtml(__('Canonical'));?></td>
+                <td class="amskit-cell">
+                    <?php list($text, $status) = $block->getCanonicalText();?>
+                    <div class="amskit-icon <?= $block->escapeHtml($status) ?>">
+                        <?= $block->escapeHtml($text);?>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><?= $block->escapeHtml(__('Title'));?></td>
+                <td class="amskit-cell">
+                    <?php list($text, $status) = $block->getTitleCount();?>
+                    <div class="amskit-icon <?= $block->escapeHtml($status) ?>">
+                        <?= $block->escapeHtml($text)?>
+                        <div class="amskit-description">
+                            <?php if ($block->getTitleText()): ?>
+                                <?= $block->escapeHtml($block->getTitleText());?>
+                            <?php else: ?>
+                                <?= $block->escapeHtml(
+                                    __('Try to enlarge it to %1 characters.', $block->getMaxTitleLength())
+                                );?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><?= $block->escapeHtml(__('Meta Description'));?></td>
+                <td class="amskit-cell">
+                    <?php list($text, $status) = $block->getMetaDescCount();?>
+                    <div class="amskit-icon <?= $block->escapeHtml($status) ?>">
+                        <?= $block->escapeHtml($text)?>
+                        <div class="amskit-description">
+                            <?php if ($block->getMetaDescText()): ?>
+                                <?= $block->escapeHtml($block->getMetaDescText());?>
+                            <?php else: ?>
+                                <?= $block->escapeHtml(
+                                    __('Try to enlarge it to %1 characters.', $block->getMetaDescLength())
+                                );?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><?= $block->escapeHtml(__('Meta Keywords')) ?></td>
+                <td class="amskit-cell">
+                    <?php list($text, $status) = $block->getKeywordCount();?>
+                    <div class="amskit-icon <?= $block->escapeHtml($status) ?>">
+                        <?= $block->escapeHtml($text)?>
+                        <div class="amskit-description">
+                            <?php if ($block->getKeywordsText()): ?>
+                                <?= $block->escapeHtml($block->getKeywordsText());?>
+                            <?php else: ?>
+                                <?= $block->escapeHtml(
+                                    __('Try to enlarge it to %1 characters.', $block->getMetaKeyLength())
+                                );?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><?= $block->escapeHtml(__('Headings'));?></td>
+                <td class="amskit-cell">
+                    <?php list($headings, $status) = $block->getHeadings();?>
+                    <div class="amskit-headings-wrap amskit-icon <?= $block->escapeHtml($status) ?>">
+                        <?php foreach ($headings as $name => $text): ?>
+                            <div class="amskit-item">
+                                <div class="amskit-head"><?= $block->escapeHtml('<' . $name . '>')?></div>
+                                <div><?= count($text);?></div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="amskit-description -headings">
+                        <?= $block->escapeHtml($block->stripTags(implode(', ', $headings['h1']))); ?>
+                    </div>
+                </td>
+            </tr>
+            <?php $images = $block->getImagesWithoutAlt()?>
+            <?php if ($images): ?>
+                <tr>
+                    <td><?= $block->escapeHtml(__('Images'));?></td>
+                    <td class="amskit-cell">
+                        <div class="amskit-icon -warning">
+                            <?= $block->escapeHtml(__('%1 image(s) without ALT tag', count($images)));?>
+                            <div class="amskit-description" data-js="amskit-showmore">
+                                <?php foreach ($images as $img): ?>
+                                    <span class="amskit-url"><?= $block->escapeHtml($img) ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            <?php endif; ?>
+        </table>
+        <div class="amskit-background">
+            <table class="amskit-table">
+                <col width="30%">
+                <col width="70%">
+                <tr>
+                    <td><?= $block->escapeHtml(__('In-Page Links'));?></td>
+                    <td class="amskit-cell -indent">
+                        <ul class="amskit-page-links">
+                            <?php foreach ($block->getLinksData() as $link => $linkData): ?>
+                                <li class="amskit-item">
+                                    <span class="amskit-label"><?= $block->escapeHtml($linkData['label']) ?></span>
+                                    <span class="amskit-count"><?= $block->escapeHtml($linkData['count']) ?></span>
+                                </li>
+                            <?php endforeach;?>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><?= $block->escapeHtml(__('Schema.org Tags')) ?></td>
+                    <td class="amskit-cell -indent">
+                        <?php if ($block->isSchemaOrgExists()): ?>
+                            <?= $block->escapeHtml(__('Great. We have found several schema.org types')) ?>
+                        <?php else: ?>
+                            <?= $block->escapeHtml(__('There are no schema.org types')) ?>
+                        <?php endif;?>
+                    </td>
+                </tr>
+                <tr>
+                    <td><?= $block->escapeHtml(__('Iframes')) ?></td>
+                    <td class="amskit-cell -indent">
+                        <?= $block->escapeHtml($block->getIframeText()); ?>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="amskit-title"><?= $block->escapeHtml(__('Page Content')) ?></div>
+        <table class="amskit-table">
+            <col width="30%">
+            <col width="70%">
+            <tr>
+                <td><?= $block->escapeHtml(__('State')) ?></td>
+                <td class="amskit-cell -indent"><?= $block->escapeHtml($block->getPageState()) ?></td>
+            </tr>
+            <?php $metaTag = $block->getMetaTagTemplateData()?>
+            <?php if ($metaTag): ?>
+                <tr>
+                    <td><?= $block->escapeHtml(__('Applied Meta Tags Template'));?></td>
+                    <td class="amskit-cell -indent">
+                        <?php foreach ($metaTag as $template): ?>
+                            <div><?= $block->escapeHtml($template);?></div>
+                        <?php endforeach;?>
+                    </td>
+                </tr>
+            <?php endif; ?>
+        </table>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+            {
+                "[data-js='amskit-toolbar']": {
+                    "amSeoToolbar": {}
+                }
+            }
+</script>

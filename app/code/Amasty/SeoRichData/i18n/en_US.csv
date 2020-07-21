@@ -1,0 +1,69 @@
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"-- Empty --","-- Empty --"
+"Default (Long)","Default (Long)"
+Short,Short
+None,None
+"Category Full Description","Category Full Description"
+"Page Meta Description","Page Meta Description"
+"Product Short Description","Product Short Description"
+"Product Full Description","Product Full Description"
+"Main Offer","Main Offer"
+"List of Associated Products Offers","List of Associated Products Offers"
+"Aggregate Offer","Aggregate Offer"
+"SEO Rich Data","SEO Rich Data"
+Information,Information
+Breadcrumbs,Breadcrumbs
+Enabled,Enabled
+"See more details <a target='_blank' href='https://developers.google.com/structured-data/breadcrumbs'>here</a>","See more details <a target='_blank' href='https://developers.google.com/structured-data/breadcrumbs'>here</a>"
+"Fixed Category Path","Fixed Category Path"
+"At the Product Page use the most specific category path if no category info is available","At the Product Page use the most specific category path if no category info is available"
+Type,Type
+"This setting modifies the Breadcrumbs Type for the Search Engine only. It does not modify the Breadcrumbs on the store frontend. Choose 'Short' to make ""Store > Subcategory 2 > Product"" instead of ""Store > Category > Subcategory 1 > Subcategory 2 > Product""","This setting modifies the Breadcrumbs Type for the Search Engine only. It does not modify the Breadcrumbs on the store frontend. Choose 'Short' to make ""Store > Subcategory 2 > Product"" instead of ""Store > Category > Subcategory 1 > Subcategory 2 > Product"""
+"Include Your Site Name in Search Results","Include Your Site Name in Search Results"
+"See more details <a target='_blank' href='https://developers.google.com/structured-data/site-name'>here</a>","See more details <a target='_blank' href='https://developers.google.com/structured-data/site-name'>here</a>"
+"Website Name","Website Name"
+Organization,Organization
+"See more details <a target='_blank' href='https://developers.google.com/structured-data/customize/contact-points'>here</a>","See more details <a target='_blank' href='https://developers.google.com/structured-data/customize/contact-points'>here</a>"
+"Organization Name","Organization Name"
+"Logo Url","Logo Url"
+Description,Description
+"Enter the URL with the description to include in rich snippets","Enter the URL with the description to include in rich snippets"
+"Description Length","Description Length"
+"Specify the number of characters which will be displayed in the description.","Specify the number of characters which will be displayed in the description."
+Country,Country
+Region/State,Region/State
+"ZIP/Postal Code","ZIP/Postal Code"
+City,City
+Sales,Sales
+"An internationalized version of the phone number, starting with the ""+"" symbol and country code (+1 in the US and Canada). Examples: ""+1-800-555-1212"", ""+44-2078225951""","An internationalized version of the phone number, starting with the ""+"" symbol and country code (+1 in the US and Canada). Examples: ""+1-800-555-1212"", ""+44-2078225951"""
+"Technical Support","Technical Support"
+"An internationalized version of the phone number","An internationalized version of the phone number"
+"Customer Service","Customer Service"
+"Social Profiles","Social Profiles"
+"Please enable the 'Organization' to get the 'Social Profiles' working. Read more details <a target='_blank' href='https://developers.google.com/search/docs/data-types/social-profile'>here</a>","Please enable the 'Organization' to get the 'Social Profiles' working. Read more details <a target='_blank' href='https://developers.google.com/search/docs/data-types/social-profile'>here</a>"
+Facebook,Facebook
+Twitter,Twitter
+Google+,Google+
+Instagram,Instagram
+YouTube,YouTube
+LinkedIn,LinkedIn
+Myspace,Myspace
+Pinterest,Pinterest
+SoundCloud,SoundCloud
+Tumblr,Tumblr
+"Search Box","Search Box"
+"Display search input box for home page in Google search results. See more details <a target='_blank' href='https://developers.google.com/structured-data/slsb-overview'>here</a>","Display search input box for home page in Google search results. See more details <a target='_blank' href='https://developers.google.com/structured-data/slsb-overview'>here</a>"
+"Enabled on Category Pages","Enabled on Category Pages"
+"Add schema markup for each product on the category page. See the details <a target='_blank' href='https://developers.google.com/search/docs/guides/sd-policies#multiple-elements'>here</a>.","Add schema markup for each product on the category page. See the details <a target='_blank' href='https://developers.google.com/search/docs/guides/sd-policies#multiple-elements'>here</a>."
+"Product Rich Data","Product Rich Data"
+"See more details <a target='_blank' href='https://developers.google.com/search/docs/data-types/products'>here</a>","See more details <a target='_blank' href='https://developers.google.com/search/docs/data-types/products'>here</a>"
+"Show Availability","Show Availability"
+"Show Condition","Show Condition"
+"Show Configurable Products as","Show Configurable Products as"
+"Show Grouped Products as","Show Grouped Products as"
+"Show Rating","Show Rating"
+"Adds product rating and review to rich data.","Adds product rating and review to rich data."
+Brand,Brand
+Manufacturer,Manufacturer
+"Custom Properties","Custom Properties"
+"Please click <a target='_blank' href='https://amasty.com/docs/doku.php?id=magento_2:rich_snippets#product_rich_data?utm_source=extension&utm_medium=backend&utm_campaign=userguide_RichSnippet'>here</a> to find out how to configure the current setting.","Please click <a target='_blank' href='https://amasty.com/docs/doku.php?id=magento_2:rich_snippets#product_rich_data?utm_source=extension&utm_medium=backend&utm_campaign=userguide_RichSnippet'>here</a> to find out how to configure the current setting."

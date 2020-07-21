@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_XmlSitemap
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\XmlSitemap\Api\SitemapInterface" type="Amasty\XmlSitemap\Model\Sitemap" />
+    <preference for="Amasty\XmlSitemap\Api\SitemapRepositoryInterface" type="Amasty\XmlSitemap\Model\Repository\SitemapRepository" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amxmlsitemap_sitemap_listing_data_source" xsi:type="string">Amasty\XmlSitemap\Model\ResourceModel\Sitemap\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\XmlSitemap\Model\ResourceModel\Sitemap\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_xml_sitemap</argument>
+            <argument name="eventPrefix" xsi:type="string">amasty_xml_sitemap_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">sitemap_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Rma\Model\ResourceModel\Status</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="AmXmlitemapSitemapGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Amasty\XmlSitemap\Model\ResourceModel\Sitemap\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">AmXmlSitemapGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AmXmlSitemapGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Amasty_XmlSitemap:GenerateXmlSiteMap" xsi:type="object">Amasty\XmlSitemap\Console\Command\GenerateXmlSiteMap</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Beginning hreflang tags section -->
+    <preference for="Amasty\XmlSitemap\Model\Hreflang\GetLanguageCodesInterface" type="Amasty\XmlSitemap\Model\Hreflang\GetLanguageCodes" />
+    <preference for="Amasty\XmlSitemap\Model\Hreflang\GetBaseStoreUrlsInterface" type="Amasty\XmlSitemap\Model\Hreflang\GetBaseStoreUrls" />
+    <preference for="Amasty\XmlSitemap\Model\Hreflang\XmlTagsProviderInterface" type="Amasty\XmlSitemap\Model\Hreflang\XmlTagsProvider" />
+    <preference for="Amasty\XmlSitemap\Model\Hreflang\GetCmsPageRelationFieldInterface" type="Amasty\XmlSitemap\Model\Hreflang\GetCmsPageRelationField" />
+    <virtualType name="hreflangProductProvider" type="Amasty\XmlSitemap\Model\Hreflang\DataProvider">
+        <arguments>
+            <argument name="getHreflangUrls" xsi:type="object">Amasty\XmlSitemap\Model\ResourceModel\Hreflang\GetProductUrls</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="hreflangCategoryProvider" type="Amasty\XmlSitemap\Model\Hreflang\DataProvider">
+        <arguments>
+            <argument name="getHreflangUrls" xsi:type="object">Amasty\XmlSitemap\Model\ResourceModel\Hreflang\GetCategoryUrls</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="hreflangCmsProvider" type="Amasty\XmlSitemap\Model\Hreflang\DataProvider">
+        <arguments>
+            <argument name="getHreflangUrls" xsi:type="object">Amasty\XmlSitemap\Model\ResourceModel\Hreflang\GetCmsUrls</argument>
+        </arguments>
+    </virtualType>
+    <type name="Amasty\XmlSitemap\Model\Hreflang\XmlTagsProvider">
+        <arguments>
+            <argument name="hreflangProviders" xsi:type="array">
+                <item name="product" xsi:type="object">hreflangProductProvider</item>
+                <item name="category" xsi:type="object">hreflangCategoryProvider</item>
+                <item name="cms_page" xsi:type="object">hreflangCmsProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- End of hreflang tags section -->
+
+    <type name="Magento\Store\Model\Store">
+        <plugin name="Amasty_XmlSitemap::secute_urls" type="Amasty\XmlSitemap\Plugin\Store\Model\Store" />
+    </type>
+</config>

@@ -1,0 +1,32 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Meta
+ */
+?>
+<?php echo $this->getButton()->toHtml() ?>
+<div class="success-msg am_meta_success_msg" style="display:none;">
+    <?php echo __('URL keys has been successfully updated. Please update product URL index.')?>
+</div>
+
+<div class="am_processer_container" style="display: none;">
+    <span class="begin"></span>
+    <div class="am_line">
+        <div class="am_processer" style="width: 100%">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+    <span class="end end_not_imported"></span>
+</div>
+<script type="text/javascript">
+    require([
+        'jquery',
+        'Amasty_Meta/js/SystemButton'
+    ], function ($) {
+        var applyTemplates = $('#ammeta_apply_templates');
+        applyTemplates.amMeta({
+            urls: <?php echo $this->getConfig(); ?>
+        });
+    });
+</script>

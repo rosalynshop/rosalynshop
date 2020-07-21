@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Meta
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_Meta::seotoolkit"
+             title="Amasty Meta"
+             module="Amasty_Meta"
+             sortOrder="11"
+             parent="Magento_Backend::content"
+             resource="Amasty_Meta::seotoolkit"/>
+
+        <add id="Amasty_Meta::config"
+             title="Meta Tags by Category"
+             module="Amasty_Meta"
+             sortOrder="1"
+             parent="Amasty_Meta::seotoolkit"
+             action="amasty_meta/config"
+             resource="Amasty_Meta::config"/>
+
+        <add id="Amasty_Meta::custom"
+             title="Meta Tags by Custom URLs"
+             module="Amasty_Meta"
+             sortOrder="2"
+             parent="Amasty_Meta::seotoolkit"
+             action="amasty_meta/custom"
+             resource="Amasty_Meta::custom"/>
+    </menu>
+</config>

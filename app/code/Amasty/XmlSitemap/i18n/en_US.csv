@@ -1,0 +1,125 @@
+"Save and Continue Edit","Save and Continue Edit"
+"Edit Item `%1`","Edit Item `%1`"
+"Add new Item","Add new Item"
+"Blog Pages","Blog Pages"
+"Include Blog Pages","Include Blog Pages"
+Priority,Priority
+0.01-0.99,0.01-0.99
+Frequency,Frequency
+"Brand Pages","Brand Pages"
+"Include brand pages","Include brand pages"
+Categories,Categories
+"Include categories","Include categories"
+"Add Hreflang Tags","Add Hreflang Tags"
+"Add Images","Add Images"
+"Include Last Modified","Include Last Modified"
+Extra,Extra
+"Extra Links","Extra Links"
+"Include Extra Links","Include Extra Links"
+"Extra Links to include","Extra Links to include"
+"Faq Pages","Faq Pages"
+"Include Faq Pages","Include Faq Pages"
+General,General
+Name,Name
+Stores,Stores
+"Path to sitemap file","Path to sitemap file"
+"Example: ""sitemap/sitemap1.xml"". Make sure path is writable and accessible through internet","Example: ""sitemap/sitemap1.xml"". Make sure path is writable and accessible through internet"
+"Max Items Per File","Max Items Per File"
+"If exceed, index file will be created. Read more at <a target=""_blank"" href=""%1"">link</a>","If exceed, index file will be created. Read more at <a target=""_blank"" href=""%1"">link</a>"
+"Max File Size (kB)","Max File Size (kB)"
+"Exclude URLs","Exclude URLs"
+"URL to exclude, one per line","URL to exclude, one per line"
+"Date format","Date format"
+"Landing Pages","Landing Pages"
+"Include Landing Pages","Include Landing Pages"
+"Include Improved Navigation Pages","Include Improved Navigation Pages"
+"Improved Navigation Pages","Improved Navigation Pages"
+Pages,Pages
+"Include pages","Include pages"
+"Exclude CMS pages","Exclude CMS pages"
+"URL Keys of CMS Pages to exclude, one per line","URL Keys of CMS Pages to exclude, one per line"
+Products,Products
+"Include products","Include products"
+"Add Images Titles","Add Images Titles"
+"Template for image title","Template for image title"
+"Specify text to be used for empty captions with {product_name} placeholder for product name. Example - ""enjoy {product_name} from e-store""","Specify text to be used for empty captions with {product_name} placeholder for product name. Example - ""enjoy {product_name} from e-store"""
+"Exclude Out Of Stock Products","Exclude Out Of Stock Products"
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"Sitemap: ","Sitemap: "
+"We can't change item right now. Please review the log and try again.","We can't change item right now. Please review the log and try again."
+"A total of %1 record(s) have been changed.","A total of %1 record(s) have been changed."
+"No records have been changed.","No records have been changed."
+"Record does not exist","Record does not exist"
+"Item has been successfully deleted","Item has been successfully deleted"
+"Sitemap was successfully duplicated","Sitemap was successfully duplicated"
+"This sitemap no longer exists.","This sitemap no longer exists."
+"XML Google Sitemap","XML Google Sitemap"
+"Add Item","Add Item"
+"Item does not exist","Item does not exist"
+"Manage Google XML Sitemaps","Manage Google XML Sitemaps"
+"Manage Google XML Sitemaps ","Manage Google XML Sitemaps "
+"We can't delete item right now. Please review the log and try again.","We can't delete item right now. Please review the log and try again."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"No records have been deleted.","No records have been deleted."
+"Sitemap does not exist","Sitemap does not exist"
+"Sitemap has been generated","Sitemap has been generated"
+"Sitemap was successfully saved","Sitemap was successfully saved"
+"Unable to find item to save","Unable to find item to save"
+always,always
+hourly,hourly
+daily,daily
+weekly,weekly
+monthly,monthly
+yearly,yearly
+never,never
+"With time","With time"
+"Without time","Without time"
+"We can't save the cron expression.","We can't save the cron expression."
+"urlData array doesn't contain required fields. Check GetUrlsInterface class.","urlData array doesn't contain required fields. Check GetUrlsInterface class."
+"languageCodes array doesn't storeId #%1. Check GetLanguageCodesInterface class.","languageCodes array doesn't storeId #%1. Check GetLanguageCodesInterface class."
+"Unable to save sitemap with ID %1. Error: %2","Unable to save sitemap with ID %1. Error: %2"
+"Unable to save new sitemap. Error: %1","Unable to save new sitemap. Error: %1"
+"Sitemap with specified ID ""%1"" not found.","Sitemap with specified ID ""%1"" not found."
+"Unable to remove sitemap with ID %1. Error: %2","Unable to remove sitemap with ID %1. Error: %2"
+"Unable to remove sitemap. Error: %1","Unable to remove sitemap. Error: %1"
+"Please define correct path","Please define correct path"
+"Please create the specified folder %1 before saving the sitemap.","Please create the specified folder %1 before saving the sitemap."
+"Please make sure that %1 is writable by web-server.","Please make sure that %1 is writable by web-server."
+"By ID","By ID"
+"By Hreflang UUID","By Hreflang UUID"
+"By URL Key (Page Identifier)","By URL Key (Page Identifier)"
+"Don't Add","Don't Add"
+"From Current Store Default Country","From Current Store Default Country"
+"From Current Store Locale","From Current Store Locale"
+Global,Global
+Website,Website
+"--Please Select--","--Please Select--"
+Generate,Generate
+Duplicate,Duplicate
+Edit,Edit
+Information,Information
+"Cron Settings","Cron Settings"
+"Start Time","Start Time"
+"Hreflang URLs","Hreflang URLs"
+"Hreflang URLs Scope","Hreflang URLs Scope"
+"Choose <b>Website</b> to work within one website only or <b>Global</b> to work between the websites","Choose <b>Website</b> to work within one website only or <b>Global</b> to work between the websites"
+"Language Code","Language Code"
+"Country Code","Country Code"
+X-default,X-default
+"If <b>Hreflang Scope</b> is <b>Global</b>, values from website scope for this setting will be ignored","If <b>Hreflang Scope</b> is <b>Global</b>, values from website scope for this setting will be ignored"
+"Multi-Stores CMS Pages Relation","Multi-Stores CMS Pages Relation"
+"Choose the way how to identify the same CMS page for different views. By Hreflang UUID option is to be specified for each CMS page manually","Choose the way how to identify the same CMS page for different views. By Hreflang UUID option is to be specified for each CMS page manually"
+"Search Engine Submission Settings","Search Engine Submission Settings"
+"Enable Submission to Robots.txt","Enable Submission to Robots.txt"
+"Sitemap Configuration","Sitemap Configuration"
+"Add Sitemap","Add Sitemap"
+"Store View","Store View"
+"Delete items","Delete items"
+"Are you sure you wan't to delete selected items?","Are you sure you wan't to delete selected items?"
+Delete,Delete
+ID,ID
+Title,Title
+Path,Path
+Url,Url
+"Generated At","Generated At"
+"Amasty Xml Sitemap UUID for Hreflangs","Amasty Xml Sitemap UUID for Hreflangs"

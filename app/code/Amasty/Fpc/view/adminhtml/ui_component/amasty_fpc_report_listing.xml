@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">amasty_fpc_report_listing.amasty_fpc_report_listing_data_source</item>
+            <item name="deps" xsi:type="string">amasty_fpc_report_listing.amasty_fpc_report_listing_data_source</item>
+            <item name="imports" xsi:type="array">
+                <item name="grid_type" xsi:type="string">${"efficiency"}:gridType</item>
+            </item>
+            <item name="exports" xsi:type="array">
+                <item name="grid_type" xsi:type="string">${ $.provider }:params.grid_type</item>
+            </item>
+        </item>
+        <item name="spinner" xsi:type="string">amasty_fpc_log_columns</item>
+    </argument>
+    <dataSource name="amasty_fpc_report_listing">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Amasty\Fpc\Ui\DataProvider\Listing\Report\DataProvider</argument>
+            <argument name="name" xsi:type="string">amasty_fpc_report_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="component" xsi:type="string">Amasty_Fpc/js/log/grid/provider</item>
+                    <item name="amreports_reload" xsi:type="boolean">true</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="cacheRequests" xsi:type="boolean">false</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <columns name="amasty_fpc_log_columns">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="component" xsi:type="string">Amasty_Fpc/js/log/grid/listing</item>
+                <item name="template" xsi:type="string">Amasty_Fpc/grid/listing_with_total</item>
+                <item name="childDefaults" xsi:type="array">
+                    <item name="footerTmpl" xsi:type="string">Amasty_Fpc/grid/columns/total</item>
+                </item>
+                <item name="imports" xsi:type="array">
+                    <item name="totals" xsi:type="string">${ $.provider }:data.totals</item>
+                </item>
+            </item>
+        </argument>
+        <column name="visited_at">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Date/Time</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                </item>
+            </argument>
+        </column>
+        <column name="response_time">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="label" xsi:type="string" translate="true">Response Time / ms</item>
+                    <item name="component" xsi:type="string">Amasty_Fpc/js/grid/columns/float</item>
+                </item>
+            </argument>
+        </column>
+        <column name="hit_response_time">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="label" xsi:type="string" translate="true">Hit Response Time / ms</item>
+                    <item name="component" xsi:type="string">Amasty_Fpc/js/grid/columns/float</item>
+                </item>
+            </argument>
+        </column>
+        <column name="miss_response_time">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="label" xsi:type="string" translate="true">Miss Response Time / ms</item>
+                    <item name="component" xsi:type="string">Amasty_Fpc/js/grid/columns/float</item>
+                </item>
+            </argument>
+        </column>
+        <column name="hits">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Hits / %</item>
+                </item>
+            </argument>
+        </column>
+        <column name="misses">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Misses / %</item>
+                </item>
+            </argument>
+        </column>
+        <column name="visits">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="label" xsi:type="string" translate="true">Visits</item>
+                </item>
+            </argument>
+        </column>
+    </columns>
+</listing>

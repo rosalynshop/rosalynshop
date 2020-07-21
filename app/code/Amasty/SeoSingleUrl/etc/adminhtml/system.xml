@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_SeoSingleUrl
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_seourl" translate="label" type="text" sortOrder="190519" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>SEO Single URL</label>
+            <tab>amasty</tab>
+            <resource>Amasty_SeoSingleUrl::config</resource>
+            <group id="amasty_information" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Information</label>
+                <frontend_model>Amasty\SeoSingleUrl\Block\Adminhtml\System\Config\Information</frontend_model>
+            </group>
+            <group id="general" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+                <field id="product_use_categories" translate="label" type="select" sortOrder="10" showInDefault="1"
+                        showInWebsite="1" showInStore="1">
+                    <label>Use Categories Path for Product URLs</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="product_url_type" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Categories Path in Product URL</label>
+                    <source_model>Amasty\SeoSingleUrl\Model\Source\Type</source_model>
+                    <depends>
+                        <field id="product_use_categories">1</field>
+                    </depends>
+                </field>
+                <field id="by" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>By</label>
+                    <source_model>Amasty\SeoSingleUrl\Model\Source\By</source_model>
+                    <depends>
+                        <field id="product_url_type" separator=",">shortest,longest</field>
+                        <field id="product_use_categories">1</field>
+                    </depends>
+                </field>
+                <field id="force_redirect" translate="label comment" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>301 Redirect To Canonical Url</label>
+                    <comment>Redirect from secondary URLs to the main canonical URL</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="product_use_categories">1</field>
+                    </depends>
+                </field>
+                <field id="exclude" translate="label comment" type="text" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Exclude Category from Product Url</label>
+                    <comment>You can set categories, URL path to which will not be used in product URL</comment>
+                    <depends>
+                        <field id="product_use_categories">1</field>
+                    </depends>
+                </field>
+                <field id="breadcrumb" translate="label" type="select" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Generate Breadcrumbs According To</label>
+                    <source_model>Amasty\SeoSingleUrl\Model\Source\Breadcrumb</source_model>
+                    <depends>
+                        <field id="product_use_categories">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

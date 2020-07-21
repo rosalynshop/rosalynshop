@@ -3390,7 +3390,7 @@ Time in seconds between the widget updates.,module,Magento_CatalogWidget
 "Close","Đóng lại",module,Magento_Checkout
 "item","sản phẩm",module,Magento_Checkout
 "items","sản phẩm",module,Magento_Checkout
-"Go to Checkout","Đi đến thanh toán",module,Magento_Checkout
+"Go to Checkout","Đến trang thanh toán",module,Magento_Checkout
 "Recently added item(s)","Sản phẩm thêm vào gần đây",module,Magento_Checkout
 "View and edit cart","Xem và sửa giỏ hàng",module,Magento_Checkout
 "No Payment Methods","Không có phương thức thanh toán",module,Magento_Checkout
@@ -4720,7 +4720,7 @@ new products will be created. Use this step to customize images and price for yo
 "Sign Out","Đăng xuất",module,Magento_Customer
 "Sign In","Đăng nhập",module,Magento_Customer
 "You are subscribed to our newsletter.","You are subscribed to our newsletter.",module,Magento_Customer
-"You aren't subscribed to our newsletter.","You aren't subscribed to our newsletter.",module,Magento_Customer
+"You aren't subscribed to our newsletter.","Bạn chưa đăng ký nhận bản tin.",module,Magento_Customer
 "You have not set a default shipping address.","Bạn không có thiết lập địa chỉ vận chuyển mặc định.",module,Magento_Customer
 "You have not set a default billing address.","Bạn không có thiết lập địa chỉ vận chuyển mặc định.",module,Magento_Customer
 "Address Book","Sổ địa chỉ",module,Magento_Customer

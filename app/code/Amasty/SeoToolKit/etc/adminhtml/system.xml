@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_SeoToolKit
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amseotoolkit" translate="label" type="text" sortOrder="190520" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>SEO Toolkit</label>
+            <tab>amasty</tab>
+            <resource>Amasty_SeoToolKit::config</resource>
+            <group id="general" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="home_redirect" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>301 Redirects to Home Page</label>
+                    <comment><![CDATA[Requests to /index.php, /cms/index, /home will be redirected to Home Page]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="four_zero_four_redirect" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Redirect from 404 to Search Results</label>
+                    <comment>If option is enabled, customer will be redirected to the store search results of the broken URL text instead of the '404 Not Found' page</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_seo_url" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom URL Key for Default Search Results Page</label>
+                    <comment><![CDATA[URL will look 'search/yellow' instead of 'catalogsearch/results/q=yellow'.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="seo_key" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Search Result Page URL Key</label>
+                    <comment>Please do not use 'catalogsearch' as URL Key value</comment>
+                    <depends>
+                        <field id="enable_seo_url">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="pager" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pagination Settings</label>
+                <field id="prev_next" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add Link Rel="next/prev"</label>
+                    <comment><![CDATA[Use the rel=next/prev tag to point Google where the next or the previous pages are. Click <a target="_blank" href="https://webmasters.googleblog.com/2011/09/pagination-with-relnext-and-relprev.html">here</a> to read more.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="meta_title" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add Page Number to Meta Title</label>
+                    <comment><![CDATA[Adds the Page Number at the end of the Meta Title, e.g. 'Apparel | Page 5']]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="meta_description" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add Page Number to Meta Description</label>
+                    <comment><![CDATA[Adds the Page Number at the end of the Meta Description, e.g. 'Apparel Description | Page 5']]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="toolbar" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SEO Toolbar</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Toolbar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="ip" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show only for IP</label>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

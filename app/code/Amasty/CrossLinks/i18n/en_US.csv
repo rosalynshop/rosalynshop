@@ -1,0 +1,67 @@
+"Cross Links Management","Cross Links Management"
+"Add New Link","Add New Link"
+"Save Link","Save Link"
+"Delete Link","Delete Link"
+"Save and Continue Edit","Save and Continue Edit"
+"Edit Link '%1'","Edit Link '%1'"
+"New Link","New Link"
+"Link Information","Link Information"
+"General Information","General Information"
+Active,Active
+"Link Title","Link Title"
+Target,Target
+Keywords,Keywords
+"Store Views","Store Views"
+Reference,Reference
+"Reference Resource","Reference Resource"
+"Replacement Limit Per Page","Replacement Limit Per Page"
+Priority,Priority
+"Set zero value for highest priority","Set zero value for highest priority"
+Nofollow,Nofollow
+ID,ID
+Sku,Sku
+Product,Product
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"Link has been deleted successfully","Link has been deleted successfully"
+"This link no longer exists.","This link no longer exists."
+"Requested link does not exist","Requested link does not exist"
+"Cross Link Management","Cross Link Management"
+"Edit Link","Edit Link"
+"Please correct the data sent.","Please correct the data sent."
+"The link does not longer exist","The link does not longer exist"
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"Link has been saved successfully.","Link has been saved successfully."
+"Requested link doesn't exist","Requested link doesn't exist"
+No,No
+Yes,Yes
+"No (Module was not installed)","No (Module was not installed)"
+"Custom Url","Custom Url"
+"Product Id","Product Id"
+"Category Id","Category Id"
+Self,Self
+Blank,Blank
+Edit,Edit
+Delete,Delete
+"Delete ""${ $.$data.name }""","Delete ""${ $.$data.name }"""
+"Are you sure you wan't to delete a ""${ $.$data.name }"" record?","Are you sure you wan't to delete a ""${ $.$data.name }"" record?"
+"Seo Cross Linking","Seo Cross Linking"
+Information,Information
+General,General
+Enabled,Enabled
+"Product Page Replacement Limit","Product Page Replacement Limit"
+"Category Page Page Replacement Limit","Category Page Page Replacement Limit"
+"Cms Page Replacement Limit","Cms Page Replacement Limit"
+"Replace on Product Page In","Replace on Product Page In"
+"Replace on Category Page In","Replace on Category Page In"
+"Amasty FAQ and Product Questions Pages","Amasty FAQ and Product Questions Pages"
+"Equip product pages with the advanced FAQ section and provide customers with additional information on products and services in your store. See more details <a target=""_blank"" href=""https://amasty.com/faq-and-product-questions-for-magento-2.html?utm_source=extension&utm_medium=link&utm_campaign=cross_link-faq-m2"">here</a>.","Equip product pages with the advanced FAQ section and provide customers with additional information on products and services in your store. See more details <a target=""_blank"" href=""https://amasty.com/faq-and-product-questions-for-magento-2.html?utm_source=extension&utm_medium=link&utm_campaign=cross_link-faq-m2"">here</a>."
+"Page Replacement Limit","Page Replacement Limit"
+Advanced,Advanced
+"Regexpr for ""+""","Regexpr for ""+"""
+"Store View","Store View"
+"Delete items","Delete items"
+"Are you sure you wan't to delete selected items?","Are you sure you wan't to delete selected items?"
+Title,Title
+Disabled,Disabled
+Status,Status
+"Replacement Limit","Replacement Limit"
