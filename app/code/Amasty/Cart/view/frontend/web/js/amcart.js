@@ -226,12 +226,14 @@ define([
 
                 success: function(response) {
                     self.hideAnimation();
+
                     if (response.error) {
                         alert(response.error);
                     } else if (response.is_add_to_cart === 1 && $('body.checkout-cart-index').length) {
                         window.location.reload();
                         return true;
                     } else if (response.is_add_to_cart === 1 && self.options.open_minicart) {
+                        self.closedQuickView();
                         self.isObserverEnabled = true;
                         $('[data-block=\'minicart\']').on('contentUpdated', function () {
                             if (self.isObserverEnabled) {
@@ -241,6 +243,7 @@ define([
 
                         });
                     } else {
+                        self.closedQuickView();
                         if (response.redirect) {
                             window.location = response.redirect;
                             return true;
@@ -657,8 +660,7 @@ define([
                     }
                 });
             } else {
-                $('<div class="message error">').text($.mage.__('Please enter a quantity greater than 0.'))
-                    .prependTo(self.selectors.messageBox);
+                $('<div class="message error">').text($.mage.__('Please enter a quantity greater than 0.')).prependTo(self.selectors.messageBox);
             }
         },
         
@@ -677,6 +679,10 @@ define([
             if (this.options['autosubmit']) {
                 refresh.hide();
             }
+        },
+
+        closedQuickView: function () {
+            $('.mfp-close').click();
         }
     });
 
