@@ -9925,3 +9925,4 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "First character must be letter.","First character must be letter.",lib,web
 "The password can't be the same as the email address. Create a new password and try again.","The password can't be the same as the email address. Create a new password and try again.",lib,web
 "Add your photo","Thêm ảnh của bạn"
+"The requested qty is not available","Số lượng yêu cầu không có sẵn"
