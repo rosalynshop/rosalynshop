@@ -703,47 +703,12 @@ class InterfaceTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @dataProvider testValidateUploadFileExceptionDataProvider
      * @expectedException \InvalidArgumentException
-     * @param string $fileName
-     * @param string $expectedErrorMsg
-     * @param bool $useFixture
      */
-    public function testValidateUploadFileException($fileName, $expectedErrorMsg, $useFixture)
+    public function testValidateUploadFileException()
     {
         $objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
         $imageAdapter = $objectManager->get(\Magento\Framework\Image\AdapterFactory::class)->create();
-        $filePath = $useFixture ? $this->_getFixture($fileName) : $fileName;
-
-        try {
-            $imageAdapter->validateUploadFile($filePath);
-        } catch (\InvalidArgumentException $e) {
-            $this->assertEquals($expectedErrorMsg, $e->getMessage());
-            throw $e;
-        }
-    }
-
-    /**
-     * @return array
-     */
-    public function testValidateUploadFileExceptionDataProvider()
-    {
-        return [
-            'image_notfound' => [
-                'fileName' => 'notfound.png',
-                'expectedErrorMsg' => 'Upload file does not exist.',
-                'useFixture' => false
-            ],
-            'image_empty' => [
-                'fileName' => 'empty.png',
-                'expectedErrorMsg' => 'Disallowed file type.',
-                'useFixture' => true
-            ],
-            'notanimage' => [
-                'fileName' => 'notanimage.txt',
-                'expectedErrorMsg' => 'Disallowed file type.',
-                'useFixture' => true
-            ]
-        ];
+        $imageAdapter->validateUploadFile(__FILE__);
     }
 }

@@ -115,9 +115,6 @@ class Sidebar extends Block
         if (!$this->browser->find($this->cartContent)->isVisible()) {
             $this->browser->find($this->cartLink)->click();
         }
-        // Need this because there are a lot of JS processes that update shopping cart items
-        // and we cant control them all
-        sleep(5);
     }
 
     /**

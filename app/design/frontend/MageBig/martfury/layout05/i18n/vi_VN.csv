@@ -8827,7 +8827,7 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Email address","Địa chỉ email",module,Magento_User
 "Retrieve Password","Lấy lại mật khẩu",module,Magento_User
 "Back to Sign in","Quay lại đăng nhập",module,Magento_User
-"Forgot your password?","Bạn quên mật khẩu?",module,Magento_User
+"Forgot your password?","Quên mật khẩu?",module,Magento_User
 "Reset a Password","Đặt lại mật khẩu",module,Magento_User
 "Confirm New Password","Xác nhận Mật khẩu Mới",module,Magento_User
 "Reset Password","Đặt lại mật khẩu",module,Magento_User

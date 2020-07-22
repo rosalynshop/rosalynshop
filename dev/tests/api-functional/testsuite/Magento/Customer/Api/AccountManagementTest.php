@@ -249,15 +249,7 @@ class AccountManagementTest extends WebapiAbstract
     public function testActivateCustomer()
     {
         $customerData = $this->_createCustomer();
-
-        // Update the customer's confirmation key to a known value
-        $customerData = $this->customerHelper->updateSampleCustomer(
-            $customerData[Customer::ID],
-            [
-                'id' => $customerData[Customer::ID],
-                'confirmation' => CustomerHelper::CONFIRMATION
-            ]
-        );
+        $this->assertNotNull($customerData[Customer::CONFIRMATION], 'Customer activation is not required');
 
         $serviceInfo = [
             'rest' => [
@@ -273,15 +265,16 @@ class AccountManagementTest extends WebapiAbstract
 
         $requestData = [
             'email' => $customerData[Customer::EMAIL],
-            'confirmationKey' => CustomerHelper::CONFIRMATION
+            'confirmationKey' => $customerData[Customer::CONFIRMATION],
         ];
 
-        try {
-            $result = $this->_webApiCall($serviceInfo, $requestData);
-            $this->assertEquals($customerData[Customer::ID], $result[Customer::ID], 'Wrong customer!');
-        } catch (\Exception $e) {
-            $this->fail('Customer is not activated.');
-        }
+        $result = $this->_webApiCall($serviceInfo, $requestData);
+
+        $this->assertEquals($customerData[Customer::ID], $result[Customer::ID], 'Wrong customer!');
+        $this->assertTrue(
+            !isset($result[Customer::CONFIRMATION]) || $result[Customer::CONFIRMATION] === null,
+            'Customer is not activated!'
+        );
     }
 
     public function testGetCustomerActivateCustomer()
@@ -301,15 +294,14 @@ class AccountManagementTest extends WebapiAbstract
         ];
         $requestData = [
             'email' => $customerData[Customer::EMAIL],
-            'confirmationKey' => CustomerHelper::CONFIRMATION
+            'confirmationKey' => $customerData[Customer::CONFIRMATION],
         ];
 
-        try {
-            $customerResponseData = $this->_webApiCall($serviceInfo, $requestData);
-            $this->assertEquals($customerData[Customer::ID], $customerResponseData[Customer::ID]);
-        } catch (\Exception $e) {
-            $this->fail('Customer is not activated.');
-        }
+        $customerResponseData = $this->_webApiCall($serviceInfo, $requestData);
+
+        $this->assertEquals($customerData[Customer::ID], $customerResponseData[Customer::ID]);
+        // Confirmation key is removed after confirmation
+        $this->assertFalse(isset($customerResponseData[Customer::CONFIRMATION]));
     }
 
     public function testValidateResetPasswordLinkToken()

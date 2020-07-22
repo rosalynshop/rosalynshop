@@ -3313,7 +3313,7 @@ Time in seconds between the widget updates.,module,Magento_CatalogWidget
 "Sign In","Đăng nhập",module,Magento_Checkout
 "Email Address","Địa chỉ email",module,Magento_Checkout
 "Password","Mật khẩu",module,Magento_Checkout
-"Forgot Your Password?","Bạn quên mật khẩu?",module,Magento_Checkout
+"Forgot Your Password?","Quên mật khẩu?",module,Magento_Checkout
 "My billing and shipping address are the same","Địa chỉ thanh toán và giao hàng của tôi giống nhau",module,Magento_Checkout
 "Update","Cập nhật",module,Magento_Checkout
 "Cancel","Hủy bỏ",module,Magento_Checkout
@@ -5069,7 +5069,7 @@ new products will be created. Use this step to customize images and price for yo
 "Registered Customers","Khách hàng đã đăng ký",module,Magento_Customer
 "If you have an account, sign in with your email address.","Nếu bạn có một tài khoản, hãy đăng nhập bằng địa chỉ email của bạn.",module,Magento_Customer
 "Password","Mật khẩu",module,Magento_Customer
-"Forgot Your Password?","Bạn quên mật khẩu?",module,Magento_Customer
+"Forgot Your Password?","Quên mật khẩu?",module,Magento_Customer
 "Subscription option","Tùy chọn đăng ký",module,Magento_Customer
 "General Subscription","Đăng ký chung",module,Magento_Customer
 "Sign Up for Newsletter","Đăng ký nhận bản tin",module,Magento_Customer
