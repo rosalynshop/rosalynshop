@@ -96,18 +96,6 @@
     display: none !important;
 }
 
-.mfp-preloader {
-    color: #cccccc;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    text-align: center;
-    margin-top: -0.8em;
-    left: 8px;
-    right: 8px;
-    z-index: 1044;
-}
-
 .mfp-preloader a {
     color: #cccccc;
 }
