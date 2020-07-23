@@ -75,7 +75,11 @@
 .post-list .hidden {display:none;}
 
 .post-view .post-holder .post-header .addthis_toolbox {float: right;}
-.post-view .post-bottom {margin-top:30px;}
+.post-view .post-bottom {
+    margin-top:30px;
+    border: 1px solid #e9e9e9;
+    padding: 5px;
+}
 
 .post-view .post-nextprev-hld  {margin-bottom: 30px;}
 .post-view .post-nextprev-hld .nextprev-link {font-weight: 700;}
