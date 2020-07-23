@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6aa64746274487c013b49aa4eb834b77",
+    "content-hash": "0612bd5a999b955db82436aaa4027b3f",
     "packages": [
         {
             "name": "amzn/amazon-pay-and-login-magento-2-module",
@@ -2003,102 +2003,6 @@
                 }
             ],
             "description": "Klarna Order Management Magento 2 Extension"
-        },
-        {
-            "name": "magefan/module-blog",
-            "version": "2.9.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/magefan/module-blog.git",
-                "reference": "4cd4800d92b584fd0ea984757449e5444e10789c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/magefan/module-blog/zipball/4cd4800d92b584fd0ea984757449e5444e10789c",
-                "reference": "4cd4800d92b584fd0ea984757449e5444e10789c",
-                "shasum": ""
-            },
-            "require": {
-                "magefan/module-community": ">=2.0.12",
-                "magefan/module-wysiwyg-advanced": ">=2.0.9"
-            },
-            "suggest": {
-                "magefan/module-blog-amp": "Install this module to activate Blog integration with the Plumrocket AMP extension.",
-                "magefan/module-blog-comments-recaptcha": "Install this module to activate ReCaptcha on blog comments form to protect against spam.",
-                "magefan/module-blog-graph-ql": "Install this module to activate GraphQl integration for the blog."
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magefan\\Blog\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Implements Blog functionality on Magento 2 store",
-            "time": "2020-07-14T10:06:56+00:00"
-        },
-        {
-            "name": "magefan/module-community",
-            "version": "2.0.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/magefan/module-community.git",
-                "reference": "ba6318eeaf6ad20509ec5d32d11474e76d1a5f0d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/magefan/module-community/zipball/ba6318eeaf6ad20509ec5d32d11474e76d1a5f0d",
-                "reference": "ba6318eeaf6ad20509ec5d32d11474e76d1a5f0d",
-                "shasum": ""
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magefan\\Community\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "time": "2020-04-29T03:52:54+00:00"
-        },
-        {
-            "name": "magefan/module-wysiwyg-advanced",
-            "version": "2.0.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/magefan/module-wysiwyg-advanced.git",
-                "reference": "18408e78cabd3bffb1e07af0c2f6fc1b1aed55fd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/magefan/module-wysiwyg-advanced/zipball/18408e78cabd3bffb1e07af0c2f6fc1b1aed55fd",
-                "reference": "18408e78cabd3bffb1e07af0c2f6fc1b1aed55fd",
-                "shasum": ""
-            },
-            "require": {
-                "magefan/module-community": ">=2.0.12"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magefan\\WysiwygAdvanced\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "Extend TinyMCE 4 in Magento 2",
-            "time": "2020-07-17T07:29:00+00:00"
         },
         {
             "name": "magento/composer",
