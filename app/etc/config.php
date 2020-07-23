@@ -242,6 +242,7 @@ return [
         'MageBig_WysiwygFiles' => 1,
         'Magefan_Community' => 1,
         'Magefan_Blog' => 1,
+        'Magefan_WysiwygAdvanced' => 1,
         'Mageplaza_Core' => 1,
         'Mageplaza_SocialLogin' => 1,
         'RosalynShop_Base' => 1,
