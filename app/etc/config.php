@@ -242,6 +242,7 @@ return [
         'MageBig_SyntaxCms' => 1,
         'MageBig_WidgetPlus' => 1,
         'MageBig_WysiwygFiles' => 1,
+        'MagePal_Reindex' => 1,
         'Magefan_Community' => 1,
         'Magefan_Blog' => 1,
         'Magefan_WysiwygAdvanced' => 1,
