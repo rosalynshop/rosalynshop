@@ -215,6 +215,7 @@ return [
         'Amasty_Meta' => 1,
         'Amasty_Number' => 1,
         'Amasty_PageSpeedOptimizer' => 0,
+        'Amasty_Pgrid' => 1,
         'Amasty_SeoHtmlSitemap' => 1,
         'Amasty_SeoToolKit' => 1,
         'Amasty_SeoSingleUrl' => 1,
