@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="cache_warmer">
+
+        <!-- Collect Cache & Server Load Rates (displayed on charts) -->
+        <job name="mst_cache_warmer_rate" instance="Mirasvit\CacheWarmer\Cron\RateCron" method="execute">
+            <schedule>*/1 * * * *</schedule>
+        </job>
+
+        <!-- Run warmer job | System->Page Cache Warmer->Jobs (table) -->
+        <job name="mst_cache_warmer_warm_job" instance="Mirasvit\CacheWarmer\Cron\WarmJobCron" method="execute">
+            <config_path>cache_warmer/performance/job_schedule</config_path>
+        </job>
+    </group>
+
+    <group id="default">
+        <!-- delete old jobs (2d+), old logs (30d+), ignored pages, and  -->
+        <job name="mst_cache_warmer_cleanup" instance="Mirasvit\CacheWarmer\Cron\CleanupCron" method="execute">
+            <schedule>*/10 * * * *</schedule>
+        </job>
+    </group>
+</config>

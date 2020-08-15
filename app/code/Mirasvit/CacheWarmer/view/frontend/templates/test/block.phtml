@@ -1,0 +1,16 @@
+<div class="mst-cache-warmer__test-block">
+    <time><?= date('M d, Y H:i:s') ?></time>
+
+    <table>
+        <tr>
+            <td class="cacheable" width="50%">
+                For <a href="<?= $block->getUrl('cache_warmer/test/cacheable') ?>">Cacheable Page</a>,
+                time should be <b>same</b> after each page refresh (Ctrl-F5/⌘-F5)
+            </td>
+            <td class="non-cacheable" width="50%">
+               For <a href="<?= $block->getUrl('cache_warmer/test/nonCacheable') ?>">Non-Cacheable Page</a>,
+                time should be <b>different</b> after each page refresh (Ctrl-F5/⌘-F5)
+            </td>
+        </tr>
+    </table>
+</div>

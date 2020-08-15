@@ -1,0 +1,15 @@
+<?php
+/** @var \Magento\Backend\Block\Page\RequireJs $block */
+?>
+<script src="<?= $block->getViewFileUrl('Mirasvit_Report/js/lib/chart.js') ?>"></script>
+
+<?= $block->getChildHtml() ?>
+
+<script type="text/javascript">
+    // we disabled mutation observers that used in ui/../lib/dom-observer.js for prevent slow rendering if we have many content
+    window.MutationObserver = function() {
+        this.observe = function () {
+
+        }
+    }
+</script>

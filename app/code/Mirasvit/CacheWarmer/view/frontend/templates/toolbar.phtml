@@ -1,0 +1,41 @@
+<?php
+/** @var Mirasvit\CacheWarmer\Block\Toolbar $block */
+$blocks = $block->getNonCacheableBlocks();
+$isHit  = $block->getIsHit();
+?>
+
+<div class="mst-cache-warmer__toolbar <?= $isHit ? '_hit' : '_miss' ?>">
+    <strong>
+        <?= __('Page Cache Warmer') ?>
+        <?= ($block->isVarnishEnabled()) ? __(' (Varnish)') : '' ?>
+    </strong>
+
+    <div class="mst-cache-warmer__toolbar-body">
+        <strong>Page <u><?= $isHit ? 'HIT' : 'MISS' ?></u></strong>
+    </div>
+
+    <?php if (count($blocks)): ?>
+        <table>
+            <tr>
+                <th colspan="2">Not cacheable blocks</th>
+            </tr>
+            <?php foreach ($blocks as $class => $name): ?>
+                <tr>
+                    <td><?= $name ?></td>
+                    <td><?= $class ?></td>
+                </tr>
+            <?php endforeach ?>
+        </table>
+    <?php endif ?>
+
+    <div class="mst-cache-warmer__toolbar-test">
+        <a href="<?= $block->getCacheableTestUrl() ?>">Cacheable</a> | <a
+                href="<?= $block->getNonCacheableTestUrl() ?>">Non-Cacheable</a>
+        Page Test
+    </div>
+
+    <div class="mst-cache-warmer__toolbar-info">
+        Page ID: <?= $block->getPageId() ?>
+    </div>
+</div>
+
