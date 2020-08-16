@@ -107,28 +107,7 @@ class License
      */
     public function load($className = '')
     {
-        $module = $this->getModuleByClass($className);
-
-        if ($module == 'Mirasvit_Blog' || $module == 'Mirasvit_Demo' || $module == 'Mirasvit_Profiler') {
-            return true;
-        }
-
-        $moduleDir = $this->getModuleDirByClass($className);
-        if (!$moduleDir) {
-            return true;
-        }
-
-        if (file_exists("$moduleDir/license")) {
-            $license = explode(":", @file_get_contents("$moduleDir/license"));
-            if (count($license) == 2) {
-                $this->license = $license[0];
-                $this->key = $license[1];
-
-                return $this->license;
-            }
-        }
-
-        return false;
+        return true;
     }
 
     /**

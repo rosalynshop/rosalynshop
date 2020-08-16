@@ -12,6 +12,7 @@
     },
     "require": {
         "hybridauth/hybridauth": "2.11.0",
+        "justbetter/magento2-image-optimizer": "^1.2",
         "magento/product-community-edition": "2.3.2",
         "smile/elasticsuite": "~2.8.0"
     },
