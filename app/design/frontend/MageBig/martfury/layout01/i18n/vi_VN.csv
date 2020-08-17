@@ -3286,7 +3286,7 @@ Time in seconds between the widget updates.,module,Magento_CatalogWidget
 "Edit item parameters","Sửa thông số sản phẩm",module,Magento_Checkout
 "Edit","Chỉnh sửa",module,Magento_Checkout
 "Remove item","Xóa sản phẩm",module,Magento_Checkout
-"You have no items in your shopping cart.","Bạn có không có sản phẩm nào trong giỏ hàng của bạn.",module,Magento_Checkout
+"You have no items in your shopping cart.","Bạn có không có sản phẩm nào trong giỏ hàng.",module,Magento_Checkout
 "Click <a href=""%1"">here</a> to continue shopping.","Bấm vào <a href=""%1""> đây</a> để tiếp tục mua sắm.",module,Magento_Checkout
 "Estimate Tax","Ước tính thuế",module,Magento_Checkout
 "Estimate Shipping and Tax","ước tính vận chuyển và thuế",module,Magento_Checkout
