@@ -1,4 +1,4 @@
-<!--@subject {{trans "%store_name" store_name=$store.getFrontendName()}} - Đơn hàng được tạo thành công @-->
+<!--@subject {{trans "%store_name" store_name=$store.getFrontendName()}} - Đặt hàng thành công @-->
 <!--@vars {
 "var order.getBillingAddress().getName()":"Guest Customer Name",
 "var store.getFrontendName()":"Customer Name",
@@ -26,7 +26,7 @@
         <td>
             <p class="greeting">{{trans "Xin chào %name," name=$order.getBillingAddress().getName()}}</p>
             <p>
-                {{trans "Cảm ơn bạn đã đặt hàng %store_name." store_name=$store.getFrontendName()}}
+                {{trans "Cảm ơn bạn đã đặt hàng từ %store_name." store_name=$store.getFrontendName()}}
                 {{if is_pickup_order}}
                 {{trans "Chúng tôi sẽ gửi cho bạn một thông báo khi các mặt hàng của bạn đã sẵn sàng để nhận."}}
                 {{else}}<br>
