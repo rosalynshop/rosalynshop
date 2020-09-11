@@ -10,7 +10,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 class Add extends \Magento\Framework\App\Action\Action
 {
     /**
-     * @var WishlistData Data
+     * @var \MageBig\Ajaxwishlist\Helper\Data
      */
     protected $_wishlistHelper;
 
@@ -20,15 +20,42 @@ class Add extends \Magento\Framework\App\Action\Action
     protected $_coreRegistry = null;
 
     /**
-     * AddWishlist constructor.
-     * @param Action\Context                                         $context
-     * @param \Magento\Customer\Model\Session                        $customerSession
+     * @var \Magento\Customer\Model\Session
+     */
+    protected $_customerSession;
+
+    /**
+     * @var \Magento\Wishlist\Controller\WishlistProviderInterface
+     */
+    protected $wishlistProvider;
+
+    /**
+     * @var ProductRepositoryInterface
+     */
+    protected $productRepository;
+
+    /**
+     * @var \Magento\Store\Model\StoreManagerInterface
+     */
+    protected $_storeManager;
+
+    /**
+     * @var \Magento\Framework\Serialize\Serializer\Json
+     */
+    private $jsonSerializer;
+
+    /**
+     * Add constructor.
+     * @param Action\Context $context
+     * @param \Magento\Customer\Model\Session $customerSession
      * @param \Magento\Wishlist\Controller\WishlistProviderInterface $wishlistProvider
-     * @param ProductRepositoryInterface                             $productRepository
-     * @param Validator                                              $formKeyValidator
-     * @param \Magento\Framework\Json\Helper\Data                    $jsonEncode
-     * @param \MageBig\Ajaxwishlist\Helper\Data                       $wishlistHelper
-     * @param \Magento\Framework\Registry                            $registry
+     * @param ProductRepositoryInterface $productRepository
+     * @param Validator $formKeyValidator
+     * @param \Magento\Framework\Json\Helper\Data $jsonEncode
+     * @param \MageBig\Ajaxwishlist\Helper\Data $wishlistHelper
+     * @param \Magento\Framework\Registry $registry
+     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
+     * @param \Magento\Framework\Serialize\Serializer\Json $jsonSerializer
      */
     public function __construct(
         Action\Context $context,
@@ -38,7 +65,9 @@ class Add extends \Magento\Framework\App\Action\Action
         Validator $formKeyValidator,
         \Magento\Framework\Json\Helper\Data $jsonEncode,
         \MageBig\Ajaxwishlist\Helper\Data $wishlistHelper,
-        \Magento\Framework\Registry $registry
+        \Magento\Framework\Registry $registry,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \Magento\Framework\Serialize\Serializer\Json $jsonSerializer
     ) {
         $this->_customerSession  = $customerSession;
         $this->wishlistProvider  = $wishlistProvider;
@@ -46,32 +75,32 @@ class Add extends \Magento\Framework\App\Action\Action
         $this->formKeyValidator  = $formKeyValidator;
         $this->_wishlistHelper   = $wishlistHelper;
         $this->_coreRegistry     = $registry;
+        $this->_storeManager     = $storeManager;
+        $this->jsonSerializer    = $jsonSerializer;
         parent::__construct($context);
     }
 
     public function execute()
     {
         $result     = [];
-        $params     = $this->_request->getParams();
         $isLoggedIn = $this->_customerSession->isLoggedIn();
-        //$this->_objectManager->get('Psr\Log\LoggerInterface')->critical($isLoggedIn);
 
         if ($isLoggedIn == true) {
             try {
-                $product = $this->_initProduct();
-                $this->_coreRegistry->register('product', $product);
-                $this->_coreRegistry->register('current_product', $product);
-
                 $wishlist = $this->wishlistProvider->getWishlist();
                 $session = $this->_customerSession;
-
                 $requestParams = $this->getRequest()->getParams();
 
                 if ($session->getBeforeWishlistRequest()) {
                     $requestParams = $session->getBeforeWishlistRequest();
                     $session->unsBeforeWishlistRequest();
                 }
+
                 $buyRequest = new \Magento\Framework\DataObject($requestParams);
+                $product = $this->_initProduct();
+
+                $this->_coreRegistry->register('product', $product);
+                $this->_coreRegistry->register('current_product', $product);
 
                 $resultItem = $wishlist->addNewItem($product, $buyRequest);
                 if (is_string($resultItem)) {
@@ -108,15 +137,19 @@ class Add extends \Magento\Framework\App\Action\Action
 
         }
         $this->getResponse()->representJson(
-            $this->_objectManager->get('Magento\Framework\Serialize\Serializer\Json')->serialize($result)
+            $this->jsonSerializer->serialize($result)
         );
     }
 
-    protected function _initProduct()
+    /**
+     * @return bool|\Magento\Catalog\Api\Data\ProductInterface
+     * @throws NoSuchEntityException
+     */
+    private function _initProduct()
     {
         $productId = (int) $this->getRequest()->getParam('product');
         if ($productId) {
-            $storeId = $this->_objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getId();
+            $storeId = $this->_storeManager->getStore()->getId();
             try {
                 $product = $this->productRepository->getById($productId, false, $storeId);
                 return $product;

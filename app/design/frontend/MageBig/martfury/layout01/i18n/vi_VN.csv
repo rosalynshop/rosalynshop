@@ -3910,7 +3910,7 @@ Time in seconds between the widget updates.,module,Magento_CatalogWidget
 "Account Information","Thông tin tài khoản",module,Magento_Company
 "VAT/TAX ID: ","VAT/TAX ID: ",module,Magento_Company
 "Re-seller ID: ","Re-seller ID: ",module,Magento_Company
-"You have no other address entries in your address book.","Bạn có không địa chỉ khác trong sổ địa chỉ của bạn.",module,Magento_Company
+"You have no other address entries in your address book.","Bạn có không địa chỉ khác.",module,Magento_Company
 "T: %1","T: %1",module,Magento_Company
 "Contacts","Liên hệ",module,Magento_Company
 "Sales Representative","Đại Diện Bán Hàng",module,Magento_Company
@@ -5036,7 +5036,7 @@ new products will be created. Use this step to customize images and price for yo
 "You have no default shipping address in your address book.","Bạn có không có địa chỉ nhận hàng mặc định trong sổ địa chỉ của bạn.",module,Magento_Customer
 "Additional Address Entries","Thêm lối vào địa chỉ",module,Magento_Customer
 "Delete Address","Xóa địa chỉ",module,Magento_Customer
-"You have no other address entries in your address book.","Bạn có không địa chỉ khác trong sổ địa chỉ của bạn.",module,Magento_Customer
+"You have no other address entries in your address book.","Bạn có không địa chỉ khác.",module,Magento_Customer
 "* Required Fields","* Bắt buộc",module,Magento_Customer
 "Address","Địa chỉ",module,Magento_Customer
 "Street Address","Địa chỉ đường",module,Magento_Customer
@@ -6125,7 +6125,7 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "Date","Ngày",module,Magento_Downloadable
 "Status","Trạng thái",module,Magento_Downloadable
 "Remaining Downloads","Còn lại lượt tải",module,Magento_Downloadable
-"View Order","Xem đơn đặt hàng",module,Magento_Downloadable
+"View Order","Xem đơn hàng",module,Magento_Downloadable
 "Start Download","Bắt đầu tải về",module,Magento_Downloadable
 "You have not purchased any downloadable products yet.","Bạn đã không mua bất kỳ sản phẩm miễn phí nào.",module,Magento_Downloadable
 "Back","Trở lại",module,Magento_Downloadable

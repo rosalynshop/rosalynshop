@@ -1559,7 +1559,7 @@ it will make no affect on Price filter.",module,Magento_LayeredNavigation
 "Forgot Password","Quên Mật khẩu",module,Magento_Logging
 "Global Search","Tìm kiếm toàn cầu",module,Magento_Logging
 "Apply","Áp dụng",module,Magento_Logging
-"Reorder","Sắp xếp lại",module,Magento_Logging
+"Reorder","Đặt hàng lại",module,Magento_Logging
 "Print","In",module,Magento_Logging
 "Email","Email",module,Magento_Logging
 "Run","Chạy",module,Magento_Logging
@@ -3140,7 +3140,7 @@ If field is empty default value localhost will be saved.","IP truy cập danh s�
 "Date","Ngày",module,Magento_Paypal
 "Ship To","Gửi đến",module,Magento_Paypal
 "Order Status","Tình trạng đơn hàng",module,Magento_Paypal
-"View Order","Xem đơn đặt hàng",module,Magento_Paypal
+"View Order","Xem đơn hàng",module,Magento_Paypal
 "Back to Billing Agreements","Quay lại thỏa thuận thanh toán",module,Magento_Paypal
 "Payment Method","Phương thức thanh toán",module,Magento_Paypal
 "View","Hiển thị",module,Magento_Paypal
@@ -5407,7 +5407,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Invoice and Ship","Hóa đơn và vận chuyển",module,Magento_Sales
 "Invoice","Hóa đơn bán lẻ",module,Magento_Sales
 "Ship","Vận chuyển",module,Magento_Sales
-"Reorder","Sắp xếp lại",module,Magento_Sales
+"Reorder","Đặt hàng lại",module,Magento_Sales
 "Order # %1 %2 | %3","Đặt hàng # %1 %2 | %3",module,Magento_Sales
 "This order contains (%1) items and therefore cannot be edited through the admin interface. If you wish to continue editing, the (%2) items will be removed,  the order will be canceled and a new order will be placed.","Đơn hàng này chứa các sản phẩm (%1) và do đó không thể sửa thông qua giao diện quản trị. '' Nếu bạn muốn tiếp tục chỉnh sửa, các mặt hàng (%2) sẽ được gỡ bỏ, đơn đặt hàng sẽ bị hủy bỏ và một đơn hàng mới sẽ được đặt.",module,Magento_Sales
 "Are you sure? This order will be canceled and a new one will be created instead.","Bạn có chắc không? Đơn hàng này sẽ bị hủy bỏ và một đơn mới sẽ được tạo ra để thay thế.",module,Magento_Sales
@@ -5906,7 +5906,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Date","Ngày",module,Magento_Sales
 "Ship To","Gửi đến",module,Magento_Sales
 "Actions","Thao tác",module,Magento_Sales
-"View Order","Xem đơn đặt hàng",module,Magento_Sales
+"View Order","Xem đơn hàng",module,Magento_Sales
 "You have placed no orders.","Bạn không đặt đơn hàng nào.",module,Magento_Sales
 "No shipping information available","Không có thông tin vận chuyển",module,Magento_Sales
 "Print Order","In đơn hàng",module,Magento_Sales
@@ -8165,7 +8165,7 @@ than a customer might expect. ","Cảnh báo cấu hình thuế giảm giá có 
 "Local Storage seems to be disabled in your browser.","Lưu trữ cục bộ dường như bị vô hiệu trong trình duyệt của bạn.",module,Magento_Theme
 "For the best experience on our site, be sure to turn on Local Storage in your browser.","Để có trải nghiệm tốt nhất trên trang web của chúng tôi, hãy chắc chắn bật lưu trữ cục bộ trong trình duyệt của bạn.",module,Magento_Theme
 "This is demo store. No orders will be fulfilled.","Đây là cửa hàng demo. Không có đơn đặt hàng nào được hoàn thành.",module,Magento_Theme
-"Items %1 to %2 of %3 total","Mục %1 để %2 %3 tất cả",module,Magento_Theme
+"Items %1 to %2 of %3 total","Trang %1 đển %2 %3 trên tổng số",module,Magento_Theme
 "%1 Item","%1 mục",module,Magento_Theme
 "%1 Item(s)","%1 sản phẩm",module,Magento_Theme
 "Page","Trang",module,Magento_Theme

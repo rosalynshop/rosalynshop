@@ -17,7 +17,7 @@
     <div class="block block-addresses-default col-sm-6 col-xs-12">
         <div class="block-content">
             <?php if ($_pAddsses = $block->getDefaultShipping()): ?>
-                <div class="box box-address-shipping" style="margin-top: 30px;">
+                <div class="box box-address-shipping">
                     <div class="block-title--myac">
                         <h3>
                             <?php /* @escapeNotVerified */ echo __('Default Shipping Address') ?>
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             <?php else: ?>
-                <div class="box box-shipping-address" style="margin-top: 30px;">
+                <div class="box box-shipping-address">
                     <div class="block-title--myac">
                         <h3>
                             <?php /* @escapeNotVerified */ echo __('Default Shipping Address') ?>
@@ -58,8 +58,12 @@
                                 <?php echo $block->getAddressHtml($_address) ?><br />
                             </address>
                             <div class="item actions">
-                                <a class="action edit btn btn-xs btn-primary" href="<?php /* @escapeNotVerified */ echo $block->getUrl('customer/address/edit', ['id' => $_address->getId()]) ?>"><span><?php /* @escapeNotVerified */ echo __('Edit') ?></span></a>
-                                <a class="action delete btn btn-xs btn-secondary" href="#" role="delete-address" data-address="<?php /* @escapeNotVerified */ echo $_address->getId() ?>"><span><?php /* @escapeNotVerified */ echo __('Delete') ?></span></a>
+                                <a class="action edit btn btn-xs btn-primary"
+                                   href="<?php /* @escapeNotVerified */ echo $block->getUrl('customer/address/edit', ['id' => $_address->getId()]) ?>">
+                                    <span><?php /* @escapeNotVerified */ echo __('Edit') ?></span></a>
+                                |<a class="action delete btn btn-xs btn-secondary"
+                                    href="#" role="delete-address" data-address="<?php /* @escapeNotVerified */ echo $_address->getId() ?>">
+                                    <span><?php /* @escapeNotVerified */ echo __('Delete') ?></span></a>
                             </div>
                         </li>
                     <?php endforeach; ?>

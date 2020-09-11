@@ -13,12 +13,12 @@
     </type>
 
     <!-- replace data-post to data-post-ajax -->
-    <type name="Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist">
-        <plugin name="Amasty_Cart::wishlist-category" type="Amasty\Cart\Plugin\DataPost\Block\Category\Wishlist" />
-    </type>
-    <type name="Magento\Wishlist\Block\Catalog\Product\View\AddTo\Wishlist">
-        <plugin name="Amasty_Cart::wishlist-product" type="Amasty\Cart\Plugin\DataPost\Block\Product\Wishlist" />
-    </type>
+<!--    <type name="Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist">-->
+<!--        <plugin name="Amasty_Cart::wishlist-category" type="Amasty\Cart\Plugin\DataPost\Block\Category\Wishlist" />-->
+<!--    </type>-->
+<!--    <type name="Magento\Wishlist\Block\Catalog\Product\View\AddTo\Wishlist">-->
+<!--        <plugin name="Amasty_Cart::wishlist-product" type="Amasty\Cart\Plugin\DataPost\Block\Product\Wishlist" />-->
+<!--    </type>-->
     <type name="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare">
         <plugin name="Amasty_Cart::compare-category" type="Amasty\Cart\Plugin\DataPost\Block\Category\Compare" />
     </type>
