@@ -62,8 +62,7 @@ define([
         },
 
         showWishlistPopup: function (params) {
-            var self = this,
-                $closeQV = $('.mfp-close');
+            var self = this;
             $.magnificPopup.close();
             $.ajax({
                 url: self.options.ajaxWishlistUrl,
@@ -103,10 +102,6 @@ define([
                             }
                         });
                         $('.wishlist-icon .counter-number').removeClass('empty').html(res.item_count);
-
-                        if ($closeQV.hasClass()) {
-                            $closeQV.click();
-                        }
                     } else {
                         $('body').trigger('processStop');
                         alert('No response from server');

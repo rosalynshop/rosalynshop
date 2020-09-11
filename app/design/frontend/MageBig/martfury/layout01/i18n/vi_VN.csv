@@ -2539,7 +2539,6 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "Watermark Opacity, Percent","Độ mờ, phần trăm của ảnh",module,Magento_Catalog
 "Watermark","Đóng dấu ảnh",module,Magento_Catalog
 "Watermark Position","Vị trí của đóng dấu ảnh",module,Magento_Catalog
-"none","không gì cả",module,Magento_Catalog
 "File validation failed.","File validation failed.",module,Magento_Catalog
 "text","văn bản",module,Magento_Catalog
 "Tier Price","Tầng giá",module,Magento_Catalog
