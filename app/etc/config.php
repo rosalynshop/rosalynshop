@@ -223,6 +223,7 @@ return [
         'Magento_PaypalReCaptcha' => 0,
         'MSP_TwoFactorAuth' => 1,
         'MageBig_MbLib' => 1,
+        'MageBig_Ajaxcompare' => 1,
         'MageBig_Ajaxwishlist' => 1,
         'MageBig_MbFrame' => 1,
         'MageBig_AjaxCart' => 1,

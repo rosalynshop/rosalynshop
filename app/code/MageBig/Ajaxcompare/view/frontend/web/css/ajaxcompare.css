@@ -1,0 +1,25 @@
+/**
+ * Copyright © magebig.com - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+#mb-ajaxcompare-wrapper {
+    max-width: 500px;
+}
+
+#mb-ajaxcompare-wrapper .ajaxcompare-success-box {
+    text-align: center;
+}
+
+#mb-ajaxcompare-wrapper .ajaxcompare-success-box .product-name {
+    font-weight: bold;
+}
+
+#mb-ajaxcompare-wrapper .ajaxcompare-success-box img.image {
+    max-width: 100%;
+    width: 30%;
+}
+
+#mb-ajaxcompare-wrapper .ajaxcompare-buttons{
+    margin: 10px 0;
+}
