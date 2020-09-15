@@ -196,7 +196,7 @@
 "Edit","Chỉnh sửa",module,Magento_AdvancedCheckout
 "Remove item","Xóa sản phẩm",module,Magento_AdvancedCheckout
 "Products Requiring Attention","Products Requiring Attention",module,Magento_AdvancedCheckout
-"Add to Cart","Mua ngay",module,Magento_AdvancedCheckout
+"Add to Cart","Thêm vào giỏ",module,Magento_AdvancedCheckout
 "Sku","Mã sản phẩm",module,Magento_AdvancedCheckout
 "File","Tệp",module,Magento_AdvancedCheckout
 "File extensions allowed: .csv","File extensions allowed: .csv",module,Magento_AdvancedCheckout
@@ -2292,7 +2292,7 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "Compare Products","So sánh sản phẩm",module,Magento_Catalog
 "Print This Page","In Trang này",module,Magento_Catalog
 "Remove Product","Loại bỏ sản phẩm",module,Magento_Catalog
-"Add to Cart","Mua ngay",module,Magento_Catalog
+"Add to Cart","Thêm vào giỏ",module,Magento_Catalog
 "In stock","Còn hàng",module,Magento_Catalog
 "Out of stock","Tạm hết hàng",module,Magento_Catalog
 "Add to Wish List","Thêm vào danh sách yêu thích",module,Magento_Catalog
@@ -2501,7 +2501,7 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "Skip to the beginning of the images gallery","Chuyển đến phần đầu của thư viện hình ảnh",module,Magento_Catalog
 "Details","Chi tiết",module,Magento_Catalog
 "Recently Compared","So sánh gần đây",module,Magento_Catalog
-"Add To Cart","Mua ngay",module,Magento_Catalog
+"Add To Cart","Thêm vào giỏ",module,Magento_Catalog
 "Add To Compare","Thêm vào so sánh",module,Magento_Catalog
 "Learn more","Tìm hiểu thêm",module,Magento_Catalog
 "Recently Viewed","Xem gần đây",module,Magento_Catalog
@@ -2851,7 +2851,7 @@ Time in seconds between the widget updates.,module,Magento_Catalog
 "Category Permissions","Cấp phép nhóm",module,Magento_CatalogPermissions
 "Browsing Category","Duyệt nhóm",module,Magento_CatalogPermissions
 "Display Product Prices","Hiển thị giá sản phẩm",module,Magento_CatalogPermissions
-"Add to Cart","Mua ngay",module,Magento_CatalogPermissions
+"Add to Cart","Thêm vào giỏ",module,Magento_CatalogPermissions
 "Yes, for Everyone","Vâng, cho mọi người",module,Magento_CatalogPermissions
 "Yes, for Specified Customer Groups","Yeah, cho các nhóm khách hàng được chỉ định",module,Magento_CatalogPermissions
 "No","Không",module,Magento_CatalogPermissions
@@ -3177,7 +3177,7 @@ Time in seconds between the widget updates.,module,Magento_Catalog
 "Product Attribute","Thuộc tính sản phẩm",module,Magento_CatalogWidget
 "SKU","MÃ SẢN PHẨM",module,Magento_CatalogWidget
 "Please choose a condition to add.","Vui lòng chọn một điều kiện để thêm.",module,Magento_CatalogWidget
-"Add to Cart","Mua ngay",module,Magento_CatalogWidget
+"Add to Cart","Thêm vào giỏ",module,Magento_CatalogWidget
 "In stock","Còn hàng",module,Magento_CatalogWidget
 "Out of stock","Tạm hết hàng",module,Magento_CatalogWidget
 "Add to Wish List","Thêm vào danh sách yêu thích",module,Magento_CatalogWidget

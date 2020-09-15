@@ -256,9 +256,17 @@
         }
 
         .checkout {
-            display: block;
-            padding: 25px 0 8px 0;
-            font-size: 16px;
+            display: inline-block;
+            padding: 8px 0 8px 0;
+            color: #fff !important;
+            background-color: #e24352;
+            font-weight: normal;
+            margin-top: 8px;
+            height: 35px;
+            line-height: 23px;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 40%;
         }
 
         .button:last-child {
@@ -590,6 +598,27 @@
         .box-tocart .field.qty {
             display: block;
             margin-bottom: 6px;
+        }
+    }
+
+    #minicart-content-wrapper{
+        .block-content{
+            .actions{
+                .action.primary.viewcart{
+                    line-height: 18px !important;
+                    color:#fff !important;
+                    &:hover {
+                        color: #ff4747 !important;
+                    }
+                }
+                #top-cart-btn-checkout{
+                    line-height: 18px !important;
+                    color:#fff !important;
+                    &:hover {
+                        color: #ff4747 !important;
+                    }
+                }
+            }
         }
     }
 }
