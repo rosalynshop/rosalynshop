@@ -616,7 +616,7 @@
             background-color: #ffffff;
             margin-top: -1px;
             .level0.level-top {
-                padding: 5px 20px;
+                //padding: 5px 20px;
                 position: static;
                 > .submenu {
                     min-height: 100%;
@@ -640,8 +640,14 @@
                 }
             }
             a {
-                font-weight: normal;
-                color: #000;
+                font-weight: 500;
+                //font-size: 14px;
+                line-height: 33.3px;
+                display: block;
+                color: #202020;
+                position: relative;
+                padding: 0 10px;
+                border-left: 4px solid transparent;
                 &:hover {
                     color: @main_color;
                     font-weight: bold;
@@ -650,8 +656,8 @@
         }
         .magebig-nav li.level0 {
             height: auto;
-            line-height: 20px;
-            padding: 5px 0;
+            line-height: 33.3px;
+            padding: 0;
         }
         .magebig-nav li a.level-top {
             text-transform: none;
@@ -2967,14 +2973,15 @@
         .vertical-menu .navigation {
             padding-bottom: 14px;
             .level0.level-top {
-                padding: 11px 15px;
+                //padding: 11px 15px;
                 border-bottom: 1px solid #eee;
                 &:hover {
                     > a {
                         color: #000000;
                         font-weight: normal;
                         &:hover {
-                            color: #ff4747;
+                            color: @menu_link_hover_color;
+                            border-color: #0089f1;
                         }
                     }
                 }
