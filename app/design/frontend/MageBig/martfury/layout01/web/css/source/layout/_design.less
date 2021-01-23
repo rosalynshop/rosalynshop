@@ -89,9 +89,9 @@
         background-color: @headertop_background;
         .border-bottom(@headertop_border_color);
         a, .title, .log-in {
-            color: @headertop_link_color;
+            color: @headertop_text_color;
             &:hover {
-                color: @main_color;
+                color: @headertop_link_color;
             }
         }
     }
@@ -133,7 +133,11 @@
             color: @menu_link_color;
         }
     }
-    .vertical-menu .title, .hotline-top {
+    .vertical-menu .title{
+        color: #ffffff;
+        margin-left: 20px;
+    }
+    .hotline-top {
         color: @menu_link_color;
         margin-left: 20px;
     }

@@ -9,8 +9,13 @@
 ?>
 <?php $_menu = $block->getHtml(0, 'level-top', 'submenu'); ?>
 <div class="mb-navigation vertical-menu d-none d-md-block">
-    <div class="title"><span class="mbi mbi-menu"></span><span class="d-none d-md-block"><?= __("Shop By Department") ?>
-            <i class="mbi mbi-ios-arrow-down"></i></span></div>
+    <div class="title">
+        <span class="mbi mbi-menu"></span>
+            <span class="d-none d-md-block">
+                <?= __("Shop By Department") ?>
+<!--                <i class="mbi mbi-ios-arrow-down"></i>-->
+            </span>
+    </div>
     <div class="navigation" data-action="navigation">
         <ul class="smartmenu magebig-nav">
             <?= /* @escapeNotVerified */ $_menu; ?>
