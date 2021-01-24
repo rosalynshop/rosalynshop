@@ -130,8 +130,8 @@ define([
                     "items"             : 8,
                     "margin"            : 30,
                     "rewind"            : true,
-                    "nav"               : true,
-                    "navText"           : ['<i class="mbi mbi-chevron-left"></i>', '<i class="mbi mbi-chevron-right"></i>'],
+                    "nav"               : false,
+                    // "navText"           : ['<i class="mbi mbi-chevron-left"></i>', '<i class="mbi mbi-chevron-right"></i>'],
                     "dots"              : false,
                     "responsive"        : {"0":{"items":3},"576":{"items":3},"768":{"items":4},"992":{"items":6},"1200":{"items":8}},
                     "rtl"               : rtl
