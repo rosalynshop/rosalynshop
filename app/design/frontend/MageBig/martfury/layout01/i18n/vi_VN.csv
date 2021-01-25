@@ -2297,12 +2297,12 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "Out of stock","Tạm hết hàng",module,Magento_Catalog
 "Add to Wish List","Thêm vào danh sách yêu thích",module,Magento_Catalog
 "You have no items to compare.","Bạn có không có mục nào để so sánh.",module,Magento_Catalog
-"Remove This Item","Loại bỏ mục này",module,Magento_Catalog
+"Remove This Item","Xóa mục này",module,Magento_Catalog
 "Compare","So sánh",module,Magento_Catalog
 "Clear All","Xóa tất cả",module,Magento_Catalog
 "Prev","Trước",module,Magento_Catalog
 "Next","Tiếp theo",module,Magento_Catalog
-"We can't find products matching the selection.","Danh mục này hiện chưa có sản phẩm hoặc đã hết hàng.",module,Magento_Catalog
+"We can't find products matching the selection.","UI, hông có gì ở đây hết!.",module,Magento_Catalog
 "Learn More","Tìm hiểu thêm",module,Magento_Catalog
 "Add to Compare","Thêm vào so sánh",module,Magento_Catalog
 "We found other products you might like!","Chúng tôi tìm thấy các sản phẩm khác, bạn có thể thích!",module,Magento_Catalog
