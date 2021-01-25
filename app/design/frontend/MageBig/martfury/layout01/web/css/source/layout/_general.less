@@ -726,7 +726,8 @@
         float: right;
         i {
             float: left;
-            margin-right: 10px;
+            margin-right: 5px;
+            margin-left: 40px;
             margin-top: 3px;
         }
     }
@@ -1953,16 +1954,16 @@
         >li.active>a, >li.active>a:focus, >li.active>a:hover {
             border: none;
             background: transparent;
-            color: #000;
+            color: #0082e6;
         }
         >li>a:focus, >li>a:hover {
             background: transparent;
             border: none;
-            color: #000;
+            color: #0082e6;
         }
         >li>a {
             margin: 0;
-            padding: 15px;
+            padding: 10px;
             border-radius: 0;
             color: #999999;
             text-transform: uppercase;
@@ -2783,7 +2784,7 @@
                 margin: 0 -10px;
                 li {
                     display: inline-block;
-                    padding: 0 10px;
+                    padding-left: 10px;
                 }
             }
         }
@@ -2966,7 +2967,7 @@
     /** Layout 05 **/
     .layout05.cms-index-index {
         .page-main {
-            background-color: #eeeeee;
+            background-color: #f1f7f7;
             padding-bottom: 60px;
         }
         .vertical-menu:before {
@@ -3149,8 +3150,8 @@
             border-right: 1px solid rgba(0, 0, 0, 0.15);
         }
         .widget-tabs > li > a {
-            .font-size(16);
-            font-weight: 400;
+            .font-size(15);
+            font-weight: 500;
             text-transform: capitalize;
         }
         .widget-tabs > li:before {
@@ -3160,7 +3161,7 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.15);
         }
         .widget-tabs {
-            margin: 0 -15px;
+            margin: 0 -5px;
         }
         .block-product-tab-cat .owl-theme .owl-nav {
             position: absolute;
@@ -3355,6 +3356,24 @@
     .block-product-layout-wrap.block-main-product {
         .list-category {
             float: left;
+        }
+    }
+    .deal-block-top .promo-count {
+        display:inline-block;
+        background-color: #ff4747;
+        padding:2px 5px;
+        border-radius:2px;
+        color: #fff;
+        vertical-align: middle;
+    }
+    .block-main-product {
+        .top-title {
+            .title {
+                width: 100%;
+                &:after {
+                    border: none;
+                }
+            }
         }
     }
 }
