@@ -17,7 +17,7 @@
 "Billing Fields Customization","Billing Fields Customization"
 "Cancel","Cancel"
 "Cart item %1 doesn't exist.","Cart item %1 doesn't exist."
-"City","City"
+"City","Quận/Huyện"
 "Checked by Default","Checked by Default"
 "Checkout Behavior Report","Checkout Behavior Report"
 "Checkout Conversion","Checkout Conversion"
@@ -119,8 +119,8 @@
 "Please use this date format: mm/dd/yyyy. For example 03/17/2006 for the 17th of March, 2006.","Please use this date format: mm/dd/yyyy. For example 03/17/2006 for the 17th of March, 2006."
 "Address Line","Địa chỉ",module,Aheadworks_OneStepCheckout
 "Address Line 2","Địa chỉ 2"
-"Already have an account? Login","Bạn đã có tài khoản? Đăng nhập"
-"here","here"
+"Already have an account? Login","Bạn đã có tài khoản? ",module,Aheadworks_OneStepCheckout
+"here","ở đây",module,Aheadworks_OneStepCheckout
 "Item in Cart","Item in Cart"
 "Items in Cart","Items in Cart"
 "First Name","Tên"
@@ -128,7 +128,7 @@
 "Company","Công ty"
 "Street Address Line","Street Address Line"
 "Street Address Line 2","Street Address Line 2"
-"City","City"
+"City","Quận/Huyện"
 "Country","Country"
 "State/Province","Tỉnh/Thành"
 "Zip/Postal Code","Zip/Postal Code"

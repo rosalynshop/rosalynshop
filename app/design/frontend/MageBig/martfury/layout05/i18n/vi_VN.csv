@@ -532,7 +532,7 @@
 "New Address","Địa chỉ mới",module,Magento_GiftRegistry
 "Edit Gift Registry","Chỉnh sửa đăng ký Quà tặng",module,Magento_GiftRegistry
 "Create Gift Registry","Tạo đăng ký Quà tặng",module,Magento_GiftRegistry
-"State/Province","Bang/tỉnh",module,Magento_GiftRegistry
+"State/Province","Tỉnh/Thành",module,Magento_GiftRegistry
 "Please select a region, state or province","Vui lòng chọn khu vực, bang hay tỉnh",module,Magento_GiftRegistry
 "Please Select","Vui lòng chọn",module,Magento_GiftRegistry
 "View Gift Registry %1","Xem quà đăng ký %1",module,Magento_GiftRegistry
@@ -654,7 +654,7 @@
 "Address","Địa chỉ",module,Magento_GiftRegistry
 "Street Address","Địa chỉ đường",module,Magento_GiftRegistry
 "Street Address %1","Địa chỉ đường phố %1",module,Magento_GiftRegistry
-"City","Thành phố",module,Magento_GiftRegistry
+"City","Q",module,Magento_GiftRegistry
 "Please select a region, state or province.","Vui lòng chọn khu vực, bang hay tỉnh.",module,Magento_GiftRegistry
 "Zip/Postal Code","Mã bưu chính",module,Magento_GiftRegistry
 "Country","Quốc gia",module,Magento_GiftRegistry
@@ -1833,7 +1833,7 @@ it will make no affect on Price filter.",module,Magento_LayeredNavigation
 "Change Billing Address","Thay đổi địa chỉ thanh toán",module,Magento_Multishipping
 "Ship to Multiple Addresses","Chuyển đến nhiều địa chỉ",module,Magento_Multishipping
 "Billing Information - %1","Thông tin thanh toán - %1",module,Magento_Multishipping
-"Review Order - %1","Xem lại đơn đặt hàng - %1",module,Magento_Multishipping
+"Review Order - %1","Xem đơn hàng - %1",module,Magento_Multishipping
 "Total","Tổng",module,Magento_Multishipping
 "Total for this address","Tổng số cho địa chỉ này",module,Magento_Multishipping
 "Shipping Methods","Phương thức vận chuyển",module,Magento_Multishipping
@@ -1886,7 +1886,7 @@ it will make no affect on Price filter.",module,Magento_LayeredNavigation
 "Billing Address","Địa chỉ thanh toán",module,Magento_Multishipping
 "Change","Thay đổi",module,Magento_Multishipping
 "Payment Method","Phương thức thanh toán",module,Magento_Multishipping
-"Go to Review Your Order","đến xem lại đơn đặt hàng của bạn",module,Magento_Multishipping
+"Go to Review Your Order","Xem đơn hàng",module,Magento_Multishipping
 "Back to Shipping Information","Quay lại thông tin vận chuyển",module,Magento_Multishipping
 "Other items in your order","Các mặt hàng trong đơn hàng của bạn",module,Magento_Multishipping
 "Edit Items","Chỉnh sửa sản phẩm",module,Magento_Multishipping
@@ -1901,7 +1901,7 @@ it will make no affect on Price filter.",module,Magento_LayeredNavigation
 "Shipping Method","Phương thức vận chuyển",module,Magento_Multishipping
 "Incl. Tax","Đã bao gồm thuế",module,Magento_Multishipping
 "Excl. Tax","Chưa bao gồm thuế",module,Magento_Multishipping
-"Order Review","Xem lại đơn đặt hàng",module,Magento_Multishipping
+"Order Review","Xem đơn hàng",module,Magento_Multishipping
 "Item","Sản phẩm",module,Magento_Multishipping
 "Edit","Chỉnh sửa",module,Magento_Multishipping
 "Price","Giá",module,Magento_Multishipping
@@ -4460,7 +4460,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Product %1 has been added to the requisition list %2.","Product %1 has been added to the requisition list %2.",module,Magento_RequisitionList
 "Options were updated. Please review available configurations.","Options were updated. Please review available configurations.",module,Magento_RequisitionList
 "The SKU is out of stock.","The SKU is out of stock.",module,Magento_RequisitionList
-"The requested qty is not available","The requested qty is not available",module,Magento_RequisitionList
+"The requested qty is not available","Ui, số lượng không có sẵn",module,Magento_RequisitionList
 "Could not save Requisition List. Maximum number of requisition lists was exceeded.","Could not save Requisition List. Maximum number of requisition lists was exceeded.",module,Magento_RequisitionList
 "Exception","Ngoại lệ",module,Magento_RequisitionList
 "exception","ngoại lệ",module,Magento_RequisitionList
@@ -5188,8 +5188,8 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Use Store Address","Sử dụng Cửa hàng địa chỉ",module,Magento_Rma
 "Contact Name","Tên liên hệ",module,Magento_Rma
 "Street Address","Địa chỉ đường",module,Magento_Rma
-"City","Thành phố",module,Magento_Rma
-"State/Province","Bang/tỉnh",module,Magento_Rma
+"City","Quận/Huyện",module,Magento_Rma
+"State/Province","Tỉnh/Thành",module,Magento_Rma
 "ZIP/Postal Code","Mã Bưu điện/Bưu chính",module,Magento_Rma
 "Country","Quốc gia",module,Magento_Rma
 "Enabled","Cho phép",module,Magento_Rma
@@ -5584,7 +5584,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Please enter the fax number.","Please enter the fax number.",module,Magento_Sales
 "Please enter the zip/postal code.","Vui lòng nhập mã bưu chính.",module,Magento_Sales
 "Please enter the country.","Vui lòng nhập quốc gia.",module,Magento_Sales
-"Please enter the state/province.","Vui lòng nhập tiểu bang/tỉnh.",module,Magento_Sales
+"Please enter the state/province.","Vui lòng nhập Tỉnh/Thành.",module,Magento_Sales
 "Requested entity doesn't exist","Đối tượng được yêu cầu không tồn tại",module,Magento_Sales
 "Could not delete order address","Không thể xóa bỏ địa chỉ đơn hàng",module,Magento_Sales
 "Could not save order address","Không thể lưu địa chỉ đơn hàng",module,Magento_Sales
@@ -5717,13 +5717,13 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 """Creditmemo Document Validation Error(s):\n"" .","""Creditmemo Document Validation Error(s):\n"" .",module,Magento_Sales
 "Could not save a Creditmemo, see error log for details","Could not save a Creditmemo, see error log for details",module,Magento_Sales
 "We cannot determine the field name.","Chúng tôi không thể xác định tên trường.",module,Magento_Sales
-"City","Thành phố",module,Magento_Sales
+"City","Quận/Huyệń",module,Magento_Sales
 "Company","Công ty",module,Magento_Sales
 "Country","Quốc gia",module,Magento_Sales
 "Email","Email",module,Magento_Sales
 "First Name","Tên",module,Magento_Sales
 "Last Name","Họ",module,Magento_Sales
-"State/Province","Bang/tỉnh",module,Magento_Sales
+"State/Province","Tỉnh/Thành",module,Magento_Sales
 "Street Address","Địa chỉ đường",module,Magento_Sales
 "Phone Number","Số Điện thoại",module,Magento_Sales
 "Zip/Postal Code","Mã bưu chính",module,Magento_Sales
@@ -6293,7 +6293,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Shipping Method","Phương thức vận chuyển",module,Magento_SalesRule
 "Shipping Postcode","Mã bưu chính Vận chuyển",module,Magento_SalesRule
 "Shipping Region","Khu vực Vận chuyển",module,Magento_SalesRule
-"Shipping State/Province","Tiểu bang/tỉnh Vận chuyển",module,Magento_SalesRule
+"Shipping State/Province","Tỉnh/Thành Vận chuyển",module,Magento_SalesRule
 "Shipping Country","Vận chuyển quốc gia",module,Magento_SalesRule
 "Product attribute combination","Sản phẩm thuộc tính tổ hợp",module,Magento_SalesRule
 "Products subselection","Sản phẩm cận chọn",module,Magento_SalesRule
@@ -6913,7 +6913,7 @@ configuring in shared catalogs will not be restricted to customers.",module,Mage
 "ID","ID",module,Magento_SharedCatalog
 "Company","Công ty",module,Magento_SharedCatalog
 "Country","Quốc gia",module,Magento_SharedCatalog
-"State/Province","Bang/tỉnh",module,Magento_SharedCatalog
+"State/Province","Tỉnh/Thành",module,Magento_SharedCatalog
 "Assigned","Chỉ định",module,Magento_SharedCatalog
 "Catalog","Danh mục",module,Magento_SharedCatalog
 "Action","Thao tác",module,Magento_SharedCatalog
@@ -7127,7 +7127,7 @@ configuring in shared catalogs will not be restricted to customers.",module,Mage
 "Country","Quốc gia",module,Magento_Shipping
 "Region/State","Vùng/Khu vực",module,Magento_Shipping
 "ZIP/Postal Code","Mã Bưu điện/Bưu chính",module,Magento_Shipping
-"City","Thành phố",module,Magento_Shipping
+"City","Quận/Huyện",module,Magento_Shipping
 "Street Address","Địa chỉ đường",module,Magento_Shipping
 "Street Address Line 2","Địa Chỉ Phố Dòng 2",module,Magento_Shipping
 "Shipping Policy Parameters","Các thông số chính sách vận chuyển",module,Magento_Shipping
@@ -7849,7 +7849,7 @@ Select a different range to add a new Future Update.",module,Magento_Staging
 "'*' - matches any; 'xyz*' - matches any that begins on 'xyz' and are not longer than %1.","' *'-phù hợp với bất kỳ; 'xyz *' - phù hợp với bất kỳ mà bắt đầu vào 'xyz' và không phải là dài hơn %1.",module,Magento_Tax
 "Range From","Nằm trong khoảng từ",module,Magento_Tax
 "Range To","Nằm trong khoảng đến",module,Magento_Tax
-"State","Tỉnh/Thành phố",module,Magento_Tax
+"State","Tỉnh/Thành",module,Magento_Tax
 "Country","Quốc gia",module,Magento_Tax
 "Rate Percent","Tỷ lệ phần trăm",module,Magento_Tax
 "Tax Titles","Tiêu đề thuế",module,Magento_Tax
@@ -8036,7 +8036,7 @@ than a customer might expect. ","Cảnh báo cấu hình thuế giảm giá có 
 """%fieldName"" is required. Enter and try again.","""%fieldName"" is required. Enter and try again.",module,Magento_Tax
 "Code","Mã",module,Magento_TaxImportExport
 "Country","Quốc gia",module,Magento_TaxImportExport
-"State","Tỉnh/Thành phố",module,Magento_TaxImportExport
+"State","Tỉnh/Thành",module,Magento_TaxImportExport
 "Zip/Post Code","Mã bưu chính",module,Magento_TaxImportExport
 "Rate","Đánh giá",module,Magento_TaxImportExport
 "Zip/Post is Range","Số Zip/Post là phạm vi",module,Magento_TaxImportExport
@@ -8384,7 +8384,7 @@ than a customer might expect. ","Cảnh báo cấu hình thuế giảm giá có 
 "Please enter a number 0 or greater in this field.","Hãy điền một số lớn hơn hoặc bằng 0 vào trường này.",module,Magento_Ui
 "Please enter a number greater than 0 in this field.","Vui lòng nhập một số lớn hơn 0 trong trường này.",module,Magento_Ui
 "Please input a valid CSS-length (Ex: 100px, 77pt, 20em, .5ex or 50%).","Hãy nhập vào CSS hợp lệ, chiều dài (ví dụ: 100px, 77pt, 20em, .5ex hoặc 50%).",module,Magento_Ui
-"Please enter a valid number in this field.","Vui lòng nhập một số hợp lệ trong lĩnh vực này.",module,Magento_Ui
+"Please enter a valid number in this field.","Số điện thoại không hợp lệ.",module,Magento_Ui
 "Please enter a valid integer in this field.","Please enter a valid integer in this field.",module,Magento_Ui
 "The value is not within the specified range.","Giá trị không phải là trong phạm vi được chỉ định.",module,Magento_Ui
 "Please use letters only (a-z or A-Z) in this field.","Xin vui lòng chỉ sử dụng chữ cái (a-z hoặc A-Z) trong trường này.",module,Magento_Ui
@@ -8393,7 +8393,7 @@ than a customer might expect. ","Cảnh báo cấu hình thuế giảm giá có 
 "Please enter a valid date.","Vui lòng nhập ngày hợp lệ.",module,Magento_Ui
 "Please enter a valid URL Key (Ex: ""example-page"", ""example-page.html"" or ""anotherlevel/example-page"").","Vui lòng nhập một URL key hợp lệ (ví dụ: ""trang ví dụ"", ""ví dụ-page.html"" hoặc ""anotherlevel/ví dụ-trang"").",module,Magento_Ui
 "Please enter a valid zip code.","Vui lòng nhập mã zip hợp lệ.",module,Magento_Ui
-"Please select State/Province.","Vui lòng chọn tiểu bang/tỉnh.",module,Magento_Ui
+"Please select State/Province.","Vui lòng chọn Tỉnh/Thành.",module,Magento_Ui
 "Please enter a value less than or equal to {0}.","Vui lòng nhập một giá trị ít hơn hoặc bằng với {0}.",module,Magento_Ui
 "Please enter a value greater than or equal to {0}.","Vui lòng nhập một giá trị lớn hơn hoặc bằng {0}.",module,Magento_Ui
 "Please enter valid email addresses, separated by commas. For example, johndoe@domain.com, johnsmith@domain.com.","Please enter valid email addresses, separated by commas. For example, johndoe@domain.com, johnsmith@domain.com.",module,Magento_Ui
@@ -9855,7 +9855,7 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Please enter a number 0 or greater in this field.","Hãy điền một số lớn hơn hoặc bằng 0 vào trường này.",lib,web
 "Please enter a number greater than 0 in this field.","Vui lòng nhập một số lớn hơn 0 trong trường này.",lib,web
 "Please input a valid CSS-length (Ex: 100px, 77pt, 20em, .5ex or 50%).","Hãy nhập vào CSS hợp lệ, chiều dài (ví dụ: 100px, 77pt, 20em, .5ex hoặc 50%).",lib,web
-"Please enter a valid number in this field.","Vui lòng nhập một số hợp lệ trong lĩnh vực này.",lib,web
+"Please enter a valid number in this field.","Số điện thoại không hợp lệ.",lib,web
 "The value is not within the specified range.","Giá trị không phải là trong phạm vi được chỉ định.",lib,web
 "Please use letters only (a-z or A-Z) in this field.","Xin vui lòng chỉ sử dụng chữ cái (a-z hoặc A-Z) trong trường này.",lib,web
 "Please use only letters (a-z), numbers (0-9) or underscore (_) in this field, and the first character should be a letter.","Xin vui lòng sử dụng chỉ chữ cái (a-z), số (0-9) hoặc gạch chân(_) trong trường này, ký tự đầu tiên nên là một chữ cái.",lib,web
@@ -9866,7 +9866,7 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Please enter a valid URL Key (Ex: ""example-page"", ""example-page.html"" or ""anotherlevel/example-page"").","Vui lòng nhập một URL key hợp lệ (ví dụ: ""trang ví dụ"", ""ví dụ-page.html"" hoặc ""anotherlevel/ví dụ-trang"").",lib,web
 "Please enter a valid zip code.","Vui lòng nhập mã zip hợp lệ.",lib,web
 "Please select one of the options above.","Please select one of the options above.",lib,web
-"Please select State/Province.","Vui lòng chọn tiểu bang/tỉnh.",lib,web
+"Please select State/Province.","Vui lòng chọn Tỉnh/Thành.",lib,web
 "Please select a file.","Please select a file.",lib,web
 "The field isn't complete.","Các lĩnh vực không phải là hoàn tất.",lib,web
 "This is a required field.","Đây là trường bắt buộc.",lib,web
@@ -9925,5 +9925,5 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "First character must be letter.","First character must be letter.",lib,web
 "The password can't be the same as the email address. Create a new password and try again.","The password can't be the same as the email address. Create a new password and try again.",lib,web
 "Add your photo","Thêm ảnh của bạn"
-"The requested qty is not available","Số lượng yêu cầu không có sẵn"
+"The requested qty is not available","Ui, số lượng không có sẵn"
 "Enter Coupon Code","Nhập mã giảm giá"

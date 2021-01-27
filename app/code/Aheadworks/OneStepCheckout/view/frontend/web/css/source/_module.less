@@ -72,13 +72,13 @@
         .page-main {
             .checkout-container {
                 .lib-css(color, @aw-osc-primary__color);
-                .lib-css(font-family, Merriweather);
+                .lib-css(font-family, Quicksand);
                 .lib-css(line-height, 1.43);
                 .lib-css(transition, 1s, 1);
                 .lib-vendor-prefix-display(flex);
                 justify-content: space-between;
                 margin: auto;
-                font-size:14px;
+                font-size: 14.5px;
                 img {
                     display: block;
                 }
@@ -163,7 +163,7 @@
                         -webkit-font-smoothing: antialiased;
                         -moz-osx-font-smoothing: grayscale;
                         color: @aw-osc-secondary__color;
-                        padding-right: 5px;
+                        padding-right: 17px;
                     }
 
                     &:disabled + label {
@@ -172,7 +172,7 @@
                 }
 
                 th.mark {
-                    font-weight: normal;
+                    font-weight: 400;
                 }
 
                 .field-tooltip {
@@ -371,7 +371,7 @@
 
                 .authentication-notice, .authentication-link {
                     display: inline;
-                    font-size: 14px;
+                    font-size: 15px;
                 }
 
                 .onestep-billing-address .action-toolbar,
@@ -396,7 +396,7 @@
 
                 .new-shipping-address-form {
                     font-size: 14px;
-                    font-weight: normal;
+                    font-weight: 400;
                     margin: 0;
 
                     .title {
@@ -490,7 +490,7 @@
                                     display: inline-block;
                                     color: @aw-osc-secondary__color;
                                     font-family: 'aw-osc_icons-font';
-                                    font-weight: normal;
+                                    font-weight: 400;
                                     font-size: 25px;
                                     pointer-events: none;
                                     position: absolute;
@@ -518,7 +518,7 @@
                                 height: 100%;
                                 box-shadow: none;
                                 font-size: 13px;
-                                font-weight: normal;
+                                font-weight: 400;
                                 outline: none;
                                 position: absolute;
                                 text-indent: 20px;
@@ -941,6 +941,12 @@
                     }
                 }
             }
+
+            .aw-sidebar-product-price {
+                .price-excluding-tax {
+                    font-size: 12.5px !important;
+                }
+            }
         }
     }
 }
@@ -962,7 +968,7 @@
                     top: 20px;
                     width: 40%;
                     padding: 20px;
-                    font-size:14px;
+                    font-size:14.5px;
 
                     input[type='checkbox'] + label:before,
                     input[type='radio'] + label:before {
@@ -984,7 +990,7 @@
                             content: '\e912';
                             font-family: 'aw-osc_icons-font' !important;
                             font-size: 40px;
-                            font-weight: normal;
+                            font-weight: 400;
                             position: absolute;
                             left: 5px;
                             -webkit-font-smoothing: antialiased;
@@ -1000,8 +1006,8 @@
                             &.aw-sidebar-product-list {
                                 .aw-onestep-sidebar-block_title {
                                     display: inline-block;
-                                    font-size: 18px;
-                                    font-weight: 300;
+                                    font-size: 16px;
+                                    font-weight: 500;
                                     padding-left: @aw-osc-supplementary__padding;
                                     cursor: pointer;
 
@@ -1264,7 +1270,7 @@
                                     tr > th,
                                     tr > td {
                                         margin: 0;
-                                        padding: 0 0 15px 0;
+                                        padding: 0 0 5px 0;
                                     }
 
                                     .amount {
@@ -1272,7 +1278,7 @@
                                     }
 
                                     .sub {
-                                        font-size: 120%;
+                                        font-size: 100%;
                                     }
 
                                     .shipping {
@@ -1549,7 +1555,7 @@
                                 content: '\e912';
                                 font-family: 'aw-osc_icons-font' !important;
                                 font-size: 25px;
-                                font-weight: normal;
+                                font-weight: 400;
                                 position: absolute;
                                 left: 5px;
                                 top: 0;
@@ -1638,7 +1644,7 @@
                     .lib-vendor-box-align(center);
                     .lib-vendor-prefix-flex-direction(column);
                     max-width: 530px;
-                    font-size:14px;
+                    font-size: 14.5px;
 
                     .aw-onestep-main,
                     .aw-onestep-sidebar {
@@ -1724,9 +1730,34 @@
 
             .checkout-container {
                 max-width: 100%;
-                font-size:14px;
+                font-size: 14.5px;
                 .field-tooltip._active .field-tooltip-content {
                     max-width: 200px;
+                }
+
+                input[type='radio'] {
+                    + label:before {
+                        content: '\e90a';
+                        font-family: 'aw-osc_icons-font';
+                        font-size: 12px;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                        color: @aw-osc-secondary__color;
+                    }
+
+                    &:checked + label:before {
+                        content: '\e909';
+                        font-family: 'aw-osc_icons-font';
+                        font-size: 12px;
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                        color: @aw-osc-secondary__color;
+                        padding-right: 9px;
+                    }
+
+                    &:disabled + label {
+                        opacity: .3;
+                    }
                 }
 
                 .aw-onestep-sidebar {
@@ -1845,7 +1876,7 @@
     .onestepcheckout-index-index {
         .page-main {
             .checkout-container {
-                font-size:14px;
+                font-size: 14.5px;
                 .lib-vendor-box-align(flex-start);
                 .lib-vendor-prefix-flex-direction(row);
 
@@ -1887,6 +1918,15 @@
 
                         &:last-of-type {
                             right: 0;
+                        }
+                    }
+                }
+            }
+            .payment-method {
+                .payment-method-title {
+                    input[type='radio'] {
+                        & + label {
+                            padding-left: 0 !important;
                         }
                     }
                 }

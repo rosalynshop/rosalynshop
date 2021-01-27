@@ -92,7 +92,7 @@ class LayoutProcessor implements LayoutProcessorInterface
                         'additionalClasses' => 'city-drop-down',
                     ],
                     'dataScope' => 'shippingAddress.city',
-                    'label' => __('City'),
+                    'label' => __("City"),
                     'provider' => 'checkoutProvider',
                     'visible' => true,
                     'validation' => ['required-entry' => true],

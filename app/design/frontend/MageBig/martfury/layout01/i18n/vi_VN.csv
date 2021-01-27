@@ -887,7 +887,7 @@ href=""https://dashboard.rjmetrics.com/v2/magento/signup/"">Magento BI Essential
 "Country","Quốc gia",module,Magento_Backend
 "Region/State","Vùng/Khu vực",module,Magento_Backend
 "ZIP/Postal Code","Mã Bưu điện/Bưu chính",module,Magento_Backend
-"City","Thành phố",module,Magento_Backend
+"City","Quận/Huyệń",module,Magento_Backend
 "Street Address","Địa chỉ đường",module,Magento_Backend
 "Street Address Line 2","Địa Chỉ Phố Dòng 2",module,Magento_Backend
 "VAT Number","Số VAT",module,Magento_Backend
@@ -1471,8 +1471,8 @@ href=""https://dashboard.rjmetrics.com/v2/magento/signup/"">Magento BI Essential
 "Last Name","Họ",module,Magento_Braintree
 "Company","Công ty",module,Magento_Braintree
 "Address","Địa chỉ",module,Magento_Braintree
-"City","Thành phố",module,Magento_Braintree
-"State/Province","Bang/tỉnh",module,Magento_Braintree
+"City","Quận/Huyệń",module,Magento_Braintree
+"State/Province","Tỉnh/Thành",module,Magento_Braintree
 "Please select region, state or province","Vui lòng chọn khu vực",module,Magento_Braintree
 "Zip/Postal Code","Mã bưu chính",module,Magento_Braintree
 "Submit","Gửi",module,Magento_Braintree
@@ -2022,7 +2022,7 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "Please enter a number 0 or greater in this field.","Hãy điền một số lớn hơn hoặc bằng 0 vào trường này.",module,Magento_Catalog
 "The value of attribute ""%1"" must be set","Phải được đặt là giá trị của thuộc tính ""%1""",module,Magento_Catalog
 "SKU length should be %1 characters maximum.","Độ dài mã sản phẩm nên là %1 ký tự tối đa.",module,Magento_Catalog
-"Please enter a valid number in this field.","Vui lòng nhập một số hợp lệ trong lĩnh vực này.",module,Magento_Catalog
+"Please enter a valid number in this field.","Số điện thoại không hợp lệ.",module,Magento_Catalog
 "We found a duplicate website, tier price, customer group and quantity.","Chúng tôi tìm thấy một trang web trùng lặp, tầng giá, khách hàng nhóm và số lượng.",module,Magento_Catalog
 "Percentage value must be a number between 0 and 100.","Giá trị phần trăm phải là một số giữa 0 và 100.",module,Magento_Catalog
 "Invalid option id %1","Id tùy chọn không hợp lệ %1",module,Magento_Catalog
@@ -2841,7 +2841,7 @@ Time in seconds between the widget updates.,module,Magento_Catalog
 "The ""%1"" value is invalid for stock item ID. Enter either zero or a number than zero to try again.","The ""%1"" value is invalid for stock item ID. Enter either zero or a number than zero to try again.",module,Magento_CatalogInventory
 "The ""%1"" value is invalid for stock item ID. Use the stock item ID's assigned ""%2"" value and try again.","The ""%1"" value is invalid for stock item ID. Use the stock item ID's assigned ""%2"" value and try again.",module,Magento_CatalogInventory
 "The Product with the ""%1"" SKU doesn't exist.","The Product with the ""%1"" SKU doesn't exist.",module,Magento_CatalogInventory
-"The requested qty is not available","The requested qty is not available",module,Magento_CatalogInventory
+"The requested qty is not available","Ui, số lượng không có sẵn",module,Magento_CatalogInventory
 "Quantity increments can't use decimals. Enter a new increment and try again.","Quantity increments can't use decimals. Enter a new increment and try again.",module,Magento_CatalogInventory
 """model"" value should be specified","""model"" value should be specified",module,Magento_CatalogInventoryGraphQl
 "New Permission","Quyền mới",module,Magento_CatalogPermissions
@@ -3204,9 +3204,9 @@ Time in seconds between the widget updates.,module,Magento_CatalogWidget
 ",module,Magento_CatalogWidget
 "Shopping Cart","Giỏ mua hàng",module,Magento_Checkout
 "Invalid method: %1","Phương thức không hợp lệ: %1",module,Magento_Checkout
-"City","Thành phố",module,Magento_Checkout
+"City","Quận/Huyện",module,Magento_Checkout
 "Country","Quốc gia",module,Magento_Checkout
-"State/Province","Bang/tỉnh",module,Magento_Checkout
+"State/Province","Tỉnh/Thành",module,Magento_Checkout
 "Zip/Postal Code","Mã bưu chính",module,Magento_Checkout
 "My Cart (1 item)","Giỏ hàng của tôi (1 sản phẩm)",module,Magento_Checkout
 "My Cart (%1 items)","Giỏ hàng của tôi (%1 sản phẩm)",module,Magento_Checkout
@@ -3878,9 +3878,9 @@ Time in seconds between the widget updates.,module,Magento_CatalogWidget
 "Re-seller ID","Re-seller ID",module,Magento_Company
 "Legal Address","Legal Address",module,Magento_Company
 "Street Address","Địa chỉ đường",module,Magento_Company
-"City","Thành phố",module,Magento_Company
+"City","Quận/Huyện",module,Magento_Company
 "Country","Quốc gia",module,Magento_Company
-"State/Province","Bang/tỉnh",module,Magento_Company
+"State/Province","Tỉnh/Thành",module,Magento_Company
 "Please select a region, state or province.","Vui lòng chọn khu vực, bang hay tỉnh.",module,Magento_Company
 "ZIP/Postal Code","Mã Bưu điện/Bưu chính",module,Magento_Company
 "Phone Number","Số Điện thoại",module,Magento_Company
@@ -4192,7 +4192,7 @@ Your outstanding balance currently totals %outstanding_balance. You are %exceed_
 "Place Order","Đặt hàng",module,Magento_CompanyCredit
 "Cancel the Order","Cancel the Order",module,Magento_CompanyCredit
 "This is a required field.","Đây là trường bắt buộc.",module,Magento_CompanyCredit
-"Please enter a valid number in this field.","Vui lòng nhập một số hợp lệ trong lĩnh vực này.",module,Magento_CompanyCredit
+"Please enter a valid number in this field.","Số điện thoại không hợp lệ.",module,Magento_CompanyCredit
 "{oldCur}/{newCur} Rate","{oldCur}/{newCur} Rate",module,Magento_CompanyCredit
 "Reimburse","Reimburse",module,Magento_CompanyCredit
 "Save","Lưu lại",module,Magento_CompanyCredit
@@ -4993,7 +4993,7 @@ new products will be created. Use this step to customize images and price for yo
 "some error","có lỗi xảy ra",module,Magento_Customer
 "frontend_label","frontend_label",module,Magento_Customer
 "NOT LOGGED IN","CHƯA ĐĂNG NHẬP",module,Magento_Customer
-"Please enter the state/province.","Vui lòng nhập tiểu bang/tỉnh.",module,Magento_Customer
+"Please enter the state/province.","Vui lòng nhập Tỉnh/Thành.",module,Magento_Customer
 "region is a required field.","region is a required field.",module,Magento_Customer
 "regionId is a required field.","regionId is a required field.",module,Magento_Customer
 "Label","Nhãn",module,Magento_Customer
@@ -5041,8 +5041,8 @@ new products will be created. Use this step to customize images and price for yo
 "Street Address","Địa chỉ đường",module,Magento_Customer
 "Street Address %1","Địa chỉ đường phố %1",module,Magento_Customer
 "VAT Number","Số VAT",module,Magento_Customer
-"City","Thành phố",module,Magento_Customer
-"State/Province","Bang/tỉnh",module,Magento_Customer
+"City","Quận/Huyện",module,Magento_Customer
+"State/Province","Tỉnh/Thành",module,Magento_Customer
 "Please select a region, state or province.","Vui lòng chọn khu vực, bang hay tỉnh.",module,Magento_Customer
 "Zip/Postal Code","Mã bưu chính",module,Magento_Customer
 "Country","Quốc gia",module,Magento_Customer
@@ -5342,7 +5342,7 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "Delete address","Delete address",module,Magento_Customer
 "Are you sure you want to delete the address?","Are you sure you want to delete the address?",module,Magento_Customer
 "Additional addresses","Additional addresses",module,Magento_Customer
-"State","Tỉnh/Thành phố",module,Magento_Customer
+"State","Tỉnh/Thành",module,Magento_Customer
 "Actions","Thao tác",module,Magento_Customer
 "Sorry, there has been an error processing your request. Please try again later.","Xin lỗi, đã có một lỗi xử lý yêu cầu của bạn. Xin vui lòng thử lại sau.",module,Magento_Customer
 "Reset password","Reset password",module,Magento_Customer
@@ -5529,8 +5529,8 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "Street Address","Địa chỉ đường",module,Magento_CustomerCustomAttributes
 "Street Address %1","Địa chỉ đường phố %1",module,Magento_CustomerCustomAttributes
 "VAT Number","Số VAT",module,Magento_CustomerCustomAttributes
-"City","Thành phố",module,Magento_CustomerCustomAttributes
-"State/Province","Bang/tỉnh",module,Magento_CustomerCustomAttributes
+"City","Quận/Huyện",module,Magento_CustomerCustomAttributes
+"State/Province","Tỉnh/Thành",module,Magento_CustomerCustomAttributes
 "Please select a region, state or province.","Vui lòng chọn khu vực, bang hay tỉnh.",module,Magento_CustomerCustomAttributes
 "Zip/Postal Code","Mã bưu chính",module,Magento_CustomerCustomAttributes
 "Country","Quốc gia",module,Magento_CustomerCustomAttributes
@@ -5684,8 +5684,8 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "Billing","Thanh toán",module,Magento_CustomerSegment
 "Shipping","Vận chuyển",module,Magento_CustomerSegment
 "Customer Address %1 Default %2 Address","Địa chi khách hàng %1 Địa chỉ mặc định %2",module,Magento_CustomerSegment
-"Has State/Province","Có tiểu bang/tỉnh",module,Magento_CustomerSegment
-"If Customer Address %1 State/Province specified","Nếu khách hàng địa chỉ %1 bang/tỉnh được quy định",module,Magento_CustomerSegment
+"Has State/Province","Có Tỉnh/Thành",module,Magento_CustomerSegment
+"If Customer Address %1 State/Province specified","Nếu khách hàng địa chỉ %1 Tỉnh/Thành được quy định",module,Magento_CustomerSegment
 "has","có",module,Magento_CustomerSegment
 "does not have","không có",module,Magento_CustomerSegment
 "exists","tồn tại",module,Magento_CustomerSegment
@@ -5766,7 +5766,7 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "Phone","Điện thoại",module,Magento_CustomerSegment
 "ZIP","SỐ ZIP",module,Magento_CustomerSegment
 "Country","Quốc gia",module,Magento_CustomerSegment
-"State/Province","Bang/tỉnh",module,Magento_CustomerSegment
+"State/Province","Tỉnh/Thành",module,Magento_CustomerSegment
 "Customer Since","Khách hàng kể từ",module,Magento_CustomerSegment
 "View Combined Report","Xem báo cáo kết hợp",module,Magento_CustomerSegment
 "Set","Cài đặt",module,Magento_CustomerSegment
@@ -5974,7 +5974,7 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "Content Type (Non Domestic)","Content Type (Non Domestic)",module,Magento_Dhl
 "Documents Allowed Methods","Documents Allowed Methods",module,Magento_Dhl
 "Non Documents Allowed Methods","Non Documents Allowed Methods",module,Magento_Dhl
-"State/Province","Bang/tỉnh",module,Magento_Directory
+"State/Province","Tỉnh/Thành",module,Magento_Directory
 "--Please Select--","--Vui lòng chọn--",module,Magento_Directory
 "lbs","lbs",module,Magento_Directory
 "kgs","kgs",module,Magento_Directory
@@ -6456,7 +6456,7 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "Country","Quốc gia",module,Magento_Email
 "Region/State","Vùng/Khu vực",module,Magento_Email
 "Zip/Postal Code","Mã bưu chính",module,Magento_Email
-"City","Thành phố",module,Magento_Email
+"City","Quận/Huyện",module,Magento_Email
 "Street Address 1","Địa chỉ đường phố 1",module,Magento_Email
 "Street Address 2","Địa chỉ đường phố 2",module,Magento_Email
 "VAT Number","Số VAT",module,Magento_Email

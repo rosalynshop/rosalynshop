@@ -76,16 +76,16 @@ $helper = $this->helper(\RosalynShop\RegionManager\Helper\Data::class);
             </div>
         </div>
         <div class="field city required">
-            <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
+            <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __("City") ?></span></label>
             <div class="control city-drop-down">
-                <select id="city" name="city" title="<?php /* @escapeNotVerified */ echo __('City') ?>" class="select validate-select" data-validate="{required:true}">
+                <select id="city" name="city" title="<?php /* @escapeNotVerified */ echo __("City") ?>" class="select validate-select" data-validate="{required:true}">
                     <?php foreach ($helper->getCitiesValueStates() as $cities): ?>
                         <option value="<?= $block->escapeHtml($block->getAddress()->getCity()) ?>"<?php if($block->getAddress()->getCity() == $cities) echo  'selected'?>><?= $block->escapeHtml(__($cities)) ?></option>
                     <?php endforeach; ?>
                 </select>
                 <input type="text" name="city" value="<?php echo $block->escapeHtml($block->getAddress()->getCity()) ?>"
-                       title="<?php /* @escapeNotVerified */ echo __('City') ?>"
-                       class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('city') ?>"
+                       title="<?php /* @escapeNotVerified */ echo __("City") ?>"
+                       class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass("City") ?>"
                        id="input-option-city"
                        data-validate="{required:true}"
                        hidden/>
