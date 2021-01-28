@@ -68,11 +68,7 @@
 
 #social-login-popup .fieldset,
 #request-popup .fieldset {
-    margin: 0px;
-}
-
-.actions-toolbar {
-    margin-top: 7px;
+    margin: 0;
 }
 
 .account-social-login .actions-toolbar.social-btn {

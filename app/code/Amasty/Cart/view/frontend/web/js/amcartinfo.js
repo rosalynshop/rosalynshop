@@ -125,6 +125,7 @@ define([
                     .attr('class', 'qty')
                     .html(qty),
                 messageDiv = $('<div></div>')
+                    .attr('class', 'info-message')
                     .html(this.options['infoMessage']);
             cartInfo.append(qtyDiv);
             cartInfo.append(messageDiv);

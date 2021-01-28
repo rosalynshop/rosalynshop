@@ -426,7 +426,7 @@
 "To","Đến",module,Magento_GiftMessage
 "Message","Tin nhắn",module,Magento_GiftMessage
 "Cancel","Hủy bỏ",module,Magento_GiftMessage
-"OK","Đồng ý",module,Magento_GiftMessage
+"OK","OK",module,Magento_GiftMessage
 "Gift Options","Tùy chọn Quà tặng",module,Magento_GiftMessage
 "Gift Message","Tin nhắn quà tặng",module,Magento_GiftMessage
 "Do you have any gift items in your order?","Bạn có sản phẩm nào như Quà tặng nào trong đặt hàng của bạn không?",module,Magento_GiftMessage
@@ -2332,7 +2332,7 @@ You can set a new expiration date if you wish.",module,Magento_NegotiableQuote
 "Cannot Decline the Selected Quotes","Cannot Decline the Selected Quotes",module,Magento_NegotiableQuote
 "Only the quotes that are currently in status 'Open' can be declined","Only the quotes that are currently in status 'Open' can be declined",module,Magento_NegotiableQuote
 "Confirm","Xác nhận",module,Magento_NegotiableQuote
-"OK","Đồng ý",module,Magento_NegotiableQuote
+"OK","OK",module,Magento_NegotiableQuote
 "If you decline this quote, all custom pricing from this quote will be removed. The buyer will be able to place an order using their standard catalog prices and discounts.","If you decline this quote, all custom pricing from this quote will be removed. The buyer will be able to place an order using their standard catalog prices and discounts.",module,Magento_NegotiableQuote
 "Proceed","Proceed",module,Magento_NegotiableQuote
 "Your file could not be uploaded. Please try again.","Your file could not be uploaded. Please try again.",module,Magento_NegotiableQuote
@@ -4513,7 +4513,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Merge","Merge",module,Magento_RequisitionList
 "Replace","Thay thế",module,Magento_RequisitionList
 "Cancel","Hủy bỏ",module,Magento_RequisitionList
-"Ok","đồng ý",module,Magento_RequisitionList
+"Ok","OK",module,Magento_RequisitionList
 "Cannot Perform the Requested Action","Cannot Perform the Requested Action",module,Magento_RequisitionList
 "This action cannot be performed because the selected product(s) require attention. You must resolve these issues before you can continue.","This action cannot be performed because the selected product(s) require attention. You must resolve these issues before you can continue.",module,Magento_RequisitionList
 "Please Select Product","Please Select Product",module,Magento_RequisitionList
@@ -4876,7 +4876,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Print","In",module,Magento_Rma
 "Return #%1 - %2","Trả hàng #%1 - %2",module,Magento_Rma
 "RMA Item Details","RMA chi tiết sản phẩm",module,Magento_Rma
-"OK","Đồng ý",module,Magento_Rma
+"OK","OK",module,Magento_Rma
 "Cancel","Hủy bỏ",module,Magento_Rma
 "No","Không",module,Magento_Rma
 "Yes","Có",module,Magento_Rma
@@ -5179,7 +5179,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "We received your return request. You will be notified when your request is reviewed.","Chúng tôi nhận được yêu cầu trả lại của bạn. Bạn sẽ được thông báo khi yêu cầu được xem xét.",module,Magento_Rma
 "Placed on %created_at","Đặt trên %created_at",module,Magento_Rma
 "Click Details for more required fields.","Bấm vào chi tiết cho các trường được yêu cầu nhiều hơn.",module,Magento_Rma
-"Ok","đồng ý",module,Magento_Rma
+"Ok","OK",module,Magento_Rma
 "Create Packages","Tạo ra các gói",module,Magento_Rma
 "Add Package","Thêm gói",module,Magento_Rma
 "RMA Settings","Cài đặt RMA",module,Magento_Rma
@@ -5955,7 +5955,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Gift Options for ","Tùy chọn Quà tặng cho ",module,Magento_Sales
 "Add Products","Thêm sản phẩm",module,Magento_Sales
 "You have item changes","Bạn có sản phẩm thay đổi",module,Magento_Sales
-"Ok","đồng ý",module,Magento_Sales
+"Ok","OK",module,Magento_Sales
 "Operations","Toán tử",module,Magento_Sales
 "Create","Tạo",module,Magento_Sales
 "Send Order Email","Gửi Email đơn đặt hàng",module,Magento_Sales
@@ -8406,9 +8406,9 @@ than a customer might expect. ","Cảnh báo cấu hình thuế giảm giá có 
 "Please use tag SCRIPT with SRC attribute or with proper content to include JavaScript to the document.","Xin vui lòng sử dụng thẻ SCRIPT với thuộc tính SRC hoặc với đúng nội dung để bao gồm JavaScript cho tài liệu.",module,Magento_Ui
 "The date is not within the specified range.","Ngày không phải là trong phạm vi được chỉ định.",module,Magento_Ui
 "Attention","Chú ý",module,Magento_Ui
-"OK","Đồng ý",module,Magento_Ui
+"OK","OK",module,Magento_Ui
 "Close","Đóng lại",module,Magento_Ui
-"Ok","đồng ý",module,Magento_Ui
+"Ok","OK",module,Magento_Ui
 "Label Button 2","Label Button 2",module,Magento_Ui
 "Label Actions One","Label Actions One",module,Magento_Ui
 "Label Actions Two","Label Actions Two",module,Magento_Ui
@@ -9791,8 +9791,8 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "My Account","Tài khoản",theme,frontend/Magento/luma
 "Backup options","Tùy chọn sao lưu",lib,web
 "Warning","Cảnh báo",lib,web
-"Cancel","Hủy bỏ",lib,web
-"Ok","đồng ý",lib,web
+"Cancel","Hủy",lib,web
+"Ok","OK",lib,web
 "Insert Widget...","Chèn phụ tùng...",lib,web
 "No records found.","Không có hồ sơ tìm thấy.",lib,web
 "Recent items","Gần đây Item",lib,web

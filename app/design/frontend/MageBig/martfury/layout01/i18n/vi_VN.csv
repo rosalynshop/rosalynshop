@@ -2326,7 +2326,7 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "Submit","Gửi",module,Magento_Catalog
 "We don't recognize or support this file extension type.","Chúng tôi không nhận diện được hoặc hỗ trợ định dạng tập tin này.",module,Magento_Catalog
 "Configure Product","Cấu hình sản phẩm",module,Magento_Catalog
-"OK","Đồng ý",module,Magento_Catalog
+"OK","OK",module,Magento_Catalog
 "This value does not follow the specified format (for example, 200x300).","This value does not follow the specified format (for example, 200x300).",module,Magento_Catalog
 "Select type of option.","Chọn loại tùy chọn.",module,Magento_Catalog
 "Please add rows to option.","Xin vui lòng thêm dòng để lựa chọn.",module,Magento_Catalog
@@ -2534,7 +2534,7 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "An attribute group named ""/name/"" already exists"".","Một nhóm thuộc tính tên ""tên /"" đã tồn tại"".",module,Magento_Catalog
 "Close panel","Đóng bảng điều khiển",module,Magento_Catalog
 "Allow Multiple Boxes for Shipping.","Cho phép nhiều hộp để vận chuyển.",module,Magento_Catalog
-"Ok","đồng ý",module,Magento_Catalog
+"Ok","OK",module,Magento_Catalog
 "Watermark Default Size","Kích thước mặc định ảnh mờ",module,Magento_Catalog
 "Watermark Opacity, Percent","Độ mờ, phần trăm của ảnh",module,Magento_Catalog
 "Watermark","Đóng dấu ảnh",module,Magento_Catalog

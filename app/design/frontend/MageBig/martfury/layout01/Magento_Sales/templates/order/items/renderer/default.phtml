@@ -21,19 +21,18 @@ $image = $helper->getProductImage($_item->getSku());
                 <?php if ($_options = $block->getItemOptions()): ?>
                     <dl class="item-options">
                         <?php foreach ($_options as $_option) : ?>
-                            <dt><?= $block->escapeHtml($_option['label']) ?></dt>
                             <?php if (!$block->getPrintStatus()): ?>
                                 <?php $_formatedOptionValue = $block->getFormatedOptionValue($_option) ?>
                                 <dd>
                                     <?php if (isset($_formatedOptionValue['full_view'])): ?>
-                                        <?= /* @escapeNotVerified */ $_formatedOptionValue['full_view'] ?>
+                                    <dt><?= $block->escapeHtml($_option['label']) . ': ' ?><?= /* @escapeNotVerified */ $_formatedOptionValue['full_view'] ?></dt>
                                     <?php else: ?>
-                                        <?= /* @escapeNotVerified */ $_formatedOptionValue['value'] ?>
+                                    <dt><?= $block->escapeHtml($_option['label']) . ': ' ?><?= /* @escapeNotVerified */ $_formatedOptionValue['value'] ?></dt>
                                     <?php endif; ?>
                                 </dd>
                             <?php else: ?>
                                 <dd>
-                                    <?= nl2br($block->escapeHtml((isset($_option['print_value']) ? $_option['print_value'] : $_option['value']))) ?>
+                                    <?= $block->escapeHtml($_option['label']) . ': ' ?><?= nl2br($block->escapeHtml((isset($_option['print_value']) ? $_option['print_value'] : $_option['value']))) ?>
                                 </dd>
                             <?php endif; ?>
                         <?php endforeach; ?>

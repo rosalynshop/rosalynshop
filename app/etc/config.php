@@ -215,6 +215,7 @@ return [
         'Amazon_Core' => 0,
         'Amazon_Login' => 0,
         'Amazon_Payment' => 0,
+        'Boolfly_ZaloPay' => 1,
         'Codilar_BannerSlider' => 1,
         'Dotdigitalgroup_Email' => 1,
         'JustBetter_ImageOptimizer' => 1,
