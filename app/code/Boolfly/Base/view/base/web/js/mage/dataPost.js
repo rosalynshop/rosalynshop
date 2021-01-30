@@ -1,8 +1,7 @@
 define([
     'jquery',
     'mage/template',
-    'Magento_Ui/js/modal/confirm',
-    'jquery-ui-modules/widget'
+    'Magento_Ui/js/modal/confirm'
 ], function ($, mageTemplate, uiConfirm) {
     'use strict';
 
