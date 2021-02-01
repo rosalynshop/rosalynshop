@@ -14,7 +14,7 @@ class Builder implements BuilderInterface
      * @param $buildSubject
      * @return array
      */
-    public function build($buildSubject)
+    public function build(array $buildSubject)
     {
         $result = [];
         return $result;
