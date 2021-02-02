@@ -40,11 +40,11 @@
             var $stickyMenu = $('.sticky-menu');
             if ($stickyMenu.length > 0) {
                 $stickyMenu.wrap('<div class="sticky-wrap"></div>');
-                // $stickyMenu.parent().css('min-height', $stickyMenu.outerHeight());
+                $stickyMenu.parent().css('min-height', $stickyMenu.outerHeight());
+                var threshold = $stickyMenu.height() + $stickyMenu.offset().top;
                 $(window).scroll(function() {
                     var $win = $(this);
                     var curWinTop = $win.scrollTop();
-                    var threshold = $stickyMenu.height() + $stickyMenu.offset().top;
                     if (curWinTop > threshold) {
                         $stickyMenu.addClass('active');
                     } else {
@@ -52,13 +52,13 @@
                     }
                 });
 
-                // var timer = false;
-                // $(window).resize(function () {
-                //     if (timer) clearTimeout(timer);
-                //     timer = setTimeout(function(){
-                //         $stickyMenu.parent().css('min-height', $stickyMenu.outerHeight());
-                //     }, 2500);
-                // });
+                var timer = false;
+                $(window).resize(function () {
+                    if (timer) clearTimeout(timer);
+                    timer = setTimeout(function(){
+                        $stickyMenu.parent().css('min-height', $stickyMenu.outerHeight());
+                    }, 2500);
+                });
             }
         },
         _stickyAddCart: function() {
