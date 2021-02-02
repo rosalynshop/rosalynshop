@@ -1,15 +1,20 @@
 <?php
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
  * @package Amasty_Base
  */
 
 
 namespace Amasty\Base\Observer;
 
-use Amasty\Base\Helper\Module;
+use Amasty\Base\Model\Feed\ExtensionsProvider;
+use Amasty\Base\Model\ModuleInfoProvider;
+use Amasty\Base\Plugin\Backend\Model\Menu\Item;
+use Magento\Config\Model\Config\Structure;
 use Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\Module\Manager;
+use Magento\Framework\View\Asset\Repository;
 
 class GenerateInformationTab implements ObserverInterface
 {
@@ -17,17 +22,7 @@ class GenerateInformationTab implements ObserverInterface
 
     const MAGENTO_VERSION = '_m2';
 
-    /**
-     * @var array
-     */
-    private $moduleData = null;
-
     private $block;
-
-    /**
-     * @var Module
-     */
-    private $moduleHelper;
 
     /**
      * @var string
@@ -40,30 +35,42 @@ class GenerateInformationTab implements ObserverInterface
     private $moduleCode;
 
     /**
-     * @var \Magento\Framework\Module\Manager
+     * @var Manager
      */
     private $moduleManager;
 
     /**
-     * @var \Magento\Framework\View\Asset\Repository
+     * @var Repository
      */
     private $assetRepo;
 
     /**
-     * @var \Magento\Config\Model\Config\Structure
+     * @var Structure
      */
     private $configStructure;
 
+    /**
+     * @var ExtensionsProvider
+     */
+    private $extensionsProvider;
+
+    /**
+     * @var ModuleInfoProvider
+     */
+    private $moduleInfoProvider;
+
     public function __construct(
-        Module $moduleHelper,
-        \Magento\Framework\Module\Manager $moduleManager,
-        \Magento\Framework\View\Asset\Repository $assetRepo,
-        \Magento\Config\Model\Config\Structure $configStructure
+        Manager $moduleManager,
+        Repository $assetRepo,
+        Structure $configStructure,
+        ExtensionsProvider $extensionsProvider,
+        ModuleInfoProvider $moduleInfoProvider
     ) {
-        $this->moduleHelper = $moduleHelper;
         $this->moduleManager = $moduleManager;
         $this->assetRepo = $assetRepo;
         $this->configStructure = $configStructure;
+        $this->extensionsProvider = $extensionsProvider;
+        $this->moduleInfoProvider = $moduleInfoProvider;
     }
 
     /**
@@ -100,7 +107,12 @@ class GenerateInformationTab implements ObserverInterface
     protected function getLogoHtml()
     {
         $src = $this->assetRepo->getUrl('Amasty_Base::images/amasty_logo.svg');
-        $href = 'https://amasty.com' . $this->getSeoParams() . 'amasty_logo_' . $this->getModuleCode();
+        if ($this->moduleInfoProvider->isOriginMarketplace()) {
+            $href = Item::MAGENTO_MARKET_URL;
+        } else {
+            $href = 'https://amasty.com' . $this->getSeoParams() . 'amasty_logo_' . $this->getModuleCode();
+        }
+
         $html = '<a target="_blank" href="' . $href . '"><img class="amasty-logo" src="' . $src . '"/></a>';
 
         return $html;
@@ -154,7 +166,7 @@ class GenerateInformationTab implements ObserverInterface
                 . $this->getLogoHtml()
                 . '</div>';
 
-            if (!$isVersionLast) {
+            if (!$isVersionLast && !$this->moduleInfoProvider->isOriginMarketplace()) {
                 $html .=
                     '<div><span class="upgrade-error message message-warning">'
                     . __(
@@ -176,7 +188,7 @@ class GenerateInformationTab implements ObserverInterface
      */
     protected function getCurrentVersion()
     {
-        $data = $this->moduleHelper->getModuleInfo($this->getModuleCode());
+        $data = $this->moduleInfoProvider->getModuleInfo($this->getModuleCode());
 
         return isset($data['version']) ? $data['version'] : null;
     }
@@ -261,7 +273,7 @@ class GenerateInformationTab implements ObserverInterface
     {
         $result = true;
 
-        $module = $this->getFeedModuleData();
+        $module = $this->extensionsProvider->getFeedModuleData($this->getModuleCode());
         if ($module
             && isset($module['version'])
             && version_compare($module['version'], (string)$currentVer, '>')
@@ -285,7 +297,7 @@ class GenerateInformationTab implements ObserverInterface
         }
 
         if (!$result) {
-            $module = $this->getFeedModuleData();
+            $module = $this->extensionsProvider->getFeedModuleData($this->getModuleCode());
             $result = __('Extension');
             if ($module && isset($module['name'])) {
                 $result = $module['name'];
@@ -328,33 +340,13 @@ class GenerateInformationTab implements ObserverInterface
     }
 
     /**
-     * @return array|null
-     */
-    private function getFeedModuleData()
-    {
-        if ($this->moduleData === null) {
-            $allExtensions = $this->moduleHelper->getAllExtensions();
-            if ($allExtensions && isset($allExtensions[$this->getModuleCode()])) {
-                $module = $allExtensions[$this->getModuleCode()];
-                if ($module && is_array($module)) {
-                    $module = array_shift($module);
-                }
-
-                $this->moduleData = $module;
-            }
-        }
-
-        return $this->moduleData;
-    }
-
-    /**
      * @return string
      */
     private function getModuleLink()
     {
         if (!$this->moduleLink) {
             $this->moduleLink = '';
-            $module = $this->getFeedModuleData();
+            $module = $this->extensionsProvider->getFeedModuleData($this->getModuleCode());
             if ($module && isset($module['url'])) {
                 $this->moduleLink = $module['url'];
             }
@@ -369,7 +361,7 @@ class GenerateInformationTab implements ObserverInterface
     private function getExistingConflicts()
     {
         $conflicts = [];
-        $module = $this->getFeedModuleData();
+        $module = $this->extensionsProvider->getFeedModuleData($this->getModuleCode());
         if ($module && isset($module['conflictExtensions'])) {
             $conflictsFromSite = $module['conflictExtensions'];
             $conflictsFromSite = str_replace(' ', '', $conflictsFromSite);

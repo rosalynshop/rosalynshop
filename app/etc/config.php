@@ -210,6 +210,7 @@ return [
         'Amasty_Cart' => 1,
         'Amasty_CronScheduleList' => 1,
         'Amasty_Number' => 1,
+        'Amasty_PageSpeedOptimizer' => 1,
         'Amasty_Pgrid' => 1,
         'Amasty_Smtp' => 1,
         'Amazon_Core' => 0,

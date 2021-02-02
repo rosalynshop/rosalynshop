@@ -1,14 +1,14 @@
 <?php
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
  * @package Amasty_Base
  */
 
 
 namespace Amasty\Base\Block;
 
-use Amasty\Base\Helper\Module;
+use Amasty\Base\Model\ModuleInfoProvider;
 use Magento\Backend\Block\Template;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Framework\Data\Form\Element\Renderer\RendererInterface;
@@ -21,18 +21,17 @@ class Search extends Template implements RendererInterface
     protected $_template = 'Amasty_Base::search.phtml';
 
     /**
-     * @var Module
+     * @var ModuleInfoProvider
      */
-    private $moduleHelper;
+    private $moduleInfoProvider;
 
     public function __construct(
         Template\Context $context,
-        Module $moduleHelper,
+        ModuleInfoProvider $moduleInfoProvider,
         array $data = []
     ) {
         parent::__construct($context, $data);
-
-        $this->moduleHelper = $moduleHelper;
+        $this->moduleInfoProvider = $moduleInfoProvider;
     }
 
     protected function _construct()
@@ -59,7 +58,7 @@ class Search extends Template implements RendererInterface
     {
         $baseUrl = 'https://amasty.com/catalogsearch/result/?q=';
 
-        if ($this->moduleHelper->isOriginMarketplace()) {
+        if ($this->moduleInfoProvider->isOriginMarketplace()) {
             $baseUrl = 'https://marketplace.magento.com/catalogsearch/result/?q=Amasty%20';
         }
 
@@ -73,7 +72,7 @@ class Search extends Template implements RendererInterface
     {
         $params = '&utm_source=extension&utm_medium=extnotif&utm_campaign=searchbar';
 
-        if ($this->moduleHelper->isOriginMarketplace()) {
+        if ($this->moduleInfoProvider->isOriginMarketplace()) {
             $params = '&categories=Extensions&ext_platform=Magento%202';
         }
 
