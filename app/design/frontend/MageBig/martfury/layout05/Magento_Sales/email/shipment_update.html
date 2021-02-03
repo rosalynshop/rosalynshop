@@ -1,0 +1,54 @@
+<!--
+/**
+ * Copyright © magebig.com - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<!--@subject {{var store.getFrontendName()}} - cập nhật hóa đơn @-->
+<!--@vars {
+"var this.getUrl($store, 'customer/account/')":"Customer Account URL",
+"var order.getCustomerName()":"Customer Name",
+"var comment":"Order Comment",
+"var order.increment_id":"Order Id",
+"var order.getStatusLabel()":"Order Status",
+"var shipment.increment_id":"Shipment Id"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Xin chào %name," name=$order.getCustomerName()}}</p>
+            <p>
+                {{trans "Đơn hàng của bạn #%increment_id đã được cập nhật với trạng thái <strong>%order_status</strong>." increment_id=$order.increment_id order_status=$order.getStatusLabel() |raw}}
+                {{trans 'Bạn có thể kiểm tra trạng thái đơn hàng của mình bằng cách  <a href="%account_url">đăng nhập tài khoản của bạn</a>.' account_url=$this.getUrl($store,'customer/account/',[_nosid:1]) |raw}}
+            </p>
+            <p>{{trans 'Nếu bạn có thắc mắc về đơn hàng của mình, bạn có thể gửi email cho chúng tôi <a href="mailto:%store_email">%store_email</a>.' store_email=$store_email |raw}}</p>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{depend comment}}
+            <table class="message-info">
+                <tr>
+                    <td>
+                        <p>Ghi chú : {{var comment|escape|nl2br}}</p>
+                    </td>
+                </tr>
+            </table>
+            {{/depend}}
+        </td>
+    </tr>
+</table>
+<hr>
+<table class="rosa-footer-email">
+    <tr>
+        <td>
+            <span>Facebook : <a href="https://www.facebook.com/rosalynshophn/"> Rosalyn Shop | ThờiTrang Nữ</a></span><br>
+            <span>Email : {{trans '<a href="mailto:%store_email">%store_email</a>' store_email=$store_email |raw}}</span><br>
+            <span>Điện thoại :  {{trans '<a href="tel:%store_phone">%store_phone</a>' store_phone=$store_phone |raw}} (24/7 tất cả các ngày trong tuần).</span><br>
+            <p>Thank you, Rosalynshop.com!</p>
+        </td>
+    </tr>
+</table>
+{{template config_path="design/email/footer_template"}}

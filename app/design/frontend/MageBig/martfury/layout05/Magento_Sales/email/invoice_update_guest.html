@@ -1,0 +1,52 @@
+<!--
+/**
+ * Copyright © magebig.com - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<!--@subject {{var store.getFrontendName()}} | Cập nhật trạng thái hóa đơn @-->
+<!--@vars {
+"var billing.getName()":"Guest Customer Name",
+"var comment":"Invoice Comment",
+"var invoice.increment_id":"Invoice Id",
+"var order.increment_id":"Order Id",
+"var order.getStatusLabel()":"Order Status"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Xin chào %name," name=$billing.getName()}}</p>
+            <p>
+                {{trans "Đơn hàng của bạn #%increment_id đã được cập nhật với trạng thái <strong>%order_status</strong>." increment_id=$order.increment_id order_status=$order.getStatusLabel() |raw}}
+            </p>
+            <p>{{trans 'Nếu bạn có thắc mắc về đơn hàng của mình, bạn có thể gửi email cho chúng tôi <a href="mailto:%store_email">%store_email</a>.' store_email=$store_email |raw}}</p>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{depend comment}}
+            <table class="message-info">
+                <tr>
+                    <td>
+                        <p>Ghi chú : {{var comment|escape|nl2br}}</p>
+                    </td>
+                </tr>
+            </table>
+            {{/depend}}
+        </td>
+    </tr>
+</table>
+<hr>
+<table class="rosa-footer-email">
+    <tr>
+        <td>
+            <span>Facebook : <a href="https://www.facebook.com/rosalynshophn/"> Rosalyn Shop | ThờiTrang Nữ</a></span><br>
+            <span>Email : {{trans '<a href="mailto:%store_email">%store_email</a>' store_email=$store_email |raw}}</span><br>
+            <span>Điện thoại :  {{trans '<a href="tel:%store_phone">%store_phone</a>' store_phone=$store_phone |raw}} (24/7 tất cả các ngày trong tuần).</span><br>
+            <p>Thank you, Rosalynshop.com!</p>
+        </td>
+    </tr>
+</table>
+{{template config_path="design/email/footer_template"}}
