@@ -1,27 +1,24 @@
 <?php
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
  * @package Amasty_AdminActionsLog
  */
 
 
 namespace Amasty\AdminActionsLog\Observer;
 
-use Amasty\AdminActionsLog\Model\ActiveSessions;
-use Amasty\AdminActionsLog\Model\Log;
-use Amasty\AdminActionsLog\Model\LoginAttempts;
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Framework\Stdlib\DateTime\DateTime;
 
-class HandleActionPredispatch implements ObserverInterface
+
+class handleActionPredispatch implements ObserverInterface
 {
-    protected $registryManager;
-    protected $objectManager;
-    protected $authSession;
-    protected $appState;
-    protected $scopeConfig;
-    protected $helper;
+    protected $_registryManager;
+    protected $_objectManager;
+    protected $_authSession;
+    protected $_appState;
+    protected $_scopeConfig;
+    protected $_helper;
 
     public function __construct(
         \Magento\Framework\Registry $coreRegistry,
@@ -30,27 +27,28 @@ class HandleActionPredispatch implements ObserverInterface
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Backend\Model\Auth\Session $authSession,
         \Amasty\AdminActionsLog\Helper\Data $helper
-    ) {
-        $this->registryManager = $coreRegistry;
-        $this->objectManager = $objectManager;
-        $this->authSession = $authSession;
-        $this->appState = $appState;
-        $this->scopeConfig = $scopeConfig;
-        $this->helper = $helper;
+    )
+    {
+        $this->_registryManager = $coreRegistry;
+        $this->_objectManager = $objectManager;
+        $this->_authSession = $authSession;
+        $this->_appState = $appState;
+        $this->_scopeConfig = $scopeConfig;
+        $this->_helper = $helper;
     }
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        if ($this->appState->getAreaCode() === \Magento\Backend\App\Area\FrontNameResolver::AREA_CODE) {
+        if ($this->_appState->getAreaCode() === \Magento\Backend\App\Area\FrontNameResolver::AREA_CODE) {
             /**
              * @var \Magento\Framework\App\Request\Http $request
              */
             $request = $observer->getRequest();
             $action = $request->getActionName();
             if ($this->_needToRegister($action)) {
-                $this->registryManager->register('amaudit_action', $action, true);
+                $this->_registryManager->register('amaudit_action', $action, true);
                 $category = $request->getModuleName() . '/' . $request->getControllerName();
-                $this->registryManager->register('amaudit_category', $category, true);
+                $this->_registryManager->register('amaudit_category', $category, true);
             }
 
             $this->_saveCache($request);
@@ -58,18 +56,18 @@ class HandleActionPredispatch implements ObserverInterface
 
             if ($action == 'logout') {
                 /**
-                 * @var LoginAttempts $loginAttemptsModel
+                 * @var \Amasty\AdminActionsLog\Model\LoginAttempts $loginAttemptsModel
                  */
-                $loginAttemptsModel = $this->objectManager->get(LoginAttempts::class);
+                $loginAttemptsModel = $this->_objectManager->get('Amasty\AdminActionsLog\Model\LoginAttempts');
                 $loginAttemptsModel->logout($observer);
             }
 
-            if ($this->scopeConfig->getValue('amaudit/log/log_enable_visit_history')) {
+            if ($this->_scopeConfig->getValue('amaudit/log/log_enable_visit_history')) {
                 /**
-                 * @var ActiveSessions $activeSessionsModel
+                 * @var \Amasty\AdminActionsLog\Model\ActiveSessions $activeSessionsModel
                  */
-                $activeSessionsModel = $this->objectManager->get(ActiveSessions::class);
-                $activeSessionsModel->updateOnlineAdminActivity($this->helper->getSessionId());
+                $activeSessionsModel = $this->_objectManager->get('Amasty\AdminActionsLog\Model\ActiveSessions');
+                $activeSessionsModel->updateOnlineAdminActivity($this->_helper->getSessionId());
             }
 
         }
@@ -92,9 +90,7 @@ class HandleActionPredispatch implements ObserverInterface
             'restore',
             'cancel',
             'hold',
-            'massHold',
             'unhold',
-            'massUnhold',
             'post',
             'saverole',
             'massOnTheFly',
@@ -120,8 +116,8 @@ class HandleActionPredispatch implements ObserverInterface
             || stripos($action, 'excel') !== false
             || $action == 'exportPost'
         ) {
-            $data['date_time'] = $this->objectManager->get(DateTime::class)->gmtDate();
-            $data['username'] = $this->authSession->getUser()->getUserName();
+            $data['date_time'] = $this->_objectManager->get('Magento\Framework\Stdlib\DateTime\DateTime')->gmtDate();
+            $data['username'] = $this->_authSession->getUser()->getUserName();
             if ($isCsv) {
                 $data['type'] = 'exportCsv';
             } else {
@@ -133,8 +129,8 @@ class HandleActionPredispatch implements ObserverInterface
             $data['item'] = __('Data was exported');
             $data['store_id'] = 0;
 
-            /** @var Log $logModel */
-            $logModel = $this->objectManager->get(Log::class);
+            /** @var \Amasty\AdminActionsLog\Model\Log $logModel */
+            $logModel = $this->_objectManager->get('Amasty\AdminActionsLog\Model\Log');
             $logModel->addData($data);
             $logModel->save();
         }
@@ -145,24 +141,20 @@ class HandleActionPredispatch implements ObserverInterface
      */
     protected function _saveCache($request)
     {
-        $userId = '';
-        if ($this->authSession->getUser()) {
-            $userId = $this->authSession->getUser()->getId();
-        }
-        if ($request->getControllerName() == 'cache' && !empty($userId) && $this->helper->isUserInLog($userId)) {
+        if ($request->getControllerName() == 'cache') {
             $action = $request->getActionName();
 
             if ($action != 'index') {
-                $data['date_time'] = $this->objectManager->get(DateTime::class)->gmtDate();
-                $data['username'] = $this->authSession->getUser()->getUserName();
+                $data['date_time'] = $this->_objectManager->get('Magento\Framework\Stdlib\DateTime\DateTime')->gmtDate();
+                $data['username'] = $this->_authSession->getUser()->getUserName();
                 $data['type'] = $action;
                 $data['category'] = __('Cache');
                 $data['category_name'] = __('Cache');
                 $data['item'] = __('Cache');
                 $data['store_id'] = 0;
 
-                /** @var Log $logModel */
-                $logModel = $this->objectManager->get(Log::class);
+                /** @var \Amasty\AdminActionsLog\Model\Log $logModel */
+                $logModel = $this->_objectManager->get('Amasty\AdminActionsLog\Model\Log');
                 $logModel->addData($data);
                 $logModel->save();
             }

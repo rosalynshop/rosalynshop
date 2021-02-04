@@ -1,25 +1,24 @@
 <?php
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
  * @package Amasty_AdminActionsLog
  */
 
 
 namespace Amasty\AdminActionsLog\Observer;
 
-use Amasty\AdminActionsLog\Model\LogDetails;
-use Magento\Downloadable\Model\Link as DownloadableLink;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Logger;
 
-class HandleModelSaveAfter implements ObserverInterface
+class handleModelSaveAfter implements ObserverInterface
 {
-    protected $objectManager;
-    protected $helper;
-    protected $scopeConfig;
-    protected $appState;
-    protected $registryManager;
+    protected $_objectManager;
+    protected $_helper;
+    protected $_scopeConfig;
+    protected $_appState;
+    protected $_isConfigSaved;
+    protected $_registryManager;
 
     protected $_arrayKeysToString = ['associated_product_ids'];
 
@@ -30,40 +29,40 @@ class HandleModelSaveAfter implements ObserverInterface
         \Amasty\AdminActionsLog\Helper\Data $helper,
         \Magento\Framework\App\State $appState
     ) {
-        $this->objectManager = $objectManager;
-        $this->registryManager = $coreRegistry;
-        $this->helper = $helper;
-        $this->scopeConfig = $scopeConfig;
-        $this->appState = $appState;
+        $this->_objectManager = $objectManager;
+        $this->_registryManager = $coreRegistry;
+        $this->_helper = $helper;
+        $this->_scopeConfig = $scopeConfig;
+        $this->_appState = $appState;
     }
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         try {
-            if ($this->appState->getAreaCode() === \Magento\Backend\App\Area\FrontNameResolver::AREA_CODE) {
+            if ($this->_appState->getAreaCode() === \Magento\Backend\App\Area\FrontNameResolver::AREA_CODE) {
                 $object = $observer->getObject();
 
-                if ($this->helper->needToSave($object)) {
+                if ($this->_helper->needToSave($object)) {
                     $this->_saveLog($object);
                 }
             }
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
-            null;// no action is Area Code in not set
+            // no action is Area Code in not set
         }
     }
 
     protected function _saveLog($object)
     {
         $possibleOrderClasses = [
-            \Magento\CustomerCustomAttributes\Model\Sales\Quote::class,
-            \Magento\CustomerCustomAttributes\Model\Sales\Quote\Address::class
+        'Magento\CustomerCustomAttributes\Model\Sales\Quote',
+        'Magento\CustomerCustomAttributes\Model\Sales\Quote\Address'
         ];
 
-        if (!$this->registryManager->registry('amaudit_log_saved')
+        if (!$this->_registryManager->registry('amaudit_log_saved')
             || $this->_isMassAction()
         ) {
             /** @var \Amasty\AdminActionsLog\Model\Log $logModel */
-            $logModel = $this->objectManager->create(\Amasty\AdminActionsLog\Model\Log::class);
+            $logModel = $this->_objectManager->create('Amasty\AdminActionsLog\Model\Log');
             $data = $logModel->prepareLogData($object);
 
             if (!isset($data['username'])
@@ -73,11 +72,11 @@ class HandleModelSaveAfter implements ObserverInterface
             }
             $logModel->addData($data);
             $logModel->save();
-            $this->registryManager->register('amaudit_log_saved', $logModel, true);
+            $this->_registryManager->register('amaudit_log_saved', $logModel, true);
         } else {
             /** @var \Amasty\AdminActionsLog\Model\Log $logModel */
-            $logModel = $this->registryManager->registry('amaudit_log_saved');
-            if ($this->helper->isCompletedOrder($object, $logModel)
+            $logModel = $this->_registryManager->registry('amaudit_log_saved');
+            if ($this->_helper->isCompletedOrder($object, $logModel)
             ) {
                 $data = $logModel->prepareLogData($object);
                 $logModel->setType('New');
@@ -92,18 +91,18 @@ class HandleModelSaveAfter implements ObserverInterface
         $this->_saveLogDetails($object, $logModel);
     }
 
-    protected function isNeedLogOrderInfo($object)
+    protected function isNeedLogOrderInfo ($object)
     {
         $needToLog = true;
 
         $unnescesaryClasses = [
-            \Magento\CustomerCustomAttributes\Model\Sales\Order\Address::class,
-            \Magento\CustomerCustomAttributes\Model\Sales\Order::class,
-            \Magento\Sales\Model\Order\Interceptor::class,
-            \Magento\Sales\Model\Order\Status\History::class
+            'Magento\CustomerCustomAttributes\Model\Sales\Order\Address',
+            'Magento\CustomerCustomAttributes\Model\Sales\Order',
+            'Magento\Sales\Model\Order\Interceptor',
+            'Magento\Sales\Model\Order\Status\History'
         ];
 
-        if ($this->registryManager->registry('order_info_saved')
+        if ($this->_registryManager->registry('order_info_saved')
             && in_array(get_class($object), $unnescesaryClasses)
         ) {
             $needToLog = false;
@@ -120,11 +119,9 @@ class HandleModelSaveAfter implements ObserverInterface
             'massDisable',
             'massEnable',
             'inlineEdit',
-            'massHold',
-            'massUnhold'
         ];
 
-        $action = $this->registryManager->registry('amaudit_action');
+        $action = $this->_registryManager->registry('amaudit_action');
 
         if (in_array($action, $massActions)) {
             $isMassAction = true;
@@ -138,21 +135,21 @@ class HandleModelSaveAfter implements ObserverInterface
         $isConfig = $object instanceof \Magento\Framework\App\Config\Value;
 
         $orderClassesToLog = [
-            \Magento\Sales\Model\Order\Shipment::class ,
-            \Magento\Sales\Model\Order\Invoice::class,
-            \Magento\Sales\Model\Order\Creditmemo\Interceptor::class,
-            \Magento\Sales\Model\Order\Status\History::class
+            'Magento\Sales\Model\Order\Shipment',
+            'Magento\Sales\Model\Order\Invoice',
+            'Magento\Sales\Model\Order\Creditmemo\Interceptor',
+            'Magento\Sales\Model\Order\Status\History'
         ];
 
         if ($isConfig) {
             $path = $object->getPath();
             $newData[$path] = $object->getValue();
-            $oldData[$path] = $this->scopeConfig->getValue($path);
+            $oldData[$path] = $this->_scopeConfig->getValue($path);
         } else {
             $oldData = $object->getOrigData();
 
-            if ($this->helper->needOldData($object)) {
-                $oldDataBeforeSave = $this->registryManager->registry('amaudit_data_before');
+            if ($this->_helper->needOldData($object)) {
+                $oldDataBeforeSave = $this->_registryManager->registry('amaudit_data_before');
 
                 if (is_array($oldData)) {
                     $oldData = $oldData + $oldDataBeforeSave;
@@ -173,10 +170,10 @@ class HandleModelSaveAfter implements ObserverInterface
         }
         $typeLog = $logModel->getType();
 
-        if (!$this->registryManager->registry('order_info_saved')
+        if (!$this->_registryManager->registry('order_info_saved')
             && in_array(get_class($object), $orderClassesToLog)
         ) {
-            $this->registryManager->register('order_info_saved', true);
+            $this->_registryManager->register('order_info_saved', true);
         }
 
         if ($typeLog == 'New' && !$isConfig) {
@@ -202,7 +199,7 @@ class HandleModelSaveAfter implements ObserverInterface
 
     protected function _prepareOldProductOptionData($newData)
     {
-        $options = $this->registryManager->registry('amaudit_product_options_before');
+        $options = $this->_registryManager->registry('amaudit_product_options_before');
 
         $data = [];
 
@@ -281,108 +278,74 @@ class HandleModelSaveAfter implements ObserverInterface
             $newValue = str_replace("\r\n", "\n", $newValue);
         }
 
-        switch ($this->outerConditionResolver($key, $keysNotForLogging, $oldValue, $newValue, $saveArrayAsString)) {
-            case 'isMultipleIdsInstance':
-                if (is_array($newValue)) {
-                    $newValue = implode(',', $newValue);
-                }
-                $this->_saveOneDetail($logModel, $object, $key, implode(',', $oldValue), $newValue);
-                break;
-            case 'isSimpleInstance':
-                if (get_class($object) == DownloadableLink::class) {
-                    unset($oldValue['product']);
-                }
-                foreach ($oldValue as $k => $v) {
-                    switch ($this->innerConditionResolver($v, $k, $keysNotForLogging, $newValue)) {
-                        case 'recursiveDataCall':
-                            $this->_saveOneDetail($logModel, $v, $k, $v->getData(), $newValue[$k]->getData());
-                            break;
-                        case 'recursiveCallForArray':
-                            $this->_saveOneDetail($logModel, $object, $k, $v, $newValue[$k]);
-                            break;
-                        case 'recursiveCallForString':
-                            $this->_saveOneDetail($logModel, $object, $k, $v, (string)$newValue);
-                            break;
-                    }
-                }
-                break;
-            case 'recursiveDataCall':
-                $this->_saveOneDetail($logModel, $oldValue, $key, $oldValue->getData(), $newValue->getData());
-                break;
-            case 'notDeleted':
-                $typeLog = $logModel->getType();
-                $logDetailsModel = $this->objectManager->get(LogDetails::class);
-
-                if ($typeLog == 'Edit') {
-                    $newKey = $this->_changeNewKey($key, $logModel->getCategory());
-                } else {
-                    $newKey = $key;
-                }
-                $data = [];
-                $data['log_id'] = $logModel->getId();
-                $data['new_value'] = $this->_prepareNewData($newKey, $newValue);
-                $data['name'] = $key;
-                $data['model'] = get_class($object);
-                $data['old_value'] = $this->_prepareOldData($key, $oldValue);
-
-                if (($data['old_value'] != $data['new_value'])
-                    && !in_array($key, $keyNotForSaving)
-                ) {
-                    $logDetailsModel->setData($data);
-                    $logDetailsModel->save();
-                }
-                break;
-        }
-    }
-
-    protected function outerConditionResolver($key, $keysNotForLogging, $oldValue, $newValue, $saveArrayAsString)
-    {
         if (!in_array($key, $keysNotForLogging) || is_int($key)) {
             if (is_array($oldValue)) {
                 if (in_array($key, $saveArrayAsString) && $key !== 0) {
-                    return 'isMultipleIdsInstance';
+                    if (is_array($newValue)) {
+                        $newValue = implode(',', $newValue);
+                    }
+                    $this->_saveOneDetail($logModel, $object, $key, implode(',', $oldValue), $newValue);
                 } else {
-                    return 'isSimpleInstance';
+                    if (get_class($object) == 'Magento\Downloadable\Model\Link') {
+                        unset($oldValue['product']);
+                    }
+                    foreach ($oldValue as $k => $v) {
+                        if (!in_array($k, $keysNotForLogging) || is_int($k)) {
+                            if (is_object($v) && is_callable([$v, 'getData'], true)) {
+                                if (array_key_exists($k, $newValue)
+                                    && is_callable([$newValue[$k], 'getData'], true)
+                                ) {
+                                    $this->_saveOneDetail($logModel, $v, $k, $v->getData(), $newValue[$k]->getData());
+                                }
+                            } elseif (is_array($newValue)) {
+                                if (array_key_exists($k, $newValue)) {
+                                    $this->_saveOneDetail($logModel, $object, $k, $v, $newValue[$k]);
+                                }
+                            } else {
+                                $this->_saveOneDetail($logModel, $object, $k, $v, (string) $newValue);
+                            }
+                        }
+                    }
                 }
-            } elseif (is_object($oldValue) && is_callable($oldValue, 'getData') &&
-                is_object($newValue) && is_callable($newValue, 'getData')) {
-                return 'recursiveDataCall';
+            } elseif (is_object($oldValue) && is_object($newValue) && is_callable($oldValue, 'getData') && is_callable($newValue, 'getData')) {
+                $this->_saveOneDetail($logModel, $oldValue, $key, $oldValue->getData(), $newValue->getData());
             } else {
                 if ($oldValue != $newValue
                     && $newValue !== false
                 ) {
-                    return 'notDeleted';
-                }
-            }
-        }
-        return 'notLogged';
-    }
+                    $typeLog = $logModel->getType();
+                    $logDetailsModel = $this->_objectManager->get('Amasty\AdminActionsLog\Model\LogDetails');
 
-    protected function innerConditionResolver($v, $k, $keysNotForLogging, $newValue)
-    {
-        if (!in_array($k, $keysNotForLogging) || is_int($k)) {
-            if (is_object($v) && is_callable([$v, 'getData'], true)) {
-                if (array_key_exists($k, $newValue)
-                    && is_callable([$newValue[$k], 'getData'], true)
-                ) {
-                    return 'recursiveDataCall';
+                    if ($typeLog == 'Edit') {
+                        $newKey = $this->_changeNewKey($key, $logModel->getCategory());
+                    } else {
+                        $newKey = $key;
+                    }
+                    $data = [];
+                    $data['log_id'] = $logModel->getId();
+                    $data['new_value'] = $this->_prepareNewData($newKey, $newValue);
+                    $data['name'] = $key;
+                    $data['model'] = get_class($object);
+                    $data['old_value'] = $this->_prepareOldData($key, $oldValue);
+
+                    if (($data['old_value'] != $data['new_value'])
+                        && !in_array($key, $keyNotForSaving)
+                    ) {
+                        $logDetailsModel->setData($data);
+                        $logDetailsModel->save();
+                    }
                 }
-            } elseif (is_array($newValue)) {
-                if (array_key_exists($k, $newValue)) {
-                    return 'recursiveCallForArray';
-                }
-            } else {
-                return 'recursiveCallForString';
             }
         }
-        return 'notLogged';
+
     }
 
     protected function _isConfig($logModel)
     {
         $isConfig = false;
 
-        if ($logModel->getCategory() == 'admin/system_config') {
+        if ($logModel->getCategory() == 'admin/system_config')
+        {
             $isConfig = true;
         }
 
@@ -438,7 +401,8 @@ class HandleModelSaveAfter implements ObserverInterface
 
         if (is_object($value)) {
             $value = get_class($value);
-        } elseif (is_array($value)) {
+        }
+        elseif (is_array($value)) {
             foreach ($value as $k => $v) {
                 if (is_object($v)) {
                     $value[$k] = get_class($v);
@@ -482,6 +446,7 @@ class HandleModelSaveAfter implements ObserverInterface
                 $value = (int)$value;
                 break;
             case 'quantity_and_stock_status':
+
                 break;
         }
 
