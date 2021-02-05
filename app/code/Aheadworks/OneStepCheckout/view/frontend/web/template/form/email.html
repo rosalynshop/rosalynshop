@@ -17,6 +17,7 @@
                            type="email"
                            data-bind="textInput: email,hasFocus: emailFocused"
                            name="username"
+                           placeholder="Nhập email"
                            data-validate="{required:true, 'validate-email':true}"
                            id="customer-email" />
                 </div>
@@ -32,6 +33,7 @@
                                type="password"
                                name="password"
                                id="customer-password"
+                               placeholder="Nhập mật khẩu"
                                data-validate="{required:true}" autocomplete="off"/>
                         <span class="note" data-bind="i18n: 'You already have an account with us. Sign in or continue as guest.'"></span>
                     </div>

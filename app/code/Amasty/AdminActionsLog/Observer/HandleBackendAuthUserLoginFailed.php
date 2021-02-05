@@ -1,49 +1,49 @@
 <?php
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
  * @package Amasty_AdminActionsLog
  */
 
 
 namespace Amasty\AdminActionsLog\Observer;
-
-use Amasty\AdminActionsLog\Model\LoginAttempts;
-use Amasty\AdminActionsLog\Model\Mailsender;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Logger;
 
-class HandleBackendAuthUserLoginFailed implements ObserverInterface
+class handleBackendAuthUserLoginFailed implements ObserverInterface
 {
-    protected $objectManager;
-    protected $scopeConfig;
+    protected $_objectManager;
+    protected $_scopeConfig;
 
     public function __construct(
         \Magento\Framework\ObjectManagerInterface $objectManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
-    ) {
-        $this->objectManager = $objectManager;
-        $this->scopeConfig = $scopeConfig;
+    )
+    {
+        $this->_objectManager = $objectManager;
+        $this->_scopeConfig = $scopeConfig;
     }
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        /** @var $loginAttemptsModel LoginAttempts $logModel */
-        $loginAttemptsModel = $this->objectManager->create(LoginAttempts::class);
-        $userData = $loginAttemptsModel->prepareUserLoginData($observer, LoginAttempts::UNSUCCESS);
+        /** @var $loginAttemptsModel \Amasty\AdminActionsLog\Model\LoginAttempts $logModel */
+        $loginAttemptsModel = $this->_objectManager->create('Amasty\AdminActionsLog\Model\LoginAttempts');
+        $userData = $loginAttemptsModel->prepareUserLoginData($observer, \Amasty\AdminActionsLog\Model\LoginAttempts::UNSUCCESS);
         $loginAttemptsModel->setData($userData);
         $loginAttemptsModel->save();
 
-        $receiveUnsuccessfulEmail = $this->scopeConfig->getValue('amaudit/unsuccessful_log_mailing/send_to_mail');
-        if (($this->scopeConfig->getValue('amaudit/unsuccessful_log_mailing/enabled') != 0)
-            && !empty($receiveUnsuccessfulEmail)) {
+        $receiveUnsuccessfulEmail = $this->_scopeConfig->getValue('amaudit/unsuccessful_log_mailing/send_to_mail');
+        if (
+            ($this->_scopeConfig->getValue('amaudit/unsuccessful_log_mailing/enabled') != 0)
+            && !empty($receiveUnsuccessfulEmail)
+        ) {
             $unsuccessfulCount = $loginAttemptsModel->getUnsuccessfulCount();
             if ($unsuccessfulCount >= $loginAttemptsModel::MIN_UNSUCCESSFUL_COUNT) {
                 $userData['unsuccessful_login_count'] = $unsuccessfulCount;
                 /**
-                 * @var Mailsender $mailsendModel
+                 * @var \Amasty\AdminActionsLog\Model\Mailsender $mailsendModel
                  */
-                $mailsendModel = $this->objectManager->get(Mailsender::class);
+                $mailsendModel = $this->_objectManager->get('Amasty\AdminActionsLog\Model\Mailsender');
                 $userData['unsuccessful_login_count'] = $unsuccessfulCount;
                 $mailsendModel->sendMail($userData, 'unsuccessful', $receiveUnsuccessfulEmail);
             }

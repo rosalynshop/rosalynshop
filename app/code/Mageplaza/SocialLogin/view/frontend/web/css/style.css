@@ -68,7 +68,11 @@
 
 #social-login-popup .fieldset,
 #request-popup .fieldset {
-    margin: 0;
+    margin: 0px;
+}
+
+.actions-toolbar {
+    margin-top: 7px;
 }
 
 .account-social-login .actions-toolbar.social-btn {
@@ -403,7 +407,6 @@
     border-radius: 4px;
     padding: 6px 12px 6px 44px;
     font-family: 'Roboto', sans-serif;
-    color:#fff !important;
 }
 
 .btn-social {
@@ -1715,7 +1718,6 @@
     }
     #bnt-social-login-authentication {
         margin-bottom: 0;
-        color: #fff;
     }
     .forgot-pass-title {
         width: 80%;

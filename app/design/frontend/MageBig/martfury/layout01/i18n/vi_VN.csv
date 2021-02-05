@@ -3229,7 +3229,7 @@ Time in seconds between the widget updates.,module,Magento_CatalogWidget
 "We can't update the item right now.","Bạn không thể cập nhập sản phẩm vào lúc này.",module,Magento_Checkout
 "We can't update the shopping cart.","Chúng tôi không thể cập nhật giỏ mua hàng.",module,Magento_Checkout
 "One-page checkout is turned off.","One-page checkout đã tắt.",module,Magento_Checkout
-"Guest checkout is disabled.","Thanh toán như khách đã bị tắt.",module,Magento_Checkout
+"Guest checkout is disabled.","Vui lòng đăng nhập để thanh toán đơn hàng.",module,Magento_Checkout
 "Checkout","Thanh toán",module,Magento_Checkout
 "Page not found.","Không tìm thấy trang.",module,Magento_Checkout
 "Please agree to all the terms and conditions before placing the order.","Xin vui lòng đồng ý với tất cả các điều khoản và điều kiện trước khi đặt các đơn đặt hàng.",module,Magento_Checkout
@@ -3288,7 +3288,7 @@ Time in seconds between the widget updates.,module,Magento_CatalogWidget
 "You have no items in your shopping cart.","Bạn có không có sản phẩm nào trong giỏ hàng.",module,Magento_Checkout
 "Click <a href=""%1"">here</a> to continue shopping.","Bấm vào <a href=""%1""> đây</a> để tiếp tục mua sắm.",module,Magento_Checkout
 "Estimate Tax","Ước tính thuế",module,Magento_Checkout
-"Estimate Shipping and Tax","ước tính vận chuyển và thuế",module,Magento_Checkout
+"Estimate Shipping and Tax","Ước tính vận chuyển và thuế",module,Magento_Checkout
 "Excl. Tax","Chưa bao gồm thuế",module,Magento_Checkout
 "Loading...","Đang tải...",module,Magento_Checkout
 "Order #","Đơn hàng #",module,Magento_Checkout
@@ -5080,7 +5080,7 @@ new products will be created. Use this step to customize images and price for yo
 "Set a New Password","Thiết lập một mật khẩu mới",module,Magento_Customer
 "You have signed out and will go to our homepage in 5 seconds.","Bạn đã đăng xuất và sẽ đi đến trang chủ của chúng tôi trong 5 giây.",module,Magento_Customer
 "New Customers","Khách hàng mới",module,Magento_Customer
-"Creating an account has many benefits: check out faster, keep more than one address, track orders and more.","Tạo một tài khoản có nhiều lợi ích: kiểm tra nhanh hơn, giữ nhiều hơn một địa chỉ, theo dõi các đơn đặt hàng và nhiều hơn nữa.",module,Magento_Customer
+"Creating an account has many benefits: check out faster, keep more than one address, track orders and more.","Tạo một tài khoản có nhiều lợi ích: thanh toán nhanh hơn, giữ nhiều hơn một địa chỉ, theo dõi các đơn đặt hàng và nhiều hơn nữa.",module,Magento_Customer
 "Company","Công ty",module,Magento_Customer
 "Fax","Số Fax",module,Magento_Customer
 "Gender","Giới tính",module,Magento_Customer
@@ -5119,12 +5119,12 @@ new products will be created. Use this step to customize images and price for yo
 "If you did not make this request, you can ignore this email and your password will remain the same.","Nếu bạn đã không thực hiện yêu cầu này, bạn có thể bỏ qua, email và mật khẩu của bạn sẽ vẫn như cũ.",module,Magento_Customer
 "Your %store_name password has been changed","%store_name mật khẩu của bạn đã bị thay đổi",module,Magento_Customer
 "We have received a request to change the following information associated with your account at %store_name: password.","Chúng tôi đã nhận được một yêu cầu để thay đổi các thông tin liên kết với tài khoản của bạn tại %store_name: mật khẩu.",module,Magento_Customer
-"Checkout as a new customer","Checkout as a new customer",module,Magento_Customer
+"Checkout as a new customer","Thanh toán như một khách hàng mới",module,Magento_Customer
 "Creating an account has many benefits:","Tạo một tài khoản có nhiều lợi ích:",module,Magento_Customer
 "See order and shipping status","Xem trạng thái đơn đặt hàng và vận chuyển",module,Magento_Customer
 "Track order history","Theo dõi lịch sử đặt hàng",module,Magento_Customer
-"Check out faster","Kiểm tra nhanh hơn",module,Magento_Customer
-"Checkout using your account","Checkout using your account",module,Magento_Customer
+"Check out faster","Thanh toán dễ dàng hơn",module,Magento_Customer
+"Checkout using your account","Đăng nhập để thanh toán",module,Magento_Customer
 "Email Address","Địa chỉ email",module,Magento_Customer
 "Are you sure you want to do this?","Bạn có chắc rằng bạn muốn làm điều này?",module,Magento_Customer
 "Are you sure you want to delete this address?","Bạn có chắc bạn muốn xóa địa chỉ này?",module,Magento_Customer
@@ -5132,7 +5132,7 @@ new products will be created. Use this step to customize images and price for yo
 "Medium","Trung bình",module,Magento_Customer
 "Strong","Mạnh mẽ",module,Magento_Customer
 "Very Strong","Rất mạnh",module,Magento_Customer
-"Guest checkout is disabled.","Thanh toán như khách đã bị tắt.",module,Magento_Customer
+"Guest checkout is disabled.","Vui lòng đăng nhập để thanh toán đơn hàng.",module,Magento_Customer
 "All Customers","Tất cả khách hàng",module,Magento_Customer
 "Now Online","Đang trực tuyến",module,Magento_Customer
 "Customers Section","Mục Khách hàng",module,Magento_Customer
@@ -6491,3 +6491,4 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "Added","đã thêm",module,Magento_Email
 "Updated","Đã cập nhật",module,Magento_Email
 "Subject","Chủ đề",module,Magento_Email
+"District","Khu vực"

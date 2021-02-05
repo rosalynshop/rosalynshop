@@ -1,37 +1,36 @@
 <?php
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
  * @package Amasty_AdminActionsLog
  */
 
 
 namespace Amasty\AdminActionsLog\Observer;
 
-use Amasty\AdminActionsLog\Model\VisitHistory;
-use Amasty\AdminActionsLog\Model\VisitHistoryDetails;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\View;
 
-class HandleLayoutRenderBefore implements ObserverInterface
+class handleLayoutRenderBefore implements ObserverInterface
 {
-    protected $objectManager;
-    protected $context;
+    protected $_objectManager;
+    protected $_context;
 
     public function __construct(
         View\Element\Template\Context $context,
         \Magento\Framework\ObjectManagerInterface $objectManager
-    ) {
-        $this->objectManager = $objectManager;
-        $this->context = $context;
+    )
+    {
+        $this->_objectManager = $objectManager;
+        $this->_context = $context;
     }
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        $context = $this->context;
+        $context = $this->_context;
         $session = $context->getSession();
         $sessionId = $session->getSessionId();
-        $visitEntityData = $this->objectManager->get(VisitHistory::class)->getVisitEntity($sessionId)->getData();
+        $visitEntityData = $this->_objectManager->get('Amasty\AdminActionsLog\Model\VisitHistory')->getVisitEntity($sessionId)->getData();
         if (!empty($visitEntityData)) {
             $pageTitleBlock = $context->getLayout()->getBlock('page.title');
             if ($pageTitleBlock !== false) {
@@ -45,9 +44,9 @@ class HandleLayoutRenderBefore implements ObserverInterface
                 $detailData['visit_id'] = $visitEntityData['id'];
 
                 /**
-                 * @var VisitHistoryDetails $detailsModel
+                 * @var \Amasty\AdminActionsLog\Model\VisitHistoryDetails $detailsModel
                  */
-                $detailsModel = $this->objectManager->get(VisitHistoryDetails::class);
+                $detailsModel = $this->_objectManager->get('Amasty\AdminActionsLog\Model\VisitHistoryDetails');
                 $detailsModel->saveLastPageDuration($sessionId);
                 $session->setLastPageTime(time());
                 $detailsModel->setData($detailData);

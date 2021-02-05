@@ -1,0 +1,24 @@
+& when (@media-common = true) {
+  .social-login-authentication-popup {
+    width: 100% !important;
+  }
+  .block,.block-customer-login {
+    &:before{
+      content: none !important;
+    }
+  }
+}
+//
+//  Mobile (styles-m.css)
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}
+//
+//  Tablet (for the front-end)
+//  _____________________________________________
+
+@media only screen and (max-width: @screen__m) {
+
+}

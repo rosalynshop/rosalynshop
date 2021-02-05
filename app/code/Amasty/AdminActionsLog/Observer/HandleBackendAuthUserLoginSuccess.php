@@ -1,72 +1,71 @@
 <?php
 /**
  * @author Amasty Team
- * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
  * @package Amasty_AdminActionsLog
  */
 
 
 namespace Amasty\AdminActionsLog\Observer;
-
-use Amasty\AdminActionsLog\Model\ActiveSessions;
-use Amasty\AdminActionsLog\Model\LoginAttempts;
-use Amasty\AdminActionsLog\Model\Mailsender;
-use Amasty\AdminActionsLog\Model\VisitHistory;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Logger;
 
-class HandleBackendAuthUserLoginSuccess implements ObserverInterface
+class handleBackendAuthUserLoginSuccess implements ObserverInterface
 {
-    protected $objectManager;
-    protected $scopeConfig;
+    protected $_objectManager;
+    protected $_scopeConfig;
 
     public function __construct(
         \Magento\Framework\ObjectManagerInterface $objectManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
-    ) {
-        $this->objectManager = $objectManager;
-        $this->scopeConfig = $scopeConfig;
+    )
+    {
+        $this->_objectManager = $objectManager;
+        $this->_scopeConfig = $scopeConfig;
     }
 
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        /** @var $loginAttemptsModel LoginAttempts $logModel */
-        $loginAttemptsModel = $this->objectManager->get(LoginAttempts::class);
-        $userData = $loginAttemptsModel->prepareUserLoginData($observer, LoginAttempts::SUCCESS);
+        /** @var $loginAttemptsModel \Amasty\AdminActionsLog\Model\LoginAttempts $logModel */
+        $loginAttemptsModel = $this->_objectManager->get('Amasty\AdminActionsLog\Model\LoginAttempts');
+        $userData = $loginAttemptsModel->prepareUserLoginData($observer, \Amasty\AdminActionsLog\Model\LoginAttempts::SUCCESS);
         $loginAttemptsModel->setData($userData);
         $loginAttemptsModel->save();
 
         /**
-         * @var ActiveSessions $activeModel
+         * @var \Amasty\AdminActionsLog\Model\ActiveSessions $activeModel
          */
-        $activeModel = $this->objectManager->get(ActiveSessions::class);
+        $activeModel = $this->_objectManager->get('Amasty\AdminActionsLog\Model\ActiveSessions');
         $activeModel->saveActive($userData);
 
         /**
-         * @var Mailsender $mailsendModel
+         * @var \Amasty\AdminActionsLog\Model\Mailsender $mailsendModel
          */
-        $mailsendModel = $this->objectManager->get(Mailsender::class);
+        $mailsendModel = $this->_objectManager->get('Amasty\AdminActionsLog\Model\Mailsender');
 
-        $successfulMail = $this->scopeConfig->getValue('amaudit/successful_log_mailing/send_to_mail');
-        if (($this->scopeConfig->getValue('amaudit/successful_log_mailing/enabled') != 0)
-            && !empty($successfulMail)) {
+        $successfulMail = $this->_scopeConfig->getValue('amaudit/successful_log_mailing/send_to_mail');
+        if (
+            ($this->_scopeConfig->getValue('amaudit/successful_log_mailing/enabled') != 0)
+            && !empty($successfulMail)
+        ) {
             $mailsendModel->sendMail($userData, 'success', $successfulMail);
         }
 
-        $suspiciousMail = $this->scopeConfig->getValue('amaudit/suspicious_log_mailing/send_to_mail');
-        if ((($this->scopeConfig->getValue('amaudit/suspicious_log_mailing/enabled') != 0) &&
-            !empty($suspiciousMail) && $this->scopeConfig->getValue('amaudit/geolocation/geolocation_enable'))) {
+        $suspiciousMail = $this->_scopeConfig->getValue('amaudit/suspicious_log_mailing/send_to_mail');
+        if ((($this->_scopeConfig->getValue('amaudit/suspicious_log_mailing/enabled') != 0) &&
+            !empty($suspiciousMail) && $this->_scopeConfig->getValue('amaudit/geolocation/geolocation_enable'))
+        ) {
             $isSuspicious = $loginAttemptsModel->isSuspicious($userData);
-            if ($isSuspicious) {
+            if ($isSuspicious){
                 $mailsendModel->sendMail($userData, 'suspicious', $suspiciousMail);
             }
         }
 
-        if ($this->scopeConfig->getValue('amaudit/log/log_enable_visit_history') && !empty($userData['username'])) {
+        if ($this->_scopeConfig->getValue('amaudit/log/log_enable_visit_history') && !empty($userData['username'])) {
             /**
-             * @var VisitHistory $visitModel
+             * @var \Amasty\AdminActionsLog\Model\VisitHistory $visitModel
              */
-            $visitModel = $this->objectManager->get(VisitHistory::class);
+            $visitModel = $this->_objectManager->get('Amasty\AdminActionsLog\Model\VisitHistory');
             $visitModel->startVisit($userData);
         }
     }

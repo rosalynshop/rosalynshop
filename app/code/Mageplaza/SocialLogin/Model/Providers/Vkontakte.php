@@ -14,7 +14,6 @@ use Hybrid_User_Contact;
 use Hybrid_User_Profile;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\App\RequestInterface;
-use OAuth2Client;
 use RuntimeException;
 
 /**
@@ -220,21 +219,21 @@ class Vkontakte extends Hybrid_Provider_Model_OAuth2
             $birthday = explode('.', $user->bdate);
             switch (count($birthday)) {
                 case 3:
-                    $user->birthDay   = (int) $birthday[0];
-                    $user->birthMonth = (int) $birthday[1];
-                    $user->birthYear  = (int) $birthday[2];
+                    $user->birthDay   = (int)$birthday[0];
+                    $user->birthMonth = (int)$birthday[1];
+                    $user->birthYear  = (int)$birthday[2];
                     break;
 
                 case 2:
-                    $user->birthDay   = (int) $birthday[0];
-                    $user->birthMonth = (int) $birthday[1];
+                    $user->birthDay   = (int)$birthday[0];
+                    $user->birthMonth = (int)$birthday[1];
                     break;
             }
         }
 
         if (!empty($user->city) && $withAdditionalRequests) {
             $params = ['city_ids' => $user->city];
-            $cities = (array) $this->api->api('database.getCitiesById', 'GET', $params);
+            $cities = (array)$this->api->api('database.getCitiesById', 'GET', $params);
             $city   = reset($cities);
 
             if (is_array($city)) {
@@ -248,7 +247,7 @@ class Vkontakte extends Hybrid_Provider_Model_OAuth2
 
         if (!empty($user->country) && $withAdditionalRequests) {
             $params    = ['country_ids' => $user->country];
-            $countries = (array) $this->api->api('database.getCountriesById', 'GET', $params);
+            $countries = (array)$this->api->api('database.getCountriesById', 'GET', $params);
             $country   = reset($countries);
 
             if (is_array($country)) {
