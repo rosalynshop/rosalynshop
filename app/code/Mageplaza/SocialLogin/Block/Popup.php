@@ -164,7 +164,7 @@ class Popup extends Template
      */
     public function isSecure()
     {
-        return (bool) $this->helperData->isSecure();
+        return (bool)$this->helperData->isSecure();
     }
 
     /**
@@ -181,5 +181,13 @@ class Popup extends Template
     public function isRequireMoreInfo()
     {
         return ($this->helperData->requiredMoreInfo() && !$this->isEnabled());
+    }
+
+    /**
+     * @return mixed
+     */
+    public function isCheckMode()
+    {
+        return (bool)$this->helperData->isCheckMode();
     }
 }
