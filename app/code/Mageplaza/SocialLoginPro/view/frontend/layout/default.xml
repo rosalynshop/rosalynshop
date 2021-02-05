@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_SocialLoginPro
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Mageplaza_SocialLoginPro::css/style.css"/>
+    </head>
+    <body>
+        <referenceBlock name="social-login-popup-authentication">
+            <container name="form.additional.info1" as="form_additional_info">
+                <block class="Mageplaza\SocialLoginPro\Block\Captcha" name="social-pro-login-captcha" after="-">
+                    <action method="setFormId">
+                        <argument name="formId" xsi:type="string">user_login</argument>
+                    </action>
+                    <action method="setImgWidth">
+                        <argument name="width" xsi:type="string">230</argument>
+                    </action>
+                    <action method="setImgHeight">
+                        <argument name="width" xsi:type="string">50</argument>
+                    </action>
+                </block>
+            </container>
+        </referenceBlock>
+        <referenceBlock name="social-login-popup-create">
+            <container name="form.additional.info2" as="form_additional_info">
+                <block class="Mageplaza\SocialLoginPro\Block\Captcha" name="social-pro-create-captcha" after="-">
+                    <action method="setFormId">
+                        <argument name="formId" xsi:type="string">user_create</argument>
+                    </action>
+                    <action method="setImgWidth">
+                        <argument name="width" xsi:type="string">230</argument>
+                    </action>
+                    <action method="setImgHeight">
+                        <argument name="width" xsi:type="string">50</argument>
+                    </action>
+                </block>
+            </container>
+        </referenceBlock>
+        <referenceBlock name="social-login-popup-forgot">
+            <container name="form.additional.info3" as="form_additional_info">
+                <block class="Mageplaza\SocialLoginPro\Block\Captcha" name="social-pro-forgot-password-captcha" after="-">
+                    <action method="setFormId">
+                        <argument name="formId" xsi:type="string">user_forgotpassword</argument>
+                    </action>
+                    <action method="setImgWidth">
+                        <argument name="width" xsi:type="string">230</argument>
+                    </action>
+                    <action method="setImgHeight">
+                        <argument name="width" xsi:type="string">50</argument>
+                    </action>
+                </block>
+            </container>
+        </referenceBlock>
+
+        <referenceBlock name="social-login-captcha" remove="true"/>
+        <referenceBlock name="social-create-captcha" remove="true"/>
+        <referenceBlock name="social-forgot-password-captcha" remove="true"/>
+    </body>
+</page>

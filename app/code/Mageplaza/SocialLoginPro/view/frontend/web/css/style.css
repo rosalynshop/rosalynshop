@@ -1,0 +1,217 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_SocialLoginPro
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+.social-btn {
+    width: 215px;
+    max-width: 100%;
+}
+
+.box-social a {
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.manager-box {
+    margin-bottom: 50px;
+}
+
+/*Checkout */
+.popup-authentication .block-authentication {
+    border: none !important;
+}
+
+.checkout-index-index .modal-popup.osc-social-login-popup .modal-inner-wrap .modal-content .mfp-hide {
+    display: block !important;
+}
+
+.checkout-index-index .modal-popup.osc-social-login-popup .modal-inner-wrap h1.modal-title {
+    display: none
+}
+
+@media (min-width: 786px), print {
+    .checkout-index-index .modal-popup.osc-social-login-popup .modal-inner-wrap {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 600px !important;
+        min-width: 0;
+    }
+
+    .checkout-index-index .modal-popup.osc-social-login-popup .modal-inner-wrap header {
+        padding: 0 !important;
+        z-index: 99;
+    }
+
+    .checkout-index-index .modal-popup.osc-social-login-popup .modal-inner-wrap header .action-close {
+        padding: 15px !important;
+    }
+
+    .checkout-index-index .modal-popup.osc-social-login-popup .modal-inner-wrap header .action-close:before {
+        color: #ffffff !important;
+        font-weight: bold
+    }
+
+    .checkout-index-index .modal-popup.osc-social-login-popup .modal-inner-wrap .modal-content {
+        padding: 0 !important
+    }
+}
+
+.fa-disqus {
+    background-color: #2e9fff;
+    content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><path fill='#FFF' d='M102.535 167.5c-16.518 0-31.621-6.036-43.298-16.021L30.5 155.405l11.102-27.401A67.658 67.658 0 0 1 35.564 100c0-37.277 29.984-67.5 66.971-67.5 36.984 0 66.965 30.223 66.965 67.5 0 37.284-29.98 67.5-66.965 67.5zm36.567-67.693v-.188c0-19.478-13.736-33.367-37.42-33.367h-25.58v67.5h25.201c23.868.001 37.799-14.468 37.799-33.945zm-37.138 17.361h-7.482V82.841h7.482c10.989 0 18.283 6.265 18.283 17.07v.188c0 10.896-7.294 17.069-18.283 17.069z'/></svg>");
+}
+
+.btn-disqus {
+    color: #fff;
+    background-color: #2e9fff;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-disqus:focus, .btn-disqus.focus {
+    color: #fff;
+    background-color: #2e9fff;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-disqus:hover {
+    color: #fff;
+    background-color: #178aec;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-disqus:active, .btn-disqus.active, .open > .dropdown-toggle.btn-disqus {
+    color: #fff;
+    background-color: #2e9fff;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-disqus:active:hover, .btn-disqus.active:hover, .open > .dropdown-toggle.btn-disqus:hover, .btn-disqus:active:focus, .btn-disqus.active:focus, .open > .dropdown-toggle.btn-disqus:focus, .btn-disqus:active.focus, .btn-disqus.active.focus, .open > .dropdown-toggle.btn-disqus.focus {
+    color: #fff;
+    background-color: #178aec;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-disqus:active, .btn-disqus.active, .open > .dropdown-toggle.btn-disqus {
+    background-image: none
+}
+
+.btn-disqus.disabled:hover, .btn-disqus[disabled]:hover, fieldset[disabled] .btn-disqus:hover, .btn-disqus.disabled:focus, .btn-disqus[disabled]:focus, fieldset[disabled] .btn-disqus:focus, .btn-disqus.disabled.focus, .btn-disqus[disabled].focus, fieldset[disabled] .btn-disqus.focus {
+    background-color: #178aec;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-disqus .badge {
+    color: #2e9fff;
+    background-color: #fff
+}
+
+.fa-mailru {
+    background-color: #2e9fff;
+    content: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA%2FPjxzdmcgaGVpZ2h0PSI1MTIiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIiB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcyBpZD0iZGVmczEyIi8%2BPGcgaWQ9Imc1Mjc0Ij48cmVjdCBoZWlnaHQ9IjUxMiIgaWQ9InJlY3QyOTg3IiBzdHlsZT0iZmlsbDojMTY4ZGUyO2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTpub25lIiB3aWR0aD0iNTEyIiB4PSIwIiB5PSI1LjY4NDM0MTllLTAxNCIvPjxwYXRoIGQ9Im0gMzI1LjA4MDIzLDI1NC4xNjczNSBjIC0yLjI3MDU1LC00NC4yMTUwNiAtMzUuMTAxNDUsLTcwLjgwOTQ3IC03NC43NDgzNywtNzAuODA5NDcgaCAtMS40OTI3MSBjIC00NS43NTEzMSwwIC03MS4xMjA0MywzNS45NzY5IC03MS4xMjA0Myw3Ni44NDc2NiAwLDQ1Ljc1Mjc3IDMwLjY5MTEzLDc0LjY1Njg5IDcwLjk0NzcxLDc0LjY1Njg5IDQ0Ljg2ODI1LDAgNzQuMzc4OTYsLTMyLjg3NDQ0IDc2LjUxNDM0LC03MS43NTI1OCBsIC0wLjEwMDgzLC04Ljk0MjUgeiBNIDI0OS4wNjE0MSwxNDMuNzc5OTIgYyAzMC41Njk0MSwwIDU5LjMxNTcyLDEzLjUxMzU1IDgwLjQxNTY5LDM0LjY3MzQ0IHYgMC4wNzg5IGMgMCwtMTAuMTU0MiA2LjgzNzA3LC0xNy44MTI4MSAxNi4zMjQ2MywtMTcuODEyODEgbCAyLjQwMjY1LC0wLjAxNjEgYyAxNC44Mzc5MSwwIDE3Ljg5Mzc2LDE0LjA0NjYzIDE3Ljg5Mzc2LDE4LjQ5MDExIGwgMC4wNjcyLDE1Ny45MTgxNSBjIC0xLjA0OTY1LDEwLjM0MzQzIDEwLjY3MjM3LDE1LjY4MzQxIDE3LjE2NzA2LDkuMDQzMDMgMjUuMzYxNTIsLTI2LjA2MDAyIDU1LjY5Mzc2LC0xMzMuOTcxMTUgLTE1Ljc2NDUyLC0xOTYuNDgwOTUgLTY2LjU5NTg1LC01OC4yOTE2ODQgLTE1NS45NTU0OSwtNDguNjkwMDMgLTIwMy40Nzg3NiwtMTUuOTMxMjUgLTUwLjUyNTA1LDM0Ljg0MzI0IC04Mi44NDY4MjcsMTExLjk3MDMgLTUxLjQ0Njk3LDE4NC40MDQ1OCAzNC4yMzM0NCw3OS4wMDExNSAxMzIuMTg0MTQsMTAyLjU2NTMgMTkwLjQwMzU5LDc5LjA1ODE1IDI5LjQ3OTI5LC0xMS44OTc2NiA0My4wOTAzMSwyNy45NDkwMiAxMi40NzQ0Myw0MC45NzE0MyBDIDI2OS4yNjQzLDQ1Ny44NzY5OSAxNDAuNDk5NTcsNDU1Ljg4ODc3IDgwLjM1MzI2MywzNTEuNjkyODEgMzkuNzEzNjgzLDI4MS4zNDI3NyA0MS44NjcxODMsMTU3LjU1ODk5IDE0OS42NTgxOSw5My40MzAzMTYgMjMyLjEwODU4LDQ0LjM1NTg3NCAzNDAuODIxNjYsNTcuOTM4NDQxIDQwNi4zNzI0LDEyNi4zOTY0NCBjIDY4LjUxOTQ4LDcxLjU2NjI4IDY0LjUxNjE0LDIwNS41ODY5NiAtMi4zMDc5NiwyNTcuNjgyNzUgLTMwLjI4MjcxLDIzLjY3NTIgLTc1LjI2MjAyLDAuNjQyNjcgLTc0Ljk3ODI0LC0zMy44NTA1OSBsIC0wLjMwNzg5LC0xMS4yNzYwMiBjIC0yMS4wODQ3NywyMC45MjEyNSAtNDkuMTQ3OTMsMzMuMTI4MjcgLTc5LjcxNzM0LDMzLjEyODI3IC02MC4zOTg1MiwwIC0xMTMuNTQ1NDEsLTUzLjEzMDM4IC0xMTMuNTQ1NDEsLTExMy41Mzk0MyAwLC02MC45OTAwNiA1My4xNDY4OSwtMTE0Ljc2MTc5IDExMy41NDU0MSwtMTE0Ljc2MTc5IGwgMCwwIiBpZD0icGF0aDI0XzNfIiBzdHlsZT0iZmlsbDojZmZmZmZmIi8%2BPC9nPjwvc3ZnPg%3D%3D");
+}
+
+.btn-mailru {
+    color: #fff;
+    background-color: #178de3;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-mailru:focus, .btn-mailru.focus {
+    color: #fff;
+    background-color: #0276cb;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-mailru:hover {
+    color: #fff;
+    background-color: #0276cb;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-mailru:active, .btn-mailru.active, .open > .dropdown-toggle.btn-mailru {
+    color: #fff;
+    background-color: #0276cb;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-mailru:active:hover, .btn-mailru.active:hover, .open > .dropdown-toggle.btn-mailru:hover, .btn-mailru:active:focus, .btn-mailru.active:focus, .open > .dropdown-toggle.btn-mailru:focus, .btn-mailru:active.focus, .btn-mailru.active.focus, .open > .dropdown-toggle.btn-mailru.focus {
+    color: #fff;
+    background-color: #0276cb;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-mailru:active, .btn-mailru.active, .open > .dropdown-toggle.btn-mailru {
+    background-image: none
+}
+
+.btn-mailru.disabled:hover, .btn-mailru[disabled]:hover, fieldset[disabled] .btn-mailru:hover, .btn-mailru.disabled:focus, .btn-mailru[disabled]:focus, fieldset[disabled] .btn-mailru:focus, .btn-mailru.disabled.focus, .btn-mailru[disabled].focus, fieldset[disabled] .btn-mailru.focus {
+    background-color: #0276cb;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-mailru .badge {
+    color: #178de3;
+    background-color: #fff
+}
+
+.btn-steam {
+    color: #fff;
+    background-color: #171a22;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-steam:focus, .btn-steam.focus {
+    color: #fff;
+    background-color: #000106;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-steam:hover {
+    color: #fff;
+    background-color: #000106;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-steam:active, .btn-steam.active, .open > .dropdown-toggle.btn-steam {
+    color: #fff;
+    background-color: #000106;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-steam:active:hover, .btn-steam.active:hover, .open > .dropdown-toggle.btn-steam:hover, .btn-steam:active:focus, .btn-steam.active:focus, .open > .dropdown-toggle.btn-steam:focus, .btn-steam:active.focus, .btn-steam.active.focus, .open > .dropdown-toggle.btn-steam.focus {
+    color: #fff;
+    background-color: #000106;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-steam:active, .btn-steam.active, .open > .dropdown-toggle.btn-steam {
+    background-image: none
+}
+
+.btn-steam.disabled:hover, .btn-steam[disabled]:hover, fieldset[disabled] .btn-steam:hover, .btn-steam.disabled:focus, .btn-steam[disabled]:focus, fieldset[disabled] .btn-steam:focus, .btn-steam.disabled.focus, .btn-steam[disabled].focus, fieldset[disabled] .btn-steam.focus {
+    background-color: #000106;
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.btn-steam .badge {
+    color: #000106;
+    background-color: #fff
+}

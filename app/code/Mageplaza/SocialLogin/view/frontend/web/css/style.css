@@ -17,7 +17,6 @@
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 .white-popup {
     position: relative;
@@ -68,11 +67,7 @@
 
 #social-login-popup .fieldset,
 #request-popup .fieldset {
-    margin: 0px;
-}
-
-.actions-toolbar {
-    margin-top: 7px;
+    margin: 0;
 }
 
 .account-social-login .actions-toolbar.social-btn {
@@ -395,7 +390,7 @@
     display: block;
     text-decoration: none;
     margin-bottom: 0;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: normal;
     line-height: 1.42857143;
     vertical-align: middle;
@@ -405,8 +400,9 @@
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
-    padding: 6px 12px 6px 44px;
-    font-family: 'Roboto', sans-serif;
+    padding: 5px 0 0 0;
+    font-family: 'Quicksand', sans-serif;
+    color:#fff !important;
 }
 
 .btn-social {
@@ -1718,6 +1714,7 @@
     }
     #bnt-social-login-authentication {
         margin-bottom: 0;
+        color: #fff;
     }
     .forgot-pass-title {
         width: 80%;

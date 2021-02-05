@@ -247,6 +247,7 @@ return [
         'Mageplaza_GoogleRecaptcha' => 1,
         'Mageplaza_Smtp' => 1,
         'Mageplaza_SocialLogin' => 1,
+        'Mageplaza_SocialLoginPro' => 1,
         'Mageplaza_TwoFactorAuth' => 1,
         'Mirasvit_CacheWarmer' => 1,
         'Mirasvit_Core' => 1,

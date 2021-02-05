@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_SocialLoginPro
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="sociallogin">
+            <group id="general">
+                <group id="captcha" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CAPTCHA</label>
+                    <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable CAPTCHA</label>
+                        <source_model>Mageplaza\SocialLoginPro\Model\Config\Source\Captcha</source_model>
+                    </field>
+                    <field id="recaptcha_forms" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Forms</label>
+                        <source_model>Mageplaza\SocialLoginPro\Model\Config\Source\Forms</source_model>
+                        <depends>
+                            <field id="enabled">2</field>
+                        </depends>
+                    </field>
+                    <field id="recaptcha_type" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>reCAPTCHA Type</label>
+                        <comment>Type the key which matches with reCAPTCHA</comment>
+                        <source_model>Mageplaza\SocialLoginPro\Model\Config\Source\RecaptchaType</source_model>
+                        <depends>
+                            <field id="enabled">2</field>
+                        </depends>
+                    </field>
+                    <field id="recaptcha_client_key" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>reCAPTCHA Client Key</label>
+                        <comment><![CDATA[
+                            <a href="https://www.mageplaza.com/blog/how-to-add-google-recaptcha-into-magento-2.html" target="_blank">How to create Google reCAPCHA</a>.
+     Create reCAPTCHA API <a href="https://www.google.com/recaptcha/admin" target="_blank">here</a>
+                            ]]>
+                        </comment>
+                        <depends>
+                            <field id="enabled">2</field>
+                        </depends>
+                    </field>
+                    <field id="recaptcha_client_secret" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>reCAPTCHA Client Secret</label>
+                        <depends>
+                            <field id="enabled">2</field>
+                        </depends>
+                    </field>
+                </group>
+                <field id="redirect_url" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Redirect page after successful login</label>
+                    <comment><![CDATA[ Ex: "http://localhost.com/customer/account" ]]>
+                    </comment>
+                </field>
+            </group>
+            <group id="disqus" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Disqus</label>
+                <field id="is_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Create app <a href="http://disqus.com/api/applications/" target="_bank">here</a>]]></comment>
+                </field>
+                <field id="app_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Key</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="app_secret" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Secret</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="redirect_url" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Mageplaza\SocialLogin\Block\System\RedirectUrl</frontend_model>
+                    <label>Return URL</label>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="1010" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort Order</label>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="mailru" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mailru</label>
+                <field id="is_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Create app <a href="https://api.mail.ru/sites/" target="_bank">here</a>]]></comment>
+                </field>
+                <field id="app_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Key</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="app_secret" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Secret</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="redirect_url" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Mageplaza\SocialLogin\Block\System\RedirectUrl</frontend_model>
+                    <label>Return URL</label>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="1010" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort Order</label>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="odnoklassniki" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Odnoklassniki</label>
+                <field id="is_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Create app <a href="https://apiok.ru/en/dev/app/create" target="_bank">here</a>]]></comment>
+                </field>
+                <field id="app_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Application ID</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="app_secret" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Secret Key</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="public_key" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Public Key</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="redirect_url" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Mageplaza\SocialLogin\Block\System\RedirectUrl</frontend_model>
+                    <label>Return URL</label>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="1010" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort Order</label>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="steam" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Steam</label>
+                <field id="is_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Get API Key <a href="https://steamcommunity.com/dev/apikey" target="_bank">here</a>]]></comment>
+                </field>
+                <field id="app_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Key</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="1010" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort Order</label>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

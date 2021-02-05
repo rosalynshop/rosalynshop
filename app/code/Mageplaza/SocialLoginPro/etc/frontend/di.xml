@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_SocialLoginPro
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Mageplaza\SocialLogin\Block\Popup">
+        <plugin name="social_block_add_google_captcha" type="Mageplaza\SocialLoginPro\Plugin\Block\Popup" sortOrder="1"/>
+    </type>
+    <type name="Mageplaza\SocialLogin\Controller\Popup\Create">
+        <plugin name="social_controller_add_google_captcha_create" type="Mageplaza\SocialLoginPro\Plugin\Controller\Create" sortOrder="2"/>
+    </type>
+    <type name="Mageplaza\SocialLogin\Controller\Popup\Forgot">
+        <plugin name="social_controller_add_google_captcha_forgot" type="Mageplaza\SocialLoginPro\Plugin\Controller\Forgot" sortOrder="2"/>
+    </type>
+    <type name="Mageplaza\SocialLogin\Model\Social">
+        <plugin name="social_manager_model_social" type="Mageplaza\SocialLoginPro\Plugin\Model\Social" sortOrder="2"/>
+    </type>
+    <type name="Mageplaza\SocialLogin\Controller\Social\Login">
+        <plugin name="social_manager_controller_login_social" type="Mageplaza\SocialLoginPro\Plugin\Controller\Social\Login" sortOrder="2"/>
+    </type>
+</config>

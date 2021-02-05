@@ -1,0 +1,55 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_SocialLoginPro
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\SocialLogin\Block\Css $block */
+?>
+<div data-bind="scope:'social-manager'">
+    <div id="social-manager" class="block block-dashboard-info">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "#social-manager": {
+                "Magento_Ui/js/core/app": {
+                   "components": {
+                        "social-manager": {
+                            "component": "Mageplaza_SocialLoginPro/js/manager-social",
+                            "config": {
+                                "availableSocials": <?= $block->getAvailableSocialsPro() ?>,
+                                "urlSocial": "<?= $block->getManagerUrl() ?>"
+                            },
+                            "children": {
+                                "errors": {
+                                    "component": "Magento_Ui/js/view/messages",
+                                    "sortOrder": 0,
+                                    "displayArea": "messages",
+                                    "config": {
+                                        "autoHideTimeOut": -1
+                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</div>

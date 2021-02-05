@@ -1,0 +1,49 @@
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_SocialLoginPro
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+ -->
+
+<!-- ko foreach: getRegion('messages') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+<div class="manager-box">
+    <div class="box box-information">
+        <strong class="box-title">
+            <span data-bind="i18n: 'Social Login Manager'"></span>
+        </strong>
+        <div class="box-content">
+            <div class="block social-login-authentication-popup col-mp">
+                <!-- ko foreach: socials() -->
+                <div class="block-content">
+                    <div class="actions-toolbar social-btn" data-bind="css: label.toLowerCase() + '-login'">
+                        <a class="btn btn-block btn-social" style="text-align: center;"
+                           data-bind="css: 'btn-' + label.toLowerCase(), socialButton: $parent.isActive, url: login_url, label: label,manager: manager">
+                            <span class="fa" data-bind="css: 'fa-' + label.toLowerCase()"></span>
+                            <span data-bind="i18n: manager ? 'Disconnect' : 'Connect to '+label"></span>
+                        </a>
+                    </div>
+                </div>
+                <!--/ko-->
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+
