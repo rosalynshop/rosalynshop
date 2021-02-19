@@ -270,6 +270,7 @@ return [
         'Smile_ElasticsuiteAnalytics' => 1,
         'Smile_ElasticsuiteVirtualCategory' => 1,
         'Temando_Shipping' => 1,
-        'Vertex_Tax' => 1
+        'Vertex_Tax' => 1,
+        'Zemi_Logo' => 1
     ]
 ];

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="zemilogo" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Zemi Text Logo</label>
+            <tab>rosalynshop</tab>
+            <resource>Zemi_Logo::logozm_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Zemi Text Logo</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="label_1" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label 1</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="color_1_option" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Color 1</label>
+                    <validate>color</validate>
+                    <comment><![CDATA[]]></comment>
+                    <frontend_model>Zemi\Logo\Block\Color</frontend_model>
+                </field>
+                <field id="label_2" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label 2</label>
+                    <validate>required-entry</validate>
+                    <comment><![CDATA[]]></comment>
+                </field>
+                <field id="color_2_option" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Color 2</label>
+                    <validate>color</validate>
+                    <comment><![CDATA[]]></comment>
+                    <frontend_model>Zemi\Logo\Block\Color</frontend_model>
+                </field>
+                <field id="slogan" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Zemi Text Slogan</label>
+                    <comment><![CDATA[Đẹp mỗi ngày cùng zemi.vn]]></comment>
+                </field>
+                <field id="color_slogan" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Color 2</label>
+                    <validate>color</validate>
+                    <comment><![CDATA[]]></comment>
+                    <frontend_model>Zemi\Logo\Block\Color</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

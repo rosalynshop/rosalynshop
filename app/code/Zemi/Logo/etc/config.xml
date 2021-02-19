@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author   Rosalynshop <info@rosalynshop.com>
+  ~ @copyright Copyright (c) 2019 Rosalynshop <https://rosalynshop.com>. All rights reserved.
+  ~ @license   Open Software License ("OSL") v. 3.0
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <zemilogo>
+            <general>
+                <enable>1</enable>
+                <label_1>Zemi</label_1>
+                <label_2>Fashion</label_2>
+                <color_1_option>#3164f6</color_1_option>
+                <color_2_option>#FF5316</color_2_option>
+                <slogan>Đẹp mỗi ngày cùng zemi.vn!</slogan>
+                <color_slogan>#ff0047</color_slogan>
+            </general>
+        </zemilogo>
+    </default>
+</config>
