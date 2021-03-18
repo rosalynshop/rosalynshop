@@ -1,0 +1,45 @@
+<?php
+/**
+ * Copyright © magebig.com - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+?>
+<?php
+$_mbHelper = $this->helper('MageBig\MbFrame\Helper\Data');
+$zmHelper  = $this->helper('Zemi\Logo\Helper\Data');
+$logoNav   = $_mbHelper->getConfig('mbconfig/header/logo_nav');
+$logoNavUrl = $_mbHelper->getBaseMediaUrl() . 'wysiwyg/magebig/logo/' . $logoNav;
+?>
+<?php $storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt(); ?>
+<?php if ($zmHelper->isEnable()) : ?>
+<div class="nav-logo text-show zemi-text-logo">
+    <span class="zemi-logo" style="color: <?= $zmHelper->getLogoColorLabel1()?>"><?= $zmHelper->getLabel1Config() ?></span>
+    <span class="zemi-logo2" style="color: <?= $zmHelper->getLogoColorLabel2()?>"><?= $zmHelper->getLabel2Config() ?></span>
+    <h6 class="h6-sm-sologan" style="color: <?= $zmHelper->getLogoColorSlogan()?>"><?= $zmHelper->getLogoSlogan();?></h6>
+</div>
+<?php else: ?>
+<div class="nav-logo text-hide">
+    <a href="<?= $block->getUrl(''); ?>" title="<?= /* @escapeNotVerified */ $storeName ?>">
+        <strong><?= /* @escapeNotVerified */ $block->getLogoAlt() ?></strong>
+        <?php if (!$logoNav) : ?>
+            <img class="img-fluid" src="<?= /* @escapeNotVerified */$block->getLogoSrc() ?>"
+                 alt="<?= /* @escapeNotVerified */$block->getLogoAlt() ?>"
+                <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+                <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+            />
+        <?php else : ?>
+            <img class="img-fluid" src="<?= /* @escapeNotVerified */ $logoNavUrl ?>"
+                 alt="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
+                <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+                <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+            />
+        <?php endif; ?>
+    </a>
+</div>
+<?php endif; ?>
