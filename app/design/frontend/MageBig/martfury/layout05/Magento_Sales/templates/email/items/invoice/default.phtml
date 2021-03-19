@@ -21,7 +21,7 @@ $_productImage = $_item->getProductImage($_item->getSku());
             <div class="rosa-product-info-left" style="width: 34%; float: left;">
                 <img src="<?= $_productImage ?>" width="90" alt="<?= $block->escapeHtml($_item->getName()) ?>">
             </div>
-            <div class="rosa-product-info-right" style="width: 64%; float: right; white-space: nowrap">
+            <div class="rosa-product-info-right" style="width: 64%; float: right">
                 <p class="rosa-item-name"><?= /* @noEscape */ __("Sản phẩm : ")?><a href="<?= $productUrl ?>"><?= $block->escapeHtml($_item->getName()) ?></a></p>
                 <p class="rosa-item-qty"><?= /* @noEscape */ __("Số lượng : ") ?><?= (float) $_item->getQty() ?></p>
                 <p class="rosa-item-price"><?= /* @noEscape */ __("Giá : ")?><?= /* @noEscape */ $block->getItemPrice($_item->getOrderItem()) ?></p>
