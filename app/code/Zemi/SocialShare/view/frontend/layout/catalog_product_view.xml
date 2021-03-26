@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zemi
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Zemi.vn license that is
+ * available through the world-wide-web at this URL:
+ * https://www.Zemi.vn/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Zemi
+ * @package     Zemi_SocialShare
+ * @copyright   Copyright (c) Zemi (https://www.Zemi.vn/)
+ * @license     https://www.Zemi.vn/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <block class="Zemi\SocialShare\Block\SocialShare" name="zm.SocialShare.shareProduct"
+                   template="Zemi_SocialShare::product/view/share_product.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

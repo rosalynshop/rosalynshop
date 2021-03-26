@@ -244,7 +244,7 @@ return [
         'Magefan_Blog' => 1,
         'Magefan_WysiwygAdvanced' => 1,
         'Mageplaza_Core' => 1,
-        'Mageplaza_GoogleRecaptcha' => 1,
+        'Mageplaza_GoogleRecaptcha' => 0,
         'Mageplaza_Smtp' => 1,
         'Mageplaza_SocialLogin' => 1,
         'Mageplaza_SocialLoginPro' => 1,
@@ -271,6 +271,7 @@ return [
         'Smile_ElasticsuiteVirtualCategory' => 1,
         'Temando_Shipping' => 1,
         'Vertex_Tax' => 1,
-        'Zemi_Logo' => 1
+        'Zemi_Logo' => 1,
+        'Zemi_SocialShare' => 1
     ]
 ];

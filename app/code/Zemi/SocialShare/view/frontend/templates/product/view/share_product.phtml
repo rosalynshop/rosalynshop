@@ -1,0 +1,18 @@
+<?php /** @var \Zemi\SocialShare\Block\SocialShare $block */ ?>
+<?php
+/** @var $helper \Zemi\SocialShare\Helper\Data */
+$helper = $this->helper(\Zemi\SocialShare\Helper\Data::class);
+?>
+<?php if ($helper->isModuleEnable() && $helper->isFacebookEnable()): ?>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+            src="<?= $helper->srcScriptFacebook() ?>"
+            nonce="Z8ZMr9uj"></script>
+    <div class="fb-like"
+         data-href="<?= $block->getProduct()->getProductUrl() ? : '' ?>"
+         data-width=""
+         data-layout="standard"
+         data-action="like"
+         data-size="small"
+         data-share="true"></div>
+<?php endif; ?>
