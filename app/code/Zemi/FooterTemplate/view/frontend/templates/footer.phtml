@@ -1,0 +1,119 @@
+<?php
+/** @var $block \Zemi\FooterTemplate\Block\Subscribe */
+?>
+<div id="footer-widgets" class="footer-widgets">
+    <div class="container">
+        <div class="footer-main">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-2">
+                    <div class="footer-links-wrap">
+                        <div class="h4 title zm-h4-title z-toggle"><span>VỀ CHÚNG TÔI</span></div>
+                            <ul class="footer-links zemi-textwidget">
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Tin tức (Blog)</a></li>
+                                <li><a href="#">Điều khoản sử dụng</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                                <hr>
+                                <div class="h4 title">
+                                    <a href="" title="bct" target="_blank" rel="noopener">
+                                        <img src="https://theme.hstatic.net/1000126467/1000607275/14/bct.png?v=9254"
+                                             data-src="//theme.hstatic.net/1000126467/1000607275/14/bct.png?v=9254">
+                                    </a>
+                                </div>
+                                <div class="footer-container"></div>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="col-12 col-sm-6 col-lg-2">
+                    <div class="footer-links-wrap">
+                        <div class="h4 title zm-h4-title z-toggle"><span>HỖ TRỢ KHÁCH HÀNG</span></div>
+                        <ul class="footer-links zemi-textwidget">
+                            <li><a href="">Chính sách đặt hàng và điều khoản hợp đồng</a></li>
+                            <li><a href="">Phương thức vận chuyển</a></li>
+                            <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+                            <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
+                            <li><a href="#">Câu hỏi thường gặp</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-5">
+                    <div class="footer-links-wrap">
+                        <div class="h4 title zm-h4-title z-toggle"><span>THÔNG TIN LIÊN HỆ</span></div>
+                        <ul class="footer-links zemi-textwidget">
+                            <li><strong>Hotline:</strong><span>+84975098509</span></li>
+                            <li><strong>Địa chỉ tên miền:</strong><span>&nbsp;</span><a href="">www.zemi.vn</a></li>
+                            <li>Giấy chứng nhận đăng ký doanh nghiệp số 0311241512 do UBND TP.Hà Nội&nbsp;cấp lần đầu tiên ngày 07/05/2021
+                                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 col-footer">
+                                    <div class="block-col"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="main-newsletter">
+                        <div class="h4 title zm-h4-title"><span>ĐĂNG KÝ NHẬN KHUYẾN MẠI</span></div>
+                        <div class="main-newsletter-inner">
+                            <div class="subscribe">
+                                <form
+                                        novalidate
+                                        action="<?= /* @escapeNotVerified */ $block->getFormActionUrl() ?>"
+                                        method="post"
+                                        data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+                                        id="newsletter-validate-detail">
+                                    <div class="block-content">
+                                        <div class="input-box">
+                                            <input name="email" type="email" id="newsletter"
+                                                   placeholder="<?= __('Vui lòng nhập email của bạn') ?>"
+                                                   data-validate="{required:true, 'validate-email':true}"/>
+                                            <button class="hover-effect07" title="<?= /* @escapeNotVerified */ __('Gửi') ?>" type="submit">
+                                                <span><?= /* @escapeNotVerified */ __('Gửi') ?></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="follow-facebook">
+                                <span>Follow with facebook</span>
+                                <div id="fb-root"></div>
+                                <script async defer crossorigin="anonymous"
+                                        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=475563710101054&autoLogAppEvents=1"
+                                        nonce="d4pE098g"></script>
+                                <div class="fb-page"
+                                     data-href="https://www.facebook.com/zemifashion/"
+                                     data-tabs="timeline"
+                                     data-width="270"
+                                     data-height="70"
+                                     data-small-header="false"
+                                     data-adapt-container-width="true"
+                                     data-hide-cover="false"
+                                     data-show-facepile="true">
+                                    <blockquote cite="https://www.facebook.com/zemifashion/"
+                                                class="fb-xfbml-parse-ignore">
+                                        <a href="https://www.facebook.com/zemifashion/">zemi.vn</a>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-vertical">
+            <div class="row align-items-center">
+                <div class="footer-copyright col-md-5 col-sm-12">
+                    <div class="text-copyright">© 2021 Zemi Fashion</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    require([
+        "jquery"
+    ], function ($) {
+        $(".z-toggle").click(function () {
+            $(this).next().slideToggle(500);
+        });
+    });
+</script>
