@@ -1,7 +1,7 @@
 <?php
-/**
- * @author   Rosalynshop <info@rosalynshop.com>
- * @copyright Copyright (c) 2019 Rosalynshop <https://rosalynshop.com>. All rights reserved.
+/*
+ * @author   Zemi <cskh.zemifashion@gmail.com>
+ * @copyright Copyright (c) 2021 Zemi <cskh.zemifashion@gmail.com>. All rights reserved.
  * @license   Open Software License ("OSL") v. 3.0
  */
 
@@ -12,7 +12,7 @@ use Magento\Store\Model\ScopeInterface;
 
 /**
  * Class Data
- * @package RosalynShop\FacebookChat\Helper
+ * @package Zemi\FacebookChat\Helper
  */
 class Data extends AbstractHelper
 {

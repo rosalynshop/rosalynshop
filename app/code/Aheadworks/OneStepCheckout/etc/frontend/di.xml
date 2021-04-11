@@ -62,7 +62,7 @@
     <type name="Magento\Framework\App\RouterList">
         <arguments>
             <argument name="routerList" xsi:type="array">
-                <item name="rosalynshop_osc_checkout_router" xsi:type="array">
+                <item name="zemi_osc_checkout_router" xsi:type="array">
                     <item name="class" xsi:type="string">Aheadworks\OneStepCheckout\Controller\Router</item>
                     <item name="disable" xsi:type="boolean">false</item>
                     <item name="sortOrder" xsi:type="string">15</item>

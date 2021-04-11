@@ -655,7 +655,7 @@
                     </argument>
                 </arguments>
             </block>
-            <block class="RosalynShop\RegionManager\Block\Checkout\Js" name="template_js" after="checkout.root" template="RosalynShop_RegionManager::js.phtml"/>
+            <block class="Zemi\RegionManager\Block\Checkout\Js" name="template_js" after="checkout.root" template="Zemi_RegionManager::js.phtml"/>
         </referenceContainer>
 
         <move element="logo" destination="checkout.header.wrapper"/>

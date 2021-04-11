@@ -7,9 +7,9 @@
 // @codingStandardsIgnoreFile
 
 /** @var  $block \Magento\Sales\Block\Order\Item\Renderer\DefaultRenderer */
-/** @var  $helper \RosalynShop\Base\Helper\Data */
+/** @var  $helper \Zemi\Base\Helper\Data */
 $_item = $block->getItem();
-$helper = $this->helper(\RosalynShop\Base\Helper\Data::class);
+$helper = $this->helper(\Zemi\Base\Helper\Data::class);
 $image = $helper->getProductImage($_item->getSku());
 ?>
 <tr id="order-item-row-<?= /* @escapeNotVerified */ $_item->getId() ?>">

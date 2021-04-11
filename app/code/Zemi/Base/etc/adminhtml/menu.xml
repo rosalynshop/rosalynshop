@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ @author   Zemi <cskh.zemifashion@gmail.com>
+  ~ @copyright Copyright (c) 2021 Zemi <cskh.zemifashion@gmail.com>. All rights reserved.
+  ~ @license   Open Software License ("OSL") v. 3.0
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Zemi_RegionManager::menu"
+             title="Zemi"
+             module="Zemi_RegionManager"
+             sortOrder="10"
+             resource="Zemi_RegionManager::menu"/>
+
+        <add id="Zemi_RegionManager::settings"
+             title="Settings"
+             translate="title" module="Zemi_RegionManager"
+             sortOrder="0"
+             parent="Zemi_RegionManager::menu"
+             resource="Zemi_RegionManager::settings"/>
+
+        <add id="Zemi_RegionManager::states"
+             title="States"
+             module="Zemi_RegionManager"
+             translate="title"
+             sortOrder="10"
+             resource="Zemi_RegionManager::states"
+             action="regionmanager/states"
+             parent="Zemi_RegionManager::menu"/>
+
+        <add id="Zemi_RegionManager::cities"
+             title="Cities"
+             module="Zemi_RegionManager"
+             translate="title"
+             sortOrder="10"
+             resource="Zemi_RegionManager::cities"
+             action="regionmanager/cities"
+             parent="Zemi_RegionManager::menu"/>
+
+        <add id="Zemi_RegionManager::wards"
+             title="Wards"
+             module="Zemi_RegionManager"
+             translate="title"
+             sortOrder="10"
+             resource="Zemi_RegionManager::wards"
+             action="regionmanager/wards"
+             parent="Zemi_RegionManager::menu"/>
+
+        <add id="Zemi_RegionManager::configuration"
+             title="Configuration"
+             module="Zemi_RegionManager"
+             sortOrder="20"
+             parent="Zemi_RegionManager::menu"
+             action="adminhtml/system_config/edit/section/region_manager_config"
+             resource="Zemi_RegionManager::configuration"/>
+    </menu>
+</config>

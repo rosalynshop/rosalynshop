@@ -13,8 +13,8 @@ use Aheadworks\OneStepCheckout\Model\Layout\Processor\AddressAttributes\FieldRow
 use Magento\Checkout\Block\Checkout\LayoutProcessorInterface;
 use Magento\Directory\Helper\Data as DirectoryHelper;
 use Magento\Framework\Stdlib\ArrayManager;
-use RosalynShop\RegionManager\Model\Config;
-use RosalynShop\RegionManager\Model\Source\StateOptions;
+use Zemi\RegionManager\Model\Config;
+use Zemi\RegionManager\Model\Source\StateOptions;
 
 /**
  * Class AddressAttributes

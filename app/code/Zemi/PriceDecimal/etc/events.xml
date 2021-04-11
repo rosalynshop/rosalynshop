@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author   Zemi <cskh.zemifashion@gmail.com>
+  ~ @copyright Copyright (c) 2021 Zemi <cskh.zemifashion@gmail.com>. All rights reserved.
+  ~ @license   Open Software License ("OSL") v. 3.0
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="currency_display_options_forming">
+        <observer name="zemi_change_currency_position" instance="Zemi\PriceDecimal\Model\Observer\ChangeCurrencyPosition" />
+    </event>
+</config>

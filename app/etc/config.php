@@ -252,13 +252,6 @@ return [
         'Mirasvit_CacheWarmer' => 1,
         'Mirasvit_Core' => 1,
         'Mirasvit_Report' => 1,
-        'RosalynShop_Base' => 1,
-        'RosalynShop_FacebookChat' => 1,
-        'RosalynShop_PriceDecimal' => 1,
-        'RosalynShop_Productslider' => 1,
-        'RosalynShop_RebuildUrl' => 1,
-        'RosalynShop_RegionManager' => 1,
-        'RosalynShop_SalesEmail' => 1,
         'Smile_ElasticsuiteAdminNotification' => 1,
         'Smile_ElasticsuiteCore' => 1,
         'Smile_ElasticsuiteCatalog' => 1,
@@ -271,7 +264,14 @@ return [
         'Smile_ElasticsuiteVirtualCategory' => 1,
         'Temando_Shipping' => 1,
         'Vertex_Tax' => 1,
+        'Zemi_Base' => 1,
+        'Zemi_FacebookChat' => 1,
         'Zemi_Logo' => 1,
+        'Zemi_PriceDecimal' => 1,
+        'Zemi_Productslider' => 1,
+        'Zemi_RebuildUrl' => 1,
+        'Zemi_RegionManager' => 1,
+        'Zemi_SalesEmail' => 1,
         'Zemi_SocialShare' => 1
     ]
 ];
