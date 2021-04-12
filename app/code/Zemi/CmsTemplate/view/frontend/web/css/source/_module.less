@@ -1,0 +1,172 @@
+/*
+ * @author   Zemi <cskh.zemifashion@gmail.com>
+ * @copyright Copyright (c) 2021 Zemi <cskh.zemifashion@gmail.com>. All rights reserved.
+ * @license   Open Software License ("OSL") v. 3.0
+ */
+
+& when (@media-common = true) {
+  .follow-facebook {
+    margin-top: 30px;
+  }
+
+  /** CSS Page Gioi thieu*/
+  .zemi-intro-block {
+    .img-gioi-thieu {
+      max-width: 100%;
+      padding-top: 40px
+    }
+    .img-wow-fadeIn-animated {
+      padding: 30px 0 10px 10px;
+    }
+    .col-text {
+      text-align: justify;
+      padding-top: 30px;
+    }
+    .zemi-title__sm {
+      font-size: 25px;
+    }
+    .wow-fadeInUpSmall-animated {
+      padding: 30px 15px 10px 0;
+    }
+    ul {
+      list-style-type: none;
+      font-size: 15px;
+      padding: 10px 0 15px 15px;
+      li {
+        padding: 0 0 5px 0;
+      }
+    }
+    .zemi-why-section {
+      .container {
+        .zemi-title__text-center {
+          text-align: center;
+          h3 {
+            color: #0b0b0b;
+          }
+        }
+        .zemi-why-row {
+          h4 {
+            text-align: center;
+          }
+          .img {
+            text-align: center;
+            padding-bottom: 10px;
+          }
+          .zemi-why-box {
+            text-align: justify;
+          }
+        }
+      }
+    }
+  }
+}
+
+//
+//  Mobile (styles-m.css)
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .zemi-textwidget {
+    display: none;
+    list-style-type: none;
+    padding-left: 0 !important;
+  }
+  .footer-content {
+    padding-top: 30px !important;
+  }
+  .footer-links-wrap {
+    .zm-h4-title {
+      &:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-size: 14px;
+        position: absolute;
+        top: -10px;
+        right: 5px;
+        text-align: center;
+        line-height: 36px;
+      }
+    }
+  }
+
+  /** CSS Page gioi thieu*/
+  .zemi-intro-block {
+    .zemi-title-text-center {
+      font-size: 13px;
+      p {
+        text-align: justify;
+      }
+    }
+  }
+  .zemi-why-section {
+    .container {
+      .zemi-title__text-center{
+        text-align: center;
+      }
+      .zemi-why-row {
+        margin: 0;
+        .zemi-why-box{
+          text-align: justify;
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}
+
+
+//
+//  Tablet
+//  _____________________________________________
+
+// This will add styles for tablet devices. When using native media-queries, we recommend wrapping your media-queries with media-width Magento mixins or media-target
+& when (@media-target = 'desktop'), (@media-target = 'all') {
+  @media only screen and (max-width: 768px){
+
+  }
+}
+
+//
+//  Desktop (style-l.css)
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .zemi-title__text-center {
+    h3 {
+      position: relative;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      &:after {
+        position: absolute;
+        content: '';
+        height: 2px;
+        bottom: -4px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        width: 20%;
+        background: #0082e6;
+        -o-transition:.5s;
+        -ms-transition:.5s;
+        -moz-transition:.5s;
+        -webkit-transition:.5s;
+        transition:.5s;
+      }
+    }
+  }
+  .zemi-title__text-center h3:hover:after{
+    width: 35%;
+    background: orange;
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+// your code
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+// your code
+}

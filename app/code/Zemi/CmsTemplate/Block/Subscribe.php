@@ -5,7 +5,7 @@
  *
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-namespace Zemi\FooterTemplate\Block;
+namespace Zemi\CmsTemplate\Block;
 
 /**
  * @api
