@@ -1472,7 +1472,7 @@ e.g. var/export, var/import, var/export/some/dir","Đối với loại ""Local S
 "Position of attribute in layered navigation block.","Vị trí của các thuộc tính trong khối danh mục chính.",module,Magento_LayeredNavigation
 "item","sản phẩm",module,Magento_LayeredNavigation
 "items","sản phẩm",module,Magento_LayeredNavigation
-"Now Shopping by","Bây giờ mua sắm bằng",module,Magento_LayeredNavigation
+"Now Shopping by","Bộ lọc tìm kiếm",module,Magento_LayeredNavigation
 "Previous","Trước",module,Magento_LayeredNavigation
 "Remove","Loại bỏ",module,Magento_LayeredNavigation
 "Remove This Item","Loại bỏ mục này",module,Magento_LayeredNavigation
@@ -9729,7 +9729,7 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Menu","Menu",theme,frontend/Magento/blank
 "Account","Tài khoản",theme,frontend/Magento/blank
 "Settings","Cài đặt",theme,frontend/Magento/blank
-"Now Shopping by","Bây giờ mua sắm bằng",theme,frontend/Magento/luma
+"Now Shopping by","Bộ lọc tìm kiếm",theme,frontend/Magento/luma
 "Previous","Trước",theme,frontend/Magento/luma
 "Remove","Loại bỏ",theme,frontend/Magento/luma
 "Remove This Item","Loại bỏ mục này",theme,frontend/Magento/luma
