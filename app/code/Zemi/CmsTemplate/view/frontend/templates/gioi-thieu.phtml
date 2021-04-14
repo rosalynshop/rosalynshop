@@ -5,7 +5,7 @@
     <div class="row no-gutters zemi-intro-block">
         <div class="col-lg-12 col-img">
             <div class="img wow fadeIn animated">
-                <div class="section eshop-intro-section" id="about">
+                <div class="section zemi-intro-section" id="about">
                     <div class="container">
                         <div class="zemi-title-text-center wow fadeInUpSmall animated">
                             <h3><?= __('TRẢI NGHIỆM PHONG CÁCH MUA SẮM TRỰC TUYẾN AN TOÀN CHẤT LƯỢNG TỪ ZEMI') ?></h3>
@@ -64,35 +64,35 @@
                                     <ul class="row" style="list-style-type: none;">
                                         <li class="col-lg-4 col-md-4 col-sm-6 col-6">
                                             <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/zemi-icon-qua-nao-nam.jpg')?>" style="max-width: 20px" alt="">
-                                            <span><?= __('Thời trang Nam')?></span>
+                                            <span><a href="thoi-trang-nam.html"><?= __('Thời trang Nam')?></a> </span>
                                         </li>
                                         <li class="col-lg-4 col-md-4 col-sm-6 col-6">
                                             <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/zemi-thoi-trang-nu.png')?>" style="max-width: 20px" alt="">
-                                            <span><?= __('Thời trang Nữ')?></span>
+                                            <span><a href="thoi-trang-nu.html"><?= __('Thời trang Nữ')?></a> </span>
                                         </li>
                                         <li class="col-lg-4 col-md-4 col-sm-6 col-6">
                                             <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/zemi-trang-phuc-dong.png')?>" style="max-width: 20px" alt="">
-                                            <span><?= __('Trang phục đông')?></span>
+                                            <span><a href="trang-phuc-dong.html"><?= __('Trang phục đông')?></a></span>
                                         </li>
                                         <li class="col-lg-4 col-md-4 col-sm-6 col-6">
                                             <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/zemi-mebe-dochoi.png')?>" style="max-width: 20px" alt="">
-                                            <span><?= __('Mẹ & bé, đồ chơi')?></span>
+                                            <span><a href="me-be-do-choi.html"><?= __('Mẹ & bé, đồ chơi')?></a></span>
                                         </li>
                                         <li class="col-lg-4 col-md-4 col-sm-6 col-6">
                                             <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/zemi-icon-giay-boot.png')?>" style="max-width: 20px" alt="">
-                                            <span><?= __('Giày dép & Boot')?></span>
+                                            <span><a href="giay-dep-boot.html"><?= __('Giày dép & Boot')?></a></span>
                                         </li>
                                         <li class="col-lg-4 col-md-4 col-sm-6 col-6">
                                             <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/zemi-balo.png')?>" style="max-width: 20px" alt="">
-                                            <span><?= __('Balo & Túi xách')?></span>
+                                            <span><a href="balo-tui-xach.html"><?= __('Balo & Túi xách')?></a></span>
                                         </li>
                                         <li class="col-lg-4 col-md-4 col-sm-6 col-6">
                                             <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/zemi-phukien-lamdep.png')?>" style="max-width: 20px" alt="">
-                                            <span><?= __('Phụ kiện & Làm đẹp')?></span>
+                                            <span><a href="phu-kien-lam-dep.html"><?= __('Phụ kiện & Làm đẹp')?></a></span>
                                         </li>
                                         <li class="col-lg-4 col-md-4 col-sm-6 col-6">
                                             <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/zemi-do-dung-ca-nhan.png')?>" style="max-width: 20px" alt="">
-                                            <span><?= __('Đồ chơi & Giải trí')?></span>
+                                            <span><a href="do-choi-giai-tri.html"><?= __('Đồ chơi & Giải trí')?></a></span>
                                         </li>
                                     </ul>
                                     <p><?= __('Ngoài ra, Zemi có rất nhiều chương trình ưu đãi hấp dẫn hàng tháng, cho gia đình bạn nhiều cơ hội mua sắm tiết kiệm và tiện lợi.')?></p>
@@ -116,7 +116,7 @@
                             <div class="col-12 col-lg-3 col-sm-6 zemi-fadeInUpSmall-animated">
                                 <div class="zemi-why-box">
                                     <div class="img">
-                                        <img src="https://www.aeon.com.vn/wp-content/themes/aeon/assets/images/aeon-eshop/why-1.png" alt="">
+                                        <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/da-dang-mat-hang.png')?>" alt="">
                                     </div>
                                     <div class="text">
                                         <h4><?= __('ĐA DẠNG HÀNG HOÁ')?></h4>
@@ -129,38 +129,35 @@
                             <div class="col-12 col-lg-3 col-sm-6 zemi-fadeInUpSmall-animated">
                                 <div class="zemi-why-box">
                                     <div class="img">
-                                        <img src="https://www.aeon.com.vn/wp-content/themes/aeon/assets/images/aeon-eshop/why-2.png" alt=""></div>
+                                        <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/mien-phi-van-chuyen.png')?>" alt=""></div>
                                     <div class="text">
-                                        <h4>MIỄN PHÍ VẬN CHUYỂN</h4>
-                                        <p>AeonEshop giao hàng miễn phí toàn quốc với đơn hàng từ 300.000 đồng.<br>Thời
-                                            gian AeonEshop giao hàng từ thứ 2 đến thứ 7 hàng tuần, từ 8:00 đến 22:00.
+                                        <h4><?= __('MIỄN PHÍ VẬN CHUYỂN')?></h4>
+                                        <p><?= __('Zemi giao hàng miễn phí toàn quốc với đơn hàng từ 300.000 đồng.')?><br>
+                                            <?= __('Thời gian Zemi giao hàng từ thứ 2 đến thứ 7 hàng tuần, từ 8:00 đến 22:00.')?>
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-3 col-sm-6 zemi-fadeInUpSmall-animated">
                                 <div class="zemi-why-box">
-                                    <div class="img"><img
-                                                src="https://www.aeon.com.vn/wp-content/themes/aeon/assets/images/aeon-eshop/why-4.png"
-                                                alt=""></div>
+                                    <div class="img">
+                                        <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/doi-tra-de-dang.png')?>" alt=""></div>
                                     <div class="text">
-                                        <h4>ĐỔI TRẢ DỄ DÀNG</h4>
-                                        <p>AeonEshop nhận đổi trả trong vòng 10 ngày đối với sản phẩm điện máy và 14
-                                            ngày cho các sản phẩm còn lại (ngoại trừ đồ tươi sống, đồ lót, mỹ phẩm, các
-                                            sản phẩm thanh lý, hàng điện máy đã kích hoạt bảo hành).</p>
+                                        <h4><?= __('ĐỔI TRẢ DỄ DÀNG')?></h4>
+                                        <p><?= __('Zemi nhận đổi trả trong vòng 3 ngày đối với tất cả sản phẩm, tất cả các đơn hàng nếu có vấn đề do Shop hoặc do nhà sản xuất quý khách xem thêm tại ')?>
+                                        <a href="chinh-sach-doi-tra.html" ><?= __('chính sách đổi trả.')?></a></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-3 col-sm-6 zemi-fadeInUpSmall-animated">
                                 <div class="zemi-why-box">
-                                    <div class="img"><img
-                                                src="https://www.aeon.com.vn/wp-content/themes/aeon/assets/images/aeon-eshop/why-5.png"
-                                                alt=""></div>
+                                    <div class="img">
+                                        <img src="<?= $block->getViewFileUrl('Zemi_CmsTemplate::images/uu-dai-hap-dan.png')?>" alt=""></div>
                                     <div class="text">
-                                        <h4>ƯU ĐÃI HẤP DẪN</h4>
-                                        <p>Mỗi ngày, AeonEshop đều mang đến nhiều ưu đãi hấp dẫn dành cho nhiều mặt hàng
-                                            khác nhau. Ngoài ra, AeonEshop còn hợp tác với nhiều thương hiệu để dành
-                                            riêng cho khách hàng nhiều lợi ích khi mua sắm.</p>
+                                        <h4><?= __('ƯU ĐÃI HẤP DẪN')?></h4>
+                                        <p><?= __('Mỗi ngày, Zemi đều mang đến nhiều ưu đãi hấp dẫn dành cho nhiều mặt hàng
+                                            khác nhau. Ngoài ra, Zemi còn hợp tác với nhiều thương hiệu để dành
+                                            riêng cho khách hàng nhiều lợi ích khi mua sắm.')?></p>
                                     </div>
                                 </div>
                             </div>

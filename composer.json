@@ -13,12 +13,7 @@
     "require": {
         "hybridauth/hybridauth": "^2.14.0",
         "justbetter/magento2-image-optimizer": "^1.2",
-        "magento/product-community-edition": "2.3.2",
-        "mageplaza/module-core": "^1.4.5",
-        "mageplaza/module-google-recaptcha": "^4.0.0",
-        "mageplaza/module-smtp": "^4.0.0",
-        "mageplaza/module-two-factor-authentication": "^4.0.0",
-        "smile/elasticsuite": "~2.8.0"
+        "magento/product-community-edition": "2.3.2"
     },
     "require-dev": {
         "allure-framework/allure-phpunit": "~1.2.0",
@@ -66,7 +61,7 @@
             "Magento\\TestFramework\\Utility\\": "dev/tests/static/framework/Magento/TestFramework/Utility/"
         }
     },
-    "version": "2.3.2-p2",
+    "version": "2.3.2",
     "minimum-stability": "stable",
     "repositories": [
         {
