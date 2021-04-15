@@ -244,7 +244,7 @@ return [
         'Mageplaza_LayeredNavigationUltimate' => 1,
         'Mageplaza_Search' => 1,
         'Mageplaza_SeoUrl' => 1,
-        'Mageplaza_Shopbybrand' => 1,
+        'Mageplaza_Shopbybrand' => 0,
         'Mageplaza_SocialLogin' => 1,
         'Mirasvit_CacheWarmer' => 1,
         'Mirasvit_Core' => 1,
