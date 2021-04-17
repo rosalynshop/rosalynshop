@@ -238,7 +238,7 @@ return [
         'Magefan_Community' => 1,
         'Magefan_Blog' => 1,
         'Mageplaza_Core' => 1,
-        'Mageplaza_AjaxLayer' => 1,
+        'Mageplaza_AjaxLayer' => 0,
         'Mageplaza_LayeredNavigation' => 1,
         'Mageplaza_Search' => 1,
         'Mageplaza_SocialLogin' => 1,
