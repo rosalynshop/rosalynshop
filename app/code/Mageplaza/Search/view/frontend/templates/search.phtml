@@ -112,8 +112,8 @@ if ($helper->isEnabled()) : ?>
                     window.location.href = correctProductUrl(suggestion.u);
                 },
                 formatResult: function (suggestion, currentValue) {
-                    var html = '<a href="' + correctProductUrl(suggestion.u) + '">';
-
+                    var html = '';
+                    // <a href="' + correctProductUrl(suggestion.u) + '">
                     if ($.inArray('image', displayInfo) !== -1) {
                         html += '<div class="suggestion-left"><img class="img-responsive" src="' + correctProductUrl(suggestion.i, true) + '" alt="" /></div>';
                     }
@@ -129,7 +129,7 @@ if ($helper->isEnabled()) : ?>
                         html += '<div class="product-des"><p class="short-des">' + suggestion.d + '</p></div>';
                     }
 
-                    html += '</div></a>';
+                    html += '</div>';
 
                     return html;
                 }
