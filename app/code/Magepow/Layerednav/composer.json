@@ -1,0 +1,26 @@
+{
+  "name": "magepow/layerednav",
+  "description": "Magento 2 Advanced Layered Navigation Ajax",
+  "require": {
+    "magepow/core": "^1.0.0"
+  },
+  "type": "magento2-module",
+  "autoload": {
+    "files": ["registration.php"],
+    "psr-4": {
+      "Magepow\\Layerednav\\": ""
+    }
+  },
+  "authors": [
+    {
+      "name": "Magepow",
+      "email": "support@magepow.com",
+      "homepage": "https://magepow.com",
+      "role": "Technical Support"
+    }
+  ],
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ]
+}
