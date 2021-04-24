@@ -12,6 +12,9 @@
     <?php foreach ($data as $item): ?>
         <?php if ($item['is_selected']) : ?>
             <li class="mana-selected item">
+                <span class="check-box">
+                    <input type="checkbox" name="vehicle" onclick='window.location.assign("<?= $block->getReplaceItemUrl($engineFilter, $item) ?>")'<?= /** @noEscape */ $item['is_selected'] ? 'checked="checked"' : '' ?> />
+                </span>
                 <a href="<?php echo $block->getRemoveItemUrl($engineFilter, $item) ?>"<?php echo $block->getRemoveItemLinkAttributes($engineFilter, $item) ?>>
                     <?php echo $block->escapeItemLabel($engineFilter, $item['label']) ?>
                     <?php if ($block->shouldDisplayProductCountOnLayer()): ?>
@@ -27,6 +30,9 @@
             </li>
         <?php elseif ($item['count'] > 0) : ?>
             <li class="item">
+                <span class="check-box">
+                    <input type="checkbox" name="vehicle" onclick='window.location.assign("<?= $block->getReplaceItemUrl($engineFilter, $item) ?>")'/>
+                </span>
                 <a href="<?php echo $block->getAddItemUrl($engineFilter, $item) ?>"<?php echo $block->getAddItemLinkAttributes($engineFilter, $item) ?>>
                     <?php echo $block->escapeItemLabel($engineFilter, $item['label']) ?>
                     <?php if ($block->shouldDisplayProductCountOnLayer()): ?>
