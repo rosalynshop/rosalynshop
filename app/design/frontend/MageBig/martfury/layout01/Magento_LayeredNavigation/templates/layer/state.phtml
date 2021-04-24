@@ -24,8 +24,10 @@
     <ol class="items">
         <?php foreach ($_filters as $_filter): ?>
             <li class="item">
-                <span class="filter-label"><?= $block->escapeHtml(__($_filter->getName())); ?></span>
-                <span class="filter-value"><?= /* @escapeNotVerified */ $block->stripTags($_filter->getLabel()) ?></span>
+                <span class="filter-label"><?= $block->escapeHtml(__($_filter->getName())); ?>
+                    <span class="filter-value"><?= /* @escapeNotVerified */ $block->stripTags($_filter->getLabel()) ?></span>
+                </span>
+
                 <?php
                 $clearLinkUrl = $_filter->getClearLinkUrl();
                 $currentFilterName = $block->escapeHtml(__($_filter->getName())) . " " . $block->stripTags($_filter->getLabel());

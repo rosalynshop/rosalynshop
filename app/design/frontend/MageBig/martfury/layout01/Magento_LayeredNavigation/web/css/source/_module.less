@@ -44,8 +44,10 @@
         .filter-label {
             display: block;
             font-weight: 500;
-            &:after {
-                content: ':';
+            .filter-value {
+                &:before {
+                    content: ': ';
+                }
             }
         }
         + .filter-actions {

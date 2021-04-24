@@ -1475,7 +1475,7 @@ e.g. var/export, var/import, var/export/some/dir","Đối với loại ""Local S
 "Now Shopping by","Bộ lọc tìm kiếm",module,Magento_LayeredNavigation
 "Previous","Trước",module,Magento_LayeredNavigation
 "Remove","Loại bỏ",module,Magento_LayeredNavigation
-"Remove This Item","Loại bỏ mục này",module,Magento_LayeredNavigation
+"Remove This Item","X",module,Magento_LayeredNavigation
 "Shop By","Danh mục",module,Magento_LayeredNavigation
 "Clear All","Xóa tất cả",module,Magento_LayeredNavigation
 "Shopping Options","Lựa chọn mua sắm",module,Magento_LayeredNavigation
@@ -9622,7 +9622,7 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Email addresses, separated by commas","Địa chỉ email, ngăn cách bởi dấu phẩy",module,Magento_Wishlist
 "Check here to link an RSS feed to your Wish List.","Xem ở đây để liên kết một nguồn cấp dữ liệu RSS vào danh sách yêu thích của bạn.",module,Magento_Wishlist
 "Last Added Items","Sản phẩm được thêm cuối cùng",module,Magento_Wishlist
-"Remove This Item","Loại bỏ mục này",module,Magento_Wishlist
+"Remove This Item","X",module,Magento_Wishlist
 "Go to Wish List","Đi đến danh sách yêu thích",module,Magento_Wishlist
 "You have no items in your wish list.","Bạn không có sản phẩm nào trong danh sách yêu thích.",module,Magento_Wishlist
 "Take a look at %customer_name's Wish List","Hãy vào xem danh sách yêu thích của %customer_name",module,Magento_Wishlist
@@ -9732,7 +9732,7 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Now Shopping by","Bộ lọc tìm kiếm",theme,frontend/Magento/luma
 "Previous","Trước",theme,frontend/Magento/luma
 "Remove","Loại bỏ",theme,frontend/Magento/luma
-"Remove This Item","Loại bỏ mục này",theme,frontend/Magento/luma
+"Remove This Item","X",theme,frontend/Magento/luma
 "Shop By","Danh mục",theme,frontend/Magento/luma
 "Clear All","Xóa tất cả",theme,frontend/Magento/luma
 "Shopping Options","Lựa chọn mua sắm",theme,frontend/Magento/luma
