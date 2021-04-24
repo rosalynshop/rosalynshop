@@ -2287,7 +2287,7 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "Buy %1 for: ","Mua %1 cho: ",module,Magento_Catalog
 "Buy %1 for %2 each and <strong class=""benefit"">save<span class=""percent tier-%3"">&nbsp;%4</span>%</strong>","Mua %1 cho %2 mỗi và <strong class=""benefit""> save <span class=""percent tier-%3"">%4%</span></strong>",module,Magento_Catalog
 "Buy %1 for %2 each","Mua %1 cho %2 mỗi",module,Magento_Catalog
-"Shop By","Danh mục",module,Magento_Catalog
+"Shop By","Bộ lọc tìm kiếm",module,Magento_Catalog
 "Shopping Options","Lựa chọn mua sắm",module,Magento_Catalog
 "Compare Products","So sánh sản phẩm",module,Magento_Catalog
 "Print This Page","In Trang này",module,Magento_Catalog

@@ -1476,7 +1476,7 @@ e.g. var/export, var/import, var/export/some/dir","Đối với loại ""Local S
 "Previous","Trước",module,Magento_LayeredNavigation
 "Remove","Loại bỏ",module,Magento_LayeredNavigation
 "Remove This Item","X",module,Magento_LayeredNavigation
-"Shop By","Danh mục",module,Magento_LayeredNavigation
+"Shop By","Bộ lọc tìm kiếm",module,Magento_LayeredNavigation
 "Clear All","Xóa tất cả",module,Magento_LayeredNavigation
 "Shopping Options","Lựa chọn mua sắm",module,Magento_LayeredNavigation
 "Layered Navigation","Layered Navigation",module,Magento_LayeredNavigation
@@ -9733,7 +9733,7 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "Previous","Trước",theme,frontend/Magento/luma
 "Remove","Loại bỏ",theme,frontend/Magento/luma
 "Remove This Item","X",theme,frontend/Magento/luma
-"Shop By","Danh mục",theme,frontend/Magento/luma
+"Shop By","Bộ lọc tìm kiếm",theme,frontend/Magento/luma
 "Clear All","Xóa tất cả",theme,frontend/Magento/luma
 "Shopping Options","Lựa chọn mua sắm",theme,frontend/Magento/luma
 "Welcome to %store_name","Chào mừng đến với %store_name",theme,frontend/Magento/luma

@@ -12,3 +12,9 @@
 .mana-filter-block {
     position: relative;
 }
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .filter-current-subtitle {
+        display: none;
+    }
+}
