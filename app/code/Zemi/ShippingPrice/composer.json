@@ -1,0 +1,22 @@
+{
+    "name": "zemi/module-shippingprice",
+    "description": "Gi\u00e1 s\u1ea3n ph\u1ea9m \u0111\u01b0\u1ee3c \u00e1p d\u1ee5ng theo c\u00e2n n\u1eb7ng",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Zemi\\ShippingPrice\\": ""
+        }
+    }
+}

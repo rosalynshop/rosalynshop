@@ -258,6 +258,7 @@ return [
         'Zemi_RebuildUrl' => 1,
         'Zemi_RegionManager' => 1,
         'Zemi_SalesEmail' => 1,
+        'Zemi_ShippingPrice' => 1,
         'Zemi_SocialShare' => 1
     ]
 ];

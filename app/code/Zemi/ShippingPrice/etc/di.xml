@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <type name="Magento\OfflineShipping\Model\Carrier\Flatrate\ItemPriceCalculator">
+        <plugin name="zemi_price_shipping_method" type="Zemi\ShippingPrice\Plugin\ItemPriceCalculator" sortOrder="10" disabled="false"/>
+    </type>
+</config>
