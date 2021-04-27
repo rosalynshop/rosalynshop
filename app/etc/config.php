@@ -209,7 +209,7 @@ return [
         'Amasty_Base' => 1,
         'Amasty_Cart' => 1,
         'Amasty_CronScheduleList' => 1,
-        'Amasty_Fpc' => 1,
+        'Amasty_Fpc' => 0,
         'Amasty_Number' => 1,
         'Amasty_PageSpeedOptimizer' => 1,
         'Amasty_Pgrid' => 1,
