@@ -323,7 +323,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             <div class="logo text-hide">
                 <a href="'.$this->getBaseUrl().'" title="'.$this->_logo->getLogoAlt().'">
                     <strong>'.$this->_logo->getLogoAlt().'</strong>
-                    <img class="img-fluid" src="'.$this->_logo->getLogoSrc().'" alt="'.$this->_logo->getLogoAlt() .'" width="'.$this->_logo->getLogoWidth().'" height="'.$this->_logo->getLogoHeight().'">
+                    <img class="zemi-img-fluid" src="'.$this->_logo->getLogoSrc().'" alt="'.$this->_logo->getLogoAlt() .'" width="'.$this->_logo->getLogoWidth().'" height="'.$this->_logo->getLogoHeight().'">
                 </a>
             </div>
         ';

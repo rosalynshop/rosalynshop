@@ -32,7 +32,7 @@
                 <div class="post-item">
                     <?php if ($featuredImage = $_post->getFeaturedImage()) : ?>
                         <a class="img-featured" href="<?php echo $_postUrl ?>" title="<?php echo $_postName ?>">
-                            <img class="img-fluid" src="<?php echo $featuredImage ?>" alt="<?php echo $_postName ?>" />
+                            <img class="zemi-img-fluid" src="<?php echo $featuredImage ?>" alt="<?php echo $_postName ?>" />
                         </a>
                     <?php endif;?>
                     <?php if ($_categoriesCount = $_post->getCategoriesCount()) : ?>

@@ -13,10 +13,8 @@
 <?php $storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt(); ?>
 <div class="nav-logo text-hide">
     <a href="<?= $block->getUrl(''); ?>" title="<?= /* @escapeNotVerified */ $storeName ?>">
-        <strong><?= /* @escapeNotVerified */
-            $block->getLogoAlt() ?></strong>
-        <img class="img-fluid" src="<?= /* @escapeNotVerified */
-        $block->getLogoSrc() ?>"
+        <strong><?= /* @escapeNotVerified */ $block->getLogoAlt() ?></strong>
+        <img class="zemi-img-fluid" src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"
              alt="<?= /* @escapeNotVerified */
              $block->getLogoAlt() ?>"
             <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>

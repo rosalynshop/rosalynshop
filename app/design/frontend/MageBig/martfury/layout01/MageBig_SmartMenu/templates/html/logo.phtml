@@ -21,18 +21,14 @@ $logoNavUrl = $_mbHelper->getBaseMediaUrl() . 'wysiwyg/magebig/logo/' . $logoNav
         <strong><?= /* @escapeNotVerified */
             $block->getLogoAlt() ?></strong>
         <?php if (!$logoNav) : ?>
-            <img class="img-fluid" src="<?= /* @escapeNotVerified */
-            $block->getLogoSrc() ?>"
-                 alt="<?= /* @escapeNotVerified */
-                 $block->getLogoAlt() ?>"
+            <img class="zemi-img-fluid" src="<?= /* @escapeNotVerified */ $block->getLogoSrc() ?>"
+                 alt="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
                 <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
                 <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
             />
         <?php else : ?>
-            <img class="img-fluid" src="<?= /* @escapeNotVerified */
-            $logoNavUrl ?>"
-                 alt="<?= /* @escapeNotVerified */
-                 $block->getLogoAlt() ?>"
+            <img class="zemi-img-fluid" src="<?= /* @escapeNotVerified */ $logoNavUrl ?>"
+                 alt="<?= /* @escapeNotVerified */ $block->getLogoAlt() ?>"
                 <?= $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
                 <?= $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
             />
