@@ -1,0 +1,8 @@
+<th data-bind="attr: {'class': $col.get('index')}">
+    <!-- ko if: $col.get('index') == 'visits' -->
+    <div if="$parent.totals[$col.get('index')]"  class="data-grid-cell-content" text="'&Sigma;\:&nbsp;' + $parent.totals[$col.get('index')]"/>
+    <!-- /ko -->
+    <!-- ko ifnot: $col.get('index') == 'visits' -->
+    <div if="$parent.totals[$col.get('index')]"  class="data-grid-cell-content" text="$parent.totals[$col.get('index')]"/>
+    <!-- /ko -->
+</th>

@@ -1,0 +1,17 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+?>
+<?php /** @var \Amasty\Fpc\Block\Adminhtml\Log\Reports\Rates $block */ ?>
+
+<div class="amfpc-log-container">
+    <div class="amfpc-column -left">
+        <?= $block->getChildHtml('amasty_fpc_rates'); ?>
+    </div>
+    <div class="amfpc-column -right">
+        <?= $block->getChildHtml('amasty_fpc_charts'); ?>
+    </div>
+</div>

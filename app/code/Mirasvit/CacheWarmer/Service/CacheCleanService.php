@@ -46,6 +46,7 @@ class CacheCleanService
      */
     public function logCacheClean($mode, array $tags)
     {
+        return true;
         $allowed = [
             "rma_order_status_history",
             "helpdesk_gateway",

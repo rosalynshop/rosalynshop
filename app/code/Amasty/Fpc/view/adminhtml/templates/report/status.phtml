@@ -1,0 +1,54 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+?>
+<?php /** @var \Amasty\Fpc\Block\Adminhtml\Report\Tab\Status $block */ ?>
+
+<div class="amfpc-filter-block">
+    <div class="amfpc-select">
+        <label for="amfpc-warmed-filter"><?= $block->escapeHtml(__('Period:')) ?></label>
+        <select id="amfpc-status-filter" data-amfpc-js="status-filter" class="amfpc-filter">
+            <option value="1" selected="selected"><?= $block->escapeHtml(__('Day')) ?></option>
+            <option value="2"><?= $block->escapeHtml(__('Week')) ?></option>
+            <option value="3"><?= $block->escapeHtml(__('Month')) ?></option>
+        </select>
+    </div>
+    <button class="amfpc-reload" data-amfpc-js="status-btn-reload"><?= $block->escapeHtml(__('Reload')) ?></button>
+</div>
+
+<div id="amfpc-status-container" class="amfpc-chart-container" data-bind="scope: 'status'">
+    <div class="amfpc-status-information" data-bind="foreach: info">
+        <div class="amfpc-info-container">
+            <div class="amfpc-name-container">
+                <div class="amfpc-name">
+                    <span data-bind="text: status"></span>
+                </div>
+            </div>
+            <div class="amfpc-quantity-container">
+                <div class="amfpc-quantity">
+                    <span data-bind="text: count"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="amfpc-chart-status" class="amfpc-chart-status"></div>
+</div>
+
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "status": {
+                            "component": "Amasty_Fpc/js/status",
+                            "data" : <?= json_encode($block->getGraphData()) ?>,
+                            "reloadUrl": "<?= $block->getUrl('amasty_fpc/report/statuscodesdatarefresh'); ?>"
+                        }
+                    }
+                }
+            }
+        }
+</script>

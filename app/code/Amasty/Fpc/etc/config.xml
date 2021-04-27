@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amasty_fpc>
+            <general>
+                <customer_activity>1</customer_activity>
+                <enable_flushes_log>0</enable_flushes_log>
+                <ignore_classes>{"_1586184542667_667":{"class_name":"SendResponseBefore"}}</ignore_classes>
+            </general>
+            <source_and_priority>
+                <sitemap_path>sitemaps/sitemap.xml</sitemap_path>
+                <page_types>
+                    <index>
+                        <enabled>1</enabled>
+                        <priority>1</priority>
+                    </index>
+                    <cms>
+                        <enabled>1</enabled>
+                        <priority>4</priority>
+                    </cms>
+                    <product>
+                        <enabled>1</enabled>
+                        <priority>2</priority>
+                    </product>
+                    <category>
+                        <enabled>1</enabled>
+                        <priority>3</priority>
+                    </category>
+                </page_types>
+            </source_and_priority>
+            <performance_settings>
+                <multiple_curl>0</multiple_curl>
+                <processes_number>5</processes_number>
+                <generate_cron>0 */12 * * *</generate_cron>
+                <max_queue_size>1000</max_queue_size>
+                <batch_size>50</batch_size>
+                <process_cron>*/5 * * * *</process_cron>
+                <delay>300</delay>
+                <log_size>50000</log_size>
+            </performance_settings>
+            <combinations>
+                <ignore_list>
+                    {"default":{"expression":"price="}}
+                </ignore_list>
+                <process_mobile>0</process_mobile>
+                <mobile_agent>Android</mobile_agent>
+                <user_agents>iPhone|iPod|BlackBerry|Palm|Googlebot-Mobile|Mobile|mobile|mobi|Windows Mobile|Safari Mobile|Android|Opera Mini</user_agents>
+            </combinations>
+            <hole_punch>
+                <hole_punch></hole_punch>
+            </hole_punch>
+        </amasty_fpc>
+    </default>
+</config>

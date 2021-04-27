@@ -1,0 +1,40 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+?>
+<?php /** @var \Amasty\Fpc\Block\Adminhtml\Report\Tab\efficiency $block */ ?>
+
+<div class="amfpc-filter-block">
+    <div class="amfpc-select">
+        <label for="amfpc-time-filter"><?= $block->escapeHtml(__('Period:')) ?></label>
+        <select id="amfpc-time-filter" data-amfpc-js="interval-filter" class="amfpc-filter">
+            <option value="1" selected="selected"><?= $block->escapeHtml(__('Day')) ?></option>
+            <option value="2"><?= $block->escapeHtml(__('Week')) ?></option>
+            <option value="3"><?= $block->escapeHtml(__('Month')) ?></option>
+        </select>
+    </div>
+    <button class="amfpc-reload" data-amfpc-js="btn-reload"><?= $block->escapeHtml(__('Reload')) ?></button>
+</div>
+
+<div id="chart-efficiency" class="amfpc-efficiency"></div>
+
+<?= $block->getChildHtml('amasty_fpc_report_listing'); ?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "efficiency": {
+                        "component": "Amasty_Fpc/js/efficiency"
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+

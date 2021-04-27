@@ -1,0 +1,7 @@
+<div style="max-width: 350px;word-wrap: break-word;">
+    <!-- ko foreach: { data: $row().details, as: 'item' } -->
+    <p><span>Tags</span>: <span data-bind="text: item.tags"></span></p>
+    <p><span>Source</span>: <span data-bind="text: item.source"></span></p>
+    <p><span>Mode</span>: <span data-bind="text: item.mode"></span></p>
+    <!-- /ko -->
+</div>

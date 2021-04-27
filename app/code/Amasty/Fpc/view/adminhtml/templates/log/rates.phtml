@@ -1,0 +1,64 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+?>
+<?php /** @var \Amasty\Fpc\Block\Adminhtml\Log\Reports\Rates $block */ ?>
+
+<div class="amfpc-panel amfpc-cache-coverage">
+    <p class="amfpc-title">
+        <?= $block->escapeHtml(__('Cache Coverage Rate (for the last ') . $block->getCacheTtl()) . ')' ?>
+    </p>
+    <div class="amprogressbar-progress-timer">
+        <div class="amprogressbar-progress-container">
+            <div class="amprogressbar-progress-wrapper">
+                <progress max="100"
+                          value="<?= $block->escapeHtml($block->getHitsValue()) ?>"
+                          class="amprogressbar-progress"
+                          data-amprogressbar-js="bar"
+                          data-label="<?= $block->escapeHtml(__('Hits')) ?>"></progress>
+            </div>
+            <span class="amprogressbar-percentage"
+                  data-amprogressbar-js="progressbar-value"
+                  style="left: <?= $block->getHitsValue() ?>%">
+                ~<?= $block->escapeHtml($block->getHitsValue()) ?>%
+            </span>
+        </div>
+    </div>
+    <div class="amfpc-info-wrapper amfpc-info">
+        <span class="amfpc-item">
+            <?= $block->escapeHtml(__('Cache Type: ')) ?>
+            <strong class="amfpc-cachetype"><?= $block->escapeHtml($block->getCacheType()) ?></strong>
+        </span>
+        <span class="amfpc-item">
+            <?= $block->escapeHtml(__('Cache TTL: ')) ?>
+            <strong class="amfpc-cachettl"><?= $block->escapeHtml($block->getCacheTtl()) ?></strong>
+        </span>
+    </div>
+</div>
+
+<div class="amfpc-panel amfpc-cache-relation">
+    <p class="amfpc-title"><?= $block->escapeHtml(__('Crawler Progress')) ?></p>
+    <div class="amfpc-info-wrapper amfpc-info">
+        <span class="amfpc-item">
+            <?= $block->escapeHtml(__('In Cache ')) ?>
+            <strong class="amfpc-cachedvalue">~<?= $block->escapeHtml($block->getCachedValue()) ?>%</strong>
+        </span>
+        <span class="amfpc-item">
+            <?= $block->escapeHtml(__('Pending ')) ?>
+            <strong class="amfpc-pendingvalue">~<?= $block->escapeHtml($block->getPendingValue()) ?>%</strong>
+        </span>
+    </div>
+    <div class="amprogressbar-progress-timer">
+        <div class="amprogressbar-progress-container">
+            <div class="amprogressbar-progress-wrapper">
+                <progress max="100"
+                          value="<?= $block->escapeHtml($block->getCachedValue()) ?>"
+                          class="amprogressbar-progress"
+                          data-amprogressbar-js="bar"></progress>
+            </div>
+        </div>
+    </div>
+</div>
