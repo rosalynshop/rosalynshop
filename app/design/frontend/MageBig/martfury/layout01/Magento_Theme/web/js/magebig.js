@@ -14,6 +14,7 @@
             this._goTop();
             if (this.options.sticky_header) {
                 this._stickyMenu();
+                this._stickyMenuMobile();
             }
             this._stickyAddCart();
         },
@@ -61,6 +62,25 @@
                 });
             }
         },
+        _stickyMenuMobile: function() {
+            var $stickyMenu = $('.sticky-menu-mobile-bottom');
+            if ($stickyMenu.length > 0) {
+                $(window).scroll(function() {
+                    var curWinTop = $(window).scrollTop();
+                    if (curWinTop > 50) {
+                        $stickyMenu.addClass('active');
+                        $stickyMenu.removeAttr('style');
+                    } else {
+                        $stickyMenu.removeClass('active');
+                        $stickyMenu.css({
+                            'pointer-events': 'none',
+                            'display': 'none'
+                        });
+                    }
+                });
+            }
+        },
+
         _stickyAddCart: function() {
             var $stickyAddCart = $('.box-tocart');
             $('.box-tocart .tocart').on('click', function () {

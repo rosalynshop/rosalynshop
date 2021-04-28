@@ -1,6 +1,7 @@
 <?php
 $mbHelper       = $this->helper('MageBig\MbFrame\Helper\Data');
 $zmHelper       = $this->helper('Zemi\Logo\Helper\Data');
+
 /** @var $menuHelper \MageBig\SmartMenu\Helper\MobileDetect*/
 $menuHelper     = $this->helper('MageBig\SmartMenu\Helper\MobileDetect');
 $logoSticky     = $mbHelper->getConfig('mbconfig/header/logo_sticky');
@@ -27,7 +28,68 @@ $menuLayout     = $mbHelper->getConfig('mbconfig/header/menu_layout');
         </div>
     </div>
 </div>
-<?php if ($menuHelper->isMobile() && !$menuHelper->isTablet()) : ?>
+
+<?php if (!$menuHelper->isMobile()) : ?>
+    <div class="header-main-content sticky-menu">
+        <div class="container">
+            <div class="header-main-inner <?php if ($menuLayout == 'horizontal') : ?>header-horizontal<?php endif;?>">
+                <div class="row align-items-center header-maininner-row">
+                    <div class="col-12 col-md-3 col-lg-3 col-logo">
+                        <div class="menu-logo">
+                            <?php if ($zmHelper->isEnable()) : ?>
+                                <div class="logo text-show zemi-text-logo">
+                                    <span class="zemi-logo" style="color: <?= $zmHelper->getLogoColorLabel1()?>"><?= $zmHelper->getLabel1Config() ?></span>
+                                    <span class="zemi-logo2" style="color: <?= $zmHelper->getLogoColorLabel2()?>"><?= $zmHelper->getLabel2Config() ?></span>
+                                    <h6 class="h6-sm-sologan" style="color: <?= $zmHelper->getLogoColorSlogan()?>"><?= $zmHelper->getLogoSlogan();?></h6>
+                                </div>
+                            <?php else: ?>
+                                <?php if (empty($this->getChildHtml('logo'))) : ?>
+                                    <?= $mbHelper->getLogoImage() ?>
+                                <?php else :?>
+                                    <?= $this->getChildHtml('logo') ?>
+                                <?php endif;?>
+                            <?php endif;?>
+                        </div>
+                        <?= $this->getChildHtml('smartmenu.topnav') ?>
+                    </div>
+                    <div class="col-md-5 col-lg-5 col-xl-6 col-search">
+                        <div class="top-search-wrap">
+                            <?= $this->getChildHtml('topSearch') ?>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4 col-xl-3">
+                        <div class="header-content-action row no-gutters">
+                            <div class="btn-nav-mobile d-md-none col">
+                                <button class="btn-nav mb-toggle-switch mb-toggle-switch__htx"><span>toggle menu</span></button>
+                            </div>
+                            <div class="d-block d-md-none btn-search-mobile col">
+                                <i class="mbi mbi-magnifier"></i>
+                            </div>
+                            <?= $this->getChildHtml('wishlist_icon') ?>
+                            <?= $this->getChildHtml('minicart') ?>
+                            <?php /* ?>
+                            <span class="counter qty">
+                                <span class="cart-label"> - </span>
+                                <span class="subtotal-top" data-bind="scope: 'ajaxcart_content'">
+                                    <!-- ko ifnot: getCartParam('subtotal') -->
+                                    <span class="price-zero"><?= $this->helper('Magento\Framework\Pricing\Helper\Data')->currency(number_format(0, 2), true, false); ?></span>
+                                    <!-- /ko -->
+                                    <span class="price-label" data-bind="html: getCartParam('subtotal')"></span>
+                                </span>
+                            </span>
+                            */ ?>
+                            <div class="user-topbar col">
+                                <i class="mbi mbi-user"></i>
+                                <?= $this->getChildHtml('header.links') ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif;?>
+<?php if ($menuHelper->isMobile()) : ?>
     <div class="header-main-content sticky-menu-mobile-header">
         <div class="container">
             <div class="header-main-inner <?php if ($menuLayout == 'horizontal') : ?>header-horizontal<?php endif;?>">
@@ -72,102 +134,6 @@ $menuLayout     = $mbHelper->getConfig('mbconfig/header/menu_layout');
         <div class="container">
             <div class="header-main-inner <?php if ($menuLayout == 'horizontal') : ?>header-horizontal<?php endif;?>">
                 <div class="row align-items-center header-maininner-row">
-                    <div class="col-md-5 col-lg-5 col-xl-6 col-search">
-                        <div class="top-search-wrap">
-                            <?= $this->getChildHtml('topSearch') ?>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-                        <div class="header-content-action row no-gutters">
-                            <div class="btn-nav-mobile d-md-none col">
-                                <button class="btn-nav mb-toggle-switch mb-toggle-switch__htx"><span>toggle menu</span></button>
-                            </div>
-                            <div class="d-block d-md-none btn-search-mobile col">
-                                <i class="mbi mbi-magnifier"></i>
-                            </div>
-                            <?= $this->getChildHtml('wishlist_icon') ?>
-                            <?= $this->getChildHtml('minicart') ?>
-                            <div class="user-topbar col">
-                                <i class="mbi mbi-user"></i>
-                                <?= $this->getChildHtml('header.links') ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php elseif (!$menuHelper->isMobile() && !$menuHelper->isTablet()):?>
-    <div class="header-main-content sticky-menu">
-        <div class="container">
-            <div class="header-main-inner <?php if ($menuLayout == 'horizontal') : ?>header-horizontal<?php endif;?>">
-                <div class="row align-items-center header-maininner-row">
-                    <div class="col-12 col-md-3 col-lg-3 col-logo">
-                        <div class="menu-logo">
-                            <?php if ($zmHelper->isEnable()) : ?>
-                                <div class="logo text-show zemi-text-logo">
-                                    <span class="zemi-logo" style="color: <?= $zmHelper->getLogoColorLabel1()?>"><?= $zmHelper->getLabel1Config() ?></span>
-                                    <span class="zemi-logo2" style="color: <?= $zmHelper->getLogoColorLabel2()?>"><?= $zmHelper->getLabel2Config() ?></span>
-                                    <h6 class="h6-sm-sologan" style="color: <?= $zmHelper->getLogoColorSlogan()?>"><?= $zmHelper->getLogoSlogan();?></h6>
-                                </div>
-                            <?php else: ?>
-                                <?php if (empty($this->getChildHtml('logo'))) : ?>
-                                    <?= $mbHelper->getLogoImage() ?>
-                                <?php else :?>
-                                    <?= $this->getChildHtml('logo') ?>
-                                <?php endif;?>
-                            <?php endif;?>
-                        </div>
-                        <?= $this->getChildHtml('smartmenu.topnav') ?>
-                    </div>
-                    <div class="col-md-5 col-lg-5 col-xl-6 col-search">
-                        <div class="top-search-wrap">
-                            <?= $this->getChildHtml('topSearch') ?>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-4 col-xl-3">
-                        <div class="header-content-action row no-gutters">
-                            <div class="btn-nav-mobile d-md-none col">
-                                <button class="btn-nav mb-toggle-switch mb-toggle-switch__htx"><span>toggle menu</span></button>
-                            </div>
-                            <div class="d-block d-md-none btn-search-mobile col">
-                                <i class="mbi mbi-magnifier"></i>
-                            </div>
-                            <?= $this->getChildHtml('wishlist_icon') ?>
-                            <?= $this->getChildHtml('minicart') ?>
-                            <div class="user-topbar col">
-                                <i class="mbi mbi-user"></i>
-                                <?= $this->getChildHtml('header.links') ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php elseif ($menuHelper->isTablet()) :?>
-    <div class="header-main-content sticky-menu">
-        <div class="container">
-            <div class="header-main-inner <?php if ($menuLayout == 'horizontal') : ?>header-horizontal<?php endif;?>">
-                <div class="row align-items-center header-maininner-row">
-                    <div class="col-12 col-md-3 col-lg-3 col-logo">
-                        <div class="menu-logo">
-                            <?php if ($zmHelper->isEnable()) : ?>
-                                <div class="logo text-show zemi-text-logo">
-                                    <span class="zemi-logo" style="color: <?= $zmHelper->getLogoColorLabel1()?>"><?= $zmHelper->getLabel1Config() ?></span>
-                                    <span class="zemi-logo2" style="color: <?= $zmHelper->getLogoColorLabel2()?>"><?= $zmHelper->getLabel2Config() ?></span>
-                                    <h6 class="h6-sm-sologan" style="color: <?= $zmHelper->getLogoColorSlogan()?>"><?= $zmHelper->getLogoSlogan();?></h6>
-                                </div>
-                            <?php else: ?>
-                                <?php if (empty($this->getChildHtml('logo'))) : ?>
-                                    <?= $mbHelper->getLogoImage() ?>
-                                <?php else :?>
-                                    <?= $this->getChildHtml('logo') ?>
-                                <?php endif;?>
-                            <?php endif;?>
-                        </div>
-                        <?= $this->getChildHtml('smartmenu.topnav') ?>
-                    </div>
                     <div class="col-md-5 col-lg-5 col-xl-6 col-search">
                         <div class="top-search-wrap">
                             <?= $this->getChildHtml('topSearch') ?>
