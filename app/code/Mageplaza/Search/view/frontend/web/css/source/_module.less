@@ -117,13 +117,6 @@ p.short-des {
     cursor: pointer;
 }
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-    #search_mini_form {
-        width: 374px;
-        float: right;
-    }
-}
-
 //
 //  Mobile (styles-m.css)
 //  _____________________________________________
@@ -133,5 +126,26 @@ p.short-des {
         .suggestion-right {
             max-width: 65%;
         }
+    }
+}
+
+//
+//  Tablet (for the front-end)
+//  _____________________________________________
+
+@media only screen and (max-width: @screen__m) {
+    #search_mini_form {
+        width: 175px !important;
+        float: right;
+    }
+}
+
+//
+//  Desktop (style-l.css)
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    #search_mini_form {
+        width: 375px;
+        float: right;
     }
 }

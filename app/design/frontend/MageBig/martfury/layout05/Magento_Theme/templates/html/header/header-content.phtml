@@ -56,7 +56,9 @@ $menuLayout     = $mbHelper->getConfig('mbconfig/header/menu_layout');
                             <div class="d-block d-md-none btn-search-mobile col">
                                 <i class="mbi mbi-magnifier"></i>
                             </div>
-                            <?= $this->getChildHtml('minicart') ?>
+                            <div class="d-block d-md-none btn-minicart-mobile col">
+                                <?= $this->getChildHtml('minicart') ?>
+                            </div>
                             <div class="user-topbar col">
                                 <i class="mbi mbi-user"></i>
                                 <?= $this->getChildHtml('header.links') ?>

@@ -1,0 +1,99 @@
+<?php
+/**
+ * Copyright © magebig.com - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Checkout\Block\Cart\Sidebar */
+/** @var $menuHelper \MageBig\SmartMenu\Helper\MobileDetect*/
+$menuHelper = $this->helper('MageBig\SmartMenu\Helper\MobileDetect');
+?>
+
+<div class="col">
+    <div data-block="minicart" class="minicart-wrapper">
+        <?php if ($menuHelper->isMobile() && !$menuHelper->isTablet()) : ?>
+            <a class="action showcart" href="<?= /* @escapeNotVerified */ $block->getShoppingCartUrl() ?>" data-bind="scope: 'minicart_content'">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px"> <g> <g> <path d="M430.076,183.216L363.233,68.157c2.471-4.18,3.894-9.054,3.894-14.261c0-15.506-12.57-28.077-28.077-28.077 c-15.506,0-28.077,12.57-28.077,28.077c0,14.644,11.213,26.664,25.52,27.956l58.887,101.364H116.618l58.887-101.364 c14.308-1.292,25.52-13.311,25.52-27.956c0-15.506-12.57-28.077-28.077-28.077c-15.506,0-28.077,12.57-28.077,28.077 c0,5.208,1.423,10.081,3.894,14.261L81.924,183.216H0v60.34h512v-60.34H430.076z" fill="#0089f1"></path> </g> </g> <g> <g> <path d="M27.385,273.556l75,212.625h307.23l75-212.625H27.385z M166.104,428.056l-24.049-103.5h30.798l24.049,103.5H166.104z M271,428.056h-30v-103.5h30V428.056z M345.897,428.056h-30.798l24.048-103.5h30.798L345.897,428.056z" fill="#0089f1"></path> </g> </g> </svg>
+                </div>
+                <span class="text"><?= /* @escapeNotVerified */ __('My Cart') ?></span>
+                <span class="counter qty empty" data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
+                <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
+                <span class="counter-label">
+                <!-- ko if: getCartParam('summary_count') -->
+                    <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+                    <!-- ko i18n: 'items' --><!-- /ko -->
+                    <!-- /ko -->
+                </span>
+            </span>
+            </a>
+        <?php elseif (!$menuHelper->isMobile() && !$menuHelper->isTablet()):?>
+            <a class="action showcart" href="<?= /* @escapeNotVerified */ $block->getShoppingCartUrl() ?>" data-bind="scope: 'minicart_content'">
+                <i class="mbi mbi-bag2"></i>
+                <span class="text"><?= /* @escapeNotVerified */ __('My Cart') ?></span>
+                <span class="counter qty empty" data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
+                <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
+                <span class="counter-label">
+                <!-- ko if: getCartParam('summary_count') -->
+                    <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+                    <!-- ko i18n: 'items' --><!-- /ko -->
+                    <!-- /ko -->
+                </span>
+            </span>
+            </a>
+        <?php elseif ($menuHelper->isTablet()) :?>
+            <a class="action showcart" href="<?= /* @escapeNotVerified */ $block->getShoppingCartUrl() ?>" data-bind="scope: 'minicart_content'">
+                <i class="mbi mbi-bag2"></i>
+                <span class="text"><?= /* @escapeNotVerified */ __('My Cart') ?></span>
+                <span class="counter qty empty" data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
+                <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
+                <span class="counter-label">
+                <!-- ko if: getCartParam('summary_count') -->
+                    <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+                    <!-- ko i18n: 'items' --><!-- /ko -->
+                    <!-- /ko -->
+                </span>
+            </span>
+            </a>
+        <?php endif;?>
+
+        <?php if ($block->getIsNeedToDisplaySideBar()): ?>
+            <div class="block block-minicart empty"
+                 data-role="dropdownDialog"
+                 data-mage-init='{"dropdownDialog":{
+                "appendTo":"[data-block=minicart]",
+                "triggerTarget":".showcart",
+                "timeout": "2000",
+                "closeOnMouseLeave": false,
+                "closeOnEscape": true,
+                "triggerClass":"active",
+                "parentClass":"active",
+                "buttons":[]}}'>
+                <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                </div>
+                <?= $block->getChildHtml('minicart.addons') ?>
+            </div>
+        <?php endif ?>
+        <script>
+            window.checkout = <?= /* @escapeNotVerified */ $block->getSerializedConfig() ?>;
+        </script>
+        <script type="text/x-magento-init">
+    {
+        "[data-block='minicart']": {
+            "Magento_Ui/js/core/app": <?= /* @escapeNotVerified */
+            $block->getJsLayout() ?>
+        },
+        "*": {
+            "Magento_Ui/js/block-loader": "<?= /* @escapeNotVerified */
+            $block->getViewFileUrl('images/loader-1.gif') ?>"
+        }
+    }
+
+        </script>
+    </div>
+</div>
+
+
