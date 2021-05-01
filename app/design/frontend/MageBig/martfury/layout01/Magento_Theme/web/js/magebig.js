@@ -46,8 +46,6 @@
                 $toggleMobileDesktop = $('.toggle-menu-desktop'),
                 $isMobile = this._isMobile(),
                 $isIpad = this._isIpad();
-                console.log($isMobile);
-                console.log($isIpad);
             if ($checkDevice.length > 0) {
                 if ($isIpad && !$isMobile)  {
                     $('.menu-logo-mobile,.toggle-menu-desktop,.mbi-bag2').removeAttr('style');
