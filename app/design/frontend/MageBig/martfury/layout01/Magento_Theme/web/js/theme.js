@@ -37,30 +37,29 @@ define([
     _toogleNav();
 
     function _buildToggle() {
-        $('.sidebar > .block .block-title').append('<span class="toggle-class"></span>');
-        $('.sidebar > .block').append('<div class="close-expand-mb"></div>');
-        $('.sidebar > .block').append('<div class="close-expanded"></div>');
-        $('.toggle-class').on('click', function(event) {
-            var toggle = $(this).parent().next();
-            $(this).toggleClass('expanded');
-            $(this).parents('.block').toggleClass('active');
-            $('body').toggleClass('hide-over');
+        $(document).ready(function () {
+            $('.filter-title').append('<span class="toggle-class"></span>');
+            $('#layered-filter-block').append('<div class="close-expand-mb"></div>');
+            $('#layered-filter-block').append('<div class="close-expanded"></div>');
+            $('.toggle-class').on('click', function(event) {
+                var toggle = $(this).parent().next();
+                $(this).toggleClass('expanded');
+                $(this).parents('.block').toggleClass('active');
+                toggle.toggleClass('show-expanded');
+                if ($('.sticky-menu').hasClass('active')) {
+                    $('.sticky-menu').removeClass('active');
+                }
+                if ($('.sticky-menu-mobile-bottom').hasClass('active')) {
+                    $('.sticky-menu-mobile-bottom').removeClass('active');
+                }
 
-            toggle.toggleClass('show-expanded');
-
-            if ($('.sticky-menu').hasClass('active')) {
-                $('.sticky-menu').removeClass('active');
-            }
-            if ($('.sticky-menu-mobile-bottom').hasClass('active')) {
-                $('.sticky-menu-mobile-bottom').removeClass('active');
-            }
-
-            if ($('.filter-options-item .nano').length) {
-                $('.filter-options-item .nano').nanoScroller();
-            }
-        });
-        $('.close-expanded, .close-expand-mb').on('click', function (event) {
-            $(this).parents('.block').find('.toggle-class').trigger('click');
+                if ($('.filter-options-item .nano').length) {
+                    $('.filter-options-item .nano').nanoScroller();
+                }
+            });
+            $('.close-expanded, .close-expand-mb').on('click', function (event) {
+                $(this).parents('.block').find('.toggle-class').trigger('click');
+            });
         });
     }
 
