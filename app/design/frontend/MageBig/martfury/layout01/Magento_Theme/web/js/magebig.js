@@ -42,7 +42,6 @@
             if ($checkDevice.length > 0) {
                 if (this._isMobile() && !this._isIpad()) {
                     $(".logo-destination").html($(".menu-logo"));
-                    $('.col-logo').show();
                     $('.zemi-img-fluid').addClass('zemi-img-fix-logo');
                     $('.wishlist-topbar').find('i.mbi-heart').hide();
                     $('.header-maininner-row').css('margin-top', '-21px');
