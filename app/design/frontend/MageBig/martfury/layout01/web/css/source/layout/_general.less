@@ -438,36 +438,6 @@
             background-color: @main_color;
         }
     }
-    .sticky-menu-mobile-bottom.active {
-        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        width: 100%;
-        max-width: 100% !important;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 889;
-        margin: 0 auto;
-        position: fixed !important;
-        -webkit-animation: fadeInDown 0.3s linear;
-        animation: fadeInDown 0.3s linear;
-        background-color: #ffffff;
-        color: #000000;
-        a {
-            color: #000000;
-            &:hover {
-                color: @main_color;
-            }
-        }
-        .header-maininner-row {
-            min-height: 60px;
-        }
-        .vertical-menu {
-            top: 50%;
-            margin-top: -25px;
-            background-color: @main_color;
-        }
-    }
     @-webkit-keyframes fadeInDown {
         0% {
             opacity: 0;
@@ -618,13 +588,7 @@
     .sticky-menu.active .header-horizontal .vertical-menu {
         display: block !important;
     }
-    .sticky-menu-mobile-bottom.active .header-horizontal .vertical-menu {
-        display: block !important;
-    }
     .sticky-menu.active .vertical-menu .title {
-        color: #fff;
-    }
-    .sticky-menu-mobile-bottom.active .vertical-menu .title {
         color: #fff;
     }
     .vertical-menu {
@@ -754,14 +718,6 @@
     }
 
     .sticky-menu.active .vertical-menu .title {
-        .mbi-menu {
-            display: block;
-        }
-        i {
-            display: none;
-        }
-    }
-    .sticky-menu-mobile-bottom.active .vertical-menu .title {
         .mbi-menu {
             display: block;
         }
@@ -1012,9 +968,6 @@
         }
     }
     .sticky-menu.active .mb-toggle-switch span:before, .sticky-menu.active .mb-toggle-switch span, .sticky-menu.active .mb-toggle-switch span:after {
-        background-color: #000;
-    }
-    .sticky-menu-mobile-bottom.active .mb-toggle-switch span:before, .sticky-menu-mobile-bottom.active .mb-toggle-switch span, .sticky-menu-mobile-bottom.active .mb-toggle-switch span:after {
         background-color: #000;
     }
     .mb-toggle-switch__htx {
@@ -3037,30 +2990,13 @@
             opacity: 0;
             visibility: visible;
         }
-        .sticky-menu-mobile-bottom.active .vertical-menu:before {
-            opacity: 0;
-            visibility: visible;
-        }
-        .sticky-menu-mobile-bottom.active .vertical-menu:hover:before {
-            opacity: 1;
-            visibility: visible;
-            //background-color: @main_color;
-        }
 
         .sticky-menu.active .vertical-menu .navigation {
             display: none;
             margin-top: -1px;
             height: auto !important;
         }
-        .sticky-menu-mobile-bottom.active .vertical-menu .navigation {
-            display: none;
-            margin-top: -1px;
-            height: auto !important;
-        }
         .sticky-menu.active .vertical-menu:hover .navigation {
-            display: block;
-        }
-        .sticky-menu-mobile-bottom.active .vertical-menu:hover .navigation {
             display: block;
         }
     }
@@ -3418,43 +3354,43 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-    .sticky-menu-mobile-header {
-        .menu-logo {
-            text-align: left;
-            img {
-                max-width: 100%;
-                height: 50px;
-                margin-left: 45px;
-                margin-top: -48px;
-            }
-        }
-        .btn-search-mobile > i {
-            display: block;
-            margin-top: -44px;
-            margin-left: 230px;
-            position: absolute;
-        }
-        .btn-minicart-mobile {
-            .minicart-wrapper {
-                display: block;
-                margin-top: -48px;
-                margin-left: 250px;
-                position: absolute;
-            }
-        }
-        .user-topbar-mobile > i {
-            display: block;
-            margin-top: -48px;
-            margin-left: 305px;
-            position: absolute;
-        }
-        .user-topbar-tablet {
-            display: block;
-            top: 24px;
-            left: 610px;
-            position: absolute;
-        }
-    }
+    //.sticky-menu-mobile-header {
+    //    .menu-logo {
+    //        text-align: left;
+    //        img {
+    //            max-width: 100%;
+    //            height: 50px;
+    //            margin-left: 45px;
+    //            margin-top: -48px;
+    //        }
+    //    }
+    //    .btn-search-mobile > i {
+    //        display: block;
+    //        margin-top: -44px;
+    //        margin-left: 230px;
+    //        position: absolute;
+    //    }
+    //    .btn-minicart-mobile {
+    //        .minicart-wrapper {
+    //            display: block;
+    //            margin-top: -48px;
+    //            margin-left: 250px;
+    //            position: absolute;
+    //        }
+    //    }
+    //    .user-topbar-mobile > i {
+    //        display: block;
+    //        margin-top: -48px;
+    //        margin-left: 305px;
+    //        position: absolute;
+    //    }
+    //    .user-topbar-tablet {
+    //        display: block;
+    //        top: 24px;
+    //        left: 610px;
+    //        position: absolute;
+    //    }
+    //}
     .rosa-no-gutters {
         display: none;
     }
@@ -3500,84 +3436,19 @@
         font-size: 9px;
     }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) {
-    .logo {
-        .zemi-img-fluid {
-            width: 170px !important;
-            height: auto !important;
-        }
-    }
-    .btn-nav-mobile {
-        .btn-nav .mb-toggle-switch .mb-toggle-switch__htx {
-            width: 20px !important;
-            height: 20px !important;
-            margin-left: -15px !important;
-            margin-top: 12px !important;
-        }
-    }
-    .sticky-menu-mobile-header {
-        .menu-logo > img {
-            margin-left: 15px !important;
-            margin-top: -45px !important;
-        }
-        .btn-search-mobile>i {
-            margin-top: -45px !important;
-            margin-left: 194px !important;
-        }
-        .btn-minicart-mobile .minicart-wrapper {
-            margin-top: -50px !important;
-            margin-left: 208px !important;
-        }
-        .user-topbar-mobile>i {
-            margin-top: -50px !important;
-            margin-left: 257px !important;
-        }
-    }
-}
 
-@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
-    .sticky-menu-mobile-header {
-        .btn-search-mobile>i {
-            margin-left: 272px !important;
-        }
-        .btn-minicart-mobile .minicart-wrapper {
-            margin-left: 288px !important;
-        }
-        .user-topbar-mobile>i {
-            margin-left: 338px !important;
+//iphone 5
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) {
+    .btn-search-mobile {
+        i.mbi .mbi-magnifier {
+            display: none !important;
         }
     }
 }
 @media (max-width: 280px) {
-    .sticky-menu-mobile-header {
-        .mb-toggle-switch {
-            width: 18px !important;
-            height: 18px !important;
-            margin-left: -20px !important;
-            top: -8px !important;
-        }
-        .zemi-img-fluid {
-            max-width: 60% !important;
-            height: 42px !important;
-            margin-left: 16px !important;
-            margin-top: -50px !important;
-        }
-        .btn-search-mobile>i {
-            margin-top: -45px !important;
-            margin-left: 142px !important;
-        }
-        .btn-minicart-mobile .minicart-wrapper {
-            margin-top: -50px !important;
-            margin-left: 157px !important;
-        }
-        .user-topbar-mobile>i {
-            margin-top: -50px !important;
-            margin-left: 210px !important;
-        }
-    }
-    .sticky-menu-mobile-bottom {
-        .mb-toggle-switch {
-            top: 2px !important;
+    .btn-search-mobile {
+        i.mbi .mbi-magnifier {
+            display: none !important;
         }
     }
 }

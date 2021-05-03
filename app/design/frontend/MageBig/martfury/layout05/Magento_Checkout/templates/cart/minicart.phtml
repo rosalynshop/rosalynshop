@@ -9,13 +9,12 @@
 /** @var $block \Magento\Checkout\Block\Cart\Sidebar */
 ?>
 
-<div class="col">
+<div class="col btn-minicart-mobile">
     <div data-block="minicart" class="minicart-wrapper">
-        <a class="action showcart" href="<?= /* @escapeNotVerified */ $block->getShoppingCartUrl() ?>"
-           data-bind="scope: 'minicart_content'">
+        <a class="action showcart" href="<?= /* @escapeNotVerified */
+        $block->getShoppingCartUrl() ?>" data-bind="scope: 'minicart_content'">
             <i class="mbi mbi-bag2"></i>
-            <span class="text"><?= /* @escapeNotVerified */
-                __('My Cart') ?></span>
+            <span class="text"><?= /* @escapeNotVerified */ __('My Cart') ?></span>
             <span class="counter qty empty"
                   data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
             <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
@@ -44,22 +43,29 @@
                 </div>
                 <?= $block->getChildHtml('minicart.addons') ?>
             </div>
+        <?php else: ?>
+            <script>
+                require(['jquery'], function ($) {
+                    $('a.action.showcart').click(function() {
+                        $(document.body).trigger('processStart');
+                    });
+                });
+            </script>
         <?php endif ?>
         <script>
             window.checkout = <?= /* @escapeNotVerified */ $block->getSerializedConfig() ?>;
         </script>
         <script type="text/x-magento-init">
-    {
-        "[data-block='minicart']": {
-            "Magento_Ui/js/core/app": <?= /* @escapeNotVerified */
-            $block->getJsLayout() ?>
-        },
-        "*": {
-            "Magento_Ui/js/block-loader": "<?= /* @escapeNotVerified */
-            $block->getViewFileUrl('images/loader-1.gif') ?>"
+        {
+            "[data-block='minicart']": {
+                "Magento_Ui/js/core/app": <?= /* @escapeNotVerified */
+                $block->getJsLayout() ?>
+            },
+            "*": {
+                "Magento_Ui/js/block-loader": "<?= /* @escapeNotVerified */
+                $block->getViewFileUrl('images/loader-1.gif') ?>"
+            }
         }
-    }
-
         </script>
     </div>
 </div>

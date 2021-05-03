@@ -72,10 +72,6 @@ define(
                             if ($('.sticky-menu').hasClass('active')) {
                                 $('.sticky-menu').removeClass('active');
                             }
-                            if ($('.sticky-menu-mobile-bottom').hasClass('active')) {
-                                $('.sticky-menu-mobile-bottom').removeClass('active');
-                            }
-
                             if ($('.filter-options-item .nano').length) {
                                 $('.filter-options-item .nano').nanoScroller();
                             }
