@@ -30,7 +30,7 @@ $menuLayout     = $mbHelper->getConfig('mbconfig/header/menu_layout');
         <div class="header-main-inner <?php if ($menuLayout == 'horizontal') : ?>header-horizontal<?php endif;?>">
             <div class="row align-items-center header-maininner-row">
                 <div class="col-12 col-md-3 col-lg-3 col-logo">
-                    <div class="menu-logo">
+                    <div class="menu-logo" style="display:none">
                         <?php if (empty($this->getChildHtml('logo'))) : ?>
                             <?= $mbHelper->getLogoImage() ?>
                         <?php else :?>

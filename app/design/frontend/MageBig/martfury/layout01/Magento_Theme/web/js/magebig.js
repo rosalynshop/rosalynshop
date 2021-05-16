@@ -45,6 +45,7 @@
                     $('.zemi-img-fluid').addClass('zemi-img-fix-logo');
                     $('.wishlist-topbar').find('i.mbi-heart').hide();
                     $('.header-maininner-row').css('margin-top', '-21px');
+                    $(".menu-logo").show();
                     if ($stickyMenu.length > 0) {
                         $stickyMenu.wrap('<div class="sticky-wrap"></div>');
                         $stickyMenu.parent().css('min-height', $stickyMenu.outerHeight());
@@ -77,10 +78,10 @@
 
                 } else if (!this._isIpad() && !this._isMobile()) {
                     if ($stickyMenu.length > 0) {
+                        $(".menu-logo").show();
                         $stickyMenu.wrap('<div class="sticky-wrap"></div>');
                         $stickyMenu.parent().css('min-height', $stickyMenu.outerHeight());
                         var threshold = $stickyMenu.height() + $stickyMenu.offset().top;
-                        $('.col-logo').show();
                         $(window).scroll(function() {
                             var $win = $(this);
                             var curWinTop = $win.scrollTop();
@@ -104,7 +105,7 @@
                         $stickyMenu.wrap('<div class="sticky-wrap"></div>');
                         $stickyMenu.parent().css('min-height', $stickyMenu.outerHeight());
                         var threshold = $stickyMenu.height() + $stickyMenu.offset().top;
-                        $('.col-logo').show();
+                        $(".menu-logo").show();
                         $(window).scroll(function() {
                             var $win = $(this);
                             var curWinTop = $win.scrollTop();
