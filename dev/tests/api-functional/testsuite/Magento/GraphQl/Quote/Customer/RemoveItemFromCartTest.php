@@ -33,7 +33,7 @@ class RemoveItemFromCartTest extends GraphQlAbstract
      */
     private $getQuoteItemIdByReservedQuoteIdAndSku;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $objectManager = Bootstrap::getObjectManager();
         $this->customerTokenService = $objectManager->get(CustomerTokenServiceInterface::class);
@@ -64,11 +64,12 @@ class RemoveItemFromCartTest extends GraphQlAbstract
 
     /**
      * @magentoApiDataFixture Magento/Customer/_files/customer.php
-     * @expectedException \Exception
-     * @expectedExceptionMessage Could not find a cart with ID "non_existent_masked_id"
      */
     public function testRemoveItemFromNonExistentCart()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Could not find a cart with ID "non_existent_masked_id"');
+
         $query = $this->getQuery('non_existent_masked_id', 1);
         $this->graphQlMutation($query, [], '', $this->getHeaderMap());
     }
@@ -88,50 +89,6 @@ class RemoveItemFromCartTest extends GraphQlAbstract
 
         $query = $this->getQuery($maskedQuoteId, $notExistentItemId);
         $this->graphQlMutation($query, [], '', $this->getHeaderMap());
-    }
-
-    /**
-     * @magentoApiDataFixture Magento/Customer/_files/customer.php
-     * @param string $input
-     * @param string $message
-     * @dataProvider dataProviderUpdateWithMissedRequiredParameters
-     */
-    public function testUpdateWithMissedItemRequiredParameters(string $input, string $message)
-    {
-        $query = <<<QUERY
-mutation {
-  removeItemFromCart(
-    input: {
-      {$input}
-    }
-  ) {
-    cart {
-      items {
-        quantity
-      }
-    }
-  }
-}
-QUERY;
-        $this->expectExceptionMessage($message);
-        $this->graphQlMutation($query, [], '', $this->getHeaderMap());
-    }
-
-    /**
-     * @return array
-     */
-    public function dataProviderUpdateWithMissedRequiredParameters(): array
-    {
-        return [
-            'missed_cart_id' => [
-                'cart_item_id: 1',
-                'Required parameter "cart_id" is missing.'
-            ],
-            'missed_cart_item_id' => [
-                'cart_id: "test"',
-                'Required parameter "cart_item_id" is missing.'
-            ],
-        ];
     }
 
     /**
@@ -197,6 +154,44 @@ QUERY;
 
         $query = $this->getQuery($anotherCustomerQuoteMaskedId, $anotherCustomerQuoteItemId);
         $this->graphQlMutation($query, [], '', $this->getHeaderMap('customer2@search.example.com'));
+    }
+
+    /**
+     * @magentoApiDataFixture Magento/Customer/_files/customer.php
+     * @magentoApiDataFixture Magento/GraphQl/Catalog/_files/simple_product.php
+     * @magentoApiDataFixture Magento/GraphQl/Quote/_files/customer/create_empty_cart.php
+     * @magentoApiDataFixture Magento/GraphQl/Quote/_files/add_simple_product.php
+     *
+     */
+    public function testWithoutRequiredCartIdParameter()
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Required parameter "cart_id" is missing');
+
+        $maskedQuoteId = '';
+        $itemId = $this->getQuoteItemIdByReservedQuoteIdAndSku->execute('test_quote', 'simple_product');
+
+        $query = $this->getQuery($maskedQuoteId, $itemId);
+        $this->graphQlMutation($query, [], '', $this->getHeaderMap());
+    }
+
+    /**
+     * @magentoApiDataFixture Magento/Customer/_files/customer.php
+     * @magentoApiDataFixture Magento/GraphQl/Catalog/_files/simple_product.php
+     * @magentoApiDataFixture Magento/GraphQl/Quote/_files/customer/create_empty_cart.php
+     * @magentoApiDataFixture Magento/GraphQl/Quote/_files/add_simple_product.php
+     *
+     */
+    public function testWithoutRequiredCartItemIdParameter()
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Required parameter "cart_item_id" is missing.');
+
+        $maskedQuoteId = $this->getMaskedQuoteIdByReservedOrderId->execute('test_quote');
+        $itemId = 0;
+
+        $query = $this->getQuery($maskedQuoteId, $itemId);
+        $this->graphQlMutation($query, [], '', $this->getHeaderMap());
     }
 
     /**

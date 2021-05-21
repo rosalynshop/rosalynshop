@@ -40,7 +40,10 @@ class Color implements ArrayInterface
         $options = [];
 
         foreach ($this->toArray() as $value => $label) {
-            $options[] = compact('value', 'label');
+            $options[] = [
+                'value' => $value,
+                'label' => $label
+            ];
         }
 
         return $options;

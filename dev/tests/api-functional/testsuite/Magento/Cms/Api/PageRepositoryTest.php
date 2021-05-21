@@ -5,16 +5,23 @@
  */
 namespace Magento\Cms\Api;
 
+use Magento\Authorization\Model\Role;
+use Magento\Authorization\Model\Rules;
+use Magento\Authorization\Model\RoleFactory;
+use Magento\Authorization\Model\RulesFactory;
 use Magento\Cms\Api\Data\PageInterface;
 use Magento\Framework\Api\FilterBuilder;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Api\SortOrder;
 use Magento\Framework\Api\SortOrderBuilder;
+use Magento\Integration\Api\AdminTokenServiceInterface;
 use Magento\TestFramework\Helper\Bootstrap;
 use Magento\TestFramework\TestCase\WebapiAbstract;
 
 /**
  * Tests for cms page service.
+ *
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class PageRepositoryTest extends WebapiAbstract
 {
@@ -48,21 +55,39 @@ class PageRepositoryTest extends WebapiAbstract
     protected $currentPage;
 
     /**
+     * @var RoleFactory
+     */
+    private $roleFactory;
+
+    /**
+     * @var RulesFactory
+     */
+    private $rulesFactory;
+
+    /**
+     * @var AdminTokenServiceInterface
+     */
+    private $adminTokens;
+
+    /**
      * Execute per test initialization.
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->pageFactory = Bootstrap::getObjectManager()->create(\Magento\Cms\Api\Data\PageInterfaceFactory::class);
         $this->pageRepository = Bootstrap::getObjectManager()->create(\Magento\Cms\Api\PageRepositoryInterface::class);
         $this->dataObjectHelper = Bootstrap::getObjectManager()->create(\Magento\Framework\Api\DataObjectHelper::class);
         $this->dataObjectProcessor = Bootstrap::getObjectManager()
             ->create(\Magento\Framework\Reflection\DataObjectProcessor::class);
+        $this->roleFactory = Bootstrap::getObjectManager()->get(RoleFactory::class);
+        $this->rulesFactory = Bootstrap::getObjectManager()->get(RulesFactory::class);
+        $this->adminTokens = Bootstrap::getObjectManager()->get(AdminTokenServiceInterface::class);
     }
 
     /**
      * Clear temporary data
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         if ($this->currentPage) {
             $this->pageRepository->delete($this->currentPage);
@@ -184,10 +209,11 @@ class PageRepositoryTest extends WebapiAbstract
 
     /**
      * Test delete \Magento\Cms\Api\Data\PageInterface
-     * @expectedException \Magento\Framework\Exception\NoSuchEntityException
      */
     public function testDelete()
     {
+        $this->expectException(\Magento\Framework\Exception\NoSuchEntityException::class);
+
         $pageTitle = 'Page title';
         $pageIdentifier = 'page-title' . uniqid();
         /** @var  \Magento\Cms\Api\Data\PageInterface $pageDataObject */
@@ -277,7 +303,7 @@ class PageRepositoryTest extends WebapiAbstract
 
         $searchResult = $this->_webApiCall($serviceInfo, $requestData);
         $this->assertEquals(2, $searchResult['total_count']);
-        $this->assertEquals(1, count($searchResult['items']));
+        $this->assertCount(1, $searchResult['items']);
         $this->assertEquals(
             $searchResult['items'][0][PageInterface::IDENTIFIER],
             $cmsPages['third']->getIdentifier()
@@ -378,5 +404,110 @@ class PageRepositoryTest extends WebapiAbstract
         ];
 
         $this->_webApiCall($serviceInfo, [PageInterface::PAGE_ID => $pageId]);
+    }
+
+    /**
+     * Check that extra authorization is required for the design properties.
+     *
+     * @magentoApiDataFixture Magento/User/_files/user_with_custom_role.php
+     * @throws \Throwable
+     * @return void
+     */
+    public function testSaveDesign(): void
+    {
+        //Updating our admin user's role to allow saving pages but not their design settings.
+        /** @var Role $role */
+        $role = $this->roleFactory->create();
+        $role->load('test_custom_role', 'role_name');
+        /** @var Rules $rules */
+        $rules = $this->rulesFactory->create();
+        $rules->setRoleId($role->getId());
+        $rules->setResources(['Magento_Cms::save']);
+        $rules->saveRel();
+        //Using the admin user with custom role.
+        $token = $this->adminTokens->createAdminAccessToken(
+            'customRoleUser',
+            \Magento\TestFramework\Bootstrap::ADMIN_PASSWORD
+        );
+
+        $id = 'test-cms-page';
+        $serviceInfo = [
+            'rest' => [
+                'resourcePath' => self::RESOURCE_PATH,
+                'httpMethod' => \Magento\Framework\Webapi\Rest\Request::HTTP_METHOD_POST,
+                'token' => $token,
+            ],
+            'soap' => [
+                'service' => self::SERVICE_NAME,
+                'serviceVersion' => self::SERVICE_VERSION,
+                'operation' => self::SERVICE_NAME . 'Save',
+                'token' => $token
+            ],
+        ];
+        $requestData = [
+            'page' => [
+                PageInterface::IDENTIFIER => $id,
+                PageInterface::TITLE => 'Page title',
+                PageInterface::CUSTOM_THEME => 1
+            ],
+        ];
+
+        //Creating new page with design settings.
+        $exceptionMessage = null;
+        try {
+            $this->_webApiCall($serviceInfo, $requestData);
+        } catch (\Throwable $exception) {
+            if ($restResponse = json_decode($exception->getMessage(), true)) {
+                //REST
+                $exceptionMessage = $restResponse['message'];
+            } else {
+                //SOAP
+                $exceptionMessage = $exception->getMessage();
+            }
+        }
+        //We don't have the permissions.
+        $this->assertEquals('You are not allowed to change CMS pages design settings', $exceptionMessage);
+
+        //Updating the user role to allow access to design properties.
+        /** @var Rules $rules */
+        $rules = Bootstrap::getObjectManager()->create(Rules::class);
+        $rules->setRoleId($role->getId());
+        $rules->setResources(['Magento_Cms::save', 'Magento_Cms::save_design']);
+        $rules->saveRel();
+        //Making the same request with design settings.
+        $result = $this->_webApiCall($serviceInfo, $requestData);
+        $this->assertArrayHasKey('id', $result);
+        //Page must be saved.
+        $this->currentPage = $this->pageRepository->getById($result['id']);
+        $this->assertEquals($id, $this->currentPage->getIdentifier());
+        $this->assertEquals(1, $this->currentPage->getCustomTheme());
+        $requestData['page']['id'] = $this->currentPage->getId();
+
+        //Updating our role to remove design properties access.
+        /** @var Rules $rules */
+        $rules = Bootstrap::getObjectManager()->create(Rules::class);
+        $rules->setRoleId($role->getId());
+        $rules->setResources(['Magento_Cms::save']);
+        $rules->saveRel();
+        //Updating the page but with the same design properties values.
+        $result = $this->_webApiCall($serviceInfo, $requestData);
+        //We haven't changed the design so operation is successful.
+        $this->assertArrayHasKey('id', $result);
+        //Changing a design property.
+        $requestData['page'][PageInterface::CUSTOM_THEME] = 2;
+        $exceptionMessage = null;
+        try {
+            $this->_webApiCall($serviceInfo, $requestData);
+        } catch (\Throwable $exception) {
+            if ($restResponse = json_decode($exception->getMessage(), true)) {
+                //REST
+                $exceptionMessage = $restResponse['message'];
+            } else {
+                //SOAP
+                $exceptionMessage = $exception->getMessage();
+            }
+        }
+        //We don't have permissions to do that.
+        $this->assertEquals('You are not allowed to change CMS pages design settings', $exceptionMessage);
     }
 }

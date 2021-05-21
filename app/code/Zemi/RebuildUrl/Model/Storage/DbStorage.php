@@ -62,7 +62,7 @@ class DbStorage extends \Magento\UrlRewrite\Model\Storage\DbStorage
      * @param array $urls
      * @return array|UrlRewrite[]
      */
-    protected function doReplace(array $urls)
+    protected function doReplace(array $urls): array
     {
         try {
             $this->deleteOldUrls($urls);

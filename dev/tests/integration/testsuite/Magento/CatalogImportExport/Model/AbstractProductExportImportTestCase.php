@@ -7,6 +7,7 @@ namespace Magento\CatalogImportExport\Model;
 
 use Magento\Framework\App\Bootstrap;
 use Magento\Framework\App\Filesystem\DirectoryList;
+use Magento\ImportExport\Model\Export\Adapter\AbstractAdapter;
 use Magento\Store\Model\Store;
 
 /**
@@ -63,9 +64,19 @@ abstract class AbstractProductExportImportTestCase extends \PHPUnit\Framework\Te
     ];
 
     /**
+     * @var AbstractAdapter
+     */
+    private $writer;
+
+    /**
+     * @var string
+     */
+    private $csvFile;
+
+    /**
      * @inheritdoc
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
         $this->fileSystem = $this->objectManager->get(\Magento\Framework\Filesystem::class);
@@ -78,9 +89,14 @@ abstract class AbstractProductExportImportTestCase extends \PHPUnit\Framework\Te
     /**
      * @inheritdoc
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->executeFixtures($this->fixtures, true);
+
+        if ($this->csvFile !== null) {
+            $directoryWrite = $this->fileSystem->getDirectoryWrite(DirectoryList::VAR_DIR);
+            $directoryWrite->delete($this->csvFile);
+        }
     }
 
     /**
@@ -95,9 +111,11 @@ abstract class AbstractProductExportImportTestCase extends \PHPUnit\Framework\Te
      * @param string[] $skippedAttributes
      * @return void
      * @dataProvider exportImportDataProvider
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function testImportExport(array $fixtures, array $skus, array $skippedAttributes = []): void
     {
+        $this->csvFile = null;
         $this->fixtures = $fixtures;
         $this->executeFixtures($fixtures);
         $this->modifyData($skus);
@@ -105,8 +123,39 @@ abstract class AbstractProductExportImportTestCase extends \PHPUnit\Framework\Te
         $csvFile = $this->executeExportTest($skus, $skippedAttributes);
 
         $this->executeImportReplaceTest($skus, $skippedAttributes, false, $csvFile);
-        $this->executeImportReplaceTest($skus, $skippedAttributes, true, $csvFile);
         $this->executeImportDeleteTest($skus, $csvFile);
+    }
+
+    /**
+     * Run import-replace with pagination test.
+     *
+     * @magentoAppArea adminhtml
+     * @magentoDbIsolation disabled
+     * @magentoAppIsolation enabled
+     *
+     * @param array $fixtures
+     * @param string[] $skus
+     * @param string[] $skippedAttributes
+     * @dataProvider importReplaceDataProvider
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function testImportReplaceWithPagination(array $fixtures, array $skus, array $skippedAttributes = [])
+    {
+        $this->fixtures = $fixtures;
+        $this->executeFixtures($fixtures);
+        $this->modifyData($skus);
+        $skippedAttributes = array_merge(self::$skippedAttributes, $skippedAttributes);
+        $this->executeImportReplaceTest($skus, $skippedAttributes, true);
+    }
+
+    /**
+     * Provide data for import-replace with pagination test.
+     *
+     * @return array
+     */
+    public function importReplaceDataProvider()
+    {
+        return $this->exportImportDataProvider();
     }
 
     /**
@@ -203,7 +252,7 @@ abstract class AbstractProductExportImportTestCase extends \PHPUnit\Framework\Te
 
             $this->assertEquals(
                 $value,
-                isset($actual[$key]) ? $actual[$key] : null,
+                $actual[$key] ?? null,
                 'Assert value at key - ' . $key . ' failed'
             );
         }
@@ -367,21 +416,21 @@ abstract class AbstractProductExportImportTestCase extends \PHPUnit\Framework\Te
      * Export products in the system.
      *
      * @param \Magento\CatalogImportExport\Model\Export\Product|null $exportProduct
-     * @return string Return exported file name
+     * @return string Return exported file
      */
     private function exportProducts(\Magento\CatalogImportExport\Model\Export\Product $exportProduct = null)
     {
         $csvfile = uniqid('importexport_') . '.csv';
+        $this->csvFile = $csvfile;
 
         $exportProduct = $exportProduct ?: $this->objectManager->create(
             \Magento\CatalogImportExport\Model\Export\Product::class
         );
-        $exportProduct->setWriter(
-            \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
-                \Magento\ImportExport\Model\Export\Adapter\Csv::class,
-                ['fileSystem' => $this->fileSystem, 'destination' => $csvfile]
-            )
+        $this->writer = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
+            \Magento\ImportExport\Model\Export\Adapter\Csv::class,
+            ['fileSystem' => $this->fileSystem, 'destination' => $csvfile]
         );
+        $exportProduct->setWriter($this->writer);
         $this->assertNotEmpty($exportProduct->export());
 
         return $csvfile;

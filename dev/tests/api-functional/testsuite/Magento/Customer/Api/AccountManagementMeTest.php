@@ -16,6 +16,8 @@ use Magento\TestFramework\Helper\Customer as CustomerHelper;
 /**
  * Class AccountManagementMeTest
  *
+ * Tests involving the customer modifying their user information via web API.
+ *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  * @magentoApiDataFixture Magento/Customer/_files/customer.php
  * @magentoApiDataFixture Magento/Customer/_files/customer_two_addresses.php
@@ -71,7 +73,7 @@ class AccountManagementMeTest extends \Magento\TestFramework\TestCase\WebapiAbst
     /**
      * Execute per test initialization.
      */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->customerRegistry = Bootstrap::getObjectManager()->get(
             \Magento\Customer\Model\CustomerRegistry::class
@@ -100,7 +102,7 @@ class AccountManagementMeTest extends \Magento\TestFramework\TestCase\WebapiAbst
     /**
      * Ensure that fixture customer and his addresses are deleted.
      */
-    public function tearDown()
+    protected function tearDown(): void
     {
         $this->customerRepository = null;
 
@@ -144,13 +146,14 @@ class AccountManagementMeTest extends \Magento\TestFramework\TestCase\WebapiAbst
     {
         $customerData = $this->_getCustomerData($this->customerData[CustomerInterface::ID]);
         $lastName = $customerData->getLastname();
-
+        $groupID = $customerData->getGroupId();
         $updatedCustomerData = $this->dataObjectProcessor->buildOutputDataArray(
             $customerData,
             \Magento\Customer\Api\Data\CustomerInterface::class
         );
         $updatedCustomerData[CustomerInterface::LASTNAME] = $lastName . 'Updated';
         $updatedCustomerData[CustomerInterface::ID] = 25;
+        $updatedCustomerData[CustomerInterface::GROUP_ID] = $groupID . 1;
 
         $serviceInfo = [
             'rest' => [
@@ -172,6 +175,7 @@ class AccountManagementMeTest extends \Magento\TestFramework\TestCase\WebapiAbst
 
         $customerData = $this->_getCustomerData($this->customerData[CustomerInterface::ID]);
         $this->assertEquals($lastName . "Updated", $customerData->getLastname());
+        $this->assertEquals($groupID, $customerData->getGroupId());
     }
 
     public function testGetCustomerData()
@@ -228,14 +232,21 @@ class AccountManagementMeTest extends \Magento\TestFramework\TestCase\WebapiAbst
                 'token' => $this->token
             ]
         ];
-        $requestData = ['confirmationKey' => $this->customerData[CustomerInterface::CONFIRMATION]];
+
+        $requestData = ['confirmationKey' => CustomerHelper::CONFIRMATION];
         if (TESTS_WEB_API_ADAPTER === 'soap') {
             $requestData['customerId'] = 0;
         }
-        $customerResponseData = $this->_webApiCall($serviceInfo, $requestData);
-        $this->assertEquals($this->customerData[CustomerInterface::ID], $customerResponseData[CustomerInterface::ID]);
-        // Confirmation key is removed after confirmation
-        $this->assertFalse(isset($customerResponseData[CustomerInterface::CONFIRMATION]));
+
+        try {
+            $customerResponseData = $this->_webApiCall($serviceInfo, $requestData);
+            $this->assertEquals(
+                $this->customerData[CustomerInterface::ID],
+                $customerResponseData[CustomerInterface::ID]
+            );
+        } catch (\Exception $e) {
+            $this->fail('Customer is not activated.');
+        }
     }
 
     /**

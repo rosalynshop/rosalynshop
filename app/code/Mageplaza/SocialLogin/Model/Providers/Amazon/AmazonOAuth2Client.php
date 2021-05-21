@@ -80,13 +80,13 @@ class AmazonOAuth2Client extends OAuth2Client
      *
      * @return mixed
      */
-    private function request($url, $params = false, $type = 'GET')
+    private function request($url, $params = false, $type = "GET")
     {
         Hybrid_Logger::info("Enter OAuth2Client::request( $url )");
         Hybrid_Logger::debug('OAuth2Client::request(). dump request params: ', $this->_helperData->serialize($params));
 
         if ($type === 'GET') {
-            $url .= (strpos($url, '?') ? '&' : '?') . http_build_query($params, '', '&');
+            $url = $url . (strpos($url, '?') ? '&' : '?') . http_build_query($params, '', '&');
         }
 
         $this->http_info = [];

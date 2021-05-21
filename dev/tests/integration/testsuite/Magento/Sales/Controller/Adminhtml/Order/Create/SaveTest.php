@@ -19,7 +19,7 @@ use Magento\Sales\Model\Service\OrderService;
 use Magento\TestFramework\Mail\Template\TransportBuilderMock;
 use Magento\TestFramework\TestCase\AbstractBackendController;
 use PHPUnit\Framework\Constraint\StringContains;
-use PHPUnit_Framework_MockObject_MockObject as MockObject;
+use PHPUnit\Framework\MockObject\MockObject as MockObject;
 
 /**
  * Class test backend order save.
@@ -52,7 +52,7 @@ class SaveTest extends AbstractBackendController
     /**
      * @inheritdoc
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->transportBuilder = $this->_objectManager->get(TransportBuilderMock::class);
@@ -142,7 +142,7 @@ class SaveTest extends AbstractBackendController
         );
 
         $this->assertEquals($message->getSubject(), $subject);
-        $this->assertThat($message->getRawMessage(), $assert);
+        $this->assertThat($message->getBody()->getParts()[0]->getRawContent(), $assert);
     }
 
     /**

@@ -32,9 +32,8 @@
                 <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <comment><![CDATA[This extension is fully compatible with <a href="https://www.mageplaza.com/magento-2-one-step-checkout-extension/" target="_blank">One Step Checkout</a>. <br>
-                    1. Increase 25% conversion rate with <a href="https://www.mageplaza.com/magento-2-layered-navigation-extension/" target="_blank">Layered Navigation</a>
-                    2. <a href="https://pages.mageplaza.com/abandoned-cart-email-templates-for-magento/?utm_source=configuration&utm_campaign=m2-bannerslider" target="_blank">How to setup abandoned cart email series</a>]]></comment>
+                    <comment><![CDATA[This extension is fully compatible with <a href="https://www.mageplaza.com/magento-2-one-step-checkout-extension/" target="_blank">One Step Checkout</a>.
+                    <br> Increase 25% conversion rate with <a href="https://www.mageplaza.com/magento-2-layered-navigation-extension/" target="_blank">Layered Navigation</a>]]></comment>
                 </field>
                 <field id="send_password" translate="label comment" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Send Password To Customer</label>
@@ -506,6 +505,42 @@
                     <frontend_model>Mageplaza\SocialLogin\Block\System\RedirectUrl</frontend_model>
                     <label>Callback URL</label>
                     <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort Order</label>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                    <validate>validate-number</validate>
+                </field>
+            </group>
+            <group id="zalo" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Zalo</label>
+                <field id="is_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Create app <a href="https://developers.zalo.me/createapp" target="_bank">here</a>]]></comment>
+                </field>
+                <field id="app_id" translate="label" type="password" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Application ID</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="app_secret" translate="label" type="password" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Application secret key</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="is_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="redirect_url" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>Mageplaza\SocialLogin\Block\System\RedirectUrl</frontend_model>
+                    <label>Callback URL</label>
                     <depends>
                         <field id="is_enabled">1</field>
                     </depends>

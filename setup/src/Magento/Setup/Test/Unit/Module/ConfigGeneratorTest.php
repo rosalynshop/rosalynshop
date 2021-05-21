@@ -15,7 +15,11 @@ use Magento\Setup\Model\ConfigGenerator;
 use Magento\Framework\Config\ConfigOptionsListConstants;
 use Magento\Setup\Model\CryptKeyGenerator;
 use PHPUnit\Framework\TestCase;
+use Magento\Setup\Model\ConfigOptionsList\DriverOptions;
 
+/**
+ * Test for Magento\Setup\Model\ConfigGenerator class.
+ */
 class ConfigGeneratorTest extends TestCase
 {
     /**
@@ -23,13 +27,13 @@ class ConfigGeneratorTest extends TestCase
      */
     private $configGeneratorObject;
 
-    protected function setUp()
+    protected function setUp(): void
     {
-        /** @var DeploymentConfig|\PHPUnit_Framework_MockObject_MockObject $deployConfig */
+        /** @var DeploymentConfig|\PHPUnit\Framework\MockObject\MockObject $deployConfig */
         $deployConfig = $this->createMock(DeploymentConfig::class);
         $deployConfig->expects($this->any())->method('isAvailable')->willReturn(false);
 
-        /** @var Random|\PHPUnit_Framework_MockObject_MockObject $randomMock */
+        /** @var Random|\PHPUnit\Framework\MockObject\MockObject $randomMock */
         $randomMock = $this->createMock(Random::class);
         $randomMock->expects($this->any())->method('getRandomString')->willReturn('key');
 
@@ -44,11 +48,17 @@ class ConfigGeneratorTest extends TestCase
         $configDataFactoryMock = (new ObjectManager($this))
             ->getObject(ConfigDataFactory::class, ['objectManager' => $objectManagerMock]);
 
+        $driverOptions = $this->getMockBuilder(DriverOptions::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['getDriverOptions'])
+            ->getMock();
+
         $this->configGeneratorObject = new ConfigGenerator(
             $randomMock,
             $deployConfig,
             $configDataFactoryMock,
-            $cryptKeyGenerator
+            $cryptKeyGenerator,
+            $driverOptions
         );
     }
 
@@ -64,6 +74,7 @@ class ConfigGeneratorTest extends TestCase
     {
         $returnValue = $this->configGeneratorObject->createCryptConfig([]);
         $this->assertEquals(ConfigFilePool::APP_ENV, $returnValue->getFileKey());
+        // phpcs:ignore Magento2.Security.InsecureFunction
         $this->assertEquals(['crypt' => ['key' => md5('key')]], $returnValue->getData());
     }
 

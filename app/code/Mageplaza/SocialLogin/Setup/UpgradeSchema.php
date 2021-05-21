@@ -18,7 +18,6 @@
  * @copyright Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license   https://www.mageplaza.com/LICENSE.txt
  */
-
 namespace Mageplaza\SocialLogin\Setup;
 
 use Magento\Framework\DB\Ddl\Table;
@@ -42,14 +41,14 @@ class UpgradeSchema implements UpgradeSchemaInterface
         $installer = $setup;
         $installer->startSetup();
         $connection = $installer->getConnection();
-        $tableName = $setup->getTable('mageplaza_social_customer');
+        $tableName  = $setup->getTable('mageplaza_social_customer');
         if (version_compare($context->getVersion(), '1.2.0', '<')) {
             if ($connection->tableColumnExists($tableName, 'social_created_at') === false) {
                 $connection->addColumn(
                     $tableName,
                     'social_created_at',
                     [
-                        'type' => Table::TYPE_TIMESTAMP,
+                        'type'    => Table::TYPE_TIMESTAMP,
                         'comment' => 'Social Created At',
                     ]
                 );
@@ -59,10 +58,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     $tableName,
                     'user_id',
                     [
-                        'type' => Table::TYPE_INTEGER,
+                        'type'     => Table::TYPE_INTEGER,
                         'nullable' => true,
                         'unsigned' => true,
-                        'comment' => 'User Id',
+                        'comment'  => 'User Id',
                     ]
                 );
                 $connection->addForeignKey(
@@ -79,10 +78,10 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     $tableName,
                     'status',
                     [
-                        'type' => Table::TYPE_TEXT,
+                        'type'     => Table::TYPE_TEXT,
                         'nullable' => true,
-                        'length' => 255,
-                        'comment' => 'Status',
+                        'length'   => 255,
+                        'comment'  => 'Status',
                     ]
                 );
             }

@@ -11,25 +11,34 @@ use Magento\Framework\App\State;
 use Magento\Framework\Config\Data\ConfigData;
 use Magento\Framework\Config\Data\ConfigDataFactory;
 use Magento\Setup\Model\ConfigGenerator;
+use Magento\Setup\Model\ConfigOptionsList\DriverOptions;
 
+/**
+ * Test for Magento\Setup\Model\ConfigGenerator class.
+ */
 class ConfigGeneratorTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var DeploymentConfig | \PHPUnit_Framework_MockObject_MockObject
+     * @var DeploymentConfig | \PHPUnit\Framework\MockObject\MockObject
      */
     private $deploymentConfigMock;
 
     /**
-     * @var ConfigGenerator | \PHPUnit_Framework_MockObject_MockObject
+     * @var ConfigGenerator | \PHPUnit\Framework\MockObject\MockObject
      */
     private $model;
 
     /**
-     * @var ConfigData|\PHPUnit_Framework_MockObject_MockObject
+     * @var ConfigData|\PHPUnit\Framework\MockObject\MockObject
      */
     private $configDataMock;
 
-    public function setUp()
+    /**
+     * @var DriverOptions
+     */
+    private $driverOptionsMock;
+
+    protected function setUp(): void
     {
         $objectManager = new \Magento\Framework\TestFramework\Unit\Helper\ObjectManager($this);
 
@@ -50,11 +59,17 @@ class ConfigGeneratorTest extends \PHPUnit\Framework\TestCase
         $configDataFactoryMock->method('create')
             ->willReturn($this->configDataMock);
 
+        $this->driverOptionsMock = $this->getMockBuilder(DriverOptions::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['getDriverOptions'])
+            ->getMock();
+
         $this->model = $objectManager->getObject(
             ConfigGenerator::class,
             [
                 'deploymentConfig'  => $this->deploymentConfigMock,
                 'configDataFactory' => $configDataFactoryMock,
+                'driverOptions'     => $this->driverOptionsMock,
             ]
         );
     }

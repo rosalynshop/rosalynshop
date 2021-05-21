@@ -12,11 +12,12 @@ use Magento\Catalog\Model\ResourceModel\Category\CollectionFactory;
 use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 use Magento\Setup\Fixtures\CategoriesFixture;
 use Magento\Setup\Fixtures\FixtureModel;
+use Magento\Store\Model\Store;
 
 class CategoriesFixtureTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|FixtureModel
+     * @var \PHPUnit\Framework\MockObject\MockObject|FixtureModel
      */
     private $fixtureModelMock;
 
@@ -26,21 +27,24 @@ class CategoriesFixtureTest extends \PHPUnit\Framework\TestCase
     private $model;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
+     * @var \PHPUnit\Framework\MockObject\MockObject
      */
     private $collectionFactoryMock;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
+     * @var \PHPUnit\Framework\MockObject\MockObject
      */
     private $collectionMock;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
+     * @var \PHPUnit\Framework\MockObject\MockObject
      */
     private $categoryFactoryMock;
 
-    public function setUp()
+    /**
+     * @inhertidoc
+     */
+    protected function setUp(): void
     {
         $this->fixtureModelMock = $this->createMock(FixtureModel::class);
         $this->collectionFactoryMock = $this->createPartialMock(CollectionFactory::class, ['create']);
@@ -79,7 +83,7 @@ class CategoriesFixtureTest extends \PHPUnit\Framework\TestCase
         $this->fixtureModelMock
             ->expects($this->exactly(2))
             ->method('getValue')
-            ->will($this->returnValueMap($valueMap));
+            ->willReturnMap($valueMap);
 
         $this->collectionFactoryMock->expects($this->once())->method('create')->willReturn($this->collectionMock);
         $this->collectionMock->expects($this->once())->method('getSize')->willReturn(2);
@@ -109,7 +113,7 @@ class CategoriesFixtureTest extends \PHPUnit\Framework\TestCase
         $categoryMock->expects($this->once())
             ->method('getName')
             ->with('Category 1')
-            ->will($this->returnValue('category_name'));
+            ->willReturn('category_name');
         $categoryMock->expects($this->once())
             ->method('setId')
             ->willReturnSelf();
@@ -145,6 +149,10 @@ class CategoriesFixtureTest extends \PHPUnit\Framework\TestCase
             ->willReturnSelf();
         $categoryMock->expects($this->once())
             ->method('setIsActive')
+            ->willReturnSelf();
+        $categoryMock->expects($this->exactly(2))
+            ->method('setStoreId')
+            ->with(Store::DEFAULT_STORE_ID)
             ->willReturnSelf();
 
         $this->categoryFactoryMock->expects($this->once())->method('create')->willReturn($categoryMock);

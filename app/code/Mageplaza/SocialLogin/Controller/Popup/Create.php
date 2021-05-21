@@ -163,7 +163,6 @@ class Create extends CreatePost
 
             $password     = $this->getRequest()->getParam('password');
             $confirmation = $this->getRequest()->getParam('password_confirmation');
-
             if (!$this->checkPasswordConfirmation($password, $confirmation)) {
                 $result['message'][] = __('Please make sure your passwords match.');
             } else {
@@ -183,7 +182,6 @@ class Create extends CreatePost
                 );
 
                 $confirmationStatus = $this->accountManagement->getConfirmationStatus($customer->getId());
-
                 if ($confirmationStatus === AccountManagementInterface::ACCOUNT_CONFIRMATION_REQUIRED) {
                     $email = $this->customerUrl->getEmailConfirmationUrl($customer->getEmail());
                     // @codingStandardsIgnoreStart
@@ -199,7 +197,6 @@ class Create extends CreatePost
                     $result['message'][] = __('Create an account successfully. Please wait...');
                     $this->session->setCustomerDataAsLoggedIn($customer);
                 }
-
                 if ($this->getCookieManager()->getCookie('mage-cache-sessid')) {
                     $metadata = $this->getCookieMetadataFactory()->createCookieMetadata();
                     $metadata->setPath('/');

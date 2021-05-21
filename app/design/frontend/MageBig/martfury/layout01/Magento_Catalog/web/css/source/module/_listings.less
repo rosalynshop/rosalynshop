@@ -36,7 +36,7 @@
                     color: @main2_color;
                     &:hover {
                         color: @main_color;
-                        text-decoration: underline;
+                        text-decoration: none;
                     }
                 }
             }
@@ -151,12 +151,12 @@
     }
     .product-btn {
         position: absolute;
-        bottom: 0;
-        right: 0;
+        bottom: 15px;
+        right: 5px;
         z-index: 2;
-        width: 100%;
-        padding: 10px 0;
         background-color: #fff;
+        border-radius: 30px;
+        color: #ff0000;
         opacity: 0;
         visibility: hidden;
         margin-bottom: -40px;
@@ -180,9 +180,9 @@
             color: #000;
         }
         button:hover, a:hover {
-            color: @main3_color;
+            color: #ff0000;
             .mbi {
-                background-color: @main_color;
+                background-color: #fff;
             }
         }
     }
@@ -262,6 +262,14 @@
             i {
                 display: inline-block;
                 vertical-align: middle;
+            }
+        }
+    }
+    #layer-product-list {
+        dd.item {
+            margin-bottom: 0;
+            a {
+                font-size: 14px;
             }
         }
     }

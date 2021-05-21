@@ -41,13 +41,13 @@ class PlaceOrderTest extends AbstractController
     /**
      * @inheritdoc
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->session = $this->getMockBuilder(Session::class)
             ->disableOriginalConstructor()
-            ->setMethods(['getQuote', 'setLastOrderStatus', 'unsLastBillingAgreementReferenceId'])
+            ->setMethods(['getQuote', 'setLastOrderStatus', 'unsLastBillingAgreementReferenceId', 'getQuoteId'])
             ->getMock();
 
         $adapterFactory = $this->getMockBuilder(BraintreeAdapterFactory::class)
@@ -66,7 +66,7 @@ class PlaceOrderTest extends AbstractController
     /**
      * @inheritdoc
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->_objectManager->removeSharedInstance(Session::class);
         $this->_objectManager->removeSharedInstance(BraintreeAdapterFactory::class);
@@ -76,6 +76,8 @@ class PlaceOrderTest extends AbstractController
     /**
      * Tests a negative scenario for a place order flow when exception throws after placing an order.
      *
+     * @magentoAppArea frontend
+     * @magentoAppIsolation enabled
      * @magentoDataFixture Magento/Braintree/Fixtures/paypal_quote.php
      */
     public function testExecuteWithFailedOrder()
@@ -85,6 +87,8 @@ class PlaceOrderTest extends AbstractController
 
         $this->session->method('getQuote')
             ->willReturn($quote);
+        $this->session->method('getQuoteId')
+            ->willReturn($quote->getId());
 
         $this->adapter->method('sale')
             ->willReturn($this->getTransactionStub('authorized'));
@@ -106,6 +110,43 @@ class PlaceOrderTest extends AbstractController
 
         $order = $this->getOrder($reservedOrderId);
         self::assertEquals('canceled', $order->getState());
+    }
+
+    /**
+     * Tests a negative scenario for a place order flow when exception throws before order creation.
+     *
+     * @magentoAppArea frontend
+     * @magentoAppIsolation enabled
+     * @magentoDataFixture Magento/Braintree/Fixtures/paypal_quote.php
+     */
+    public function testExecuteWithFailedQuoteValidation()
+    {
+        $reservedOrderId = null;
+        $quote = $this->getQuote('test01');
+        $quote->setReservedOrderId($reservedOrderId);
+
+        $this->session->method('getQuote')
+            ->willReturn($quote);
+        $this->session->method('getQuoteId')
+            ->willReturn($quote->getId());
+
+        $this->adapter->method('sale')
+            ->willReturn($this->getTransactionStub('authorized'));
+        $this->adapter->method('void')
+            ->willReturn($this->getTransactionStub('voided'));
+
+        // emulates an error after placing the order
+        $this->session->method('setLastOrderStatus')
+            ->willThrowException(new \Exception('Test Exception'));
+
+        $this->getRequest()->setMethod(HttpRequest::METHOD_POST);
+        $this->dispatch('braintree/paypal/placeOrder');
+
+        self::assertRedirect(self::stringContains('checkout/cart'));
+        self::assertSessionMessages(
+            self::equalTo(['The order #' . $reservedOrderId . ' cannot be processed.']),
+            MessageInterface::TYPE_ERROR
+        );
     }
 
     /**

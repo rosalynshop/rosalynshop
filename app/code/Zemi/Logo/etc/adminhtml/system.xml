@@ -26,7 +26,7 @@
                     <label>Color 1</label>
                     <validate>color</validate>
                     <comment><![CDATA[]]></comment>
-                    <frontend_model>Zemi\Logo\Block\Color</frontend_model>
+                    <frontend_model>Zemi\Logo\Block\Customer</frontend_model>
                 </field>
                 <field id="label_2" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Label 2</label>
@@ -37,7 +37,7 @@
                     <label>Color 2</label>
                     <validate>color</validate>
                     <comment><![CDATA[]]></comment>
-                    <frontend_model>Zemi\Logo\Block\Color</frontend_model>
+                    <frontend_model>Zemi\Logo\Block\Customer</frontend_model>
                 </field>
                 <field id="slogan" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Zemi Text Slogan</label>
@@ -47,7 +47,7 @@
                     <label>Color 2</label>
                     <validate>color</validate>
                     <comment><![CDATA[]]></comment>
-                    <frontend_model>Zemi\Logo\Block\Color</frontend_model>
+                    <frontend_model>Zemi\Logo\Block\Customer</frontend_model>
                 </field>
             </group>
         </section>

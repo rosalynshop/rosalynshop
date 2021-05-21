@@ -151,7 +151,7 @@ class Data extends AbstractHelper
     {
         $param = [
             'send_url'           => $this->_getUrl('amasty_cart/cart/add'),
-            'src_image_progress' => $block->getViewFileUrl('Amasty_Cart::images/loading.gif'),
+            'src_image_progress' => $block->getViewFileUrl('images/loader-1.gif'),
             'type_loading'       => $this->getModuleConfig('general/type_loading'),
             'align'              => $this->getDisplayAlign(),
             'open_minicart'      => $this->isOpenMinicart(),
@@ -170,7 +170,7 @@ class Data extends AbstractHelper
     {
         $param = [
             'send_url' => $this->_getUrl('amasty_cart/quote/add'),
-            'src_image_progress' => $block->getViewFileUrl('Amasty_Cart::images/loading.gif'),
+            'src_image_progress' => $block->getViewFileUrl('images/loader-1.gif'),
             'type_loading' => $this->getModuleConfig('general/type_loading'),
             'align' => $this->getDisplayAlign(),
             'open_minicart' => $this->isOpenMinicart(),
@@ -384,7 +384,7 @@ class Data extends AbstractHelper
 
         return $result;
     }
-    
+
     /**
      * @return bool
      */

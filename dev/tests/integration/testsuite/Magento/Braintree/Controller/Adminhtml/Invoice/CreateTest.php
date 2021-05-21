@@ -17,7 +17,7 @@ use Magento\Framework\Message\MessageInterface;
 use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Sales\Api\OrderRepositoryInterface;
 use Magento\TestFramework\TestCase\AbstractBackendController;
-use PHPUnit_Framework_MockObject_MockObject as MockObject;
+use PHPUnit\Framework\MockObject\MockObject as MockObject;
 
 /**
  * @magentoAppArea adminhtml
@@ -32,7 +32,7 @@ class CreateTest extends AbstractBackendController
     /**
      * @inheritdoc
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -51,7 +51,7 @@ class CreateTest extends AbstractBackendController
     /**
      * @inheritdoc
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->_objectManager->removeSharedInstance(BraintreeAdapterFactory::class);
         parent::tearDown();
@@ -62,7 +62,7 @@ class CreateTest extends AbstractBackendController
      * during creation second partial invoice.
      *
      * @return void
-     * @magentoConfigFixture default_store payment/braintree/merchant_account_id Magneto
+     * @magentoConfigFixture default_store payment/braintree/merchant_account_id Magento
      * @magentoConfigFixture current_store payment/braintree/merchant_account_id USA_Merchant
      * @magentoDataFixture Magento/Braintree/Fixtures/partial_invoice.php
      */
@@ -71,11 +71,14 @@ class CreateTest extends AbstractBackendController
         $order = $this->getOrder('100000002');
 
         $this->adapter->method('sale')
-            ->with(self::callback(function ($request) {
-                self::assertEquals('USA_Merchant', $request['merchantAccountId']);
-                return true;
-            }))
-            ->willReturn($this->getTransactionStub());
+            ->with(
+                self::callback(
+                    function ($request) {
+                        self::assertEquals('USA_Merchant', $request['merchantAccountId']);
+                        return true;
+                    }
+                )
+            )->willReturn($this->getTransactionStub());
 
         $uri = 'backend/sales/order_invoice/save/order_id/' . $order->getEntityId();
         $this->prepareRequest($uri);

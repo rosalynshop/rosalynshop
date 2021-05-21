@@ -78,7 +78,7 @@ class GitHub extends Hybrid_Provider_Model_OAuth2
                             $this->user->profile->email = $email->email;
 
                             // record whether the email address is verified
-                            if (property_exists($email, 'verified') && $email->verified === true) {
+                            if (property_exists($email, 'verified') && true === $email->verified) {
                                 $this->user->profile->emailVerified = $email->email;
                             }
 

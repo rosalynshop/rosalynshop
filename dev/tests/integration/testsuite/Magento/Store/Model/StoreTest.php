@@ -9,9 +9,12 @@ namespace Magento\Store\Model;
 use Magento\Catalog\Model\ProductRepository;
 use Magento\Framework\App\Bootstrap;
 use Magento\Framework\App\Filesystem\DirectoryList;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\Session\SidResolverInterface;
 use Magento\Framework\UrlInterface;
 use Magento\Store\Api\StoreRepositoryInterface;
 use Zend\Stdlib\Parameters;
+use Magento\Framework\App\Request\Http as HttpRequest;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
@@ -25,21 +28,27 @@ class StoreTest extends \PHPUnit\Framework\TestCase
     protected $modelParams;
 
     /**
-     * @var Store|\PHPUnit_Framework_MockObject_MockObject
+     * @var Store|\PHPUnit\Framework\MockObject\MockObject
      */
     protected $model;
 
-    protected function setUp()
+    /**
+     * @var HttpRequest
+     */
+    private $request;
+
+    protected function setUp(): void
     {
         $this->model = $this->_getStoreModel();
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|Store
+     * @return \PHPUnit\Framework\MockObject\MockObject|Store
      */
     protected function _getStoreModel()
     {
         $objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
+        $this->request = $objectManager->get(RequestInterface::class);
         $this->modelParams = [
             'context' => $objectManager->get(\Magento\Framework\Model\Context::class),
             'registry' => $objectManager->get(\Magento\Framework\Registry::class),
@@ -49,7 +58,7 @@ class StoreTest extends \PHPUnit\Framework\TestCase
             'coreFileStorageDatabase' => $objectManager->get(\Magento\MediaStorage\Helper\File\Storage\Database::class),
             'configCacheType' => $objectManager->get(\Magento\Framework\App\Cache\Type\Config::class),
             'url' => $objectManager->get(\Magento\Framework\Url::class),
-            'request' => $objectManager->get(\Magento\Framework\App\RequestInterface::class),
+            'request' => $this->request,
             'configDataResource' => $objectManager->get(\Magento\Config\Model\ResourceModel\Config\Data::class),
             'filesystem' => $objectManager->get(\Magento\Framework\Filesystem::class),
             'config' => $objectManager->get(\Magento\Framework\App\Config\ReinitableConfigInterface::class),
@@ -70,7 +79,7 @@ class StoreTest extends \PHPUnit\Framework\TestCase
             ->getMock();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->model = null;
     }
@@ -292,6 +301,13 @@ class StoreTest extends \PHPUnit\Framework\TestCase
         $this->assertStringEndsWith('default', $this->model->getCurrentUrl());
         $this->assertStringEndsNotWith('default', $this->model->getCurrentUrl(false));
 
+        $this->model
+            ->expects($this->any())->method('getUrl')
+            ->willReturn('http://localhost/index.php?' .SidResolverInterface::SESSION_ID_QUERY_PARAM .'=12345');
+        $this->request->setParams([SidResolverInterface::SESSION_ID_QUERY_PARAM, '12345']);
+        $this->request->setQueryValue(SidResolverInterface::SESSION_ID_QUERY_PARAM, '12345');
+        $this->assertStringContainsString(SidResolverInterface::SESSION_ID_QUERY_PARAM . '=12345', $this->model->getCurrentUrl());
+
         /** @var \Magento\Store\Model\Store $secondStore */
         $secondStore = $objectManager->get(StoreRepositoryInterface::class)->get('secondstore');
 
@@ -306,11 +322,11 @@ class StoreTest extends \PHPUnit\Framework\TestCase
             $url
         );
         $this->assertEquals(
-            $secondStore->getBaseUrl() . '?___from_store=default',
+            $secondStore->getBaseUrl() . '?SID=12345&___from_store=default',
             $secondStore->getCurrentUrl()
         );
         $this->assertEquals(
-            $secondStore->getBaseUrl(),
+            $secondStore->getBaseUrl() . '?SID=12345',
             $secondStore->getCurrentUrl(false)
         );
     }
@@ -389,10 +405,11 @@ class StoreTest extends \PHPUnit\Framework\TestCase
      * @magentoAppIsolation enabled
      * @magentoAppArea adminhtml
      * @magentoDbIsolation enabled
-     * @expectedException \Magento\Framework\Exception\LocalizedException
+     *
      */
     public function testSaveValidation($badStoreData)
     {
+        $this->expectException(\Magento\Framework\Exception\LocalizedException::class);
         $normalStoreData = [
             'code' => 'test',
             'website_id' => 1,

@@ -187,6 +187,7 @@ abstract class AbstractSocial extends Action
     public function createCustomer($user, $type)
     {
         $customer = $this->apiObject->getCustomerByEmail($user['email'], $this->getStore()->getWebsiteId());
+
         if ($customer->getId()) {
             $this->apiObject->setAuthorCustomer($user['identifier'], $customer->getId(), $type);
         } else {

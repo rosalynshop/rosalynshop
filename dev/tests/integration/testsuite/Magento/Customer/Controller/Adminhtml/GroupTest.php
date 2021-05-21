@@ -31,21 +31,12 @@ class GroupTest extends \Magento\TestFramework\TestCase\AbstractBackendControlle
      *
      * @throws \Magento\Framework\Exception\AuthenticationException
      */
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $objectManager = Bootstrap::getObjectManager();
         $this->session = $objectManager->get(\Magento\Framework\Session\SessionManagerInterface::class);
         $this->groupRepository = $objectManager->get(\Magento\Customer\Api\GroupRepositoryInterface::class);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function tearDown()
-    {
-        parent::tearDown();
-        //$this->session->unsCustomerGroupData();
     }
 
     /**
@@ -55,10 +46,10 @@ class GroupTest extends \Magento\TestFramework\TestCase\AbstractBackendControlle
     {
         $this->dispatch('backend/customer/group/new');
         $responseBody = $this->getResponse()->getBody();
-        $this->assertRegExp('/<h1 class\="page-title">\s*New Customer Group\s*<\/h1>/', $responseBody);
+        $this->assertMatchesRegularExpression('/<h1 class\="page-title">\s*New Customer Group\s*<\/h1>/', $responseBody);
         $expected = '<input id="customer_group_code" name="code"  '
             . 'data-ui-id="group-form-fieldset-element-text-code"  value=""';
-        $this->assertContains($expected, $responseBody);
+        $this->assertStringContainsString($expected, $responseBody);
     }
 
     /**
@@ -84,10 +75,10 @@ class GroupTest extends \Magento\TestFramework\TestCase\AbstractBackendControlle
         $this->session->setCustomerGroupData($customerGroupData);
         $this->dispatch('backend/customer/group/new');
         $responseBody = $this->getResponse()->getBody();
-        $this->assertRegExp('/<h1 class\="page-title">\s*New Customer Group\s*<\/h1>/', $responseBody);
+        $this->assertMatchesRegularExpression('/<h1 class\="page-title">\s*New Customer Group\s*<\/h1>/', $responseBody);
         $expected = '<input id="customer_group_code" name="code"  '
             . 'data-ui-id="group-form-fieldset-element-text-code"  value="' . self::CUSTOMER_GROUP_CODE . '"';
-        $this->assertContains($expected, $responseBody);
+        $this->assertStringContainsString($expected, $responseBody);
     }
 
     /**
@@ -199,7 +190,7 @@ class GroupTest extends \Magento\TestFramework\TestCase\AbstractBackendControlle
         $this->dispatch('backend/customer/group/save');
 
         $this->assertSessionMessages(
-            $this->equalTo(['"code" is required. Enter and try again.']),
+            $this->equalTo([htmlspecialchars('"code" is required. Enter and try again.')]),
             MessageInterface::TYPE_ERROR
         );
     }
@@ -212,7 +203,7 @@ class GroupTest extends \Magento\TestFramework\TestCase\AbstractBackendControlle
         $this->getRequest()->setMethod(HttpRequest::METHOD_POST);
         $this->dispatch('backend/customer/group/save');
         $responseBody = $this->getResponse()->getBody();
-        $this->assertRegExp('/<h1 class\="page-title">\s*New Customer Group\s*<\/h1>/', $responseBody);
+        $this->assertMatchesRegularExpression('/<h1 class\="page-title">\s*New Customer Group\s*<\/h1>/', $responseBody);
     }
 
     /**
@@ -228,7 +219,7 @@ class GroupTest extends \Magento\TestFramework\TestCase\AbstractBackendControlle
         $this->dispatch('backend/customer/group/save');
 
         $responseBody = $this->getResponse()->getBody();
-        $this->assertRegExp('/<h1 class\="page-title">\s*' . self::CUSTOMER_GROUP_CODE . '\s*<\/h1>/', $responseBody);
+        $this->assertMatchesRegularExpression('/<h1 class\="page-title">\s*' . self::CUSTOMER_GROUP_CODE . '\s*<\/h1>/', $responseBody);
     }
 
     /**
@@ -249,7 +240,7 @@ class GroupTest extends \Magento\TestFramework\TestCase\AbstractBackendControlle
             MessageInterface::TYPE_ERROR
         );
         $this->assertRedirect($this->stringStartsWith(self::BASE_CONTROLLER_URL . 'edit/'));
-        $this->assertEquals(null, $this->session->getCustomerGroupData());
+        $this->assertNull($this->session->getCustomerGroupData());
     }
 
     /**
@@ -292,7 +283,7 @@ class GroupTest extends \Magento\TestFramework\TestCase\AbstractBackendControlle
         $this->dispatch('backend/customer/group/save');
 
         $this->assertSessionMessages(
-            $this->equalTo(['"code" is required. Enter and try again.']),
+            $this->equalTo([htmlspecialchars('"code" is required. Enter and try again.')]),
             MessageInterface::TYPE_ERROR
         );
         $this->assertSessionMessages($this->isEmpty(), MessageInterface::TYPE_SUCCESS);

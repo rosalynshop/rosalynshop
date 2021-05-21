@@ -156,6 +156,7 @@ class Email extends AbstractSocial
         $firstname = isset($params['firstname']) ? $params['firstname'] : null;
         $lastname  = isset($params['lastname']) ? $params['lastname'] : null;
         $password  = isset($params['password']) ? $this->_encrypt->getHash($params['password'], true) : null;
+
         $customer = $this->customerFactory->create()
             ->setWebsiteId($this->getStore()->getWebsiteId())
             ->loadByEmail($realEmail);

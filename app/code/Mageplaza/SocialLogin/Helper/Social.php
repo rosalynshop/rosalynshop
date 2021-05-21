@@ -29,6 +29,7 @@ use Mageplaza\SocialLogin\Model\Providers\Amazon;
 use Mageplaza\SocialLogin\Model\Providers\GitHub;
 use Mageplaza\SocialLogin\Model\Providers\Instagram;
 use Mageplaza\SocialLogin\Model\Providers\Vkontakte;
+use Mageplaza\SocialLogin\Model\Providers\Zalo;
 
 /**
  * Class Social
@@ -38,7 +39,7 @@ use Mageplaza\SocialLogin\Model\Providers\Vkontakte;
 class Social extends HelperData
 {
     /**
-     * @var mixed
+     * @type
      */
     protected $_type;
 
@@ -50,6 +51,7 @@ class Social extends HelperData
     public function setType($type)
     {
         $listTypes = $this->getSocialTypes();
+
         if (!$type || !array_key_exists($type, $listTypes)) {
             return null;
         }
@@ -97,7 +99,7 @@ class Social extends HelperData
             'Github'    => ['wrapper' => ['class' => GitHub::class]],
             'Amazon'    => ['wrapper' => ['class' => Amazon::class]],
             'Google'    => ['scope' => 'profile email'],
-            'Yahoo'     => ['scope' => 'profile']
+            'Zalo'      => ['wrapper' => ['class' => Zalo::class], 'scope' => 'access_profile']
         ];
 
         if ($type && array_key_exists($type, $apiData)) {
@@ -178,8 +180,8 @@ class Social extends HelperData
                 $param = 'live.php';
                 break;
             case 'Yahoo':
-                return $authUrl;
             case 'Twitter':
+            case 'Zalo':
                 return $authUrl;
             default:
                 $param = 'hauth.done=' . $type;
@@ -198,11 +200,6 @@ class Social extends HelperData
     public function getBaseAuthUrl($area = null)
     {
         $storeId = $this->getScopeUrl();
-
-        /**
-         * @var Store $store
-         */
-        $store = $this->storeManager->getStore($storeId);
 
         return $this->_getUrl(
             'sociallogin/social/callback',
@@ -245,7 +242,8 @@ class Social extends HelperData
             'vkontakte'  => 'Vkontakte',
             'instagram'  => 'Instagram',
             'github'     => 'Github',
-            'live'       => 'Live'
+            'live'       => 'Live',
+            'zalo'       => 'Zalo'
         ];
     }
 }

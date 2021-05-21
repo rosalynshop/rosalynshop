@@ -10,8 +10,23 @@ define([
 
     /*eslint max-nested-callbacks: ["error", 5]*/
     describe('Signifyd device fingerprint client script', function () {
+        var originalTimeout;
 
-        it('SIGNIFYD_GLOBAL object initialization check', function (done) {
+        beforeEach(function () {
+            originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+            jasmine.DEFAULT_TIMEOUT_INTERVAL = 12000;
+        });
+
+        afterEach(function () {
+            jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+        });
+
+        /*
+         * Change to "it" instead of "xit" to run the tests.
+         * Test is skipped due to approval request
+         * https://jira.corp.magento.com/browse/MC-38278
+         */
+        xit('SIGNIFYD_GLOBAL object initialization check', function (done) {
             var script = document.createElement('script');
 
             script.setAttribute('src', 'https://cdn-scripts.signifyd.com/api/script-tag.js');
@@ -32,7 +47,6 @@ define([
                 expect(signifyd.scriptTagHasLoaded()).toBe(true);
                 done();
             }, 10000);
-
-        }, 12000);
+        });
     });
 });

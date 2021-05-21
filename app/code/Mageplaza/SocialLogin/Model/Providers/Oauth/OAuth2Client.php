@@ -40,7 +40,7 @@ class OAuth2Client
 
     //--
 
-    public $sign_token_name = "access_token";
+    public $sign_token_name = 'access_token';
 
     public $curl_time_out = 30;
 
@@ -101,7 +101,7 @@ class OAuth2Client
         $params = [
             'client_id'     => $this->client_id,
             'redirect_uri'  => $this->redirect_uri,
-            'response_type' => 'code'
+            'response_type' => "code"
         ];
 
         if (count($extras)) {
@@ -110,7 +110,7 @@ class OAuth2Client
             }
         }
 
-        return $this->authorize_url . '?' . http_build_query($params, '', '&');
+        return $this->authorize_url . "?" . http_build_query($params, '', '&');
     }
 
     public function authenticate($code)
@@ -120,7 +120,7 @@ class OAuth2Client
             'client_secret' => $this->client_secret,
             'grant_type'    => 'authorization_code',
             'redirect_uri'  => $this->redirect_uri,
-            'code'          => $code
+            'code' => $code
         ];
 
         $response = $this->request($this->token_url, $params, $this->curl_authenticate_method);
@@ -249,23 +249,23 @@ class OAuth2Client
     public function refreshToken($parameters = [])
     {
         $params = [
-            'client_id'     => $this->client_id,
-            'client_secret' => $this->client_secret,
-            'grant_type' => 'refresh_token'
+            "client_id"     => $this->client_id,
+            "client_secret" => $this->client_secret,
+            "grant_type"    => "refresh_token"
         ];
 
         foreach ($parameters as $k => $v) {
             $params[$k] = $v;
         }
 
-        $response = $this->request($this->token_url, $params, 'POST');
+        $response = $this->request($this->token_url, $params, "POST");
 
         return $this->parseRequestResult($response);
     }
 
     // -- utilities
 
-    private function request($url, $params = false, $type = 'GET')
+    private function request($url, $params = false, $type = "GET")
     {
         Hybrid_Logger::info("Enter OAuth2Client::request( $url )");
         Hybrid_Logger::debug('OAuth2Client::request(). dump request params: ', $this->_helperData->serialize($params));

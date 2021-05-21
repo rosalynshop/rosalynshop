@@ -13,7 +13,7 @@ define([
         addToCartButtonDisabledClass: 'disabled',
         selectors: {
             messageBox: '.amcart-message-box',
-            progress: '#amprogress',
+            progress: '.loading-mask',
             formParent: '.product-item, .product.info, .item, .amwishlist-item, .main',
             imageWrapper: 'div.fotorama__active, .product-image-wrapper, #amasty-main-container'
         },
@@ -397,18 +397,14 @@ define([
             }
 
             if (loadingType == 0 || !foundImage) {
-                var progress = $('<div />', { id: "amprogress" }),
-                    container = $('<div />', { id: "amimg-container" }),
+                var progress = $('<div />', { "class": "loading-mask" , "data-role":"loader"}),
+                    container = $('<div />', { "class": "loader" }),
                     img = $('<img />');
                 container.appendTo(progress);
 
                 img.attr('src', this.options['src_image_progress']);
                 img.appendTo(container);
-                container.width('150px');
 
-                var width = container.width();
-                width = "-" + width/2 + "px" ;
-                container.css("margin-left", width);
                 progress.hide().appendTo( $('body') ).fadeIn();
             }
         },
@@ -663,7 +659,7 @@ define([
                 $('<div class="message error">').text($.mage.__('Please enter a quantity greater than 0.')).prependTo(self.selectors.messageBox);
             }
         },
-        
+
         initQtyControls: function () {
             var self = this,
                 refresh = $('[data-amcart="qty-refresh"]');

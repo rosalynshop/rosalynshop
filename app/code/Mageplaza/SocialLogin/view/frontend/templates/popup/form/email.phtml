@@ -18,8 +18,10 @@
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
+/** @var $helper \Mageplaza\SocialLogin\Helper\Data */
+$helper = $this->helper(Mageplaza\SocialLogin\Helper\Data::class);
 ?>
-<?php if (!$block->isCheckMode()): ?>
+<?php if (!$helper->isCheckMode()): ?>
 <div class="social-login block-container fake-email" style="display: none">
     <div class="social-login-title">
         <h2 class="forgot-pass-title"><?= __('The information below is required for social login') ?></h2>
@@ -28,7 +30,6 @@
         <div class="block-content">
             <form class="form-fake-email" id="social-form-fake-email" data-mage-init='{"validation":{}}'>
                 <fieldset class="fieldset" data-hasrequired="<?= __('* Required Fields') ?>">
-                    <div class="field note"><?= __('Please complete your information below to creat an account.') ?></div>
                     <div class="field field-name-social col-mp mp-6 required" style="padding: 0 10px 0px 0px;">
                             <label class="label" for="request-firstname" style="font-weight: 600"><span><?= __('First Name') ?></span></label>
                             <div class="control">

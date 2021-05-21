@@ -7,6 +7,8 @@ namespace Magento\ImportExport\Model;
 
 use Magento\Framework\Phrase;
 use Magento\ImportExport\Model\Import\ErrorProcessing\ProcessingErrorAggregatorInterface;
+use Magento\ImportExport\Model\Import\ImageDirectoryBaseProvider;
+use Magento\TestFramework\Helper\Bootstrap;
 
 /**
  * @magentoDataFixture Magento/ImportExport/_files/import_data.php
@@ -21,7 +23,7 @@ class ImportTest extends \PHPUnit\Framework\TestCase
     protected $_model;
 
     /**
-     * @var \Magento\ImportExport\Model\Import\Config
+     * @var Import\Config
      */
     protected $_importConfig;
 
@@ -63,15 +65,36 @@ class ImportTest extends \PHPUnit\Framework\TestCase
         'custom_behavior' => \Magento\ImportExport\Model\Source\Import\Behavior\Custom::class,
     ];
 
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->_importConfig = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
-            \Magento\ImportExport\Model\Import\Config::class
+        $this->_importConfig = Bootstrap::getObjectManager()->create(
+            Import\Config::class
         );
-        $this->_model = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
+        /** @var ImageDirectoryBaseProvider $provider */
+        $provider = Bootstrap::getObjectManager()->get(ImageDirectoryBaseProvider::class);
+        $this->_model = Bootstrap::getObjectManager()->create(
             Import::class,
-            ['importConfig' => $this->_importConfig]
+            [
+                'importConfig' => $this->_importConfig
+            ]
         );
+        $this->_model->setData('images_base_directory', $provider->getDirectory());
+    }
+
+    /**
+     * Test validation of images directory against provided base directory.
+     ** @return void
+     */
+    public function testImagesDirBase(): void
+    {
+        $this->expectExceptionMessage("Images file directory is outside required directory");
+        $this->expectException(\Magento\Framework\Exception\LocalizedException::class);
+        $this->_model->setData(
+            Import::FIELD_NAME_VALIDATION_STRATEGY,
+            ProcessingErrorAggregatorInterface::VALIDATION_STRATEGY_SKIP_ERRORS
+        );
+        $this->_model->setData(Import::FIELD_NAME_IMG_FILE_DIR, '../_files');
+        $this->_model->importSource();
     }
 
     /**
@@ -80,7 +103,7 @@ class ImportTest extends \PHPUnit\Framework\TestCase
     public function testImportSource()
     {
         /** @var $customersCollection \Magento\Customer\Model\ResourceModel\Customer\Collection */
-        $customersCollection = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
+        $customersCollection = Bootstrap::getObjectManager()->create(
             \Magento\Customer\Model\ResourceModel\Customer\Collection::class
         );
 
@@ -110,7 +133,7 @@ class ImportTest extends \PHPUnit\Framework\TestCase
         $this->_model->setData(Import::FIELD_NAME_VALIDATION_STRATEGY, $validationStrategy);
         $this->_model->setData(Import::FIELD_NAME_ALLOWED_ERROR_COUNT, 0);
 
-        /** @var \Magento\ImportExport\Model\Import\AbstractSource|\PHPUnit_Framework_MockObject_MockObject $source */
+        /** @var \Magento\ImportExport\Model\Import\AbstractSource|\PHPUnit\Framework\MockObject\MockObject $source */
         $source = $this->getMockForAbstractClass(
             \Magento\ImportExport\Model\Import\AbstractSource::class,
             [['sku', 'name']]
@@ -119,12 +142,10 @@ class ImportTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue($this->_model->validateSource($source));
     }
 
-    /**
-     * @expectedException \Magento\Framework\Exception\LocalizedException
-     * @expectedExceptionMessage Entity is unknown
-     */
     public function testValidateSourceException()
     {
+        $this->expectExceptionMessage("Entity is unknown");
+        $this->expectException(\Magento\Framework\Exception\LocalizedException::class);
         $source = $this->getMockForAbstractClass(
             \Magento\ImportExport\Model\Import\AbstractSource::class,
             [],
@@ -134,12 +155,10 @@ class ImportTest extends \PHPUnit\Framework\TestCase
         $this->_model->validateSource($source);
     }
 
-    /**
-     * @expectedException \Magento\Framework\Exception\LocalizedException
-     * @expectedExceptionMessage Entity is unknown
-     */
     public function testGetUnknownEntity()
     {
+        $this->expectExceptionMessage("Entity is unknown");
+        $this->expectException(\Magento\Framework\Exception\LocalizedException::class);
         $entityName = 'entity_name';
         $this->_model->setEntity($entityName);
         $this->assertSame($entityName, $this->_model->getEntity());
@@ -152,12 +171,10 @@ class ImportTest extends \PHPUnit\Framework\TestCase
         $this->assertSame($entityName, $this->_model->getEntity());
     }
 
-    /**
-     * @expectedException \Magento\Framework\Exception\LocalizedException
-     * @expectedExceptionMessage Entity is unknown
-     */
     public function testGetEntityEntityIsNotSet()
     {
+        $this->expectExceptionMessage("Entity is unknown");
+        $this->expectException(\Magento\Framework\Exception\LocalizedException::class);
         $this->_model->getEntity();
     }
 
@@ -182,12 +199,11 @@ class ImportTest extends \PHPUnit\Framework\TestCase
 
     /**
      * Test getEntityBehaviors with not existing behavior class
-     *
-     * @expectedException \Magento\Framework\Exception\LocalizedException
-     * @expectedExceptionMessage The behavior token for customer is invalid.
-     */
+     **/
     public function testGetEntityBehaviorsWithUnknownBehavior()
     {
+        $this->expectExceptionMessage("The behavior token for customer is invalid.");
+        $this->expectException(\Magento\Framework\Exception\LocalizedException::class);
         $this->_importConfig->merge(
             ['entities' => ['customer' => ['behaviorModel' => 'Unknown_Behavior_Class']]]
         );

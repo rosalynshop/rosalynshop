@@ -47,6 +47,7 @@
     <preference for="Magento\Framework\App\RequestSafetyInterface" type="Magento\Framework\App\Request\Http" />
     <preference for="\Magento\Framework\Setup\SchemaSetupInterface" type="\Magento\Setup\Module\Setup" />
     <preference for="\Magento\Framework\Setup\ModuleDataSetupInterface" type="\Magento\Setup\Module\DataSetup" />
+    <preference for="Magento\Framework\App\ExceptionHandlerInterface" type="Magento\Framework\App\ExceptionHandler" />
     <type name="Magento\Store\Model\Store">
         <arguments>
             <argument name="currencyInstalled" xsi:type="string">system/currency/installed</argument>
@@ -426,6 +427,7 @@
             <argument name="reader" xsi:type="object">Magento\Framework\ObjectManager\Config\Reader\Dom\Proxy</argument>
             <argument name="cacheId" xsi:type="string">plugin-list</argument>
             <argument name="scopePriorityScheme" xsi:type="array">
+                <item name="primary" xsi:type="string">primary</item>
                 <item name="first" xsi:type="string">global</item>
             </argument>
         </arguments>
@@ -662,6 +664,14 @@
             <argument name="argumentInterpreter" xsi:type="object">layoutArgumentGeneratorInterpreter</argument>
         </arguments>
     </type>
+    <type name="Magento\Framework\View\Element\UiComponent\Argument\Interpreter\ConfigurableObject">
+        <arguments>
+            <argument name="classWhitelist" xsi:type="array">
+                <item name="0" xsi:type="string">Magento\Framework\Data\OptionSourceInterface</item>
+                <item name="1" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProviderInterface</item>
+            </argument>
+        </arguments>
+    </type>
     <type name="Magento\Framework\Mview\View">
         <arguments>
             <argument name="state" xsi:type="object" shared="false">Magento\Indexer\Model\Mview\View\State</argument>
@@ -760,6 +770,7 @@
                 <item name="extensionInterface" xsi:type="string">\Magento\Framework\Api\Code\Generator\ExtensionAttributesInterfaceGenerator</item>
                 <item name="extension" xsi:type="string">\Magento\Framework\Api\Code\Generator\ExtensionAttributesGenerator</item>
                 <item name="remote" xsi:type="string">\Magento\Framework\MessageQueue\Code\Generator\RemoteServiceGenerator</item>
+                <item name="proxyDeferred" xsi:type="string">\Magento\Framework\Async\Code\Generator\ProxyDeferredGenerator</item>
             </argument>
         </arguments>
     </type>
@@ -1492,6 +1503,16 @@
             </argument>
         </arguments>
     </type>
+    <virtualType name="Magento\Framework\Config\ValidationState\Required" type="Magento\Framework\Config\ValidationState\Configurable">
+        <arguments>
+            <argument name="required" xsi:type="boolean">true</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magento\Framework\Config\ValidationState\NotRequired" type="Magento\Framework\Config\ValidationState\Configurable">
+        <arguments>
+            <argument name="required" xsi:type="boolean">false</argument>
+        </arguments>
+    </virtualType>
     <virtualType name="Magento\Framework\Setup\Declaration\Schema\Config\SchemaLocator" type="Magento\Framework\Config\SchemaLocator">
         <arguments>
             <argument name="realPath" xsi:type="string">urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd</argument>
@@ -1760,12 +1781,100 @@
     <type name="Magento\Framework\Cache\LockGuardedCacheLoader">
         <arguments>
             <argument name="locker" xsi:type="object">Magento\Framework\Lock\Backend\Cache</argument>
-            <argument name="lockTimeout" xsi:type="number">10000</argument>
-            <argument name="delayTimeout" xsi:type="number">20</argument>
         </arguments>
     </type>
+    <preference for="Magento\Framework\HTTP\AsyncClientInterface" type="Magento\Framework\HTTP\AsyncClient\GuzzleAsyncClient" />
     <preference for="Magento\Framework\MessageQueue\PoisonPill\PoisonPillCompareInterface" type="Magento\Framework\MessageQueue\PoisonPill\PoisonPillCompare"/>
     <preference for="Magento\Framework\MessageQueue\PoisonPill\PoisonPillPutInterface" type="Magento\Framework\MessageQueue\PoisonPill\PoisonPillPut"/>
     <preference for="Magento\Framework\MessageQueue\PoisonPill\PoisonPillReadInterface" type="Magento\Framework\MessageQueue\PoisonPill\PoisonPillRead"/>
     <preference for="Magento\Framework\MessageQueue\CallbackInvokerInterface" type="Magento\Framework\MessageQueue\CallbackInvoker"/>
+    <preference for="Magento\Framework\Mail\EmailMessageInterface"
+                type="Magento\Framework\Mail\EmailMessage" />
+    <preference for="Magento\Framework\Mail\MimeMessageInterface"
+                type="Magento\Framework\Mail\MimeMessage" />
+    <preference for="Magento\Framework\Mail\MimePartInterface"
+                type="Magento\Framework\Mail\MimePart" />
+    <type name="Magento\Framework\DB\Adapter\AdapterInterface">
+        <plugin name="execute_commit_callbacks" type="Magento\Framework\Model\ExecuteCommitCallbacks" />
+    </type>
+    <preference for="Magento\Framework\GraphQl\Query\ErrorHandlerInterface" type="Magento\Framework\GraphQl\Query\ErrorHandler"/>
+    <preference for="Magento\Framework\Filter\VariableResolverInterface" type="Magento\Framework\Filter\VariableResolver\StrategyResolver"/>
+    <virtualType name="configured_block_cache" type="Magento\Framework\App\Cache">
+        <arguments>
+            <argument name="cacheIdentifier" xsi:type="string">block_html</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\Context">
+        <arguments>
+            <argument name="cache" xsi:type="object">configured_block_cache</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\DB\Adapter\SqlVersionProvider">
+        <arguments>
+            <argument name="supportedVersionPatterns" xsi:type="array">
+                <item name="MySQL-(5.6,5.7)" xsi:type="string">^5\.[67]\.</item>
+                <item name="MariaDB-(10.0-10.2)" xsi:type="string">^10\.[0-2]\.</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="DefaultWYSIWYGValidator" type="Magento\Framework\Validator\HTML\ConfigurableWYSIWYGValidator">
+        <arguments>
+            <argument name="allowedTags" xsi:type="array">
+                <item name="div" xsi:type="string">div</item>
+                <item name="a" xsi:type="string">a</item>
+                <item name="p" xsi:type="string">p</item>
+                <item name="span" xsi:type="string">span</item>
+                <item name="em" xsi:type="string">em</item>
+                <item name="strong" xsi:type="string">strong</item>
+                <item name="ul" xsi:type="string">ul</item>
+                <item name="li" xsi:type="string">li</item>
+                <item name="ol" xsi:type="string">ol</item>
+                <item name="h5" xsi:type="string">h5</item>
+                <item name="h4" xsi:type="string">h4</item>
+                <item name="h3" xsi:type="string">h3</item>
+                <item name="h2" xsi:type="string">h2</item>
+                <item name="h1" xsi:type="string">h1</item>
+                <item name="table" xsi:type="string">table</item>
+                <item name="tbody" xsi:type="string">tbody</item>
+                <item name="tr" xsi:type="string">tr</item>
+                <item name="td" xsi:type="string">td</item>
+                <item name="th" xsi:type="string">th</item>
+                <item name="tfoot" xsi:type="string">tfoot</item>
+                <item name="img" xsi:type="string">img</item>
+                <item name="hr" xsi:type="string">hr</item>
+                <item name="figure" xsi:type="string">figure</item>
+                <item name="button" xsi:type="string">button</item>
+                <item name="i" xsi:type="string">i</item>
+                <item name="u" xsi:type="string">u</item>
+                <item name="br" xsi:type="string">br</item>
+                <item name="b" xsi:type="string">b</item>
+                <item name="pre" xsi:type="string">pre</item>
+            </argument>
+            <argument name="allowedAttributes" xsi:type="array">
+                <item name="class" xsi:type="string">class</item>
+                <item name="width" xsi:type="string">width</item>
+                <item name="height" xsi:type="string">height</item>
+                <item name="style" xsi:type="string">style</item>
+                <item name="alt" xsi:type="string">alt</item>
+                <item name="title" xsi:type="string">title</item>
+                <item name="border" xsi:type="string">border</item>
+                <item name="id" xsi:type="string">id</item>
+            </argument>
+            <argument name="attributesAllowedByTags" xsi:type="array">
+                <item name="a" xsi:type="array">
+                    <item name="href" xsi:type="string">href</item>
+                </item>
+                <item name="img" xsi:type="array">
+                    <item name="src" xsi:type="string">src</item>
+                </item>
+                <item name="button" xsi:type="array">
+                    <item name="type" xsi:type="string">type</item>
+                </item>
+            </argument>
+            <argument name="attributeValidators" xsi:type="array">
+                <item name="style" xsi:type="object">Magento\Framework\Validator\HTML\StyleAttributeValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <preference for="Magento\Framework\Validator\HTML\WYSIWYGValidatorInterface" type="DefaultWYSIWYGValidator" />
 </config>
