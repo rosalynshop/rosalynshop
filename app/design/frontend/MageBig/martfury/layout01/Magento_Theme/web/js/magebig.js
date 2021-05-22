@@ -56,7 +56,10 @@
                             var curWinTop = $win.scrollTop();
                             if (curWinTop > threshold) {
                                 $stickyMenu.addClass('active');
-                                $('.wishlist-topbar').find('i.mbi-heart,.counter-number').show();
+                                if($('.counter-number').html()) {
+                                    $('.counter-number').show();
+                                }
+                                $('.wishlist-topbar').find('i.mbi-heart').show();
                                 $('.header-maininner-row').css('margin-top', '0');
                                 $('.mbi-magnifier').show();
                             } else {
