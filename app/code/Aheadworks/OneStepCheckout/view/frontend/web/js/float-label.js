@@ -19,8 +19,7 @@ define([
             excludeFieldSelector: '[data-exclude-fl-init]',
             inputsSelectors: ['input', 'select'],
             flClass: 'fl-label',
-            flLabelStateClass: 'fl-label-state',
-            flPlaceholderStateClass: 'fl-placeholder-state'
+            flLabelStateClass: 'fl-label-state'
         },
 
         /**
@@ -152,30 +151,6 @@ define([
                 isLabel = element.is(':focus') || element.val() != '';
             }
 
-            if (isLabel) {
-                this._setInLabelState(field);
-            } else {
-                this._setInPlaceholderState(field);
-            }
-        },
-
-        /**
-         * Set field in placeholder state
-         *
-         * @param {Object} field
-         */
-        _setInPlaceholderState: function (field) {
-            field.removeClass(this.options.flLabelStateClass);
-            field.addClass(this.options.flPlaceholderStateClass);
-        },
-
-        /**
-         * Set field in label state
-         *
-         * @param {Object} field
-         */
-        _setInLabelState: function (field) {
-            field.removeClass(this.options.flPlaceholderStateClass);
             field.addClass(this.options.flLabelStateClass);
         }
     });

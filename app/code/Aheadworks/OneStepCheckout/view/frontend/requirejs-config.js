@@ -46,6 +46,9 @@ var config = {
             },
             'Magento_Braintree/js/view/payment/method-renderer/hosted-fields': {
                 'Aheadworks_OneStepCheckout/js/view/payment-method/renderer/braintree/hosted-fields-mixin': true
+            },
+            'Magento_Checkout/js/action/select-payment-method': {
+                'Magento_SalesRule/js/action/select-payment-method-mixin': false
             }
         }
     }
