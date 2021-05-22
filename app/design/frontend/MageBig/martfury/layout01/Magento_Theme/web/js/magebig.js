@@ -129,14 +129,18 @@
         },
 
         _stickyAddCart: function() {
-            var $stickyAddCart = $('.box-tocart');
+            var $stickyAddCart    = $('.box-tocart'),
+                $wishListNosticky = $('.product-items-wishlist');
+            if($wishListNosticky.length > 0) {
+                return;
+            }
             $('.box-tocart .tocart').on('click', function () {
                 if ($('#product-options-wrapper').length) {
                     $('html,body').animate({
                         scrollTop: $('#product-options-wrapper').offset().top - 80
                     }, 'slow');
                 }
-            })
+            });
             if ($stickyAddCart.length > 0) {
                 $stickyAddCart.wrap('<div class="sticky-addcart-wrap"><div class="sticky-addcart"></div></div>');
                 $('.sticky-addcart-wrap').css('min-height', $stickyAddCart.outerHeight());

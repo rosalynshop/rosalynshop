@@ -2006,7 +2006,7 @@ it will make no affect on Price filter.",module,Magento_LayeredNavigation
 "This quote is currently locked for editing. It will become available once released by the Merchant.","This quote is currently locked for editing. It will become available once released by the Merchant.",module,Magento_NegotiableQuote
 "Your quote has expired and the product prices have been updated as per the latest prices in your catalog. You can either re-submit the quote to seller for further negotiation or go to checkout.","Your quote has expired and the product prices have been updated as per the latest prices in your catalog. You can either re-submit the quote to seller for further negotiation or go to checkout.",module,Magento_NegotiableQuote
 "You are not an owner of this quote. You cannot edit it or take any actions on it.","You are not an owner of this quote. You cannot edit it or take any actions on it.",module,Magento_NegotiableQuote
-"Discount","Chiết khấu",module,Magento_NegotiableQuote
+"Discount","Mã giảm giá",module,Magento_NegotiableQuote
 "Estimated Tax","Estimated Tax",module,Magento_NegotiableQuote
 "Quote Subtotal (Excl. Tax)","Quote Subtotal (Excl. Tax)",module,Magento_NegotiableQuote
 "Quote Grand Total (Incl. Tax)","Quote Grand Total (Incl. Tax)",module,Magento_NegotiableQuote
@@ -2706,7 +2706,7 @@ If field is empty default value localhost will be saved.","IP truy cập danh s�
 "Transaction has been declined. Please try again later.","Giao dịch đã bị từ chối, vui lòng thử lại sau.",module,Magento_Payment
 "Wrong gateway response format.","Các định dạng phản ứng sai cổng.",module,Magento_Payment
 "Validator for field %1 does not exist.","Xác nhận cho lĩnh vực %1 không tồn tại.",module,Magento_Payment
-"Discount","Chiết khấu",module,Magento_Payment
+"Discount","Mã giảm giá",module,Magento_Payment
 "Shipping","Vận chuyển",module,Magento_Payment
 "All Allowed Countries","Cho phép tất cả các quốc gia",module,Magento_Payment
 "Specific Countries","Quốc gia cụ thể",module,Magento_Payment
@@ -3710,7 +3710,7 @@ offered and the currency offered by the merchant is USD.",module,Magento_Paypal
 "Please check the billing address information. %1","Vui lòng kiểm tra thông tin địa chỉ thanh toán. %1",module,Magento_Quote
 "Please select a valid payment method.","Xin vui lòng chọn phương thức thanh toán hợp lệ.",module,Magento_Quote
 "Store Credit","Tiền trong store",module,Magento_Quote
-"Discount","Chiết khấu",module,Magento_Quote
+"Discount","Mã giảm giá",module,Magento_Quote
 "Tax","Thuế",module,Magento_Quote
 "Cart contains virtual product(s) only. Shipping address is not applicable.","Giỏ hàng chỉ có sản phẩm thực. Địa chỉ vận chuyển không thể áp dụng.",module,Magento_Quote
 "Shipping address not set.","Địa chỉ vận chuyển không được thiết lập.",module,Magento_Quote
@@ -5441,7 +5441,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Subtotal","Tổng phụ",module,Magento_Sales
 "Shipping & Handling","Vận chuyển & xử lý",module,Magento_Sales
 "Discount (%1)","Giảm giá (%1)",module,Magento_Sales
-"Discount","Chiết khấu",module,Magento_Sales
+"Discount","Mã giảm giá",module,Magento_Sales
 "Grand Total","Tổng số",module,Magento_Sales
 "Back","Trở lại",module,Magento_Sales
 "Fetch","Lấy",module,Magento_Sales
@@ -6274,7 +6274,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Specified rule does not allow auto generated coupons","Quy tắc được chỉ định không cho phép tự động tạo ra phiếu giảm giá",module,Magento_SalesRule
 "Error occurred when saving coupon: %1","Lỗi xuất hiện khi lưu phiếu giảm giá: %1",module,Magento_SalesRule
 "Discount (%1)","Giảm giá (%1)",module,Magento_SalesRule
-"Discount","Chiết khấu",module,Magento_SalesRule
+"Discount","Mã giảm giá",module,Magento_SalesRule
 "Coupon with the same code","Phiếu mua hàng với cùng mã",module,Magento_SalesRule
 "No Coupon","Không có phiếu giảm giá",module,Magento_SalesRule
 "Specific Coupon","Phiếu mua hàng cụ thể",module,Magento_SalesRule
@@ -6886,7 +6886,7 @@ configuring in shared catalogs will not be restricted to customers.",module,Mage
 "Assign","Chỉ định",module,Magento_SharedCatalog
 "Unassign","Bỏ chỉ định",module,Magento_SharedCatalog
 "Fixed","Cố định",module,Magento_SharedCatalog
-"Discount","Chiết khấu",module,Magento_SharedCatalog
+"Discount","Mã giảm giá",module,Magento_SharedCatalog
 "Apply","Áp dụng",module,Magento_SharedCatalog
 "Proceed to Store Configuration?","Proceed to Store Configuration?",module,Magento_SharedCatalog
 "You've made changes into the shared catalog. If you leave this page now, the changes will be lost.","You've made changes into the shared catalog. If you leave this page now, the changes will be lost.",module,Magento_SharedCatalog

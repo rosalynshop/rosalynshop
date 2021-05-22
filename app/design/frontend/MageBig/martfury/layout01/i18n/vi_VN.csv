@@ -171,7 +171,7 @@
 "Shopping Cart Items","Giỏ hàng sản phẩm",module,Magento_AdvancedCheckout
 "Qty","Số lượng",module,Magento_AdvancedCheckout
 "Subtotal","Tổng phụ",module,Magento_AdvancedCheckout
-"Discount","Chiết khấu",module,Magento_AdvancedCheckout
+"Discount","Mã giảm giá",module,Magento_AdvancedCheckout
 "Row Subtotal","Tổng theo hàng",module,Magento_AdvancedCheckout
 "Action","Thao tác",module,Magento_AdvancedCheckout
 "No ordered items","Không có sản phẩm nào được đặt",module,Magento_AdvancedCheckout

@@ -1,6 +1,6 @@
 /**
- * Copyright © magebig.com - All rights reserved.
- * See LICENSE.txt for license details.
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
  */
 
 /**
@@ -11,14 +11,16 @@ define([
     'uiComponent',
     'Magento_Customer/js/customer-data',
     'underscore',
+    'escaper',
     'jquery/jquery-storageapi'
-], function ($, Component, customerData, _) {
+], function ($, Component, customerData, _, escaper) {
     'use strict';
 
     return Component.extend({
         defaults: {
             cookieMessages: [],
-            messages: []
+            messages: [],
+            allowedTags: ['div', 'span', 'b', 'strong', 'i', 'em', 'u', 'a']
         },
 
         /**
@@ -27,7 +29,7 @@ define([
         initialize: function () {
             this._super();
 
-            this.cookieMessages = $.cookieStorage.get('mage-messages');
+            this.cookieMessages = _.unique($.cookieStorage.get('mage-messages'), 'text');
             this.messages = customerData.get('messages').extend({
                 disposableCustomerData: 'messages'
             });
@@ -36,11 +38,27 @@ define([
             if (!_.isEmpty(this.messages().messages)) {
                 customerData.set('messages', {});
             }
+
+            $.mage.cookies.set('mage-messages', '', {
+                samesite: 'strict',
+                domain: ''
+            });
+
             $('.messages').slideDown();
             $.cookieStorage.set('mage-messages', '');
             setTimeout(function () {
                 $('.messages').slideUp();
             }, 15000);
+        },
+
+        /**
+         * Prepare the given message to be rendered as HTML
+         *
+         * @param {String} message
+         * @return {String}
+         */
+        prepareMessageForHtml: function (message) {
+            return escaper.escapeHtml(message, this.allowedTags);
         }
     });
 });

@@ -31,9 +31,10 @@ define([
                     var login = $('.authorization-link > a');
                     login[0].click();
                 } else {
-                    var next = 1;
-                    var action = $(this).parents('.product-item').find('[data-role="tocart-form"]');
-                    var btnView = $(this).parents('.product-item').find('.btn-quickview');
+                    var next = 1,
+                        action = $(this).parents('.product-item').find('[data-role="tocart-form"]'),
+                        btnView = $(this).parents('.product-item').find('.btn-quickview'),
+                        isConfigurable = $('.is-configurable');
 
                     action.find('[name*="super"]').each(function (index, item) {
                         var $item = $(item);
@@ -41,6 +42,7 @@ define([
                             next = 0;
                         }
                     });
+
                     if ((next === 0 || (action.length && action.attr('action').indexOf('options=cart') !== -1)) && btnView.length) {
                         btnView.addClass('has-trigger');
                         btnView.trigger('click');
