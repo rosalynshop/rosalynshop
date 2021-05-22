@@ -7,7 +7,8 @@
 var config = {
     map: {
         '*': {
-            rosaZaloChat: 'Zemi_FacebookChat/js/zalochat/sdk',
+            ZaloChat: 'Zemi_FacebookChat/js/zalochat/sdk',
+            FacebookChat: 'Zemi_FacebookChat/js/xfbml.customerchat',
         }
     }
 };

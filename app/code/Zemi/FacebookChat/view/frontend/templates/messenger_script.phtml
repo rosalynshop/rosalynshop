@@ -22,7 +22,7 @@
             if (d.getElementById(id)) return;
             js = d.createElement(s);
             js.id = id;
-            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            js.src = '<?= $block->getViewFileUrl("Zemi_FacebookChat::js/xfbml.customerchat");?>';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
@@ -31,3 +31,12 @@
          theme_color="<?= /* @escapeNotVerified */ $block->getFacebookColor(); ?>">
     </div>
 <?php endif; ?>
+<script>
+    require(['jquery'], function($){
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('.fb_dialog_content > iframe').css('bottom','10%')
+            }, 5000);
+        });
+    });
+</script>
