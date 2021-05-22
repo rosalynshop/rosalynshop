@@ -43,7 +43,7 @@
                 if (this._isMobile() && !this._isIpad()) {
                     $(".logo-destination").html($(".menu-logo"));
                     $('.zemi-img-fluid').addClass('zemi-img-fix-logo');
-                    $('.wishlist-topbar').find('i.mbi-heart').hide();
+                    $('.wishlist-topbar').find('i.mbi-heart,.counter-number').hide();
                     $('.header-maininner-row').css('margin-top', '-21px');
                     $(".menu-logo").show();
                     if ($stickyMenu.length > 0) {
@@ -56,12 +56,12 @@
                             var curWinTop = $win.scrollTop();
                             if (curWinTop > threshold) {
                                 $stickyMenu.addClass('active');
-                                $('.wishlist-topbar').find('i.mbi-heart').show();
+                                $('.wishlist-topbar').find('i.mbi-heart,.counter-number').show();
                                 $('.header-maininner-row').css('margin-top', '0');
                                 $('.mbi-magnifier').show();
                             } else {
                                 $stickyMenu.removeClass('active');
-                                $('.wishlist-topbar').find('i.mbi-heart').hide();
+                                $('.wishlist-topbar').find('i.mbi-heart,.counter-number').hide();
                                 $('.header-maininner-row').css('margin-top', '-21px');
                                 $('.mbi-magnifier').hide();
                             }
@@ -74,6 +74,11 @@
                                 $stickyMenu.parent().css('min-height', $stickyMenu.outerHeight());
                             }, 2500);
                         });
+                        /** In wishlist page */
+                        if($('.product-items-wishlist').length > 0) {
+                            $('#account-nav').remove();
+                            return;
+                        }
                     }
 
                 } else if (!this._isIpad() && !this._isMobile()) {
@@ -129,9 +134,8 @@
         },
 
         _stickyAddCart: function() {
-            var $stickyAddCart    = $('.box-tocart'),
-                $wishListNosticky = $('.product-items-wishlist');
-            if($wishListNosticky.length > 0) {
+            var $stickyAddCart    = $('.box-tocart');
+            if($('.product-items-wishlist').length > 0) {
                 return;
             }
             $('.box-tocart .tocart').on('click', function () {
