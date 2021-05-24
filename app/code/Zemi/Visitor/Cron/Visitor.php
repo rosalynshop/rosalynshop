@@ -81,36 +81,38 @@ class Visitor
 
     public function execute()
     {
-        $viewed = [
-            'date_time'      => date('Y-m-d H:i:s', strtotime('+7 hour', strtotime(gmdate('Y-m-d H:i:s')))),
-            'count_visitor'  => count($this->_helperData->getVisitors()) ? : '',
-            'customer_data'  => $this->serializer->serialize($this->_helperData->getVisitorCustomerData()) ? : '',
-        ];
-        $parseDataVars = new \Magento\Framework\DataObject();
-        $parseDataVars->setData($viewed);
-
-        try {
-            $this->inlineTranslation->suspend();
-            $sender = [
-                'name' => $this->_scopeConfig->getValue('trans_email/ident_general/name', \Magento\Store\Model\ScopeInterface::SCOPE_STORE),
-                'email' => $this->_scopeConfig->getValue('trans_email/ident_general/email', \Magento\Store\Model\ScopeInterface::SCOPE_STORE),
+        if ($this->_helperData->visitorEnable()) {
+            $viewed = [
+                'date_time'      => date('Y-m-d H:i:s', strtotime('+7 hour', strtotime(gmdate('Y-m-d H:i:s')))),
+                'count_visitor'  => count($this->_helperData->getVisitors()) ? : count($this->_helperData->getVisitorCustomerData()),
+                'customer_data'  => $this->serializer->serialize($this->_helperData->getVisitorCustomerData()) ? : '',
             ];
-            $transport = $this->transportBuilder
-                ->setTemplateIdentifier('email_visitor_customer')
-                ->setTemplateOptions(
-                    [
-                        'area' => \Magento\Framework\App\Area::AREA_FRONTEND,
-                        'store' => \Magento\Store\Model\Store::DEFAULT_STORE_ID,
-                    ]
-                )
-                ->setTemplateVars(array('data' => $parseDataVars))
-                ->setFrom($sender)
-                ->addTo('denda.hanoi@gmail.com')
-                ->getTransport();
-            $transport->sendMessage();
-            $this->inlineTranslation->resume();
-        } catch (\Exception $e) {
-            $this->logger->debug($e->getMessage());
+            $parseDataVars = new \Magento\Framework\DataObject();
+            $parseDataVars->setData($viewed);
+
+            try {
+                $this->inlineTranslation->suspend();
+                $sender = [
+                    'name' => $this->_scopeConfig->getValue('trans_email/ident_general/name', \Magento\Store\Model\ScopeInterface::SCOPE_STORE),
+                    'email' => $this->_scopeConfig->getValue('trans_email/ident_general/email', \Magento\Store\Model\ScopeInterface::SCOPE_STORE),
+                ];
+                $transport = $this->transportBuilder
+                    ->setTemplateIdentifier('email_visitor_customer')
+                    ->setTemplateOptions(
+                        [
+                            'area' => \Magento\Framework\App\Area::AREA_FRONTEND,
+                            'store' => \Magento\Store\Model\Store::DEFAULT_STORE_ID,
+                        ]
+                    )
+                    ->setTemplateVars(array('data' => $parseDataVars))
+                    ->setFrom($sender)
+                    ->addTo($this->_helperData->visitorEmailAdmin())
+                    ->getTransport();
+                $transport->sendMessage();
+                $this->inlineTranslation->resume();
+            } catch (\Exception $e) {
+                $this->logger->debug($e->getMessage());
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Zemi\Visitor\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
+use Magento\Store\Model\ScopeInterface;
 
 /**
  * Class Data
@@ -16,6 +17,9 @@ use Magento\Framework\App\Helper\Context;
  */
 class Data extends AbstractHelper
 {
+    const XML_ZEMI_VISITOR_ENABLE = 'zemi_visitor/general/enable';
+    const XML_ZEMI_EMAIL_SENT = 'zemi_visitor/general/email_sent';
+
     /**
      * @var \Magento\Customer\Model\Visitor
      */
@@ -91,5 +95,31 @@ class Data extends AbstractHelper
         return $this->_zemiVisitor->getCollection()->addFieldToFilter(
             'product_id', $productId
         );
+    }
+
+    /**
+     * @param null $storeId
+     * @return mixed
+     */
+    public function visitorEnable($storeId = null)
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_ZEMI_VISITOR_ENABLE,
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+    }
+
+    /**
+     * @param null $storeId
+     * @return mixed
+     */
+    public function visitorEmailAdmin($storeId = null)
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_ZEMI_EMAIL_SENT,
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        ) ? : "denda.hanoi@gmail.com";
     }
 }

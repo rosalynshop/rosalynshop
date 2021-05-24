@@ -58,18 +58,28 @@ class UserProductView implements ObserverInterface
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        $productId = $observer->getEvent()->getProduct()->getId();
-        $exitProductId = $this->_helperData->getVisitorProductId($productId);
-        $dateTime = date('Y-m-d H:i:s', strtotime('+7 hour', strtotime(gmdate('Y-m-d H:i:s'))));
-        if ($this->customerSession->isLoggedIn()) {
+        if($this->_helperData->visitorEnable()) {
+            $productId = $observer->getEvent()->getProduct()->getId();
+            $exitProductId = $this->_helperData->getVisitorProductId($productId);
+            $dateTime = date('Y-m-d H:i:s', strtotime('+7 hour', strtotime(gmdate('Y-m-d H:i:s'))));
             if (empty($exitProductId) && $exitProductId != $productId) {
-                $viewed = [
-                    'date_time'      => $dateTime,
-                    'ip_address'     => $this->remoteAddress->getRemoteAddress(),
-                    'product_id'     => $productId,
-                    'customer_id'    => $this->customerSession->getCustomer()->getId(),
-                ];
-                $this->_zemiVisitor->setData($viewed)->save();
+                if ($this->customerSession->isLoggedIn()) {
+                    $viewed = [
+                        'date_time'      => $dateTime,
+                        'ip_address'     => $this->remoteAddress->getRemoteAddress(),
+                        'product_id'     => $productId,
+                        'customer_id'    => $this->customerSession->getCustomer()->getId(),
+                    ];
+                    $this->_zemiVisitor->setData($viewed)->save();
+                } else {
+                    $viewed = [
+                        'date_time'      => $dateTime,
+                        'ip_address'     => $this->remoteAddress->getRemoteAddress(),
+                        'product_id'     => $productId,
+                        'customer_id'    => 0,
+                    ];
+                    $this->_zemiVisitor->setData($viewed)->save();
+                }
             }
         }
         return $this;
