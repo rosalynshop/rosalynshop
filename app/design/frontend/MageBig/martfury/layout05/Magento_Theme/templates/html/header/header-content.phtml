@@ -1,5 +1,6 @@
 <?php
 $mbHelper       = $this->helper('MageBig\MbFrame\Helper\Data');
+/** @var \Zemi\Logo\Helper\Data $zmHelper */
 $zmHelper       = $this->helper('Zemi\Logo\Helper\Data');
 $logoSticky     = $mbHelper->getConfig('mbconfig/header/logo_sticky');
 $pathLogo       = $mbHelper->getBaseMediaUrl() . 'wysiwyg/magebig/logo/';
@@ -31,10 +32,26 @@ $menuLayout     = $mbHelper->getConfig('mbconfig/header/menu_layout');
             <div class="row align-items-center header-maininner-row">
                 <div class="col-12 col-md-3 col-lg-3 col-logo">
                     <div class="menu-logo" style="display:none">
-                        <?php if (empty($this->getChildHtml('logo'))) : ?>
-                            <?= $mbHelper->getLogoImage() ?>
-                        <?php else :?>
-                            <?= $this->getChildHtml('logo') ?>
+                        <?php if ($zmHelper->isEnable() && !$zmHelper->svgEnable()) : ?>
+                            <div class="logo text-show zemi-text-logo">
+                                <a href="<?= $block->getBaseUrl();?>">
+                                    <span class="zemi-logo" style="color: <?= $zmHelper->getLogoColorLabel1()?>"><?= $zmHelper->getLabel1Config() ?></span>
+                                    <span class="zemi-logo2" style="color: <?= $zmHelper->getLogoColorLabel2()?>"><?= $zmHelper->getLabel2Config() ?></span>
+                                    <h6 class="h6-sm-sologan" style="color: <?= $zmHelper->getLogoColorSlogan()?>"><?= $zmHelper->getLogoSlogan();?></h6>
+                                </a>
+                            </div>
+                        <?php elseif ($zmHelper->svgEnable() && !$zmHelper->isEnable()): ?>
+                            <div class="logo text-show zemi-text-logo">
+                                <a href="<?= $block->getBaseUrl(); ?>">
+                                    <?= $zmHelper->svgHtml()?>
+                                </a>
+                            </div>
+                        <?php elseif (!$zmHelper->isEnable() & !$zmHelper->svgEnable()): ?>
+                            <?php if (empty($this->getChildHtml('logo'))) : ?>
+                                <?= $mbHelper->getLogoImage() ?>
+                            <?php else :?>
+                                <?= $this->getChildHtml('logo') ?>
+                            <?php endif;?>
                         <?php endif;?>
                     </div>
                     <?= $this->getChildHtml('smartmenu.topnav') ?>

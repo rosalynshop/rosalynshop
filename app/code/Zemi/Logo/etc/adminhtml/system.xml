@@ -13,7 +13,7 @@
             <tab>zemi</tab>
             <resource>Zemi_Logo::logozm_config</resource>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Configuration</label>
+                <label>Text Logo</label>
                 <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Zemi Text Logo</label>
                     <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
@@ -48,6 +48,17 @@
                     <validate>color</validate>
                     <comment><![CDATA[]]></comment>
                     <frontend_model>Zemi\Logo\Block\Customer</frontend_model>
+                </field>
+            </group>
+            <group id="logo_svg" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SVG logo</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Zemi Logo SVG</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="sgv_html" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>SVG html</label>
+                    <validate>required-entry</validate>
                 </field>
             </group>
         </section>

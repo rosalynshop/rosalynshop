@@ -24,6 +24,9 @@ class Data extends AbstractHelper
     const XML_ZEMI_SLOGAN = 'zemilogo/general/slogan';
     const XML_ZEMI_COLOR_SLOGAN = 'zemilogo/general/color_slogan';
 
+    const XML_ZEMI_LOGO_SVG_ENABLE = 'zemilogo/logo_svg/enable';
+    const XML_ZEMI_LOGO_SVG_HTML = 'zemilogo/logo_svg/sgv_html';
+
     /**
      * @param null $storeId
      * @return mixed
@@ -107,6 +110,32 @@ class Data extends AbstractHelper
     {
         return $this->scopeConfig->getValue(
             self::XML_ZEMI_SLOGAN,
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+    }
+
+    /**
+     * @param null $storeId
+     * @return mixed
+     */
+    public function svgEnable($storeId = null)
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_ZEMI_LOGO_SVG_ENABLE,
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+    }
+
+    /**
+     * @param null $storeId
+     * @return mixed
+     */
+    public function svgHtml($storeId = null)
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_ZEMI_LOGO_SVG_HTML,
             ScopeInterface::SCOPE_STORE,
             $storeId
         );
