@@ -17,13 +17,16 @@ $cfHelper = $this->helper('MageBig\WidgetPlus\Helper\Config');
 $_mbHelper = $this->helper('MageBig\MbFrame\Helper\Data');
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 $_product = $block->getProduct();
+$_className = $block->getCssClass();
+if ($_className == "overview") {
+    $_className = "overview_zm_short_description";
+} else {
+    $_className = $block->getCssClass();
+}
 $_call = $block->getAtCall();
 $_code = $block->getAtCode();
-$_className = $block->getCssClass();
 $_attributeLabel = $block->getAtLabel();
-$_attributeType = $block->getAtType();
 $_attributeAddAttribute = $block->getAddAttribute();
-
 $renderLabel = true;
 // if defined as 'none' in layout, do not render
 if ($_attributeLabel == 'none') {
@@ -33,13 +36,13 @@ if ($_attributeLabel == 'none') {
 if ($_attributeLabel && $_attributeLabel == 'default') {
     $_attributeLabel = $_product->getResource()->getAttribute($_code)->getStoreLabel();
 }
-if ($_attributeType && $_attributeType == 'text') {
+if ($block->getAtType() && $block->getAtType() == 'text') {
     $_attributeValue = ($_helper->productAttribute($_product, $_product->$_call(), $_code)) ? $_product->getAttributeText($_code) : '';
 } else {
     $_attributeValue = $_helper->productAttribute($_product, $_product->$_call(), $_code);
 }
 ?>
-<?php if($_className == 'overview' && $_mbHelper->getConfig('mbconfig/product_view/enable_countdown') && $cfHelper->getDate($_product)) : ?>
+<?php if($block->getCssClass() == 'overview' && $_mbHelper->getConfig('mbconfig/product_view/enable_countdown') && $cfHelper->getDate($_product)) : ?>
     <div class="promo-countdown promo-product promo-<?= $_product->getId() ?>">
         <div class="row">
             <div class="col-12 col-lg-4">
@@ -75,38 +78,30 @@ if ($_attributeType && $_attributeType == 'text') {
             <?php endif; ?>
         <?php endif; ?>
     </div>
-    <?php
-    $dayText = __('Days');
-    $hourText = __('Hours');
-    $minText = __('Mins');
-    $secText = __('Secs');
-    $daySingularText = __('Day');
-    $hourSingularText = __('Hour');
-    $minSingularText = __('Min');
-    $secSingularText = __('Sec');
-    ?>
     <script type="text/x-magento-init">
         {
             ".promo-<?= $_product->getId() ?> .sale-countdown": {
                 "MageBig_WidgetPlus/js/jcountdown-set": {
                     "dataAttr"          : "date",
-                    "dayText"           : "<?= $dayText; ?>",
-                    "hourText"          : "<?= $hourText; ?>",
-                    "minText"           : "<?= $minText; ?>",
-                    "secText"           : "<?= $secText; ?>",
-                    "daySingularText"   : "<?= $daySingularText; ?>",
-                    "hourSingularText"  : "<?= $hourSingularText; ?>",
-                    "minSingularText"   : "<?= $minSingularText; ?>",
-                    "secSingularText"   : "<?= $secSingularText; ?>",
+                    "dayText"           : "<?= __('Days'); ?>",
+                    "hourText"          : "<?= __('Hours'); ?>",
+                    "minText"           : "<?= __('Mins'); ?>",
+                    "secText"           : "<?= __('Secs'); ?>",
+                    "daySingularText"   : "<?= __('Day'); ?>",
+                    "hourSingularText"  : "<?= __('Hour'); ?>",
+                    "minSingularText"   : "<?= __('Min'); ?>",
+                    "secSingularText"   : "<?= __('Sec'); ?>",
                     "offset"            : <?= $cfHelper->getOffsetTimeZone(); ?>
                 }
             }
         }
     </script>
 <?php endif;?>
-<?php if ($_attributeValue): ?>
-<div class="product attribute <?= /* @escapeNotVerified */ $_className ?>">
-    <?php if ($renderLabel): ?><strong class="type"><?= /* @escapeNotVerified */ $_attributeLabel ?></strong><?php endif; ?>
-    <div class="value" <?= /* @escapeNotVerified */ $_attributeAddAttribute ?>><?= /* @escapeNotVerified */ $_attributeValue ?></div>
-</div>
+<?php if ($_attributeValue) :?>
+    <div class="product attribute <?= $block->escapeHtmlAttr($_className) ?>">
+        <?php if ($renderLabel) :?>
+            <strong class="type"><?= $block->escapeHtml($_attributeLabel) ?></strong>
+        <?php endif; ?>
+        <div class="value" <?= /* @noEscape */ $_attributeAddAttribute ?>><?= /* @noEscape */ $_attributeValue ?></div>
+    </div>
 <?php endif; ?>

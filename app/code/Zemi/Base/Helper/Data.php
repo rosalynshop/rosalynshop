@@ -33,21 +33,29 @@ class Data extends AbstractHelper
     protected $customerSession;
 
     /**
+     * @var \Magento\Store\Model\StoreManagerInterface
+     */
+    protected $_storeManager;
+
+    /**
      * Data constructor.
      * @param Context $context
      * @param \Magento\Catalog\Api\ProductRepositoryInterface $productRepository
      * @param \Magento\Catalog\Helper\Image $imageHelper
      * @param \Magento\Customer\Model\Session $customerSession
+     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
      */
     public function __construct(
         Context $context,
         \Magento\Catalog\Api\ProductRepositoryInterface $productRepository,
         \Magento\Catalog\Helper\Image $imageHelper,
-        \Magento\Customer\Model\Session $customerSession
+        \Magento\Customer\Model\Session $customerSession,
+        \Magento\Store\Model\StoreManagerInterface $storeManager
     ) {
         $this->productRepository = $productRepository;
         $this->_imageHelper = $imageHelper;
         $this->customerSession = $customerSession;
+        $this->_storeManager = $storeManager;
         parent::__construct($context);
     }
 
@@ -74,5 +82,28 @@ class Data extends AbstractHelper
     public function getCustomer()
     {
         return $this->customerSession->getCustomer();
+    }
+
+    /**
+     * @param $path
+     * @param null $storeId
+     * @return mixed
+     */
+    public function getConfig($path, $storeId = null)
+    {
+        return $this->scopeConfig->getValue(
+            $path,
+            ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+    }
+
+    /**
+     * @return int
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function getStoreId()
+    {
+        return $this->_storeManager->getStore()->getId();
     }
 }

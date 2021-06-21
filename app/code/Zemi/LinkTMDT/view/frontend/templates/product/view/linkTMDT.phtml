@@ -1,0 +1,40 @@
+<?php
+/*
+ * @author   Zemi <cskh.zemifashion@gmail.com>
+ * @copyright Copyright (c) 2021 Zemi <cskh.zemifashion@gmail.com>. All rights reserved.
+ * @license   Open Software License ("OSL") v. 3.0
+ */
+?>
+<?php
+/** @var \Zemi\LinkTMDT\Block\Product $block */
+$_product = $block->getProduct();
+?>
+<div class="link-tmdt">
+    <span class="title-tmdt">Liên kết TMDT</span>
+    <ul>
+        <?php if ($_product->getAttrShopee()): ?>
+            <li class="shopee-link"><a href="<?= $_product->getAttrShopee()?>" target="_blank" title="Mua trên Shopee"><span>Mua trên Shopee</span></a></li>
+        <?php endif; ?>
+        <?php if ($_product->getAttrSendo()): ?>
+            <li class="sendo-link"><a href="<?= $_product->getAttrSendo()?>" target="_blank" title="Mua trên Sendo"><span>Mua trên Sendo</span></a></li>
+        <?php endif; ?>
+        <?php if ($_product->getAttrLazada()): ?>
+            <li class="lazada-link"><a href="<?= $_product->getAttrLazada()?>" target="_blank" title="Mua trên Lazada"><span>Mua trên Lazada</span></a></li>
+        <?php endif; ?>
+        <?php if ($_product->getAttrTiki()): ?>
+            <li class="tiki-link"><a href="<?= $_product->getAttrTiki()?>" target="_blank" title="Mua trên Tiki"><span>Mua trên Tiki</span></a></li>
+        <?php endif; ?>
+        <?php if ($_product->getAttrTrendzy()): ?>
+            <li class="trendzy-link"><a href="<?= $_product->getAttrLazada()?>" target="_blank" title="Mua trên Trendzy"><span>Mua trên Trendzy</span></a></li>
+        <?php endif; ?>
+        <?php if ($_product->getAttrZalo()): ?>
+            <li class="zalo-link"><a href="<?= $_product->getAttrZalo()?>" target="_blank" title="Mua trên Zalo"><span>Mua trên Zalo</span></a></li>
+        <?php endif; ?>
+        <?php if ($_product->getAttrMomo()): ?>
+            <li class="momo-link"><a href="<?= $_product->getAttrMomo()?>" target="_blank" title="Mua trên Momo"><span>Mua trên Momo</span></a></li>
+        <?php endif; ?>
+        <?php if ($_product->getAttrViettel()): ?>
+            <li class="viettel-link"><a href="<?= $_product->getAttrViettel()?>" target="_blank" title="Mua trên Viettel"><span>Mua trên Viettel</span></a></li>
+        <?php endif; ?>
+    </ul>
+</div>

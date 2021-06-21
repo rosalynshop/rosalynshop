@@ -1,15 +1,8 @@
 <?php
 /**
- * Copyright © magebig.com - All rights reserved.
- * See LICENSE.txt for license details.
- */
-
-// @codingStandardsIgnoreFile
-
-/**
  * Product view template
  *
- * @see \Magento\Catalog\Block\Product\View
+ * @var $block \Magento\Catalog\Block\Product\View
  */
 ?>
 <?php
@@ -20,7 +13,6 @@ $_code = $block->getAtCode();
 $_className = $block->getCssClass();
 $_attributeLabel = $block->getAtLabel();
 $_attributeType = $block->getAtType();
-$_attributeAddAttribute = $block->getAddAttribute();
 
 if ($_attributeLabel && $_attributeLabel == 'default') {
     $_attributeLabel = $_product->getResource()->getAttribute($_code)->getFrontendLabel();
@@ -38,8 +30,9 @@ if ($_attributeType && $_attributeType == 'text') {
     <div class="title" data-mage-init='{"toggleAdvanced": {"selectorsToggleClass":"hidden", "toggleContainers":"#short_description_content"}}'>
 	    <strong class="type"><?= /* @escapeNotVerified */ $_attributeLabel?></strong>
     </div>
-    <?php endif; ?>    
-    <div id="short_description_content" class="value" <?= /* @escapeNotVerified */ $_attributeAddAttribute;?>><?= /* @escapeNotVerified */ $_attributeValue; ?></div>
+    <?php endif; ?>
+    <div id="short_description_content"
+         class="value" <?= /* @escapeNotVerified */ $block->getAddAttribute();?>><?= /* @escapeNotVerified */ $_attributeValue; ?></div>
 </div>
 <?php endif; ?>
 

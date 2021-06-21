@@ -255,7 +255,7 @@
 "Action","Thao tác",module,Magento_GiftCardAccount
 "Balance Change","Thay đổi số dư",module,Magento_GiftCardAccount
 "Balance","Số dư",module,Magento_GiftCardAccount
-"More Information","Chi tiết sản phẩm",module,Magento_GiftCardAccount
+"More Information","Thông tin sản phẩm",module,Magento_GiftCardAccount
 "Information","Thông tin",module,Magento_GiftCardAccount
 "Gift Card Code","Mã thẻ quà tặng",module,Magento_GiftCardAccount
 "Status","Trạng thái",module,Magento_GiftCardAccount
@@ -2006,7 +2006,7 @@ it will make no affect on Price filter.",module,Magento_LayeredNavigation
 "This quote is currently locked for editing. It will become available once released by the Merchant.","This quote is currently locked for editing. It will become available once released by the Merchant.",module,Magento_NegotiableQuote
 "Your quote has expired and the product prices have been updated as per the latest prices in your catalog. You can either re-submit the quote to seller for further negotiation or go to checkout.","Your quote has expired and the product prices have been updated as per the latest prices in your catalog. You can either re-submit the quote to seller for further negotiation or go to checkout.",module,Magento_NegotiableQuote
 "You are not an owner of this quote. You cannot edit it or take any actions on it.","You are not an owner of this quote. You cannot edit it or take any actions on it.",module,Magento_NegotiableQuote
-"Discount","Mã giảm giá",module,Magento_NegotiableQuote
+"Discount","Voucher",module,Magento_NegotiableQuote
 "Estimated Tax","Estimated Tax",module,Magento_NegotiableQuote
 "Quote Subtotal (Excl. Tax)","Quote Subtotal (Excl. Tax)",module,Magento_NegotiableQuote
 "Quote Grand Total (Incl. Tax)","Quote Grand Total (Incl. Tax)",module,Magento_NegotiableQuote
@@ -2305,8 +2305,8 @@ You can set a new expiration date if you wish.",module,Magento_NegotiableQuote
 "The Quote expires after ","The Quote expires after ",module,Magento_NegotiableQuote
 "Item in Quote","Item in Quote",module,Magento_NegotiableQuote
 "Items in Quote","Items in Quote",module,Magento_NegotiableQuote
-"Apply Discount Code","Áp dụng mã giảm giá",module,Magento_NegotiableQuote
-"Enter discount code","Nhập mã giảm giá",module,Magento_NegotiableQuote
+"Apply Discount Code","Áp dụng voucher",module,Magento_NegotiableQuote
+"Enter discount code","Nhập voucher",module,Magento_NegotiableQuote
 "Apply Discount","Áp dụng giảm giá",module,Magento_NegotiableQuote
 "Cancel coupon","Hủy bỏ phiếu giảm giá",module,Magento_NegotiableQuote
 "Apply Gift Card","Áp dụng thẻ quà tặng",module,Magento_NegotiableQuote
@@ -2706,7 +2706,7 @@ If field is empty default value localhost will be saved.","IP truy cập danh s�
 "Transaction has been declined. Please try again later.","Giao dịch đã bị từ chối, vui lòng thử lại sau.",module,Magento_Payment
 "Wrong gateway response format.","Các định dạng phản ứng sai cổng.",module,Magento_Payment
 "Validator for field %1 does not exist.","Xác nhận cho lĩnh vực %1 không tồn tại.",module,Magento_Payment
-"Discount","Mã giảm giá",module,Magento_Payment
+"Discount","Voucher",module,Magento_Payment
 "Shipping","Vận chuyển",module,Magento_Payment
 "All Allowed Countries","Cho phép tất cả các quốc gia",module,Magento_Payment
 "Specific Countries","Quốc gia cụ thể",module,Magento_Payment
@@ -3662,7 +3662,7 @@ offered and the currency offered by the merchant is USD.",module,Magento_Paypal
 "Cart %1 doesn't contain products","Giỏ hàng %1 không chứa sản phẩm",module,Magento_Quote
 "Could not apply coupon code","Không thể áp dụng mã số phiếu giảm giá",module,Magento_Quote
 "Coupon code is not valid","Mã số phiếu giảm giá là không hợp lệ",module,Magento_Quote
-"Could not delete coupon code","Không thể xóa mã giảm giá",module,Magento_Quote
+"Could not delete coupon code","Không thể xóa voucher",module,Magento_Quote
 "Cannot assign customer to the given cart. You don't have permission for this operation.","Không thể chỉ định khách hàng với giỏ hàng nhất định. Bạn không có quyền thực hiện thao tác này.",module,Magento_Quote
 "Shipping address is not set","Địa chỉ giao hàng không được thiết lập",module,Magento_Quote
 "The requested Payment Method is not available.","Phương thức thanh toán được yêu cầu là không có sẵn.",module,Magento_Quote
@@ -3710,7 +3710,7 @@ offered and the currency offered by the merchant is USD.",module,Magento_Paypal
 "Please check the billing address information. %1","Vui lòng kiểm tra thông tin địa chỉ thanh toán. %1",module,Magento_Quote
 "Please select a valid payment method.","Xin vui lòng chọn phương thức thanh toán hợp lệ.",module,Magento_Quote
 "Store Credit","Tiền trong store",module,Magento_Quote
-"Discount","Mã giảm giá",module,Magento_Quote
+"Discount","Voucher",module,Magento_Quote
 "Tax","Thuế",module,Magento_Quote
 "Cart contains virtual product(s) only. Shipping address is not applicable.","Giỏ hàng chỉ có sản phẩm thực. Địa chỉ vận chuyển không thể áp dụng.",module,Magento_Quote
 "Shipping address not set.","Địa chỉ vận chuyển không được thiết lập.",module,Magento_Quote
@@ -3736,7 +3736,7 @@ offered and the currency offered by the merchant is USD.",module,Magento_Paypal
 "The address failed to save. Verify the address and try again.","The address failed to save. Verify the address and try again.",module,Magento_Quote
 "The ""%1"" Cart doesn't contain products.","The ""%1"" Cart doesn't contain products.",module,Magento_Quote
 "The coupon code couldn't be applied. Verify the coupon code and try again.","The coupon code couldn't be applied. Verify the coupon code and try again.",module,Magento_Quote
-"The coupon code isn't valid. Verify the code and try again.","The coupon code isn't valid. Verify the code and try again.",module,Magento_Quote
+"The coupon code isn't valid. Verify the code and try again.","Mã phiếu giảm giá không hợp lệ. Xác minh mã và thử lại.",module,Magento_Quote
 "The coupon code couldn't be deleted. Verify the coupon code and try again.","The coupon code couldn't be deleted. Verify the coupon code and try again.",module,Magento_Quote
 "You don't have the correct permissions to assign the customer to the cart.","You don't have the correct permissions to assign the customer to the cart.",module,Magento_Quote
 "The shipping address is missing. Set the address and try again.","The shipping address is missing. Set the address and try again.",module,Magento_Quote
@@ -5441,7 +5441,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Subtotal","Tổng phụ",module,Magento_Sales
 "Shipping & Handling","Vận chuyển & xử lý",module,Magento_Sales
 "Discount (%1)","Giảm giá (%1)",module,Magento_Sales
-"Discount","Mã giảm giá",module,Magento_Sales
+"Discount","Voucher",module,Magento_Sales
 "Grand Total","Tổng số",module,Magento_Sales
 "Back","Trở lại",module,Magento_Sales
 "Fetch","Lấy",module,Magento_Sales
@@ -6247,8 +6247,8 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Start","Bắt đầu",module,Magento_SalesRule
 "End","Kết thúc",module,Magento_SalesRule
 "Status","Trạng thái",module,Magento_SalesRule
-"%1 - Discounts and Coupons","%1 - phiếu giảm giá và mã giảm giá",module,Magento_SalesRule
-"Coupons/Discounts","Phiếu giảm giá/mã giảm giá",module,Magento_SalesRule
+"%1 - Discounts and Coupons","%1 - phiếu giảm giá và voucher",module,Magento_SalesRule
+"Coupons/Discounts","Phiếu giảm giá/voucher",module,Magento_SalesRule
 "Promotions","Khuyến mãi",module,Magento_SalesRule
 "You deleted the rule.","Bạn đã xoá các quy tắc.",module,Magento_SalesRule
 "We can't delete the rule right now. Please review the log and try again.","Chúng tôi không thể xoá quy tắc này ngay bây giờ. Xin vui lòng xem lại các bản ghi và thử lại.",module,Magento_SalesRule
@@ -6274,7 +6274,7 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Specified rule does not allow auto generated coupons","Quy tắc được chỉ định không cho phép tự động tạo ra phiếu giảm giá",module,Magento_SalesRule
 "Error occurred when saving coupon: %1","Lỗi xuất hiện khi lưu phiếu giảm giá: %1",module,Magento_SalesRule
 "Discount (%1)","Giảm giá (%1)",module,Magento_SalesRule
-"Discount","Mã giảm giá",module,Magento_SalesRule
+"Discount","Voucher",module,Magento_SalesRule
 "Coupon with the same code","Phiếu mua hàng với cùng mã",module,Magento_SalesRule
 "No Coupon","Không có phiếu giảm giá",module,Magento_SalesRule
 "Specific Coupon","Phiếu mua hàng cụ thể",module,Magento_SalesRule
@@ -6330,8 +6330,8 @@ target=""_blank"">DevDocs' Release Information</a>.,module,Magento_ReleaseNotifi
 "Some coupons are invalid.","Một số phiếu giảm giá là không hợp lệ.",module,Magento_SalesRule
 "Item totals are not set for the rule.","Tổng số sản phẩm không được đặt cho quy tắc.",module,Magento_SalesRule
 "%1 Cart Price Rules based on ""%2"" attribute have been disabled.","%1 Cart Price Rules dựa trên thuộc tính ""%2"" đã bị vô hiệu.",module,Magento_SalesRule
-"Apply Discount Code","Áp dụng mã giảm giá",module,Magento_SalesRule
-"Enter discount code","Nhập mã giảm giá",module,Magento_SalesRule
+"Apply Discount Code","Áp dụng voucher",module,Magento_SalesRule
+"Enter discount code","Nhập voucher",module,Magento_SalesRule
 "Apply Discount","Áp dụng giảm giá",module,Magento_SalesRule
 "Cancel coupon","Hủy bỏ phiếu giảm giá",module,Magento_SalesRule
 "Your coupon was successfully removed.","Phiếu mua hàng của bạn đã được loại bỏ thành công.",module,Magento_SalesRule
@@ -6886,7 +6886,7 @@ configuring in shared catalogs will not be restricted to customers.",module,Mage
 "Assign","Chỉ định",module,Magento_SharedCatalog
 "Unassign","Bỏ chỉ định",module,Magento_SharedCatalog
 "Fixed","Cố định",module,Magento_SharedCatalog
-"Discount","Mã giảm giá",module,Magento_SharedCatalog
+"Discount","Voucher",module,Magento_SharedCatalog
 "Apply","Áp dụng",module,Magento_SharedCatalog
 "Proceed to Store Configuration?","Proceed to Store Configuration?",module,Magento_SharedCatalog
 "You've made changes into the shared catalog. If you leave this page now, the changes will be lost.","You've made changes into the shared catalog. If you leave this page now, the changes will be lost.",module,Magento_SharedCatalog
@@ -9926,4 +9926,4 @@ formElements/*[name(.)=../../@formElement]/settings/title,module,Magento_Ui
 "The password can't be the same as the email address. Create a new password and try again.","The password can't be the same as the email address. Create a new password and try again.",lib,web
 "Add your photo","Thêm ảnh của bạn"
 "The requested qty is not available","Ui, số lượng không có sẵn"
-"Enter Coupon Code","Nhập mã giảm giá"
+"Enter Coupon Code","Nhập voucher"

@@ -7,8 +7,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="product.info.main">
-            <block class="Zemi\SocialShare\Block\SocialShare" name="zm.socialshare.product"
-                   template="Zemi_SocialShare::product/view/share_product.phtml"/>
+            <block class="Zemi\LinkTMDT\Block\Product" name="zm.linkTMDT"
+                   template="Zemi_LinkTMDT::product/view/linkTMDT.phtml" before="zm.socialshare.product"/>
         </referenceContainer>
     </body>
 </page>

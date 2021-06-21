@@ -167,11 +167,11 @@
 "Apply Coupon Code","Dùng mã khuyến mãi",module,Magento_AdvancedCheckout
 "Remove Coupon Code","Bỏ mã khuyến mãi",module,Magento_AdvancedCheckout
 "Remove","Loại bỏ",module,Magento_AdvancedCheckout
-"The coupon code ""%1"" is not valid.","Mã giảm giá ""%1"" không hợp lệ.",module,Magento_AdvancedCheckout
+"The coupon code ""%1"" is not valid.","Voucher ""%1"" không hợp lệ.",module,Magento_AdvancedCheckout
 "Shopping Cart Items","Giỏ hàng sản phẩm",module,Magento_AdvancedCheckout
 "Qty","Số lượng",module,Magento_AdvancedCheckout
 "Subtotal","Tổng phụ",module,Magento_AdvancedCheckout
-"Discount","Mã giảm giá",module,Magento_AdvancedCheckout
+"Discount","Voucher",module,Magento_AdvancedCheckout
 "Row Subtotal","Tổng theo hàng",module,Magento_AdvancedCheckout
 "Action","Thao tác",module,Magento_AdvancedCheckout
 "No ordered items","Không có sản phẩm nào được đặt",module,Magento_AdvancedCheckout
@@ -357,7 +357,7 @@ href=""https://dashboard.rjmetrics.com/v2/magento/signup/"">Magento BI Essential
 "%1 item(s) have been scheduled for update.","%1 mã (s) đã được lên lịch cập nhật.",module,Magento_AsynchronousOperations
 "%1 item(s) have been successfully updated.","%1 mã (s) đã được cập nhật thành công.",module,Magento_AsynchronousOperations
 "%1 item(s) failed to update","%1 thất bại để cập nhật mã (s)",module,Magento_AsynchronousOperations
-"Details","Chi tiết",module,Magento_AsynchronousOperations
+"Details","Chi tiết sản phẩm",module,Magento_AsynchronousOperations
 "View Details","Xem chi tiết",module,Magento_AsynchronousOperations
 "Dismiss","Loại bỏ",module,Magento_AsynchronousOperations
 "Pending, in queue...","Đang chờ xử lý, trong hàng đợi...",module,Magento_AsynchronousOperations
@@ -2318,7 +2318,7 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "Set Ascending Direction","Thiết lập theo hướng tăng dần",module,Magento_Catalog
 "Set Descending Direction","Thiết lập theo hướng giảm dần",module,Magento_Catalog
 "View as","Xem dưới dạng",module,Magento_Catalog
-"More Information","Chi tiết sản phẩm",module,Magento_Catalog
+"More Information","Thông tin sản phẩm",module,Magento_Catalog
 "Loading...","Đang tải...",module,Magento_Catalog
 "* Required Fields","* Bắt buộc",module,Magento_Catalog
 "Availability","Sẵn có",module,Magento_Catalog
@@ -2499,7 +2499,7 @@ and the product descriptor can be up to 18, 14, or 9 characters respectively (wi
 "Overview","Tổng quan",module,Magento_Catalog
 "Skip to the end of the images gallery","Chuyển đến phần đầu của thư viện hình ảnh",module,Magento_Catalog
 "Skip to the beginning of the images gallery","Chuyển đến phần đầu của thư viện hình ảnh",module,Magento_Catalog
-"Details","Chi tiết",module,Magento_Catalog
+"Details","Chi tiết sản phẩm",module,Magento_Catalog
 "Recently Compared","So sánh gần đây",module,Magento_Catalog
 "Add To Cart","Thêm vào giỏ",module,Magento_Catalog
 "Add To Compare","Thêm vào so sánh",module,Magento_Catalog
@@ -3220,10 +3220,10 @@ Time in seconds between the widget updates.,module,Magento_CatalogWidget
 "Out of stock","Tạm hết hàng",module,Magento_Checkout
 "We can't find the quote item.","Chúng tôi không thể tìm thấy trích dẫn sản phẩm.",module,Magento_Checkout
 "We cannot configure the product.","Chúng tôi không thể cấu hình sản phẩm.",module,Magento_Checkout
-"You used coupon code ""%1"".","Bạn đã sử dụng mã giảm giá ""%1"".",module,Magento_Checkout
-"The coupon code ""%1"" is not valid.","Mã giảm giá ""%1"" không hợp lệ.",module,Magento_Checkout
-"You canceled the coupon code.","Bạn đã hủy mã giảm giá.",module,Magento_Checkout
-"We cannot apply the coupon code.","Chúng tôi không thể áp dụng mã giảm giá.",module,Magento_Checkout
+"You used coupon code ""%1"".","Bạn đã sử dụng voucher ""%1"".",module,Magento_Checkout
+"The coupon code ""%1"" is not valid.","Voucher ""%1"" không hợp lệ.",module,Magento_Checkout
+"You canceled the coupon code.","Bạn đã hủy voucher.",module,Magento_Checkout
+"We cannot apply the coupon code.","Chúng tôi không thể áp dụng voucher.",module,Magento_Checkout
 "We can't remove the item.","Bạn không thể xóa sản phẩm này.",module,Magento_Checkout
 "%1 was updated in your shopping cart.","%1 đã được cập nhật trong giỏ hàng của bạn.",module,Magento_Checkout
 "We can't update the item right now.","Bạn không thể cập nhập sản phẩm vào lúc này.",module,Magento_Checkout
@@ -3267,8 +3267,8 @@ Time in seconds between the widget updates.,module,Magento_CatalogWidget
 "DB exception","Ngoại lệ cơ sở dữ liệu",module,Magento_Checkout
 "Message","Tin nhắn",module,Magento_Checkout
 "Print receipt","In hoá đơn",module,Magento_Checkout
-"Apply Discount Code","Áp dụng mã giảm giá",module,Magento_Checkout
-"Enter discount code","Nhập mã giảm giá",module,Magento_Checkout
+"Apply Discount Code","Áp dụng voucher",module,Magento_Checkout
+"Enter discount code","Nhập voucher",module,Magento_Checkout
 "Apply Discount","Áp dụng giảm giá",module,Magento_Checkout
 "Cancel Coupon","Hủy bỏ phiếu giảm giá",module,Magento_Checkout
 "Shopping Cart Items","Giỏ hàng sản phẩm",module,Magento_Checkout
@@ -5366,7 +5366,7 @@ Email template chosen based on theme fallback when ""Default"" option is selecte
 "Customer notified","Khách hàng được thông báo",module,Magento_CustomerBalance
 "Notified","Thông báo",module,Magento_CustomerBalance
 "No","Không",module,Magento_CustomerBalance
-"More information","Chi tiết sản phẩm",module,Magento_CustomerBalance
+"More information","Thông tin sản phẩm",module,Magento_CustomerBalance
 "Update Balance","Cập Nhật số dư",module,Magento_CustomerBalance
 "An amount on which to change the balance","Một số tiền mà trên đó để thay đổi sự cân bằng",module,Magento_CustomerBalance
 "Notify Customer by Email","Thông báo cho khách hàng bằng Email",module,Magento_CustomerBalance
