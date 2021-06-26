@@ -9,6 +9,7 @@
 /** @var \Zemi\LinkTMDT\Block\Product $block */
 $_product = $block->getProduct();
 ?>
+<?php if ($_product->getAttrShopee() || $_product->getAttrSendo() || $_product->getAttrLazada() || $_product->getAttrTiki()): ?>
 <div class="link-tmdt">
     <span class="title-tmdt">Liên kết TMDT</span>
     <ul>
@@ -38,3 +39,4 @@ $_product = $block->getProduct();
         <?php endif; ?>
     </ul>
 </div>
+<?php endif;?>
